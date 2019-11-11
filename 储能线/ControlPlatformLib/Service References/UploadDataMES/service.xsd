@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="UploadAlarm">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tCollectItemCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Value" type="xs:int" />
+        <xs:element minOccurs="0" name="tEquipmentCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tBeginOrEndTime" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadAlarmResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UploadAlarmResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadState">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tStateCode" type="xs:int" />
+        <xs:element minOccurs="0" name="tEquipmentCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tBeginOrEndTime" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadStateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UploadStateResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadYield">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tEquipmentCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tCollectTime" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="tInputNum" type="xs:int" />
+        <xs:element minOccurs="0" name="tOutputNum" type="xs:int" />
+        <xs:element minOccurs="0" name="tOkNum" type="xs:int" />
+        <xs:element minOccurs="0" name="tNgNum" type="xs:int" />
+        <xs:element minOccurs="0" name="tCollectCT" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadYieldResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UploadYieldResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

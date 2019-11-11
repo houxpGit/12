@@ -1,0 +1,199 @@
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.csprojResolveAssemblyReference.cache
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.ADLINK.ADLINKTechMCInfoForm.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.DemoInputInfoForm.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.DemoInputOutputInfoForm.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormProjectData.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormProjectDataSetting.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormOperator.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormProductInfo.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.InputBitButton.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.OutputBitButton.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.TableMoveControl.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.Softservo.SoftservoControlerForm.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormAxisSetting.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormTableItem.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormTableSetting.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormHardSetting.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormTableDriver.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormManual.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormAlarm.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormInfoQuery.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormHardwareMonitor.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.主要窗体.FormMES.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormParameter.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormUserLogoIn.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormSystemSetting.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.MainForm.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.Properties.Resources.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.DemoMCInfoForm.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.DemoOutputInfoForm.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormIODriver.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormIOSetting.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormProjectDataItemSetting.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormProjectDataItemMonitor.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormProjectDataMonitor.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.LEISAIInputInfoForm.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.LEISAIInputOutputInfoForm.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.LEISAIMCInfoForm.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.LEISAIOutputInfoForm.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.GoogoTechInputInfoForm.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.GoogoTechInputOutputInfoForm.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.GoogoTechMCInfoForm.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.GoogoTechOutputInfoForm.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.AdvanceInputInfoForm.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.AdvanceInputOutputInfoForm.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.AdvanceMCInfoForm.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.AdvanceOutputInfoForm.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.csproj.GenerateResource.Cache
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\bin\Release\ControlPlatformLib.dll
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\bin\Release\ControlPlatformLib.pdb
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\bin\Release\ApiBufferApi_CLRLib.dll
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\bin\Release\CompensationApi_CLRLib.dll
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\bin\Release\ComputerId_CLRLib.dll
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\bin\Release\CoreMotionApi_CLRLib.dll
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\bin\Release\CyclicBufferApi_CLRLib.dll
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\bin\Release\EcApi_CLRLib.dll
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\bin\Release\EcFilter_CLRLib.dll
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\bin\Release\EventApi_CLRLib.dll
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\bin\Release\IOApi_CLRLib.dll
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\bin\Release\ListMotionApi_CLRLib.dll
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\bin\Release\log4net.dll
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\bin\Release\LogApi_CLRLib.dll
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\bin\Release\SimuApi_CLRLib.dll
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\bin\Release\UserMemoryApi_CLRLib.dll
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\bin\Release\WMX3Api_CLRLib.dll
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\bin\Release\WorldGeneralLib.dll
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\bin\Release\IPAddressControlLib.dll
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\bin\Release\WorldGeneralLib.pdb
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\bin\Release\log4net.xml
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\bin\Release\IPAddressControlLib.pdb
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.dll
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.pdb
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\bin\Release\ControlPlatformLib.dll
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\bin\Release\ControlPlatformLib.pdb
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\bin\Release\ApiBufferApi_CLRLib.dll
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\bin\Release\CompensationApi_CLRLib.dll
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\bin\Release\ComputerId_CLRLib.dll
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\bin\Release\CoreMotionApi_CLRLib.dll
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\bin\Release\CyclicBufferApi_CLRLib.dll
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\bin\Release\EcApi_CLRLib.dll
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\bin\Release\EcFilter_CLRLib.dll
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\bin\Release\EventApi_CLRLib.dll
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\bin\Release\IOApi_CLRLib.dll
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\bin\Release\ListMotionApi_CLRLib.dll
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\bin\Release\log4net.dll
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\bin\Release\LogApi_CLRLib.dll
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\bin\Release\SimuApi_CLRLib.dll
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\bin\Release\UserMemoryApi_CLRLib.dll
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\bin\Release\WMX3Api_CLRLib.dll
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\bin\Release\WorldGeneralLib.dll
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\bin\Release\IPAddressControlLib.dll
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\bin\Release\WorldGeneralLib.pdb
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\bin\Release\log4net.xml
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\bin\Release\IPAddressControlLib.pdb
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.csprojResolveAssemblyReference.cache
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.ADLINKInputInfoForm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.ADLINKInputOutputInfoForm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.ADLINK.ADLINKTechMCInfoForm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.DemoInputInfoForm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.DemoInputOutputInfoForm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormProjectData.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormProjectDataSetting.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormOperator.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormProductInfo.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.InputBitButton.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.OutputBitButton.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.TableMoveControl.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.Softservo.SoftservoControlerForm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormAxisSetting.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormTableItem.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormTableSetting.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormHardSetting.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormTableDriver.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormManual.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormAlarm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormInfoQuery.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormHardwareMonitor.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.主要窗体.FormMES.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormParameter.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormUserLogoIn.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormSystemSetting.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.MainForm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.Properties.Resources.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.DemoMCInfoForm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.DemoOutputInfoForm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormIODriver.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormIOSetting.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormProjectDataItemSetting.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormProjectDataItemMonitor.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormProjectDataMonitor.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.LEISAIInputInfoForm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.LEISAIInputOutputInfoForm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.LEISAIMCInfoForm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.LEISAIOutputInfoForm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.GoogoTechInputInfoForm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.GoogoTechInputOutputInfoForm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.GoogoTechMCInfoForm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.GoogoTechOutputInfoForm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.AdvanceInputInfoForm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.AdvanceInputOutputInfoForm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.AdvanceMCInfoForm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.AdvanceOutputInfoForm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.csproj.GenerateResource.Cache
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.dll
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.pdb
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.csprojResolveAssemblyReference.cache
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.ADLINKInputInfoForm.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.ADLINKInputOutputInfoForm.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.ADLINK.ADLINKTechMCInfoForm.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.Beckhoff.BeckhoffADSInfoForm.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.DemoInputInfoForm.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.DemoInputOutputInfoForm.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormProjectData.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormProjectDataSetting.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormOperator.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormProductInfo.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.InputBitButton.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.OutputBitButton.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.TableMoveControl.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.GoogolTechExtCardInfoForm.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.LoginForm.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.Softservo.SoftservoControlerForm.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FrmSplashScreen.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormAxisSetting.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormTableItem.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormTableSetting.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormHardSetting.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormTableDriver.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormManual.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormAlarm.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormInfoQuery.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormHardwareMonitor.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.主要窗体.FormMES.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormParameter.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormUserLogoIn.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormSystemSetting.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.MainForm.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.Properties.Resources.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.DemoMCInfoForm.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.DemoOutputInfoForm.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormIODriver.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormIOSetting.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormProjectDataItemSetting.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormProjectDataItemMonitor.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.FormProjectDataMonitor.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.LEISAIInputInfoForm.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.LEISAIInputOutputInfoForm.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.LEISAIMCInfoForm.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.LEISAIOutputInfoForm.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.GoogoTechInputInfoForm.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.GoogoTechInputOutputInfoForm.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.GoogoTechMCInfoForm.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.GoogoTechOutputInfoForm.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.AdvanceInputInfoForm.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.AdvanceInputOutputInfoForm.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.AdvanceMCInfoForm.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.AdvanceOutputInfoForm.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.csproj.GenerateResource.Cache
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.dll
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\ControlPlatformLib\obj\x86\Release\ControlPlatformLib.pdb

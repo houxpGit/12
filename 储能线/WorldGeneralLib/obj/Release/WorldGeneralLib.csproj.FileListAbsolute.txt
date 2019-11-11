@@ -1,0 +1,128 @@
+D:\MyObject\CATL.SemiAutomaticPacker_2017.04.28\WorldGeneralLib\obj\Release\WorldGeneralLib.csprojResolveAssemblyReference.cache
+D:\MyObject\CATL.SemiAutomaticPacker_2017.04.28\WorldGeneralLib\obj\Release\WorldGeneralLib.CognexAsync.CognexAsyncForm.resources
+D:\MyObject\CATL.SemiAutomaticPacker_2017.04.28\WorldGeneralLib\obj\Release\WorldGeneralLib.CognexAsync.ImageConfirmForm.resources
+D:\MyObject\CATL.SemiAutomaticPacker_2017.04.28\WorldGeneralLib\obj\Release\WorldGeneralLib.Cognex.CognexForm.resources
+D:\MyObject\CATL.SemiAutomaticPacker_2017.04.28\WorldGeneralLib\obj\Release\WorldGeneralLib.FormAlarm.resources
+D:\MyObject\CATL.SemiAutomaticPacker_2017.04.28\WorldGeneralLib\obj\Release\WorldGeneralLib.InovancePLC.InovanceSettingForm.resources
+D:\MyObject\CATL.SemiAutomaticPacker_2017.04.28\WorldGeneralLib\obj\Release\WorldGeneralLib.Properties.Resources.resources
+D:\MyObject\CATL.SemiAutomaticPacker_2017.04.28\WorldGeneralLib\obj\Release\WorldGeneralLib.FormKeyenceBarCode.resources
+D:\MyObject\CATL.SemiAutomaticPacker_2017.04.28\WorldGeneralLib\obj\Release\WorldGeneralLib.FormMasashi.resources
+D:\MyObject\CATL.SemiAutomaticPacker_2017.04.28\WorldGeneralLib\obj\Release\WorldGeneralLib.FormMettler.resources
+D:\MyObject\CATL.SemiAutomaticPacker_2017.04.28\WorldGeneralLib\obj\Release\WorldGeneralLib.FormSHSF.resources
+D:\MyObject\CATL.SemiAutomaticPacker_2017.04.28\WorldGeneralLib\obj\Release\WorldGeneralLib.csproj.GenerateResource.Cache
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\WorldGeneralLib\bin\Release\WorldGeneralLib.dll
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\WorldGeneralLib\bin\Release\WorldGeneralLib.pdb
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\WorldGeneralLib\bin\Release\IPAddressControlLib.dll
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\WorldGeneralLib\bin\Release\IPAddressControlLib.pdb
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\WorldGeneralLib\obj\Release\WorldGeneralLib.csprojResolveAssemblyReference.cache
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\WorldGeneralLib\obj\Release\WorldGeneralLib.CognexAsync.CognexAsyncForm.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\WorldGeneralLib\obj\Release\WorldGeneralLib.CognexAsync.ImageConfirmForm.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\WorldGeneralLib\obj\Release\WorldGeneralLib.Cognex.CognexForm.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\WorldGeneralLib\obj\Release\WorldGeneralLib.FormAlarm.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\WorldGeneralLib\obj\Release\WorldGeneralLib.InovancePLC.InovanceSettingForm.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\WorldGeneralLib\obj\Release\WorldGeneralLib.Properties.Resources.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\WorldGeneralLib\obj\Release\WorldGeneralLib.FormKeyenceBarCode.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\WorldGeneralLib\obj\Release\WorldGeneralLib.FormMasashi.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\WorldGeneralLib\obj\Release\WorldGeneralLib.FormMettler.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\WorldGeneralLib\obj\Release\WorldGeneralLib.FormSHSF.resources
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\WorldGeneralLib\obj\Release\WorldGeneralLib.csproj.GenerateResource.Cache
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\WorldGeneralLib\obj\Release\WorldGeneralLib.dll
+E:\资料\我的\LaserMotionControlPlatform - 1.0.0.1\WorldGeneralLib\obj\Release\WorldGeneralLib.pdb
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\WorldGeneralLib\bin\Release\WorldGeneralLib.dll
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\WorldGeneralLib\bin\Release\WorldGeneralLib.pdb
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\WorldGeneralLib\bin\Release\IPAddressControlLib.dll
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\WorldGeneralLib\bin\Release\IPAddressControlLib.pdb
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\WorldGeneralLib\obj\Release\WorldGeneralLib.csprojResolveAssemblyReference.cache
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\WorldGeneralLib\obj\Release\WorldGeneralLib.CognexAsync.CognexAsyncForm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\WorldGeneralLib\obj\Release\WorldGeneralLib.CognexAsync.ImageConfirmForm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\WorldGeneralLib\obj\Release\WorldGeneralLib.Cognex.CognexForm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\WorldGeneralLib\obj\Release\WorldGeneralLib.FormAlarm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\WorldGeneralLib\obj\Release\WorldGeneralLib.InovancePLC.InovanceSettingForm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\WorldGeneralLib\obj\Release\WorldGeneralLib.Properties.Resources.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\WorldGeneralLib\obj\Release\WorldGeneralLib.FormKeyenceBarCode.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\WorldGeneralLib\obj\Release\WorldGeneralLib.FormMasashi.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\WorldGeneralLib\obj\Release\WorldGeneralLib.FormMettler.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\WorldGeneralLib\obj\Release\WorldGeneralLib.FormSHSF.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\WorldGeneralLib\obj\Release\WorldGeneralLib.csproj.GenerateResource.Cache
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\WorldGeneralLib\obj\Release\WorldGeneralLib.dll
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.3 - ControlCard - x86\WorldGeneralLib\obj\Release\WorldGeneralLib.pdb
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.5 - ControlCard - x86\WorldGeneralLib\bin\Release\WorldGeneralLib.dll
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.5 - ControlCard - x86\WorldGeneralLib\bin\Release\WorldGeneralLib.pdb
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.5 - ControlCard - x86\WorldGeneralLib\bin\Release\IPAddressControlLib.dll
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.5 - ControlCard - x86\WorldGeneralLib\bin\Release\IPAddressControlLib.pdb
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.5 - ControlCard - x86\WorldGeneralLib\obj\Release\WorldGeneralLib.csprojResolveAssemblyReference.cache
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.5 - ControlCard - x86\WorldGeneralLib\obj\Release\WorldGeneralLib.CognexAsync.CognexAsyncForm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.5 - ControlCard - x86\WorldGeneralLib\obj\Release\WorldGeneralLib.CognexAsync.ImageConfirmForm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.5 - ControlCard - x86\WorldGeneralLib\obj\Release\WorldGeneralLib.Cognex.CognexForm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.5 - ControlCard - x86\WorldGeneralLib\obj\Release\WorldGeneralLib.FormAlarm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.5 - ControlCard - x86\WorldGeneralLib\obj\Release\WorldGeneralLib.InovancePLC.InovanceSettingForm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.5 - ControlCard - x86\WorldGeneralLib\obj\Release\WorldGeneralLib.Properties.Resources.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.5 - ControlCard - x86\WorldGeneralLib\obj\Release\WorldGeneralLib.FormKeyenceBarCode.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.5 - ControlCard - x86\WorldGeneralLib\obj\Release\WorldGeneralLib.FormMasashi.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.5 - ControlCard - x86\WorldGeneralLib\obj\Release\WorldGeneralLib.FormMettler.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.5 - ControlCard - x86\WorldGeneralLib\obj\Release\WorldGeneralLib.FormSHSF.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.5 - ControlCard - x86\WorldGeneralLib\obj\Release\WorldGeneralLib.csproj.GenerateResource.Cache
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.5 - ControlCard - x86\WorldGeneralLib\obj\Release\WorldGeneralLib.dll
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.5 - ControlCard - x86\WorldGeneralLib\obj\Release\WorldGeneralLib.pdb
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.6 - ControlCard - x86 - Beta\WorldGeneralLib\bin\Release\WorldGeneralLib.dll
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.6 - ControlCard - x86 - Beta\WorldGeneralLib\bin\Release\WorldGeneralLib.pdb
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.6 - ControlCard - x86 - Beta\WorldGeneralLib\bin\Release\IPAddressControlLib.dll
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.6 - ControlCard - x86 - Beta\WorldGeneralLib\bin\Release\IPAddressControlLib.pdb
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.6 - ControlCard - x86 - Beta\WorldGeneralLib\obj\Release\WorldGeneralLib.csprojResolveAssemblyReference.cache
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.6 - ControlCard - x86 - Beta\WorldGeneralLib\obj\Release\WorldGeneralLib.CognexAsync.CognexAsyncForm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.6 - ControlCard - x86 - Beta\WorldGeneralLib\obj\Release\WorldGeneralLib.CognexAsync.ImageConfirmForm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.6 - ControlCard - x86 - Beta\WorldGeneralLib\obj\Release\WorldGeneralLib.Cognex.CognexForm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.6 - ControlCard - x86 - Beta\WorldGeneralLib\obj\Release\WorldGeneralLib.FormAlarm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.6 - ControlCard - x86 - Beta\WorldGeneralLib\obj\Release\WorldGeneralLib.InovancePLC.InovanceSettingForm.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.6 - ControlCard - x86 - Beta\WorldGeneralLib\obj\Release\WorldGeneralLib.Properties.Resources.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.6 - ControlCard - x86 - Beta\WorldGeneralLib\obj\Release\WorldGeneralLib.FormKeyenceBarCode.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.6 - ControlCard - x86 - Beta\WorldGeneralLib\obj\Release\WorldGeneralLib.FormMasashi.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.6 - ControlCard - x86 - Beta\WorldGeneralLib\obj\Release\WorldGeneralLib.FormMettler.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.6 - ControlCard - x86 - Beta\WorldGeneralLib\obj\Release\WorldGeneralLib.FormSHSF.resources
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.6 - ControlCard - x86 - Beta\WorldGeneralLib\obj\Release\WorldGeneralLib.csproj.GenerateResource.Cache
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.6 - ControlCard - x86 - Beta\WorldGeneralLib\obj\Release\WorldGeneralLib.dll
+D:\Sunwoda\Project\电阻焊\LaserMotionControlPlatform - 1.0.1.6 - ControlCard - x86 - Beta\WorldGeneralLib\obj\Release\WorldGeneralLib.pdb
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\bin\Release\WorldGeneralLib.dll
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\bin\Release\WorldGeneralLib.pdb
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\bin\Release\IPAddressControlLib.dll
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\bin\Release\IPAddressControlLib.pdb
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\obj\Release\WorldGeneralLib.csprojResolveAssemblyReference.cache
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\obj\Release\WorldGeneralLib.CognexAsync.CognexAsyncForm.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\obj\Release\WorldGeneralLib.CognexAsync.ImageConfirmForm.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\obj\Release\WorldGeneralLib.Cognex.CognexForm.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\obj\Release\WorldGeneralLib.DataLogicBarCode.FormBarcodeSetting.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\obj\Release\WorldGeneralLib.DataLogicBarCode.FormDatalogicBarcode.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\obj\Release\WorldGeneralLib.FormAlarm.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\obj\Release\WorldGeneralLib.InovancePLC.InovanceSettingForm.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\obj\Release\WorldGeneralLib.Properties.Resources.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\obj\Release\WorldGeneralLib.SerialPorts.SerialPortForm.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\obj\Release\WorldGeneralLib.SerialPorts.SerialPortSettingsForm.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\obj\Release\WorldGeneralLib.FormKeyenceBarCode.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\obj\Release\WorldGeneralLib.FormMasashi.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\obj\Release\WorldGeneralLib.FormMettler.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\obj\Release\WorldGeneralLib.FormSHSF.resources
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\obj\Release\WorldGeneralLib.csproj.GenerateResource.Cache
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\obj\Release\WorldGeneralLib.dll
+G:\1-工作\11-清洗机\1-Code\CleaningMachine-ver 2.0.2.4-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\obj\Release\WorldGeneralLib.pdb
+G:\1-工作\11-清洗机\1-Code\凌华卡\CleaningMachine-ver 2.1.1.0-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\bin\Release\WorldGeneralLib.dll
+G:\1-工作\11-清洗机\1-Code\凌华卡\CleaningMachine-ver 2.1.1.0-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\bin\Release\WorldGeneralLib.pdb
+G:\1-工作\11-清洗机\1-Code\凌华卡\CleaningMachine-ver 2.1.1.0-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\bin\Release\IPAddressControlLib.dll
+G:\1-工作\11-清洗机\1-Code\凌华卡\CleaningMachine-ver 2.1.1.0-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\bin\Release\IPAddressControlLib.pdb
+G:\1-工作\11-清洗机\1-Code\凌华卡\CleaningMachine-ver 2.1.1.0-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\obj\Release\WorldGeneralLib.csprojResolveAssemblyReference.cache
+G:\1-工作\11-清洗机\1-Code\凌华卡\CleaningMachine-ver 2.1.1.0-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\obj\Release\WorldGeneralLib.CognexAsync.CognexAsyncForm.resources
+G:\1-工作\11-清洗机\1-Code\凌华卡\CleaningMachine-ver 2.1.1.0-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\obj\Release\WorldGeneralLib.CognexAsync.ImageConfirmForm.resources
+G:\1-工作\11-清洗机\1-Code\凌华卡\CleaningMachine-ver 2.1.1.0-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\obj\Release\WorldGeneralLib.Cognex.CognexForm.resources
+G:\1-工作\11-清洗机\1-Code\凌华卡\CleaningMachine-ver 2.1.1.0-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\obj\Release\WorldGeneralLib.DataLogicBarCode.FormBarcodeSetting.resources
+G:\1-工作\11-清洗机\1-Code\凌华卡\CleaningMachine-ver 2.1.1.0-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\obj\Release\WorldGeneralLib.DataLogicBarCode.FormDatalogicBarcode.resources
+G:\1-工作\11-清洗机\1-Code\凌华卡\CleaningMachine-ver 2.1.1.0-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\obj\Release\WorldGeneralLib.FormAlarm.resources
+G:\1-工作\11-清洗机\1-Code\凌华卡\CleaningMachine-ver 2.1.1.0-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\obj\Release\WorldGeneralLib.InovancePLC.InovanceSettingForm.resources
+G:\1-工作\11-清洗机\1-Code\凌华卡\CleaningMachine-ver 2.1.1.0-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\obj\Release\WorldGeneralLib.Properties.Resources.resources
+G:\1-工作\11-清洗机\1-Code\凌华卡\CleaningMachine-ver 2.1.1.0-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\obj\Release\WorldGeneralLib.SerialPorts.SerialPortForm.resources
+G:\1-工作\11-清洗机\1-Code\凌华卡\CleaningMachine-ver 2.1.1.0-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\obj\Release\WorldGeneralLib.SerialPorts.SerialPortSettingsForm.resources
+G:\1-工作\11-清洗机\1-Code\凌华卡\CleaningMachine-ver 2.1.1.0-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\obj\Release\WorldGeneralLib.FormKeyenceBarCode.resources
+G:\1-工作\11-清洗机\1-Code\凌华卡\CleaningMachine-ver 2.1.1.0-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\obj\Release\WorldGeneralLib.FormMasashi.resources
+G:\1-工作\11-清洗机\1-Code\凌华卡\CleaningMachine-ver 2.1.1.0-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\obj\Release\WorldGeneralLib.FormMettler.resources
+G:\1-工作\11-清洗机\1-Code\凌华卡\CleaningMachine-ver 2.1.1.0-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\obj\Release\WorldGeneralLib.FormSHSF.resources
+G:\1-工作\11-清洗机\1-Code\凌华卡\CleaningMachine-ver 2.1.1.0-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\obj\Release\WorldGeneralLib.csproj.GenerateResource.Cache
+G:\1-工作\11-清洗机\1-Code\凌华卡\CleaningMachine-ver 2.1.1.0-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\obj\Release\WorldGeneralLib.dll
+G:\1-工作\11-清洗机\1-Code\凌华卡\CleaningMachine-ver 2.1.1.0-机器人自动上下料 + 视觉可选加盖\WorldGeneralLib\obj\Release\WorldGeneralLib.pdb

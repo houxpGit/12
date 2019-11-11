@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{92418CE5-18E4-43A6-AD96-F747A3ED0899}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FullyAutomaticLaserJetCoder</RootNamespace>
+    <AssemblyName>FullyAutomaticLaserJetCoder</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Laser.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Basler.Pylon, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e389355f398382ab, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Hcon\Basler.Pylon.dll</HintPath>
+    </Reference>
+    <Reference Include="CameraOperation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Hcon\CameraOperation.dll</HintPath>
+    </Reference>
+    <Reference Include="CommunicationOperation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Hcon\CommunicationOperation.dll</HintPath>
+    </Reference>
+    <Reference Include="DrawShapeControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Hcon\DrawShapeControl.dll</HintPath>
+    </Reference>
+    <Reference Include="halcondotnet, Version=12.0.0.0, Culture=neutral, PublicKeyToken=4973bed59ddbf2b8, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Hcon\halcondotnet.dll</HintPath>
+    </Reference>
+    <Reference Include="LocationCircle, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Hcon\LocationCircle.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PublicOperation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Hcon\PublicOperation.dll</HintPath>
+    </Reference>
+    <Reference Include="PylonC.NET, Version=4.1.0.0, Culture=neutral, PublicKeyToken=a77e8471c5919d5a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\焊接设备部【勿删】\运行软件\激光电焊机\定位拟合圆封装\LocationCircle\bin\Debug\PylonC.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="SpinnakerNET_v120">
+      <HintPath>D:\激光电焊机\定位拟合圆封装\LocationCircle\bin\Debug\SpinnakerNET_v120.dll</HintPath>
+    </Reference>
+    <Reference Include="SpinnakerNET_v140, Version=1.15.0.63, Culture=neutral, PublicKeyToken=e3ed2bf1f221d241, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Hcon\SpinnakerNET_v140.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AutoSizeFormClass.cs" />
+    <Compile Include="CCD\CCDClient.cs" />
+    <Compile Include="CCD\CCDClientManage.cs" />
+    <Compile Include="CCD\CCDCommunication.cs" />
+    <Compile Include="CCD\CCDForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CCD\CCDForm.Designer.cs">
+      <DependentUpon>CCDForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CCD\CCDStationA.cs" />
+    <Compile Include="EXEToWinform.cs" />
+    <Compile Include="FormCCD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCCD.Designer.cs">
+      <DependentUpon>FormCCD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainTask\AxisRun.cs" />
+    <Compile Include="MainTask\ClinderRun.cs" />
+    <Compile Include="MainTask\MarkTask.cs" />
+    <Compile Include="MainTask\Method.cs" />
+    <Compile Include="MainTask\RunClass.cs" />
+    <Compile Include="MainTask\Socket_server_client.cs" />
+    <Compile Include="MarkCom.cs" />
+    <Compile Include="Mark\MarkForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mark\MarkForm.Designer.cs">
+      <DependentUpon>MarkForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MessageAlarmForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageAlarmForm.Designer.cs">
+      <DependentUpon>MessageAlarmForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MES\CurveGraph.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MES\CurveGraph.designer.cs">
+      <DependentUpon>CurveGraph.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MES\FtpUpd.cs" />
+    <Compile Include="MES\HttpPost.cs" />
+    <Compile Include="MES\ImgFtpUpd.cs" />
+    <Compile Include="MES\mes.cs" />
+    <Compile Include="SerialPort.cs" />
+    <Compile Include="SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainTask\MainControl.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StartForm.Designer.cs">
+      <DependentUpon>StartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainTask\ProductionData.cs" />
+    <Compile Include="Weld_Log.cs" />
+    <Compile Include="手动操作窗体.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="手动操作窗体.Designer.cs">
+      <DependentUpon>手动操作窗体.cs</DependentUpon>
+    </Compile>
+    <Compile Include="波形展示.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="波形展示.Designer.cs">
+      <DependentUpon>波形展示.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CCD\CCDForm.resx">
+      <DependentUpon>CCDForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCCD.resx">
+      <DependentUpon>FormCCD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mark\MarkForm.resx">
+      <DependentUpon>MarkForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageAlarmForm.resx">
+      <DependentUpon>MessageAlarmForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MES\CurveGraph.resx">
+      <DependentUpon>CurveGraph.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="StartForm.resx">
+      <DependentUpon>StartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="手动操作窗体.resx">
+      <DependentUpon>手动操作窗体.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="波形展示.resx">
+      <DependentUpon>波形展示.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonTools\CommonTools.csproj">
+      <Project>{6d83410f-1413-4671-994c-af095c3e5937}</Project>
+      <Name>CommonTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ControlPlatformLib\ControlPlatformLib.csproj">
+      <Project>{419bb467-4831-48ca-aa79-3f4d315a084a}</Project>
+      <Name>ControlPlatformLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IPAddressControlLib\IPAddressControlLib.csproj">
+      <Project>{259C297E-A054-4EB4-88A3-8BB1F37506C5}</Project>
+      <Name>IPAddressControlLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WorldGeneralLib\WorldGeneralLib.csproj">
+      <Project>{9fc1cec7-1dcc-4ff8-bad8-ffc930331960}</Project>
+      <Name>WorldGeneralLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Image\Exit21.png" />
+    <Content Include="Laser.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

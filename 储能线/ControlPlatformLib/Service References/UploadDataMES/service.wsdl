@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://172.30.7.120:8071/CCDServer.Service.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://172.30.7.120:8071/CCDServer.Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService_UploadCCDKPI_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadCCDKPI" />
+  </wsdl:message>
+  <wsdl:message name="IService_UploadCCDKPI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadCCDKPIResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_UploadCCDAlramInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadCCDAlramInfo" />
+  </wsdl:message>
+  <wsdl:message name="IService_UploadCCDAlramInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadCCDAlramInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ClaerKpiData_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClaerKpiData" />
+  </wsdl:message>
+  <wsdl:message name="IService_ClaerKpiData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClaerKpiDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_UploadEquipmentState_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadEquipmentState" />
+  </wsdl:message>
+  <wsdl:message name="IService_UploadEquipmentState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadEquipmentStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_UploadEquipmentAlarm_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadEquipmentAlarm" />
+  </wsdl:message>
+  <wsdl:message name="IService_UploadEquipmentAlarm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadEquipmentAlarmResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_UploadEquipmentYield_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadEquipmentYield" />
+  </wsdl:message>
+  <wsdl:message name="IService_UploadEquipmentYield_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadEquipmentYieldResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService">
+    <wsdl:operation name="UploadCCDKPI">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UploadCCDKPI" message="tns:IService_UploadCCDKPI_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UploadCCDKPIResponse" message="tns:IService_UploadCCDKPI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadCCDAlramInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UploadCCDAlramInfo" message="tns:IService_UploadCCDAlramInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UploadCCDAlramInfoResponse" message="tns:IService_UploadCCDAlramInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClaerKpiData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ClaerKpiData" message="tns:IService_ClaerKpiData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ClaerKpiDataResponse" message="tns:IService_ClaerKpiData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadEquipmentState">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UploadEquipmentState" message="tns:IService_UploadEquipmentState_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UploadEquipmentStateResponse" message="tns:IService_UploadEquipmentState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadEquipmentAlarm">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UploadEquipmentAlarm" message="tns:IService_UploadEquipmentAlarm_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UploadEquipmentAlarmResponse" message="tns:IService_UploadEquipmentAlarm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadEquipmentYield">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UploadEquipmentYield" message="tns:IService_UploadEquipmentYield_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UploadEquipmentYieldResponse" message="tns:IService_UploadEquipmentYield_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UploadCCDKPI">
+      <soap:operation soapAction="http://tempuri.org/IService/UploadCCDKPI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadCCDAlramInfo">
+      <soap:operation soapAction="http://tempuri.org/IService/UploadCCDAlramInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClaerKpiData">
+      <soap:operation soapAction="http://tempuri.org/IService/ClaerKpiData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadEquipmentState">
+      <soap:operation soapAction="http://tempuri.org/IService/UploadEquipmentState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadEquipmentAlarm">
+      <soap:operation soapAction="http://tempuri.org/IService/UploadEquipmentAlarm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadEquipmentYield">
+      <soap:operation soapAction="http://tempuri.org/IService/UploadEquipmentYield" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="BasicHttpBinding_IService" binding="tns:BasicHttpBinding_IService">
+      <soap:address location="http://172.30.7.120:8071/CCDServer.Service.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9FC1CEC7-1DCC-4FF8-BAD8-FFC930331960}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WorldGeneralLib</RootNamespace>
+    <AssemblyName>WorldGeneralLib</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlarmItem.cs" />
+    <Compile Include="CognexAsync\CognexAsyncClientDoc.cs" />
+    <Compile Include="CognexAsync\CognexAsyncForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CognexAsync\CognexAsyncForm.Designer.cs">
+      <DependentUpon>CognexAsyncForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CognexAsync\CognexAsyncManage.cs" />
+    <Compile Include="CognexAsync\DataRead.cs" />
+    <Compile Include="CognexAsync\ImageConfirmForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CognexAsync\ImageConfirmForm.Designer.cs">
+      <DependentUpon>ImageConfirmForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cognex\CognexClient.cs" />
+    <Compile Include="Cognex\CognexDoc.cs" />
+    <Compile Include="Cognex\CognexForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cognex\CognexForm.Designer.cs">
+      <DependentUpon>CognexForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cognex\CognexManage.cs" />
+    <Compile Include="CSVUtil.cs" />
+    <Compile Include="DataLogicBarCode\BarcodeData.cs" />
+    <Compile Include="DataLogicBarCode\BarcodeDataManage.cs" />
+    <Compile Include="DataLogicBarCode\BarcodeSettingDataDoc.cs" />
+    <Compile Include="DataLogicBarCode\Datalogic_Scanner.cs" />
+    <Compile Include="DataLogicBarCode\FormBarcodeSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataLogicBarCode\FormBarcodeSetting.Designer.cs">
+      <DependentUpon>FormBarcodeSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataLogicBarCode\FormDatalogicBarcode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataLogicBarCode\FormDatalogicBarcode.Designer.cs">
+      <DependentUpon>FormDatalogicBarcode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAlarm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAlarm.Designer.cs">
+      <DependentUpon>FormAlarm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InovancePLC\InovanceDoc.cs" />
+    <Compile Include="InovancePLC\InovanceManage.cs" />
+    <Compile Include="InovancePLC\InovanceModbusAPI.cs" />
+    <Compile Include="InovancePLC\InovanceSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InovancePLC\InovanceSettingForm.Designer.cs">
+      <DependentUpon>InovanceSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InovancePLC\ScanItem.cs" />
+    <Compile Include="JudgeNumber.cs" />
+    <Compile Include="OPTEXLASERHEIGHT\OPTEXLaserHeight.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SerialPorts\CommonSerialPort.cs" />
+    <Compile Include="SerialPorts\Honeywell3320G.cs" />
+    <Compile Include="SerialPorts\ISerialPort.cs" />
+    <Compile Include="SerialPorts\KeyenceDLRS1A.cs" />
+    <Compile Include="SerialPorts\SerialPort.cs" />
+    <Compile Include="SerialPorts\SerialPortData.cs" />
+    <Compile Include="SerialPorts\SerialPortDataManage.cs" />
+    <Compile Include="SerialPorts\SerialPortDoc.cs" />
+    <Compile Include="SerialPorts\SerialPortForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SerialPorts\SerialPortForm.Designer.cs">
+      <DependentUpon>SerialPortForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SerialPorts\SerialPortSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SerialPorts\SerialPortSettingsForm.Designer.cs">
+      <DependentUpon>SerialPortSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SerialPorts\SickAltimeter.cs" />
+    <Compile Include="基恩士条码枪\FormKeyenceBarCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基恩士条码枪\FormKeyenceBarCode.Designer.cs">
+      <DependentUpon>FormKeyenceBarCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="点胶机\FormMasashi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="点胶机\FormMasashi.Designer.cs">
+      <DependentUpon>FormMasashi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SHSFC\FormSHSF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SHSFC\FormSHSF.Designer.cs">
+      <DependentUpon>FormSHSF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HiPerfTimer.cs" />
+    <Compile Include="基恩士条码枪\keyenceSR1000.cs" />
+    <Compile Include="基恩士条码枪\keyenceSRData.cs" />
+    <Compile Include="ListViewNF.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="电子称\MettlerWeight.cs" />
+    <Compile Include="点胶机\MUSASHI808GX.cs" />
+    <Compile Include="点胶机\MUSASHIData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SHSFC\SHSFComunicate.cs" />
+    <Compile Include="SHSFC\SHSFData.cs" />
+    <Compile Include="TasInfo.cs" />
+    <Compile Include="TextLogWrite.cs" />
+    <Compile Include="电子称\MettlerData.cs" />
+    <Compile Include="电子称\FormMettler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="电子称\FormMettler.Designer.cs">
+      <DependentUpon>FormMettler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PLDLOADCELL\PLDLoadcell.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CognexAsync\CognexAsyncForm.resx">
+      <DependentUpon>CognexAsyncForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CognexAsync\ImageConfirmForm.resx">
+      <DependentUpon>ImageConfirmForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cognex\CognexForm.resx">
+      <DependentUpon>CognexForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataLogicBarCode\FormBarcodeSetting.resx">
+      <DependentUpon>FormBarcodeSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataLogicBarCode\FormDatalogicBarcode.resx">
+      <DependentUpon>FormDatalogicBarcode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAlarm.resx">
+      <DependentUpon>FormAlarm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InovancePLC\InovanceSettingForm.resx">
+      <DependentUpon>InovanceSettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SerialPorts\SerialPortForm.resx">
+      <DependentUpon>SerialPortForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SerialPorts\SerialPortSettingsForm.resx">
+      <DependentUpon>SerialPortSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基恩士条码枪\FormKeyenceBarCode.resx">
+      <DependentUpon>FormKeyenceBarCode.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="点胶机\FormMasashi.resx">
+      <DependentUpon>FormMasashi.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="电子称\FormMettler.resx">
+      <DependentUpon>FormMettler.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SHSFC\FormSHSF.resx">
+      <DependentUpon>FormSHSF.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IPAddressControlLib\IPAddressControlLib.csproj">
+      <Project>{259c297e-a054-4eb4-88a3-8bb1f37506c5}</Project>
+      <Name>IPAddressControlLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\gray-circle-icone-6920-32.png" />
+    <Content Include="Resources\green-circle-icone-4156-32.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

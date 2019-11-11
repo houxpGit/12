@@ -1,0 +1,1142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{419BB467-4831-48CA-AA79-3F4D315A084A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ControlPlatformLib</RootNamespace>
+    <AssemblyName>ControlPlatformLib</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Laser.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ApiBufferApi_CLRLib, Version=1.0.6647.27763, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\170701002\Documents\Visual Studio 2010\Projects\SoftservoDemo\SoftservoDemo\bin\Debug\ApiBufferApi_CLRLib.dll</HintPath>
+    </Reference>
+    <Reference Include="CompensationApi_CLRLib, Version=1.0.6647.27850, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\170701002\Documents\Visual Studio 2010\Projects\SoftservoDemo\SoftservoDemo\bin\Debug\CompensationApi_CLRLib.dll</HintPath>
+    </Reference>
+    <Reference Include="ComputerId_CLRLib, Version=1.0.6643.28962, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\170701002\Documents\Visual Studio 2010\Projects\SoftservoDemo\SoftservoDemo\bin\Debug\ComputerId_CLRLib.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreMotionApi_CLRLib, Version=1.0.6647.27827, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\170701002\Documents\Visual Studio 2010\Projects\SoftservoDemo\SoftservoDemo\bin\Debug\CoreMotionApi_CLRLib.dll</HintPath>
+    </Reference>
+    <Reference Include="CSkin, Version=16.1.14.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\CSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="CyclicBufferApi_CLRLib, Version=1.0.6647.27778, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\170701002\Documents\Visual Studio 2010\Projects\SoftservoDemo\SoftservoDemo\bin\Debug\CyclicBufferApi_CLRLib.dll</HintPath>
+    </Reference>
+    <Reference Include="EcApi_CLRLib, Version=1.0.6643.29344, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\170701002\Documents\Visual Studio 2010\Projects\SoftservoDemo\SoftservoDemo\bin\Debug\EcApi_CLRLib.dll</HintPath>
+    </Reference>
+    <Reference Include="EcFilter_CLRLib, Version=1.0.6643.29338, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\170701002\Documents\Visual Studio 2010\Projects\SoftservoDemo\SoftservoDemo\bin\Debug\EcFilter_CLRLib.dll</HintPath>
+    </Reference>
+    <Reference Include="EventApi_CLRLib, Version=1.0.6647.27961, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\170701002\Documents\Visual Studio 2010\Projects\SoftservoDemo\SoftservoDemo\bin\Debug\EventApi_CLRLib.dll</HintPath>
+    </Reference>
+    <Reference Include="IOApi_CLRLib, Version=1.0.6647.27796, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\170701002\Documents\Visual Studio 2010\Projects\SoftservoDemo\SoftservoDemo\bin\Debug\IOApi_CLRLib.dll</HintPath>
+    </Reference>
+    <Reference Include="ListMotionApi_CLRLib, Version=1.0.6647.27994, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\170701002\Documents\Visual Studio 2010\Projects\SoftservoDemo\SoftservoDemo\bin\Debug\ListMotionApi_CLRLib.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net40-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LogApi_CLRLib, Version=1.0.6647.27748, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\170701002\Documents\Visual Studio 2010\Projects\SoftservoDemo\SoftservoDemo\bin\Debug\LogApi_CLRLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="SimuApi_CLRLib, Version=1.0.6643.29353, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\170701002\Documents\Visual Studio 2010\Projects\SoftservoDemo\SoftservoDemo\bin\Debug\SimuApi_CLRLib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TwinCAT.Ads, Version=4.2.163.0, Culture=neutral, PublicKeyToken=180016cd49e5e8c3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\TwinCAT.Ads.dll</HintPath>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UserMemoryApi_CLRLib, Version=1.0.6647.28020, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\170701002\Documents\Visual Studio 2010\Projects\SoftservoDemo\SoftservoDemo\bin\Debug\UserMemoryApi_CLRLib.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="WMX3Api_CLRLib, Version=1.0.6647.27703, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\170701002\Documents\Visual Studio 2010\Projects\SoftservoDemo\SoftservoDemo\bin\Debug\WMX3Api_CLRLib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ADLINK\ADLINKInputCard.cs" />
+    <Compile Include="ADLINK\ADLINKInputInfo.cs" />
+    <Compile Include="ADLINK\ADLINKInputInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADLINK\ADLINKInputInfoForm.Designer.cs">
+      <DependentUpon>ADLINKInputInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ADLINK\ADLINKInputOuputCard.cs" />
+    <Compile Include="ADLINK\ADLINKInputOutputInfo.cs" />
+    <Compile Include="ADLINK\ADLINKInputOutputInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADLINK\ADLINKInputOutputInfoForm.Designer.cs">
+      <DependentUpon>ADLINKInputOutputInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ADLINK\ADLINKMotionCard.cs" />
+    <Compile Include="ADLINK\ADLINKOutputCard.cs" />
+    <Compile Include="ADLINK\ADLINKTechMCInfo.cs" />
+    <Compile Include="ADLINK\ADLINKTechMCInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADLINK\ADLINKTechMCInfoForm.Designer.cs">
+      <DependentUpon>ADLINKTechMCInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ADLINK\APS168.cs" />
+    <Compile Include="ADLINK\APS168x64.cs" />
+    <Compile Include="ADLINK\APS_Define.cs" />
+    <Compile Include="ADLINK\Dask.cs" />
+    <Compile Include="AutoSizeFormClass.cs" />
+    <Compile Include="Beckhoff\BeckhoffADS.cs" />
+    <Compile Include="Beckhoff\BeckhoffADSInfo.cs" />
+    <Compile Include="Beckhoff\BeckhoffADSInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Beckhoff\BeckhoffADSInfoForm.Designer.cs">
+      <DependentUpon>BeckhoffADSInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Beckhoff\BeckhoffIO.cs" />
+    <Compile Include="Bezier.cs" />
+    <Compile Include="CommonTool.cs" />
+    <Compile Include="CommonTools\ExtendedGraphics.cs" />
+    <Compile Include="CommonTools\LimitedQueue.cs" />
+    <Compile Include="DemoHardware\DemoInputInfo.cs" />
+    <Compile Include="DemoHardware\DemoInputInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemoHardware\DemoInputInfoForm.Designer.cs">
+      <DependentUpon>DemoInputInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemoHardware\DemoInputOutputInfo.cs" />
+    <Compile Include="DemoHardware\DemoInputOutputInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemoHardware\DemoInputOutputInfoForm.Designer.cs">
+      <DependentUpon>DemoInputOutputInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemoHardware\DemoMCInfo.cs" />
+    <Compile Include="DemoHardware\DemoOutputInfo.cs" />
+    <Compile Include="DataManage\FormProjectData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataManage\FormProjectData.Designer.cs">
+      <DependentUpon>FormProjectData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataManage\FormProjectDataSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataManage\FormProjectDataSetting.Designer.cs">
+      <DependentUpon>FormProjectDataSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataManage\ProjectDataBase.cs" />
+    <Compile Include="DataManage\ProjectDataDoc.cs" />
+    <Compile Include="DataManage\DataManage.cs" />
+    <Compile Include="DataManage\ProjectDataS.cs" />
+    <Compile Include="DriverControl\DriverControlManage.cs" />
+    <Compile Include="FormOperator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOperator.Designer.cs">
+      <DependentUpon>FormOperator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormProductInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProductInfo.Designer.cs">
+      <DependentUpon>FormProductInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DriverControl\IControlDriver.cs" />
+    <Compile Include="DriverControl\InputBitButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DriverControl\InputBitButton.Designer.cs">
+      <DependentUpon>InputBitButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DriverControl\OutputBitButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DriverControl\OutputBitButton.Designer.cs">
+      <DependentUpon>OutputBitButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FtpUpLoadFiles.cs" />
+    <Compile Include="Global.cs" />
+    <Compile Include="GoogoTechHardware\BDaqCL.cs" />
+    <Compile Include="GoogoTechHardware\GoogolTechExtCard.cs" />
+    <Compile Include="GoogoTechHardware\GoogolTechExtCardInfo.cs" />
+    <Compile Include="GoogoTechHardware\GoogolTechExtCardInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GoogoTechHardware\GoogolTechExtCardInfoForm.Designer.cs">
+      <DependentUpon>GoogolTechExtCardInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GoogoTechHardware\gts.cs" />
+    <Compile Include="LEISAIHardware\LTDIO.cs" />
+    <Compile Include="LEISAIHardware\LTDMC.cs" />
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PathDataDriver.cs" />
+    <Compile Include="ProductInfo.cs" />
+    <Compile Include="DriverControl\TableMoveControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DriverControl\TableMoveControl.Designer.cs">
+      <DependentUpon>TableMoveControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\UploadDataMES\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Softservo\SoftservoControler.cs" />
+    <Compile Include="Softservo\SoftservoControlerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Softservo\SoftservoControlerForm.Designer.cs">
+      <DependentUpon>SoftservoControlerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Softservo\SoftservoControlerInfo.cs" />
+    <Compile Include="Splash\FrmSplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Splash\FrmSplashScreen.Designer.cs">
+      <DependentUpon>FrmSplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Splash\ISplashForm.cs" />
+    <Compile Include="Splash\Splasher.cs" />
+    <Compile Include="Table\FormAxisSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Table\FormAxisSetting.Designer.cs">
+      <DependentUpon>FormAxisSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Table\FormTableItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Table\FormTableItem.Designer.cs">
+      <DependentUpon>FormTableItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Table\FormTableSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Table\FormTableSetting.Designer.cs">
+      <DependentUpon>FormTableSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Hardware\FormHardSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hardware\FormHardSetting.Designer.cs">
+      <DependentUpon>FormHardSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Hardware\HardWareBase.cs" />
+    <Compile Include="Hardware\HardWareInfoBase.cs" />
+    <Compile Include="Hardware\HardwareDoc.cs" />
+    <Compile Include="Hardware\HardwareManage.cs" />
+    <Compile Include="HotKey.cs" />
+    <Compile Include="Hardware\IInputAction.cs" />
+    <Compile Include="Hardware\IMotionAction.cs" />
+    <Compile Include="Hardware\IOutputAction.cs" />
+    <Compile Include="Table\TableAxisData.cs" />
+    <Compile Include="Table\TableData.cs" />
+    <Compile Include="Table\TableDriver.cs" />
+    <Compile Include="Table\FormTableDriver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Table\FormTableDriver.Designer.cs">
+      <DependentUpon>FormTableDriver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Table\TablePosData.cs" />
+    <Compile Include="Table\TablePosItem.cs" />
+    <Compile Include="Table\TablePreStatus.cs" />
+    <Compile Include="Table\TablesDoc.cs" />
+    <Compile Include="Table\TableDrivers.cs" />
+    <Compile Include="Table\TableManage.cs" />
+    <Compile Include="TaskGroup.cs" />
+    <Compile Include="TaskUnit.cs" />
+    <Compile Include="Web References\WebReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="主要窗体\FormManual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="主要窗体\FormManual.Designer.cs">
+      <DependentUpon>FormManual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="主要窗体\FormAlarm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="主要窗体\FormAlarm.Designer.cs">
+      <DependentUpon>FormAlarm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="主要窗体\FormInfoQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="主要窗体\FormInfoQuery.Designer.cs">
+      <DependentUpon>FormInfoQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="主要窗体\FormHardwareMonitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="主要窗体\FormHardwareMonitor.Designer.cs">
+      <DependentUpon>FormHardwareMonitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="主要窗体\FormMES.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="主要窗体\FormMES.Designer.cs">
+      <DependentUpon>FormMES.cs</DependentUpon>
+    </Compile>
+    <Compile Include="主要窗体\FormParameter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="主要窗体\FormParameter.Designer.cs">
+      <DependentUpon>FormParameter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="主要窗体\FormUserLogoIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="主要窗体\FormUserLogoIn.Designer.cs">
+      <DependentUpon>FormUserLogoIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="主要窗体\FormSystemSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="主要窗体\FormSystemSetting.Designer.cs">
+      <DependentUpon>FormSystemSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="主要窗体\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="主要窗体\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainModule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DemoHardware\DemoInputCard.cs" />
+    <Compile Include="DemoHardware\DemoInputOutputCard.cs" />
+    <Compile Include="DemoHardware\DemoMCard.cs" />
+    <Compile Include="DemoHardware\DemoOutputCard.cs" />
+    <Compile Include="DemoHardware\DemoMCInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemoHardware\DemoMCInfoForm.Designer.cs">
+      <DependentUpon>DemoMCInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemoHardware\DemoOutputInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemoHardware\DemoOutputInfoForm.Designer.cs">
+      <DependentUpon>DemoOutputInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IO\FormIODriver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IO\FormIODriver.Designer.cs">
+      <DependentUpon>FormIODriver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IO\FormIOSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IO\FormIOSetting.Designer.cs">
+      <DependentUpon>FormIOSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IO\InputData.cs" />
+    <Compile Include="IO\InputDriver.cs" />
+    <Compile Include="IO\InputDrivers.cs" />
+    <Compile Include="IO\IOManage.cs" />
+    <Compile Include="IO\IODoc.cs" />
+    <Compile Include="IO\OutputDriver.cs" />
+    <Compile Include="IO\OutputDrivers.cs" />
+    <Compile Include="IO\OutputData.cs" />
+    <Compile Include="DataManage\FormProjectDataItemSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataManage\FormProjectDataItemSetting.Designer.cs">
+      <DependentUpon>FormProjectDataItemSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataManage\FormProjectDataItemMonitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataManage\FormProjectDataItemMonitor.Designer.cs">
+      <DependentUpon>FormProjectDataItemMonitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataManage\FormProjectDataMonitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataManage\FormProjectDataMonitor.Designer.cs">
+      <DependentUpon>FormProjectDataMonitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LEISAIHardware\LEISAIInputCard.cs" />
+    <Compile Include="LEISAIHardware\LEISAIInputInfo.cs" />
+    <Compile Include="LEISAIHardware\LEISAIInputInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LEISAIHardware\LEISAIInputInfoForm.Designer.cs">
+      <DependentUpon>LEISAIInputInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LEISAIHardware\LEISAIInputOutputCard.cs" />
+    <Compile Include="LEISAIHardware\LEISAIInputOutputInfo.cs" />
+    <Compile Include="LEISAIHardware\LEISAIInputOutputInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LEISAIHardware\LEISAIInputOutputInfoForm.Designer.cs">
+      <DependentUpon>LEISAIInputOutputInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LEISAIHardware\LEISAIMCard.cs" />
+    <Compile Include="LEISAIHardware\LEISAIMCInfo.cs" />
+    <Compile Include="LEISAIHardware\LEISAIMCInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LEISAIHardware\LEISAIMCInfoForm.Designer.cs">
+      <DependentUpon>LEISAIMCInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LEISAIHardware\LEISAIOutputCard.cs" />
+    <Compile Include="LEISAIHardware\LEISAIOutputInfo.cs" />
+    <Compile Include="LEISAIHardware\LEISAIOutputInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LEISAIHardware\LEISAIOutputInfoForm.Designer.cs">
+      <DependentUpon>LEISAIOutputInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GoogoTechHardware\GoogoTechInputCard.cs" />
+    <Compile Include="GoogoTechHardware\GoogoTechInputInfo.cs" />
+    <Compile Include="GoogoTechHardware\GoogoTechInputInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GoogoTechHardware\GoogoTechInputInfoForm.Designer.cs">
+      <DependentUpon>GoogoTechInputInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GoogoTechHardware\GoogoTechInputOutputCard.cs" />
+    <Compile Include="GoogoTechHardware\GoogoTechInputOutputInfo.cs" />
+    <Compile Include="GoogoTechHardware\GoogoTechInputOutputInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GoogoTechHardware\GoogoTechInputOutputInfoForm.Designer.cs">
+      <DependentUpon>GoogoTechInputOutputInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GoogoTechHardware\GoogoTechMCard.cs" />
+    <Compile Include="GoogoTechHardware\GoogoTechMCInfo.cs" />
+    <Compile Include="GoogoTechHardware\GoogoTechMCInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GoogoTechHardware\GoogoTechMCInfoForm.Designer.cs">
+      <DependentUpon>GoogoTechMCInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GoogoTechHardware\GoogoTechOutputCard.cs" />
+    <Compile Include="GoogoTechHardware\GoogoTechOutputInfo.cs" />
+    <Compile Include="GoogoTechHardware\GoogoTechOutputInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GoogoTechHardware\GoogoTechOutputInfoForm.Designer.cs">
+      <DependentUpon>GoogoTechOutputInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdvanceHardware\AdvanceInputCard.cs" />
+    <Compile Include="AdvanceHardware\AdvanceInputInfo.cs" />
+    <Compile Include="AdvanceHardware\AdvanceInputInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdvanceHardware\AdvanceInputInfoForm.Designer.cs">
+      <DependentUpon>AdvanceInputInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdvanceHardware\AdvanceInputOutputCard.cs" />
+    <Compile Include="AdvanceHardware\AdvanceInputOutputInfo.cs" />
+    <Compile Include="AdvanceHardware\AdvanceInputOutputInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdvanceHardware\AdvanceInputOutputInfoForm.Designer.cs">
+      <DependentUpon>AdvanceInputOutputInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdvanceHardware\AdvanceMCard.cs" />
+    <Compile Include="AdvanceHardware\AdvanceMCInfo.cs" />
+    <Compile Include="AdvanceHardware\AdvanceMCInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdvanceHardware\AdvanceMCInfoForm.Designer.cs">
+      <DependentUpon>AdvanceMCInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdvanceHardware\AdvanceOutputCard.cs" />
+    <Compile Include="AdvanceHardware\AdvanceOutputInfo.cs" />
+    <Compile Include="AdvanceHardware\AdvanceOutputInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdvanceHardware\AdvanceOutputInfoForm.Designer.cs">
+      <DependentUpon>AdvanceOutputInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="自定义运动控制\MainFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="自定义运动控制\MainFrm.Designer.cs">
+      <DependentUpon>MainFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="自定义运动控制\Date.cs" />
+    <EmbeddedResource Include="ADLINK\ADLINKInputInfoForm.resx">
+      <DependentUpon>ADLINKInputInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADLINK\ADLINKInputOutputInfoForm.resx">
+      <DependentUpon>ADLINKInputOutputInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADLINK\ADLINKTechMCInfoForm.resx">
+      <DependentUpon>ADLINKTechMCInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Beckhoff\BeckhoffADSInfoForm.resx">
+      <DependentUpon>BeckhoffADSInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoHardware\DemoInputInfoForm.resx">
+      <DependentUpon>DemoInputInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoHardware\DemoInputOutputInfoForm.resx">
+      <DependentUpon>DemoInputOutputInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataManage\FormProjectData.resx">
+      <DependentUpon>FormProjectData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataManage\FormProjectDataSetting.resx">
+      <DependentUpon>FormProjectDataSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOperator.resx">
+      <DependentUpon>FormOperator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProductInfo.resx">
+      <DependentUpon>FormProductInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DriverControl\InputBitButton.resx">
+      <DependentUpon>InputBitButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DriverControl\OutputBitButton.resx">
+      <DependentUpon>OutputBitButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DriverControl\TableMoveControl.resx">
+      <DependentUpon>TableMoveControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GoogoTechHardware\GoogolTechExtCardInfoForm.resx">
+      <DependentUpon>GoogolTechExtCardInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Softservo\SoftservoControlerForm.resx">
+      <DependentUpon>SoftservoControlerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Splash\FrmSplashScreen.resx">
+      <DependentUpon>FrmSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Table\FormAxisSetting.resx">
+      <DependentUpon>FormAxisSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Table\FormTableItem.resx">
+      <DependentUpon>FormTableItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Table\FormTableSetting.resx">
+      <DependentUpon>FormTableSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hardware\FormHardSetting.resx">
+      <DependentUpon>FormHardSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Table\FormTableDriver.resx">
+      <DependentUpon>FormTableDriver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="主要窗体\FormManual.resx">
+      <DependentUpon>FormManual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="主要窗体\FormAlarm.resx">
+      <DependentUpon>FormAlarm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="主要窗体\FormInfoQuery.resx">
+      <DependentUpon>FormInfoQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="主要窗体\FormHardwareMonitor.resx">
+      <DependentUpon>FormHardwareMonitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="主要窗体\FormMES.resx">
+      <DependentUpon>FormMES.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="主要窗体\FormParameter.resx">
+      <DependentUpon>FormParameter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="主要窗体\FormUserLogoIn.resx">
+      <DependentUpon>FormUserLogoIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="主要窗体\FormSystemSetting.resx">
+      <DependentUpon>FormSystemSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="主要窗体\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="DemoHardware\DemoMCInfoForm.resx">
+      <DependentUpon>DemoMCInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoHardware\DemoOutputInfoForm.resx">
+      <DependentUpon>DemoOutputInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IO\FormIODriver.resx">
+      <DependentUpon>FormIODriver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IO\FormIOSetting.resx">
+      <DependentUpon>FormIOSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataManage\FormProjectDataItemSetting.resx">
+      <DependentUpon>FormProjectDataItemSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataManage\FormProjectDataItemMonitor.resx">
+      <DependentUpon>FormProjectDataItemMonitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataManage\FormProjectDataMonitor.resx">
+      <DependentUpon>FormProjectDataMonitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LEISAIHardware\LEISAIInputInfoForm.resx">
+      <DependentUpon>LEISAIInputInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LEISAIHardware\LEISAIInputOutputInfoForm.resx">
+      <DependentUpon>LEISAIInputOutputInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LEISAIHardware\LEISAIMCInfoForm.resx">
+      <DependentUpon>LEISAIMCInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LEISAIHardware\LEISAIOutputInfoForm.resx">
+      <DependentUpon>LEISAIOutputInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GoogoTechHardware\GoogoTechInputInfoForm.resx">
+      <DependentUpon>GoogoTechInputInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GoogoTechHardware\GoogoTechInputOutputInfoForm.resx">
+      <DependentUpon>GoogoTechInputOutputInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GoogoTechHardware\GoogoTechMCInfoForm.resx">
+      <DependentUpon>GoogoTechMCInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GoogoTechHardware\GoogoTechOutputInfoForm.resx">
+      <DependentUpon>GoogoTechOutputInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdvanceHardware\AdvanceInputInfoForm.resx">
+      <DependentUpon>AdvanceInputInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdvanceHardware\AdvanceInputOutputInfoForm.resx">
+      <DependentUpon>AdvanceInputOutputInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdvanceHardware\AdvanceMCInfoForm.resx">
+      <DependentUpon>AdvanceMCInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdvanceHardware\AdvanceOutputInfoForm.resx">
+      <DependentUpon>AdvanceOutputInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="自定义运动控制\MainFrm.resx">
+      <DependentUpon>MainFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\ControlPlatformLib.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.AddTestDataCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.AgIngDeBugDataCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.AgIngDeBugEventCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.AOITestCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.AutoPasteLabelingCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.AutoSelectInputCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.BarcodeConversionCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.BarcodeConversionNEWCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.BatchInsertDataCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.BatchInsertInfoCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.BatteryBindingCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.BatteryLinkCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.BindBatteryProductSnCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.BindCarrierPackCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.BindCarrierProductCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.BindCellMoreCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.BindCellSNCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.BindFourCellCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.BindingCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.BindOneCellCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.BindPackPCMCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.BindPackSNCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.BindPCMCellCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.BindPCMPackCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.BindThreeCellCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.BindTwoCellCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.BoxProductSnCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.BoxProductSnesCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.BulidBatteryGroupCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.CarrierRecycleCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.CellBindPackCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.CellGroupBindCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.CellGroupLinkCheckCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.CellGroupLinkCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.CheckAddressAndPalletLinkCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.CheckAddressCodeCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.CheckAddressLinkCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.CheckBarcodeRuleCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.CheckCellBingCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.CheckCellGroupBindPackCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.CheckCellGroupCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.CheckCellSNCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.CheckCustMacBindCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.CheckItemRuleCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.CheckItemRuleProductCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.CheckModuleCellBindCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.CheckModuleGroupBindCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.checkNetStatusCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.CheckPACKGroupBindCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.CheckPalletCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.CheckPCMSNCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.CheckPoNumberCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.CheckPO_PalletCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.CheckProductMoNumberCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.CheckRouteCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.CheckRouteFirstCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.CheckRoutePackingCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.checkSNUniquenessCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.CheckStationCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.CheckSupplierSNCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.CheckTestResOKCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.CheckTestResultCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.CheckUserCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.CheckUserDoCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.CheckUserUnlockCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.CreateBoxCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.CreatePalletCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.cycleDataAllCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.cycleGasGaugeDataCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.cycleLevelsDataCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.DelBatteryLinkCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.DelCellSnByPackSnCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.DeleteBoxCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.DeletePalletCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.DeleteProductMessageCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.DelMutureDataCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.DelSNCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.DelWipInfoCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.DeviceInformationCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.DeviceInformationSZCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.DeviceStatusCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.DEVICE_INTERFACE_TESTCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.DeviecStatusCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.EBSMoNumberToMESCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.EBSMoProjectCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.EVBGetModelInfoCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.EVBModelReplaceCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.EVBModelSortingCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.ExecuteNonQueryCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.ExecuteNonQueryConnCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.FinishBatCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.FittingBindingCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.FittingLinkCheckCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetATLBarcodeCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetBatteriesSNCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetBatteryCellLinkInfoCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetBatterySNCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetBindingListCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetBindingPackCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetBoxInfoCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetBurinFilePathCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetBurinFilePathSNCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetCarrierToProductCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetCarrierToProductTypeCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetCellAgvDataCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetCellGroupCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.getCellsByModuleCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetCellSnCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetCellTestDataCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetCustomerInfoCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetCUSTOMER_SNCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.getCycleRecordNumberCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetDepartmentInfoCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetErrorCodeCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetGroupItemCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetIfactoryWipPackSnCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetImagesCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetItemRuleCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetKeyToProductCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetLastPrintCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetLoginLogCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetMacIdCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetMarkingInfoCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetModuleNumberCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetMoesCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetMonumberSettingInfoCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetMotoProductTOUIDCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetMutureDataCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetOCV_DataCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetOneImagesCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetPackSnByCellSnCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetPackSnItemNameTestDataCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetPackSnTestDataCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetPalletInfoCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetPalletSerialCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetPCMDataCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetPrioductDIDInfoCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetProductCellItemCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetProductEndDateCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetProductInfoCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetProductItemLineCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetProductItemValueCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetProductItemValuesCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetProductModelNameCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetProductNewSnCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetProductOldSnCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetProductTestDataCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetProductTestDataListCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetProductTOCellSnCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetPurviewInfoCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetRoleInfoCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GETSAMPLETESTDATACompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetSmallPanelAisleCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.getSNCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetSoftwareVersionCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetSqlDataCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetSqlDataConnCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetStencilInfoCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetSubKeyListCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetSupplierDataInfoCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetSupplierInfoCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.getSystemTimeCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetTestDataCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GETTESTDATACompletedEventArgs1.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetTestDateTimeCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetTestItemValuesCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetTestOKCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetTrackingInfoCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.getUseInfoCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GetWipPackSnCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GroupTestCommonCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.GroupTestCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.HR_UserInfoCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.HWInterfaceCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.HWInterfaceConversionCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.HWInterfaceTestCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.HWInterfaceTest_testCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.ImportBatteryCapacityCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.Initialize_UserCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.ItemAsnWMSToMESCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.LargePanelCheckCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.LargeSmallPanelLinkCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.LockProductCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.LoginCheckCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.MacBindCustSnAndIDCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.MacBindCustSnCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.MachineFittingLinkCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.mainFittingLinkCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.MaterialControlCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.MESInterface.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.MES_KEYPSN_SAVECompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.MES_PACK_BATTERYLINK_RULECompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.ModuleCellBindCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.ModuleGroupBindCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.MoExistCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.NegativePressureMessageCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.OfflineDataCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.OffLineDataNewCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.OfflineDataUploadCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.OpenOrCloseBoxCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.OpenOrColsePalletCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.PackGroupBindCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.PackingCheckCellTypeCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.PackLinkCellGroupCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.PanelLargeToSmallCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.PCMPackBurnLinkCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.PCMPackBurnLinkRuleCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.PCMPackLinkCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.PoPalletLinkCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.PrintCheckProductCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.PrintProductUploadCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.ProductFittingLinkCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.ProductionGroupInfoCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.ProductionGroupInfoSZCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.ProductPackingCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.ProductThroughStationCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.QMS_FQA_ResultCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.recordLayerDataCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.RelTestDataUploadCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.RemoveAllBindingCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.ReplaceSNCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.SaveCusInfoCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.SaveLastPrintCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.SaveLogInfoCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.SaveMutureDataCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.SavePCMDataCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.SMTWeldInputCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.SNbindBatchNumberCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.SolutionBoxCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.SPITESTCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.Transfer_PositionCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.UnbindCarrirPackCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.UpdateLastBoxQtyCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.UPLOADBAT540TESTDATACompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.UploadCellTestDataCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.uploadDownCellsCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.UploadImageCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.UploadImageFtpCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.UploadLongDataCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.UploadOCVCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.UPLOADTESTDATACompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.WeldInputCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.WeldInputTestCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.WipCellTestDataCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.WIPTESTCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.WipTestConversionCompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\ControlPlatformLib.WebReference.WIPTESTSAMPLECompletedEventArgs.datasource" />
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Service References\UploadDataMES\CCDServer.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UploadDataMES\CCDServer1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UploadDataMES\Service.wsdl" />
+    <None Include="Web References\WebReference\MESInterface.wsdl" />
+    <None Include="Web References\WebReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ProfibusCoupler.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\World.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Login.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xp1g_40.bmp" />
+    <None Include="Resources\xp1g_30.bmp" />
+    <None Include="Resources\xp1g_20.bmp" />
+    <None Include="Resources\xp1g_10.bmp" />
+    <None Include="Resources\World1.bmp" />
+    <None Include="Resources\World1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonTools\CommonTools.csproj">
+      <Project>{6D83410F-1413-4671-994C-AF095C3E5937}</Project>
+      <Name>CommonTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WorldGeneralLib\WorldGeneralLib.csproj">
+      <Project>{9fc1cec7-1dcc-4ff8-bad8-ffc930331960}</Project>
+      <Name>WorldGeneralLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\欣旺达logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\power_exit_118px_1122609_easyicon.net.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_128px_1170241_easyicon.net.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\password_128px_1169936_easyicon.net.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cnc_machine_128px_1169812_easyicon.net.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\timg %281%29.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\notepad_ok_128px_1170517_easyicon.net.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://172.60.88.3:8080/MESInterface.asmx%3f">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebReference\</RelPath>
+      <UpdateFromURL>http://172.60.88.3:8080/MESInterface.asmx%3f</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ControlPlatformLib_WebReference_MESInterface</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\WebReference\MESInterface.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\UploadDataMES\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UploadDataMES\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UploadDataMES\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UploadDataMES\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\生产.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Laser.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

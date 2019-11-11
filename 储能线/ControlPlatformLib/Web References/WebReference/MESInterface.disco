@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://172.60.88.3:8080/MESInterface.asmx?wsdl" docRef="http://172.60.88.3:8080/MESInterface.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://172.60.88.3:8080/MESInterface.asmx" xmlns:q1="WWW.SUNWODA.COM" binding="q1:MESInterfaceSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://172.60.88.3:8080/MESInterface.asmx" xmlns:q2="WWW.SUNWODA.COM" binding="q2:MESInterfaceSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>
