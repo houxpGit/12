@@ -193,7 +193,7 @@ namespace FullyAutomaticLaserJetCoder
                     {
                         Thread.Sleep(20);
                         sRead = MarkComPort.ReadTo("\r");
-                        Global.logger.Info("收到喷码机返回->" + sRead.Trim());
+                      //  Global.logger.Info("收到喷码机返回->" + sRead.Trim());
                         sMarkData = sRead;
                         MarkComPort.ReadExisting();
                     }
@@ -202,7 +202,7 @@ namespace FullyAutomaticLaserJetCoder
                 catch (Exception ex)
                 {
                     System.Diagnostics.Debug.Write(" Mark->No read" + "\r");
-                    Global.logger.Info("ReadWrite Mark->" + ex.Message);
+                  //  Global.logger.Info("ReadWrite Mark->" + ex.Message);
                 }
                 Thread.Sleep(5);
             }

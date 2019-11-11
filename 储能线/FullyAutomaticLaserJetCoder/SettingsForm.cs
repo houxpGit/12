@@ -503,8 +503,8 @@ namespace FullyAutomaticLaserJetCoder
             // MainControls.RunClass.Meth.Asix_Two_Run("运动平台", "拍照1#点坐标", 60000);
             RunClass.Instance().Meth.Asix_one_Run("运动平台", "拍照1#点坐标", 2, 60000);
             // MainControls.RunClass.Meth.Asix_Two_Run("运动平台", "相机位置", 60000);
-            double X = TableManage.TablePosItem("运动平台", "焊接1#点坐标").dPosX;
-            double Y = TableManage.TablePosItem("运动平台", "焊接1#点坐标").dPosY;
+            double X = TableManage.TablePosItem("运动平台", "拍照1#点坐标").dPosX;
+            double Y = TableManage.TablePosItem("运动平台", "拍照1#点坐标").dPosY;
             Thread.Sleep(100);
 
             List<LocationCircle.ResultClass> resultCirclr;

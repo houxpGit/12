@@ -903,3 +903,12 @@ D:\项目备份\储能线\储能线6KW091111_09一V1\CommonTools\obj\Debug\Commo
 D:\项目备份\储能线\储能线6KW091111_09一V1\CommonTools\obj\Debug\CommonTools.csproj.GenerateResource.Cache
 D:\项目备份\储能线\储能线6KW091111_09一V1\CommonTools\obj\Debug\CommonTools.dll
 D:\项目备份\储能线\储能线6KW091111_09一V1\CommonTools\obj\Debug\CommonTools.pdb
+C:\GIT\1223\储能线\CommonTools\bin\Debug\CommonTools.dll
+C:\GIT\1223\储能线\CommonTools\bin\Debug\CommonTools.pdb
+C:\GIT\1223\储能线\CommonTools\obj\Debug\CommonTools.ColorPickerCtrl.resources
+C:\GIT\1223\储能线\CommonTools\obj\Debug\CommonTools.ColorPickerDialog.resources
+C:\GIT\1223\储能线\CommonTools\obj\Debug\CommonTools.ColorWheelCtrl.resources
+C:\GIT\1223\储能线\CommonTools\obj\Debug\CommonTools.PropertyDialog.resources
+C:\GIT\1223\储能线\CommonTools\obj\Debug\CommonTools.csproj.GenerateResource.Cache
+C:\GIT\1223\储能线\CommonTools\obj\Debug\CommonTools.dll
+C:\GIT\1223\储能线\CommonTools\obj\Debug\CommonTools.pdb

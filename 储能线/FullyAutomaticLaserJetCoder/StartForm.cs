@@ -165,7 +165,7 @@ namespace FullyAutomaticLaserJetCoder
               //  MainControls.taskInfo.iTaskStep = 0;
                // MainControls.taskInfo.bTaskOnGoing = false;
 
-                ControlPlatformLib.Global.logger.Info("长按复位:" + DateTime.Now.ToString("yyyy/MM/dd/ HH : mm : ss"));
+            //    ControlPlatformLib.Global.logger.Info("长按复位:" + DateTime.Now.ToString("yyyy/MM/dd/ HH : mm : ss"));
             }
         }
         List<Thread> threadList = new List<Thread>();
@@ -326,7 +326,7 @@ namespace FullyAutomaticLaserJetCoder
                 RunClass.Instance().StartRun = false;
                 MainControls. taskInfo.iTaskStep =8;
                 MainModule.FormMain.bAuto = true;
-                ControlPlatformLib.Global.logger.Info("自动运行开始:" + DateTime.Now.ToString("yyyy/MM/dd/ HH : mm : ss"));
+               // ControlPlatformLib.Global.logger.Info("自动运行开始:" + DateTime.Now.ToString("yyyy/MM/dd/ HH : mm : ss"));
             }
         }
         private void StopClick()
