@@ -207,7 +207,14 @@ namespace FullyAutomaticLaserJetCoder
         /// </summary>
 
         public bool EStop;
-
+        /// <summary>
+        ///停止
+        /// </summary>
+        public bool IsStop;
+        /// <summary>
+        ///工位有无料标志位
+        /// </summary>
+        public bool StationMaterial ;//工位有无料标志位
         public ProductionData(int value)
         {
             Date_Clear(value);

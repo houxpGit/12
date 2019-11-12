@@ -1,6 +1,6 @@
 ﻿
 using ControlPlatformLib;
-using FullyAutomaticLaserJetCoder.CCD;
+//using FullyAutomaticLaserJetCoder.CCD;
 using Newtonsoft.Json;
 /**
 * 命名空间:  FullyAutomaticLaserJetCoder.MainTask
@@ -26,12 +26,12 @@ namespace FullyAutomaticLaserJetCoder.MainTask
     public class MarkTask : TaskUnit
     {
         private object lockObj = new object();
-        private CCDStationA ccdStationA;
+      //  private CCDStationA ccdStationA;
         private int iMarkPosition;
         private string[] arrBStation;
         private string[] arrCStation;
-        private Queue<NGPositionItem> ngItemQueue;
-        NGPositionItem ngItem;
+       // private Queue<NGPositionItem> ngItemQueue;
+      //  NGPositionItem ngItem;
         public enum flowChar
         {
             任务开始 = 0,
@@ -71,7 +71,7 @@ namespace FullyAutomaticLaserJetCoder.MainTask
         }
         public MarkTask(string name, TaskGroup taskGroup) : base(name, taskGroup)
         {
-            ngItemQueue = new Queue<NGPositionItem>();
+        //    ngItemQueue = new Queue<NGPositionItem>();
         }
 
         public override void Process()
@@ -558,29 +558,29 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                             }
                             break;
                         case 900:
-                            if (ccdStationA.NGPosition.Count > iMarkPosition + 1)
-                            {
-                                m_taskGroup.AddRunMessage("打标任务900，还剩余NG打标位置，继续打标循环！");
-                                iMarkPosition++;
-                                m_taskTime.Start();
-                                taskInfo.iTaskStep = 510;
-                            }
-                            else
-                            {
-                                m_taskGroup.AddRunMessage("打标任务900，无剩余NG打标位置，打标循环完成！");
-                                //IOManage.OUTPUT("上料托盘左右电磁阀").SetOutBit(false);
-                                //IOManage.OUTPUT("上料托盘前后电磁阀").SetOutBit(false);
-                                IOManage.OUTPUT("上料托盘电磁阀").SetOutBit(false);
-                                TableManage.TableDriver("打标平台").AbsMove(TableAxisName.X,
-                                       TableManage.TablePosItem("打标平台", "激光等待位").dPosX,
-                                       TableManage.tablesDoc.m_tableDictionary["打标平台"].axisXData.dSpeed);
-                                TableManage.TableDriver("打标平台").AbsMove(TableAxisName.Y,
-                                       TableManage.TablePosItem("打标平台", "激光等待位").dPosY,
-                                       TableManage.tablesDoc.m_tableDictionary["打标平台"].axisYData.dSpeed);
-                                iMarkPosition = 0;
-                                m_taskTime.Start();
-                                taskInfo.iTaskStep = 1000;
-                            }
+                            //if (/*ccdStationA.NGPosition.Count > */iMarkPosition + 1)
+                            //{
+                            //    m_taskGroup.AddRunMessage("打标任务900，还剩余NG打标位置，继续打标循环！");
+                            //    iMarkPosition++;
+                            //    m_taskTime.Start();
+                            //    taskInfo.iTaskStep = 510;
+                            //}
+                            //else
+                            //{
+                            //    m_taskGroup.AddRunMessage("打标任务900，无剩余NG打标位置，打标循环完成！");
+                            //    //IOManage.OUTPUT("上料托盘左右电磁阀").SetOutBit(false);
+                            //    //IOManage.OUTPUT("上料托盘前后电磁阀").SetOutBit(false);
+                            //    IOManage.OUTPUT("上料托盘电磁阀").SetOutBit(false);
+                            //    TableManage.TableDriver("打标平台").AbsMove(TableAxisName.X,
+                            //           TableManage.TablePosItem("打标平台", "激光等待位").dPosX,
+                            //           TableManage.tablesDoc.m_tableDictionary["打标平台"].axisXData.dSpeed);
+                            //    TableManage.TableDriver("打标平台").AbsMove(TableAxisName.Y,
+                            //           TableManage.TablePosItem("打标平台", "激光等待位").dPosY,
+                            //           TableManage.tablesDoc.m_tableDictionary["打标平台"].axisYData.dSpeed);
+                            //    iMarkPosition = 0;
+                            //    m_taskTime.Start();
+                            //    taskInfo.iTaskStep = 1000;
+                            //}
                             break;
                         case 1000:
                             if (m_taskTime.TimeUp(10))

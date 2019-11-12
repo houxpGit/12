@@ -3244,6 +3244,15 @@ namespace ControlPlatformLib
 
         private void ThreadHomeXFunction()
         {
+            bool s=  GetCCW(TableAxisName.X);//负限位
+            bool sw = GetCW(TableAxisName.X);//正限位
+            if(sw==true)
+            {
+                JogMove(TableAxisName.X,false,true);
+                Thread.Sleep(1000);
+                JogStop(TableAxisName.X);
+                Thread.Sleep(1000);
+            }
             //StartLimit(TableAxisName.X);
             //while (LimitDone(TableAxisName.X) == false)
             //{
@@ -3279,6 +3288,14 @@ namespace ControlPlatformLib
 
         private void ThreadHomeYFunction()
         {
+            bool sw = GetCW(TableAxisName.Y);//正限位
+            if (sw == true)
+            {
+                JogMove(TableAxisName.Y, false, true);
+                Thread.Sleep(1000);
+                JogStop(TableAxisName.Y);
+                Thread.Sleep(1000);
+            }
             StartLimit(TableAxisName.Y);
             while (LimitDone(TableAxisName.Y) == false)
             {
@@ -3297,6 +3314,14 @@ namespace ControlPlatformLib
 
         private void ThreadHomeZFunction()
         {
+            bool sw = GetCW(TableAxisName.Z);//正限位
+            if (sw == true)
+            {
+                JogMove(TableAxisName.Z, false, true);
+                Thread.Sleep(1000);
+                JogStop(TableAxisName.Z);
+                Thread.Sleep(1000);
+            }
             StartLimit(TableAxisName.Z);
             while (LimitDone(TableAxisName.Z) == false)
             {

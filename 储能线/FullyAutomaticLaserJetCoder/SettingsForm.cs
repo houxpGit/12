@@ -1,5 +1,5 @@
 ﻿using ControlPlatformLib;
-using FullyAutomaticLaserJetCoder.CCD;
+//using FullyAutomaticLaserJetCoder.CCD;
 using FullyAutomaticLaserJetCoder.MainTask;
 using System;
 using System.Collections.Generic;
@@ -315,8 +315,8 @@ namespace FullyAutomaticLaserJetCoder
 
           //  RunClass.Instance().Meth.Asix_one_Run("运动平台", "拍照1#点坐标", 2, 60000);
             // MainControls.RunClass.Meth.Asix_Two_Run("运动平台", "相机位置", 60000);
-            double X=  TableManage.TablePosItem("运动平台", "焊接1#点坐标").dPosX;
-          double Y = TableManage.TablePosItem("运动平台", "焊接1#点坐标").dPosY;
+            double X=  TableManage.TablePosItem("运动平台", "拍照1#点坐标").dPosX;
+          double Y = TableManage.TablePosItem("运动平台", "拍照1#点坐标").dPosY;
             Thread.Sleep(100);
 
             List<LocationCircle.ResultClass> resultCirclr;
@@ -338,7 +338,7 @@ namespace FullyAutomaticLaserJetCoder
           //double RunY = Y - DateSave.Instance().Production.Y_Setover + awd1;
 
             double RunX = X + DateSave.Instance().Production.X_Setover - awd;
-            double RunY = Y + DateSave.Instance().Production.Y_Setover- awd1;
+            double RunY = Y + DateSave.Instance().Production.Y_Setover -awd1;
             TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
                          RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
 
@@ -366,6 +366,7 @@ namespace FullyAutomaticLaserJetCoder
         {
             WeldFinishSta = "";
             IOManage.OUTPUT("脱机文件0触发").SetOutBit(true);
+            Thread.Sleep(300);
             IOManage.OUTPUT("开始焊接机").SetOutBit(true);
             Task Task = WeldFinish();
             while (true)
@@ -405,7 +406,7 @@ namespace FullyAutomaticLaserJetCoder
                         break;
                     }
                 }
-          
+                return;
             });
         }
 
@@ -513,22 +514,30 @@ namespace FullyAutomaticLaserJetCoder
             bool df = false;
             int needGetR = 1;
             int NeedCheckR = 1;
-            Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr);
+            bool CamerFinishi = Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr);
+            if (CamerFinishi == true)
+            {
+                double awd = resultCirclr[0].CenterPoint.X;
+                double awd1 = resultCirclr[0].CenterPoint.Y;
+                double awd112 = resultCirclr[0].Radius;
+
+                //double RunX=  X -DateSave.Instance().Production.X_Setover+ awd;
+                //double RunY = Y - DateSave.Instance().Production.Y_Setover + awd1;
+
+                double RunX = X + DateSave.Instance().Production.X_Setover - awd;
+                double RunY = Y + DateSave.Instance().Production.Y_Setover - awd1;
+                TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
+                             RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
+
+                TableManage.TableDriver("运动平台").AbsMove(TableAxisName.Y,
+                            RunY, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisYData.dSpeed);
+            }
+            else
+            {
+                MessageBox.Show("拍照失败");
+            }
         //    Program.form.TestVision(ref resultCirclr, df, needGetR, NeedCheckR, out err);
-            double awd = resultCirclr[0].CenterPoint.X;
-            double awd1 = resultCirclr[0].CenterPoint.Y;
-            double awd112 = resultCirclr[0].Radius;
-
-            //double RunX=  X -DateSave.Instance().Production.X_Setover+ awd;
-            //double RunY = Y - DateSave.Instance().Production.Y_Setover + awd1;
-
-            double RunX = X + DateSave.Instance().Production.X_Setover + awd;
-            double RunY = Y + DateSave.Instance().Production.Y_Setover + awd1;
-            TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
-                         RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
-
-            TableManage.TableDriver("运动平台").AbsMove(TableAxisName.Y,
-                        RunY, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisYData.dSpeed);
+         
         }
 
         private void 焊接2_Click(object sender, EventArgs e)
@@ -538,36 +547,40 @@ namespace FullyAutomaticLaserJetCoder
                 MainModule.FormMain.m_formAlarm.InsertAlarmMessage("请先回原点！");
                 return;
             }
-            RunClass.Instance().Meth.Asix_Line_Run("运动平台", "拍照1#点坐标", 60000);
+            RunClass.Instance().Meth.Asix_Line_Run("运动平台", "拍照2#点坐标", 60000);
             // MainControls.RunClass.Meth.Asix_Two_Run("运动平台", "拍照1#点坐标", 60000);
-            RunClass.Instance().Meth.Asix_one_Run("运动平台", "拍照1#点坐标", 2, 60000);
+            RunClass.Instance().Meth.Asix_one_Run("运动平台", "拍照2#点坐标", 2, 60000);
             // MainControls.RunClass.Meth.Asix_Two_Run("运动平台", "相机位置", 60000);
-            double X = TableManage.TablePosItem("运动平台", "拍照1#点坐标").dPosX;
-            double Y = TableManage.TablePosItem("运动平台", "拍照1#点坐标").dPosY;
+            double X = TableManage.TablePosItem("运动平台", "拍照2#点坐标").dPosX;
+            double Y = TableManage.TablePosItem("运动平台", "拍照2#点坐标").dPosY;
             Thread.Sleep(100);
 
             List<LocationCircle.ResultClass> resultCirclr;
             resultCirclr = new List<LocationCircle.ResultClass>();
-            string err = "";
-            bool df = false;
-            int needGetR = 2;
             int NeedCheckR = 1;
-            Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr);
-          //  Program.form.TestVision(ref resultCirclr, df, needGetR, NeedCheckR, out err);
-            double awd = resultCirclr[0].CenterPoint.X;
-            double awd1 = resultCirclr[0].CenterPoint.Y;
-            double awd112 = resultCirclr[0].Radius;
+            int needGetR = 2;  
+            bool CamerFinishi = Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr);
+            if (CamerFinishi == true)
+            {
+                double awd = resultCirclr[0].CenterPoint.X;
+                double awd1 = resultCirclr[0].CenterPoint.Y;
+                double awd112 = resultCirclr[0].Radius;
 
-            //double RunX=  X -DateSave.Instance().Production.X_Setover+ awd;
-            //double RunY = Y - DateSave.Instance().Production.Y_Setover + awd1;
+                //double RunX=  X -DateSave.Instance().Production.X_Setover+ awd;
+                //double RunY = Y - DateSave.Instance().Production.Y_Setover + awd1;
 
-            double RunX = X + DateSave.Instance().Production.X_Setover - awd;
-            double RunY = Y + DateSave.Instance().Production.Y_Setover - awd1;
-            TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
-                         RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
+                double RunX = X + DateSave.Instance().Production.X_Setover -awd;
+                double RunY = Y + DateSave.Instance().Production.Y_Setover - awd1;
+                TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
+                             RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
 
-            TableManage.TableDriver("运动平台").AbsMove(TableAxisName.Y,
-                        RunY, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisYData.dSpeed);
+                TableManage.TableDriver("运动平台").AbsMove(TableAxisName.Y,
+                            RunY, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisYData.dSpeed);
+            }
+            else
+            {
+                MessageBox.Show("拍照失败");
+            }
         }
 
         private void 焊接3_Click(object sender, EventArgs e)
@@ -589,24 +602,30 @@ namespace FullyAutomaticLaserJetCoder
             resultCirclr = new List<LocationCircle.ResultClass>();
             string err = "";
             bool df = false;
-            int needGetR = 1;
             int NeedCheckR = 1;
-            Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr); 
-           // Program.form.TestVision(ref resultCirclr, df, needGetR, NeedCheckR, out err);
-            double awd = resultCirclr[0].CenterPoint.X;
-            double awd1 = resultCirclr[0].CenterPoint.Y;
-            double awd112 = resultCirclr[0].Radius;
+            int needGetR = 1;
+            bool CamerFinishi = Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr);
+            if (CamerFinishi == true)
+            {
+                double awd = resultCirclr[0].CenterPoint.X;
+                double awd1 = resultCirclr[0].CenterPoint.Y;
+                double awd112 = resultCirclr[0].Radius;
 
-            //double RunX=  X -DateSave.Instance().Production.X_Setover+ awd;
-            //double RunY = Y - DateSave.Instance().Production.Y_Setover + awd1;
+                //double RunX=  X -DateSave.Instance().Production.X_Setover+ awd;
+                //double RunY = Y - DateSave.Instance().Production.Y_Setover + awd1;
 
-            double RunX = X + DateSave.Instance().Production.X_Setover - awd;
-            double RunY = Y + DateSave.Instance().Production.Y_Setover - awd1;
-            TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
-                         RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
+                double RunX = X + DateSave.Instance().Production.X_Setover - awd;
+                double RunY = Y + DateSave.Instance().Production.Y_Setover - awd1;
+                TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
+                             RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
 
-            TableManage.TableDriver("运动平台").AbsMove(TableAxisName.Y,
-                        RunY, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisYData.dSpeed);
+                TableManage.TableDriver("运动平台").AbsMove(TableAxisName.Y,
+                            RunY, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisYData.dSpeed);
+            }
+            else
+            {
+                MessageBox.Show("拍照失败");
+            }
         }
 
         private void 焊接4_Click(object sender, EventArgs e)
@@ -628,24 +647,30 @@ namespace FullyAutomaticLaserJetCoder
             resultCirclr = new List<LocationCircle.ResultClass>();
             string err = "";
             bool df = false;
-            int needGetR = 2;
             int NeedCheckR = 1;
-            Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr);
-            //Program.form.TestVision(ref resultCirclr, df, needGetR, NeedCheckR, out err);
-            double awd = resultCirclr[0].CenterPoint.X;
-            double awd1 = resultCirclr[0].CenterPoint.Y;
-            double awd112 = resultCirclr[0].Radius;
+            int needGetR = 2;
+            bool CamerFinishi = Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr);
+            if (CamerFinishi == true)
+            {
+                double awd = resultCirclr[0].CenterPoint.X;
+                double awd1 = resultCirclr[0].CenterPoint.Y;
+                double awd112 = resultCirclr[0].Radius;
 
-            //double RunX=  X -DateSave.Instance().Production.X_Setover+ awd;
-            //double RunY = Y - DateSave.Instance().Production.Y_Setover + awd1;
+                //double RunX=  X -DateSave.Instance().Production.X_Setover+ awd;
+                //double RunY = Y - DateSave.Instance().Production.Y_Setover + awd1;
 
-            double RunX = X + DateSave.Instance().Production.X_Setover - awd;
-            double RunY = Y + DateSave.Instance().Production.Y_Setover - awd1;
-            TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
-                         RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
+                double RunX = X + DateSave.Instance().Production.X_Setover - awd;
+                double RunY = Y + DateSave.Instance().Production.Y_Setover - awd1;
+                TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
+                             RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
 
-            TableManage.TableDriver("运动平台").AbsMove(TableAxisName.Y,
-                        RunY, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisYData.dSpeed);
+                TableManage.TableDriver("运动平台").AbsMove(TableAxisName.Y,
+                            RunY, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisYData.dSpeed);
+            }
+            else
+            {
+                MessageBox.Show("拍照失败");
+            }
         }
 
         private void 焊接5_Click(object sender, EventArgs e)
@@ -667,24 +692,30 @@ namespace FullyAutomaticLaserJetCoder
             resultCirclr = new List<LocationCircle.ResultClass>();
             string err = "";
             bool df = false;
-            int needGetR = 1;
             int NeedCheckR = 1;
-            Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr);
-           // Program.form.TestVision(ref resultCirclr, df, needGetR, NeedCheckR, out err);
-            double awd = resultCirclr[0].CenterPoint.X;
-            double awd1 = resultCirclr[0].CenterPoint.Y;
-            double awd112 = resultCirclr[0].Radius;
+            int needGetR = 1;
+            bool CamerFinishi = Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr);
+            if (CamerFinishi == true)
+            {
+                double awd = resultCirclr[0].CenterPoint.X;
+                double awd1 = resultCirclr[0].CenterPoint.Y;
+                double awd112 = resultCirclr[0].Radius;
 
-            //double RunX=  X -DateSave.Instance().Production.X_Setover+ awd;
-            //double RunY = Y - DateSave.Instance().Production.Y_Setover + awd1;
+                //double RunX=  X -DateSave.Instance().Production.X_Setover+ awd;
+                //double RunY = Y - DateSave.Instance().Production.Y_Setover + awd1;
 
-            double RunX = X + DateSave.Instance().Production.X_Setover - awd;
-            double RunY = Y + DateSave.Instance().Production.Y_Setover - awd1;
-            TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
-                         RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
+                double RunX = X + DateSave.Instance().Production.X_Setover - awd;
+                double RunY = Y + DateSave.Instance().Production.Y_Setover - awd1;
+                TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
+                             RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
 
-            TableManage.TableDriver("运动平台").AbsMove(TableAxisName.Y,
-                        RunY, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisYData.dSpeed);
+                TableManage.TableDriver("运动平台").AbsMove(TableAxisName.Y,
+                            RunY, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisYData.dSpeed);
+            }
+            else
+            {
+                MessageBox.Show("拍照失败");
+            }
         }
 
         private void 焊接6_Click(object sender, EventArgs e)
@@ -706,24 +737,30 @@ namespace FullyAutomaticLaserJetCoder
             resultCirclr = new List<LocationCircle.ResultClass>();
             string err = "";
             bool df = false;
-            int needGetR = 2;
             int NeedCheckR = 1;
-          //  Program.form.TestVision(ref resultCirclr, df, needGetR, NeedCheckR, out err);
-            Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr);
-            double awd = resultCirclr[0].CenterPoint.X;
-            double awd1 = resultCirclr[0].CenterPoint.Y;
-            double awd112 = resultCirclr[0].Radius;
+            int needGetR = 2;
+            bool CamerFinishi = Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr);
+            if (CamerFinishi == true)
+            {
+                double awd = resultCirclr[0].CenterPoint.X;
+                double awd1 = resultCirclr[0].CenterPoint.Y;
+                double awd112 = resultCirclr[0].Radius;
 
-            //double RunX=  X -DateSave.Instance().Production.X_Setover+ awd;
-            //double RunY = Y - DateSave.Instance().Production.Y_Setover + awd1;
+                //double RunX=  X -DateSave.Instance().Production.X_Setover+ awd;
+                //double RunY = Y - DateSave.Instance().Production.Y_Setover + awd1;
 
-            double RunX = X + DateSave.Instance().Production.X_Setover - awd;
-            double RunY = Y + DateSave.Instance().Production.Y_Setover - awd1;
-            TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
-                         RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
+                double RunX = X + DateSave.Instance().Production.X_Setover - awd;
+                double RunY = Y + DateSave.Instance().Production.Y_Setover -awd1;
+                TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
+                             RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
 
-            TableManage.TableDriver("运动平台").AbsMove(TableAxisName.Y,
-                        RunY, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisYData.dSpeed);
+                TableManage.TableDriver("运动平台").AbsMove(TableAxisName.Y,
+                            RunY, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisYData.dSpeed);
+            }
+            else
+            {
+                MessageBox.Show("拍照失败");
+            }
         }
 
         private void 焊接7_Click(object sender, EventArgs e)
@@ -745,24 +782,30 @@ namespace FullyAutomaticLaserJetCoder
             resultCirclr = new List<LocationCircle.ResultClass>();
             string err = "";
             bool df = false;
-            int needGetR = 1;
             int NeedCheckR = 1;
-            Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr);
-            //    Program.form.TestVision(ref resultCirclr, df, needGetR, NeedCheckR, out err);
-            double awd = resultCirclr[0].CenterPoint.X;
-            double awd1 = resultCirclr[0].CenterPoint.Y;
-            double awd112 = resultCirclr[0].Radius;
+            int needGetR = 1;
+            bool CamerFinishi = Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr);
+            if (CamerFinishi == true)
+            {
+                double awd = resultCirclr[0].CenterPoint.X;
+                double awd1 = resultCirclr[0].CenterPoint.Y;
+                double awd112 = resultCirclr[0].Radius;
 
-            //double RunX=  X -DateSave.Instance().Production.X_Setover+ awd;
-            //double RunY = Y - DateSave.Instance().Production.Y_Setover + awd1;
+                //double RunX=  X -DateSave.Instance().Production.X_Setover+ awd;
+                //double RunY = Y - DateSave.Instance().Production.Y_Setover + awd1;
 
-            double RunX = X + DateSave.Instance().Production.X_Setover - awd;
-            double RunY = Y + DateSave.Instance().Production.Y_Setover - awd1;
-            TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
-                         RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
+                double RunX = X + DateSave.Instance().Production.X_Setover - awd;
+                double RunY = Y + DateSave.Instance().Production.Y_Setover - awd1;
+                TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
+                             RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
 
-            TableManage.TableDriver("运动平台").AbsMove(TableAxisName.Y,
-                        RunY, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisYData.dSpeed);
+                TableManage.TableDriver("运动平台").AbsMove(TableAxisName.Y,
+                            RunY, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisYData.dSpeed);
+            }
+            else
+            {
+                MessageBox.Show("拍照失败");
+            }
         }
 
         private void 焊接8_Click(object sender, EventArgs e)
@@ -784,24 +827,30 @@ namespace FullyAutomaticLaserJetCoder
             resultCirclr = new List<LocationCircle.ResultClass>();
             string err = "";
             bool df = false;
-            int needGetR = 1;
             int NeedCheckR = 1;
-            Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr);
-            //    Program.form.TestVision(ref resultCirclr, df, needGetR, NeedCheckR, out err);
-            double awd = resultCirclr[0].CenterPoint.X;
-            double awd1 = resultCirclr[0].CenterPoint.Y;
-            double awd112 = resultCirclr[0].Radius;
+            int needGetR = 2;
+            bool CamerFinishi = Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr);
+            if (CamerFinishi == true)
+            {
+                double awd = resultCirclr[0].CenterPoint.X;
+                double awd1 = resultCirclr[0].CenterPoint.Y;
+                double awd112 = resultCirclr[0].Radius;
 
-            //double RunX=  X -DateSave.Instance().Production.X_Setover+ awd;
-            //double RunY = Y - DateSave.Instance().Production.Y_Setover + awd1;
+                //double RunX=  X -DateSave.Instance().Production.X_Setover+ awd;
+                //double RunY = Y - DateSave.Instance().Production.Y_Setover + awd1;
 
-            double RunX = X + DateSave.Instance().Production.X_Setover - awd;
-            double RunY = Y + DateSave.Instance().Production.Y_Setover - awd1;
-            TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
-                         RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
+                double RunX = X + DateSave.Instance().Production.X_Setover - awd;
+                double RunY = Y + DateSave.Instance().Production.Y_Setover - awd1;
+                TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
+                             RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
 
-            TableManage.TableDriver("运动平台").AbsMove(TableAxisName.Y,
-                        RunY, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisYData.dSpeed);
+                TableManage.TableDriver("运动平台").AbsMove(TableAxisName.Y,
+                            RunY, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisYData.dSpeed);
+            }
+            else
+            {
+                MessageBox.Show("拍照失败");
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -810,8 +859,8 @@ namespace FullyAutomaticLaserJetCoder
             double CurrentY = TableManage.TableDriver("运动平台").CurrentY;
            // double X = TableManage.TablePosItem("运动平台", "拍照1#点坐标").dPosX;
           //  double Y = TableManage.TablePosItem("运动平台", "拍照1#点坐标").dPosY;
-            double RunX = CurrentX-DateSave.Instance().Production.X_Setover;
-            double RunY = CurrentY - DateSave.Instance().Production.Y_Setover;
+            double RunX = CurrentX+DateSave.Instance().Production.X_Setover;
+            double RunY = CurrentY +DateSave.Instance().Production.Y_Setover;
             TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
                          RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
 
@@ -846,24 +895,30 @@ namespace FullyAutomaticLaserJetCoder
             resultCirclr = new List<LocationCircle.ResultClass>();
             string err = "";
             bool df = false;
-            int needGetR = 1;
             int NeedCheckR = 1;
-            Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr);
-            //    Program.form.TestVision(ref resultCirclr, df, needGetR, NeedCheckR, out err);
-            double awd = resultCirclr[0].CenterPoint.X;
-            double awd1 = resultCirclr[0].CenterPoint.Y;
-            double awd112 = resultCirclr[0].Radius;
+            int needGetR = 1;
+            bool CamerFinishi = Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr);
+            if (CamerFinishi == true)
+            {
+                double awd = resultCirclr[0].CenterPoint.X;
+                double awd1 = resultCirclr[0].CenterPoint.Y;
+                double awd112 = resultCirclr[0].Radius;
 
-            //double RunX=  X -DateSave.Instance().Production.X_Setover+ awd;
-            //double RunY = Y - DateSave.Instance().Production.Y_Setover + awd1;
+                //double RunX=  X -DateSave.Instance().Production.X_Setover+ awd;
+                //double RunY = Y - DateSave.Instance().Production.Y_Setover + awd1;
 
-            double RunX = X + DateSave.Instance().Production.X_Setover - awd;
-            double RunY = Y + DateSave.Instance().Production.Y_Setover - awd1;
-            TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
-                         RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
+                double RunX = X + DateSave.Instance().Production.X_Setover - awd;
+                double RunY = Y + DateSave.Instance().Production.Y_Setover - awd1;
+                TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
+                             RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
 
-            TableManage.TableDriver("运动平台").AbsMove(TableAxisName.Y,
-                        RunY, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisYData.dSpeed);
+                TableManage.TableDriver("运动平台").AbsMove(TableAxisName.Y,
+                            RunY, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisYData.dSpeed);
+            }
+            else
+            {
+                MessageBox.Show("拍照失败");
+            }
         }
 
         private void 焊接10_Click(object sender, EventArgs e)
@@ -885,24 +940,30 @@ namespace FullyAutomaticLaserJetCoder
             resultCirclr = new List<LocationCircle.ResultClass>();
             string err = "";
             bool df = false;
-            int needGetR = 1;
             int NeedCheckR = 1;
-            Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr);
-            //    Program.form.TestVision(ref resultCirclr, df, needGetR, NeedCheckR, out err);
-            double awd = resultCirclr[0].CenterPoint.X;
-            double awd1 = resultCirclr[0].CenterPoint.Y;
-            double awd112 = resultCirclr[0].Radius;
+            int needGetR = 2;
+            bool CamerFinishi = Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr);
+            if (CamerFinishi == true)
+            {
+                double awd = resultCirclr[0].CenterPoint.X;
+                double awd1 = resultCirclr[0].CenterPoint.Y;
+                double awd112 = resultCirclr[0].Radius;
 
-            //double RunX=  X -DateSave.Instance().Production.X_Setover+ awd;
-            //double RunY = Y - DateSave.Instance().Production.Y_Setover + awd1;
+                //double RunX=  X -DateSave.Instance().Production.X_Setover+ awd;
+                //double RunY = Y - DateSave.Instance().Production.Y_Setover + awd1;
 
-            double RunX = X + DateSave.Instance().Production.X_Setover - awd;
-            double RunY = Y + DateSave.Instance().Production.Y_Setover - awd1;
-            TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
-                         RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
+                double RunX = X + DateSave.Instance().Production.X_Setover - awd;
+                double RunY = Y + DateSave.Instance().Production.Y_Setover - awd1;
+                TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
+                             RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
 
-            TableManage.TableDriver("运动平台").AbsMove(TableAxisName.Y,
-                        RunY, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisYData.dSpeed);
+                TableManage.TableDriver("运动平台").AbsMove(TableAxisName.Y,
+                            RunY, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisYData.dSpeed);
+            }
+            else
+            {
+                MessageBox.Show("拍照失败");
+            }
         }
 
         private void 焊接11_Click(object sender, EventArgs e)
@@ -924,24 +985,30 @@ namespace FullyAutomaticLaserJetCoder
             resultCirclr = new List<LocationCircle.ResultClass>();
             string err = "";
             bool df = false;
-            int needGetR = 1;
             int NeedCheckR = 1;
-            Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr);
-            //    Program.form.TestVision(ref resultCirclr, df, needGetR, NeedCheckR, out err);
-            double awd = resultCirclr[0].CenterPoint.X;
-            double awd1 = resultCirclr[0].CenterPoint.Y;
-            double awd112 = resultCirclr[0].Radius;
+            int needGetR = 1;
+            bool CamerFinishi = Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr);
+            if (CamerFinishi == true)
+            {
+                double awd = resultCirclr[0].CenterPoint.X;
+                double awd1 = resultCirclr[0].CenterPoint.Y;
+                double awd112 = resultCirclr[0].Radius;
 
-            //double RunX=  X -DateSave.Instance().Production.X_Setover+ awd;
-            //double RunY = Y - DateSave.Instance().Production.Y_Setover + awd1;
+                //double RunX=  X -DateSave.Instance().Production.X_Setover+ awd;
+                //double RunY = Y - DateSave.Instance().Production.Y_Setover + awd1;
 
-            double RunX = X + DateSave.Instance().Production.X_Setover - awd;
-            double RunY = Y + DateSave.Instance().Production.Y_Setover - awd1;
-            TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
-                         RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
+                double RunX = X + DateSave.Instance().Production.X_Setover -awd;
+                double RunY = Y + DateSave.Instance().Production.Y_Setover - awd1;
+                TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
+                             RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
 
-            TableManage.TableDriver("运动平台").AbsMove(TableAxisName.Y,
-                        RunY, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisYData.dSpeed);
+                TableManage.TableDriver("运动平台").AbsMove(TableAxisName.Y,
+                            RunY, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisYData.dSpeed);
+            }
+            else
+            {
+                MessageBox.Show("拍照失败");
+            }
         }
 
         private void 焊接12_Click(object sender, EventArgs e)
@@ -963,24 +1030,30 @@ namespace FullyAutomaticLaserJetCoder
             resultCirclr = new List<LocationCircle.ResultClass>();
             string err = "";
             bool df = false;
-            int needGetR = 1;
             int NeedCheckR = 1;
-            Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr);
-            //    Program.form.TestVision(ref resultCirclr, df, needGetR, NeedCheckR, out err);
-            double awd = resultCirclr[0].CenterPoint.X;
-            double awd1 = resultCirclr[0].CenterPoint.Y;
-            double awd112 = resultCirclr[0].Radius;
+            int needGetR = 2;
+            bool CamerFinishi = Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr);
+            if (CamerFinishi == true)
+            {
+                double awd = resultCirclr[0].CenterPoint.X;
+                double awd1 = resultCirclr[0].CenterPoint.Y;
+                double awd112 = resultCirclr[0].Radius;
 
-            //double RunX=  X -DateSave.Instance().Production.X_Setover+ awd;
-            //double RunY = Y - DateSave.Instance().Production.Y_Setover + awd1;
+                //double RunX=  X -DateSave.Instance().Production.X_Setover+ awd;
+                //double RunY = Y - DateSave.Instance().Production.Y_Setover + awd1;
 
-            double RunX = X + DateSave.Instance().Production.X_Setover - awd;
-            double RunY = Y + DateSave.Instance().Production.Y_Setover - awd1;
-            TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
-                         RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
+                double RunX = X + DateSave.Instance().Production.X_Setover - awd;
+                double RunY = Y + DateSave.Instance().Production.Y_Setover - awd1;
+                TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
+                             RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
 
-            TableManage.TableDriver("运动平台").AbsMove(TableAxisName.Y,
-                        RunY, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisYData.dSpeed);
+                TableManage.TableDriver("运动平台").AbsMove(TableAxisName.Y,
+                            RunY, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisYData.dSpeed);
+            }
+            else
+            {
+                MessageBox.Show("拍照失败");
+            }
         }
 
         private void 焊接13_Click(object sender, EventArgs e)
@@ -1002,24 +1075,30 @@ namespace FullyAutomaticLaserJetCoder
             resultCirclr = new List<LocationCircle.ResultClass>();
             string err = "";
             bool df = false;
-            int needGetR = 1;
             int NeedCheckR = 1;
-            Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr);
-            //    Program.form.TestVision(ref resultCirclr, df, needGetR, NeedCheckR, out err);
-            double awd = resultCirclr[0].CenterPoint.X;
-            double awd1 = resultCirclr[0].CenterPoint.Y;
-            double awd112 = resultCirclr[0].Radius;
+            int needGetR = 1;
+            bool CamerFinishi = Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr);
+            if (CamerFinishi == true)
+            {
+                double awd = resultCirclr[0].CenterPoint.X;
+                double awd1 = resultCirclr[0].CenterPoint.Y;
+                double awd112 = resultCirclr[0].Radius;
 
-            //double RunX=  X -DateSave.Instance().Production.X_Setover+ awd;
-            //double RunY = Y - DateSave.Instance().Production.Y_Setover + awd1;
+                //double RunX=  X -DateSave.Instance().Production.X_Setover+ awd;
+                //double RunY = Y - DateSave.Instance().Production.Y_Setover + awd1;
 
-            double RunX = X + DateSave.Instance().Production.X_Setover - awd;
-            double RunY = Y + DateSave.Instance().Production.Y_Setover - awd1;
-            TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
-                         RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
+                double RunX = X + DateSave.Instance().Production.X_Setover - awd;
+                double RunY = Y + DateSave.Instance().Production.Y_Setover - awd1;
+                TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
+                             RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
 
-            TableManage.TableDriver("运动平台").AbsMove(TableAxisName.Y,
-                        RunY, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisYData.dSpeed);
+                TableManage.TableDriver("运动平台").AbsMove(TableAxisName.Y,
+                            RunY, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisYData.dSpeed);
+            }
+            else
+            {
+                MessageBox.Show("拍照失败");
+            }
         }
 
         private void 焊接14_Click(object sender, EventArgs e)
@@ -1041,24 +1120,30 @@ namespace FullyAutomaticLaserJetCoder
             resultCirclr = new List<LocationCircle.ResultClass>();
             string err = "";
             bool df = false;
-            int needGetR = 1;
             int NeedCheckR = 1;
-            Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr);
-            //    Program.form.TestVision(ref resultCirclr, df, needGetR, NeedCheckR, out err);
-            double awd = resultCirclr[0].CenterPoint.X;
-            double awd1 = resultCirclr[0].CenterPoint.Y;
-            double awd112 = resultCirclr[0].Radius;
+            int needGetR = 2;
+            bool CamerFinishi = Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr);
+            if (CamerFinishi == true)
+            {
+                double awd = resultCirclr[0].CenterPoint.X;
+                double awd1 = resultCirclr[0].CenterPoint.Y;
+                double awd112 = resultCirclr[0].Radius;
 
-            //double RunX=  X -DateSave.Instance().Production.X_Setover+ awd;
-            //double RunY = Y - DateSave.Instance().Production.Y_Setover + awd1;
+                //double RunX=  X -DateSave.Instance().Production.X_Setover+ awd;
+                //double RunY = Y - DateSave.Instance().Production.Y_Setover + awd1;
 
-            double RunX = X + DateSave.Instance().Production.X_Setover - awd;
-            double RunY = Y + DateSave.Instance().Production.Y_Setover - awd1;
-            TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
-                         RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
+                double RunX = X + DateSave.Instance().Production.X_Setover - awd;
+                double RunY = Y + DateSave.Instance().Production.Y_Setover -awd1;
+                TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
+                             RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
 
-            TableManage.TableDriver("运动平台").AbsMove(TableAxisName.Y,
-                        RunY, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisYData.dSpeed);
+                TableManage.TableDriver("运动平台").AbsMove(TableAxisName.Y,
+                            RunY, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisYData.dSpeed);
+            }
+            else
+            {
+                MessageBox.Show("拍照失败");
+            }
         }
 
         private void 焊接15_Click(object sender, EventArgs e)
@@ -1080,26 +1165,30 @@ namespace FullyAutomaticLaserJetCoder
             resultCirclr = new List<LocationCircle.ResultClass>();
             string err = "";
             bool df = false;
-            int needGetR = 1;
             int NeedCheckR = 1;
-            Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr);
-            //    Program.form.TestVision(ref resultCirclr, df, needGetR, NeedCheckR, out err);
-            double awd = resultCirclr[0].CenterPoint.X;
-            double awd1 = resultCirclr[0].CenterPoint.Y;
-            double awd112 = resultCirclr[0].Radius;
+            int needGetR = 1;
+            bool CamerFinishi = Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr);
+            if (CamerFinishi == true)
+            {
+                double awd = resultCirclr[0].CenterPoint.X;
+                double awd1 = resultCirclr[0].CenterPoint.Y;
+                double awd112 = resultCirclr[0].Radius;
 
-            double RunX = X + DateSave.Instance().Production.X_Setover + awd;
-            double RunY = Y + DateSave.Instance().Production.Y_Setover + awd1;
+                //double RunX=  X -DateSave.Instance().Production.X_Setover+ awd;
+                //double RunY = Y - DateSave.Instance().Production.Y_Setover + awd1;
 
-            //double RunX = X - DateSave.Instance().Production.X_Setover - awd;
-            //double RunY = Y - DateSave.Instance().Production.Y_Setover - awd1;
-            //double RunX = X - DateSave.Instance().Production.X_Setover ;
-            //double RunY = Y - DateSave.Instance().Production.Y_Setover ;
-            TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
-                         RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
+                double RunX = X + DateSave.Instance().Production.X_Setover - awd;
+                double RunY = Y + DateSave.Instance().Production.Y_Setover - awd1;
+                TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
+                             RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
 
-            TableManage.TableDriver("运动平台").AbsMove(TableAxisName.Y,
-                        RunY, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisYData.dSpeed);
+                TableManage.TableDriver("运动平台").AbsMove(TableAxisName.Y,
+                            RunY, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisYData.dSpeed);
+            }
+            else
+            {
+                MessageBox.Show("拍照失败");
+            }
         }
 
         private void 焊接16_Click(object sender, EventArgs e)
@@ -1121,64 +1210,69 @@ namespace FullyAutomaticLaserJetCoder
             resultCirclr = new List<LocationCircle.ResultClass>();
             string err = "";
             bool df = false;
-            int needGetR = 1;
             int NeedCheckR = 1;
-            Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr);
-            //    Program.form.TestVision(ref resultCirclr, df, needGetR, NeedCheckR, out err);
-            double awd = resultCirclr[0].CenterPoint.X;
-            double awd1 = resultCirclr[0].CenterPoint.Y;
-            double awd112 = resultCirclr[0].Radius;
-
-            double RunX = X + DateSave.Instance().Production.X_Setover + awd;
-            double RunY = Y + DateSave.Instance().Production.Y_Setover + awd1;
-
-            //double RunX = X - DateSave.Instance().Production.X_Setover - awd;
-            //double RunY = Y - DateSave.Instance().Production.Y_Setover - awd1;
-
-            //double RunX = X - DateSave.Instance().Production.X_Setover ;
-            //double RunY = Y - DateSave.Instance().Production.Y_Setover;
-            TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
-                         RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
-
-            TableManage.TableDriver("运动平台").AbsMove(TableAxisName.Y,
-                        RunY, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisYData.dSpeed);
-        }
-        Thread sss;
-        private void button6_Click(object sender, EventArgs e)
-        {
-             sss = new Thread(dsds);
-            sss.IsBackground = true;
-            sss.Start();
-        }
-
-        public void dsds()
-        {
-            int coun = 1;
-            while (true)
+            int needGetR = 2;
+            bool CamerFinishi = Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr);
+            if (CamerFinishi == true)
             {
-                try
-                {
-                    if (coun>16)
-                    {
-                        coun = 1;
-                    }
-                    RunClass.Instance().Meth.Asix_Line_Run("运动平台", "焊接" + coun + "#点坐标", 60000);
-                    Thread.Sleep(1000);
-                    coun++;
-                }
-                catch
-                {
-                    coun = 1;
-                }
-             
-            
+                double awd = resultCirclr[0].CenterPoint.X;
+                double awd1 = resultCirclr[0].CenterPoint.Y;
+                double awd112 = resultCirclr[0].Radius;
+
+                //double RunX=  X -DateSave.Instance().Production.X_Setover+ awd;
+                //double RunY = Y - DateSave.Instance().Production.Y_Setover + awd1;
+
+                double RunX = X + DateSave.Instance().Production.X_Setover - awd;
+                double RunY = Y + DateSave.Instance().Production.Y_Setover -awd1;
+                TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
+                             RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
+
+                TableManage.TableDriver("运动平台").AbsMove(TableAxisName.Y,
+                            RunY, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisYData.dSpeed);
+            }
+            else
+            {
+                MessageBox.Show("拍照失败");
             }
         }
+        //Thread sss;
+        //private void button6_Click(object sender, EventArgs e)
+        //{
+        //     sss = new Thread(dsds);
+        //    sss.IsBackground = true;
+        //    sss.Start();
+        //}
 
-        private void button7_Click(object sender, EventArgs e)
-        {
-            sss.Abort();
-        }
+        //public void dsds()
+        //{
+        //    int coun = 1;
+        //    while (true)
+        //    {
+        //        try
+        //        {
+        //            if (coun>16)
+        //            {
+        //                coun = 1;
+        //            }
+        //            RunClass.Instance().Meth.Asix_Line_Run("运动平台", "焊接" + coun + "#点坐标", 60000);
+        //            Thread.Sleep(1000);
+        //            coun++;
+        //        }
+        //        catch
+        //        {
+        //            coun = 1;
+        //        }
+             
+            
+        //    }
+        //}
+
+        //private void button7_Click(object sender, EventArgs e)
+        //{
+        //    sss.Abort();
+        //}
+
+
         //private void button2_Click(object sender, EventArgs e)
         //{
         //    MainControls.RunClass.Meth.Asix_Line_Run("运动平台", "拍照1#点坐标", 60000);

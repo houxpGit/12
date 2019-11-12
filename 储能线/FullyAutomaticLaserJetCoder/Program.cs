@@ -1,5 +1,5 @@
 ﻿using ControlPlatformLib;
-using FullyAutomaticLaserJetCoder.CCD;
+//using FullyAutomaticLaserJetCoder.CCD;
 using FullyAutomaticLaserJetCoder.MainTask;
 //using LocationCircle;
 using System;
@@ -25,7 +25,7 @@ namespace FullyAutomaticLaserJetCoder
         public static bool bTransBlankOK;
         public static bool bCanTransfer;
         public static bool bNeedBlank;
-        public static Queue<CCDStationA> ccdStationA;
+     //   public static Queue<CCDStationA> ccdStationA;
         public static Queue<bool> resultQueue;
         public static int num = 0;
         public static double dLaserToMarkX = 0;
@@ -98,7 +98,7 @@ namespace FullyAutomaticLaserJetCoder
                       
                  //   LocationCircle.Setting form = new Setting();
                    // form.TopLevel = false;
-                    ccdStationA = new Queue<CCDStationA>();
+                    //ccdStationA = new Queue<CCDStationA>();
                     resultQueue=new Queue<bool>();
                 //    CCD.CCDClientManage.Load();
                     stratForm = new StartForm();

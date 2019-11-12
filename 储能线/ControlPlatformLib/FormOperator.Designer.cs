@@ -56,6 +56,8 @@
             this.buttonHome.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonHome.UseVisualStyleBackColor = false;
             this.buttonHome.Click += new System.EventHandler(this.buttonHome_Click);
+            this.buttonHome.MouseDown += new System.Windows.Forms.MouseEventHandler(this.buttonHome_MouseDown);
+            this.buttonHome.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonHome_MouseUp);
             // 
             // imageList1
             // 

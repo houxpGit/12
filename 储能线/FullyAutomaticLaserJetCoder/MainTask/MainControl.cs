@@ -45,7 +45,7 @@ namespace FullyAutomaticLaserJetCoder.MainTask
         public MainControl(string name, TaskGroup taskGroup) : base(name, taskGroup)
         {
             Socket_server.Instance().open();
-               Loaddate();
+            Loaddate();
             ctTimer = new WorldGeneralLib.HiPerfTimer();
         }
         public int RunCount = 1;
@@ -58,6 +58,8 @@ namespace FullyAutomaticLaserJetCoder.MainTask
         {
             DateSave.DateSav = DateSave.Instance().LoadObj();
             DateSave.Instance().Production.Empty_run = false;
+            DateSave.Instance().Production.IsStop = false;
+            DateSave.Instance().Production.StationMaterial = false;
         }
         public enum flowCharNew
         {
@@ -80,11 +82,24 @@ namespace FullyAutomaticLaserJetCoder.MainTask
             排料任务,
             MES过站任务,
             排料,
+
+
+            焊接进料流程,
+            焊接进料流程完成检测,
+            焊接前流程,
+            焊接前流程完成检测,
+            焊接中流程,
+            焊接中流程完成检测,
+            焊接后流程,
+            焊接后流程完成检测,
+            焊接排料流程,
+            焊接排料流程完成检测,
             完成,
         }
      
         int weldCount = 1;
         DateTime starttime;
+        public bool StationMaterial = false;//工位有无料标志位
         //下料移栽
         public override void Process()
         {
@@ -119,9 +134,156 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                                 m_taskGroup.AddRunMessage("打标任务0，任务开始。");
                                 taskInfo.bTaskOnGoing = true;
                                 taskInfo.iTaskStep = 8;
+                                Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[IO输出]," + "任务开始");
                                 //taskInfo.iTaskStep = (int)flowCharNew.与线体PLC对接进料信号;
                             }
-                            break;                   
+                            break;                                                                          
+                        case (int)flowCharNew.焊接进料流程:
+                            if (RunClass.Instance().StartRun == false && DateSave.Instance().Production.StationMaterial == false)
+                            {
+                                DateSave.Instance().Production.StationMaterial = true;
+                                Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[IO输出]," + "焊接进料流程");
+                                starttime = DateTime.Now;
+                                RunClass.Instance().RunClass_IsFinish = false;
+                                RunClass.Instance().runTask(ReadstfPath + "\\" + DateSave.Instance().Production.ModelNo + "\\" + "焊接进料流程.csv");
+                                m_taskGroup.AddRunMessage("焊接流程，焊接进料流程。");
+                                taskInfo.iTaskStep = (int)flowCharNew.焊接进料流程完成检测;
+                            }
+                            else
+                            {
+                                taskInfo.iTaskStep = (int)flowCharNew.焊接前流程;
+
+                            }
+                          //  taskInfo.iTaskStep = 9;
+                       
+                            break;
+                        case (int)flowCharNew.焊接进料流程完成检测:
+                            if (RunClass.Instance().RunClass_IsFinish == true)
+                            {
+                                if (RunClass.Instance().Run_OneCase.IsAlive == true)
+                                {
+                                    RunClass.Instance().Run_OneCase.Abort();
+                                }
+                                Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[IO输出]," + "焊接进料流程完成");
+                                m_taskGroup.AddRunMessage("焊接流程，焊接进料流程完成。");
+                                taskInfo.iTaskStep = (int)flowCharNew.焊接前流程;
+                            }
+                         //   taskInfo.iTaskStep = (int)flowCharNew.焊接进料流程完成检测;
+                            break;
+
+                        case (int)flowCharNew.焊接前流程:
+                            if (RunClass.Instance().StartRun == false)
+                            {
+                                Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[IO输出]," + "焊接前流程");
+                                starttime = DateTime.Now;
+                                RunClass.Instance().RunClass_IsFinish = false;
+                                RunClass.Instance().runTask(ReadstfPath + "\\" + DateSave.Instance().Production.ModelNo + "\\" + "焊接前流程.csv");
+                                m_taskGroup.AddRunMessage("焊接流程，焊接前流程。");
+                            }
+
+                         //   taskInfo.iTaskStep = 9;
+                            taskInfo.iTaskStep = (int)flowCharNew.焊接前流程完成检测;
+                            break;
+                        case (int)flowCharNew.焊接前流程完成检测:
+                            if (RunClass.Instance().RunClass_IsFinish == true)
+                            {
+                                if (RunClass.Instance().Run_OneCase.IsAlive == true)
+                                {
+                                    RunClass.Instance().Run_OneCase.Abort();
+                                }
+                                Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[IO输出]," + "焊接前流程完成");
+                                m_taskGroup.AddRunMessage("焊接流程，焊接前流程完成。");
+                                taskInfo.iTaskStep = (int)flowCharNew.焊接中流程;
+                            }
+                        //    taskInfo.iTaskStep = (int)flowCharNew.焊接前流程完成检测;
+                            break;
+                        case (int)flowCharNew.焊接中流程:
+                            if (DateSave.Instance().Production.LeftRun == true)
+                            {
+
+                            }
+                            else
+                            {
+
+                                if (RunClass.Instance().StartRun == false)
+                                {
+                                    DateSave.Instance().Production.RightRun = true;
+                                    RunClass.Instance().RunClass_IsFinish = false;
+                                    RunClass.Instance().runTask(ReadstfPath + "\\" + DateSave.Instance().Production.ModelNo + "\\" + "焊接流程.csv");
+                                    m_taskGroup.AddRunMessage("焊接流程，焊接流程。");
+                                }
+                                taskInfo.iTaskStep = (int)flowCharNew.焊接中流程完成检测;
+                            }
+                  
+                            break;
+
+                        case (int)flowCharNew.焊接中流程完成检测:
+                            if (RunClass.Instance().RunClass_IsFinish == true)
+                            {
+                                if (RunClass.Instance().Run_OneCase.IsAlive == true)
+                                {
+                                    RunClass.Instance().Run_OneCase.Abort();
+                                }
+                                m_taskGroup.AddRunMessage("焊接流程，焊接前流程完成。");
+                                taskInfo.iTaskStep = (int)flowCharNew.焊接后流程;
+                            }
+                          //  taskInfo.iTaskStep = (int)flowCharNew.焊接中流程完成检测;
+                            break;
+
+                        case (int)flowCharNew.焊接后流程:
+                            if (RunClass.Instance().StartRun == false)
+                            {
+                                RunClass.Instance().RunClass_IsFinish = false;
+                                RunClass.Instance().runTask(ReadstfPath + "\\" + DateSave.Instance().Production.ModelNo + "\\" + "焊接后流程.csv");
+                                m_taskGroup.AddRunMessage("焊接流程，焊接后流程。");
+                            }
+                            taskInfo.iTaskStep = (int)flowCharNew.焊接后流程完成检测;
+
+                            break;
+
+                        case (int)flowCharNew.焊接后流程完成检测:
+                            if (RunClass.Instance().RunClass_IsFinish == true)
+                            {
+                                if (RunClass.Instance().Run_OneCase.IsAlive == true)
+                                {
+                                    RunClass.Instance().Run_OneCase.Abort();
+                                }
+                                m_taskGroup.AddRunMessage("焊接流程，焊接后流程完成检测。");
+                                taskInfo.iTaskStep = (int)flowCharNew.焊接排料流程;
+                            }
+                          //  taskInfo.iTaskStep = (int)flowCharNew.焊接后流程完成检测;
+                            break;
+
+                        case (int)flowCharNew.焊接排料流程:
+                            if (RunClass.Instance().StartRun == false)
+                            {
+                                RunClass.Instance().RunClass_IsFinish = false;
+                                RunClass.Instance().runTask(ReadstfPath + "\\" + DateSave.Instance().Production.ModelNo + "\\" + "焊接排料流程.csv");
+                                m_taskGroup.AddRunMessage("焊接流程，焊接排料流程。");
+                            }
+                            taskInfo.iTaskStep = (int)flowCharNew.焊接排料流程完成检测;
+
+
+                            break;
+
+                        case (int)flowCharNew.焊接排料流程完成检测:
+                            if (RunClass.Instance().RunClass_IsFinish == true)
+                            {
+                                DateTime endtime = DateTime.Now;
+                                TimeSpan spantime = endtime - starttime;
+                                DateSave.Instance().Production.CTtime = spantime.TotalSeconds.ToString();
+                                DateSave.Instance().Production.OK_date++;
+                                DateSave.Instance().Production.Current_TIME++;
+                                if (RunClass.Instance().Run_OneCase.IsAlive == true)
+                                {
+                                    RunClass.Instance().Run_OneCase.Abort();
+                                }
+                                m_taskGroup.AddRunMessage("焊接流程，焊接排料流程完成检测。");
+                                taskInfo.iTaskStep = (int)flowCharNew.焊接进料流程;
+                                DateSave.Instance().Production.StationMaterial = false;
+                            }
+                            //  taskInfo.iTaskStep = (int)flowCharNew.焊接排料流程完成检测;
+                            break;
                         case 8:
                             if (RunClass.Instance().StartRun == false)
                             {

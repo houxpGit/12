@@ -54,7 +54,7 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     sta = false;
                     break;
                 }
-                if (IsStop == true)
+                if (DateSave.Instance().Production.IsStop == true)
                 {
                     break;
                 }
@@ -104,7 +104,7 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     sta = true;
                     break;
                 }
-                if (IsStop == true)
+                if (DateSave.Instance().Production.IsStop == true)
                 {
                     sta = true;
                     break;
@@ -187,7 +187,7 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     sta = false;
                     break;
                 }
-                if (IsStop == true)
+                if (DateSave.Instance().Production.IsStop == true)
                 {
                     sta = true;
                     break;
@@ -225,7 +225,7 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     sta = false;
                     break;
                 }
-                if (IsStop == true)
+                if (DateSave.Instance().Production.IsStop == true)
                 {
                     sta = true;
                     //  sta = true;
@@ -285,7 +285,7 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     sta = false;
                     break;
                 }
-                if (IsStop == true)
+                if (DateSave.Instance().Production.IsStop == true)
                 {
                     sta = true;
                     break;
@@ -346,7 +346,7 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     sta = true;
                     break;
                 }
-                if (IsStop == true)
+                if (DateSave.Instance().Production.IsStop == true)
                 {
                     sta = true;
                     break;

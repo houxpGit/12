@@ -133,40 +133,82 @@ namespace FullyAutomaticLaserJetCoder
 
         private void ResetDown()
         {
-            if (IOManage.INPUT("ESTOP").On)
-            {
-                DateSave.Instance().Production.EStop = false;
-            }
-        
-        }
+         //   resetTimer.Start();
 
-        private void ResetUp()
-        {
-            MainModule.FormMain.bResetPress = false;
+          //  MainModule.FormMain.bResetPress = false;
             if (startHoming)
                 return;
             if (resetTimer.TimeUp(2))
             {
+                DateSave.Instance().Production.IsStop = false;
                 bJetTestStart = false;
                 jetTestStep = -1;
                 bMarkTestStart = false;
                 markTestStep = -1;
-                Program.ccdStationA.Clear();
+                //  Program.ccdStationA.Clear();
                 Program.num = 0;
                 MainModule.FormMain.bEstop = false;
-             //   m_FeederTask.taskInfo.iTaskStep = 0;
-            //    m_FeederTask.taskInfo.bTaskOnGoing = false;
-              //m_MarkTask.taskInfo.iTaskStep = 0;
-             //  m_MarkTask.taskInfo.bTaskOnGoing = false;
-             //   m_TransferTask.taskInfo.iTaskStep = 0;
-             //   m_TransferTask.taskInfo.bTaskOnGoing = false;
-              //  m_JetTask.taskInfo.iTaskStep = 0;
-              //  m_JetTask.taskInfo.bTaskOnGoing = false;
-              //  MainControls.taskInfo.iTaskStep = 0;
-               // MainControls.taskInfo.bTaskOnGoing = false;
+                //if (IOManage.INPUT("ESTOP").On)
+                //{
+                DateSave.Instance().Production.EStop = false;//急停标志
+                DateSave.Instance().Production.StationMaterial = false;//工位有无料标志
+                // }
+                MainControls.StationMaterial = false;//工位有无料标志
+
+
+                //   m_FeederTask.taskInfo.iTaskStep = 0;
+                //    m_FeederTask.taskInfo.bTaskOnGoing = false;
+                //m_MarkTask.taskInfo.iTaskStep = 0;
+                //  m_MarkTask.taskInfo.bTaskOnGoing = false;
+                //   m_TransferTask.taskInfo.iTaskStep = 0;
+                //   m_TransferTask.taskInfo.bTaskOnGoing = false;
+                //  m_JetTask.taskInfo.iTaskStep = 0;
+                //  m_JetTask.taskInfo.bTaskOnGoing = false;
+                MainControls.taskInfo.iTaskStep = 0;
+                MainControls.taskInfo.bTaskOnGoing = false;
+
+                ControlPlatformLib.Global.logger.Info("长按复位:" + DateTime.Now.ToString("yyyy/MM/dd/ HH : mm : ss"));
+            }
+
+        }
+
+        private void ResetUp()
+        {
+         
+            //MainModule.FormMain.bResetPress = false;
+            //if (startHoming)
+            //    return;
+            //if (resetTimer.TimeUp(2))
+            //{
+            //    DateSave.Instance().Production.IsStop = false;
+            //    bJetTestStart = false;
+            //    jetTestStep = -1;
+            //    bMarkTestStart = false;
+            //    markTestStep = -1;
+            //  //  Program.ccdStationA.Clear();
+            //    Program.num = 0;
+            //    MainModule.FormMain.bEstop = false;
+            //    //if (IOManage.INPUT("ESTOP").On)
+            //    //{
+            //    DateSave.Instance().Production.EStop = false;//急停标志
+            //    DateSave.Instance().Production.StationMaterial = false;//工位有无料标志
+            //    // }
+            //    MainControls.StationMaterial = false;//工位有无料标志
+
+            
+            //    //   m_FeederTask.taskInfo.iTaskStep = 0;
+            //    //    m_FeederTask.taskInfo.bTaskOnGoing = false;
+            //    //m_MarkTask.taskInfo.iTaskStep = 0;
+            //    //  m_MarkTask.taskInfo.bTaskOnGoing = false;
+            //    //   m_TransferTask.taskInfo.iTaskStep = 0;
+            //    //   m_TransferTask.taskInfo.bTaskOnGoing = false;
+            //    //  m_JetTask.taskInfo.iTaskStep = 0;
+            //    //  m_JetTask.taskInfo.bTaskOnGoing = false;
+            //      MainControls.taskInfo.iTaskStep = 0;
+            //     MainControls.taskInfo.bTaskOnGoing = false;
 
             //    ControlPlatformLib.Global.logger.Info("长按复位:" + DateTime.Now.ToString("yyyy/MM/dd/ HH : mm : ss"));
-            }
+            //}
         }
         List<Thread> threadList = new List<Thread>();
         Thread ThreadHome = null;   //测试线程
@@ -182,7 +224,8 @@ namespace FullyAutomaticLaserJetCoder
             MainModule.FormMain.bHomeReady = false;
             if (threadList[0] == null)
             {
-             
+             //   threadList[0].Abort();
+
                 ParameterizedThreadStart paramLoopFunc1 = new ParameterizedThreadStart(RunHome);
                 threadList[0] = new Thread(paramLoopFunc1);
                 threadList[0].IsBackground = true;
@@ -191,7 +234,7 @@ namespace FullyAutomaticLaserJetCoder
             }
             else if (threadList[0] != null && threadList[0].IsAlive == false)
             {
-            
+                threadList[0].Abort();
                 ParameterizedThreadStart paramLoopFunc1 = new ParameterizedThreadStart(RunHome);
                 threadList[0] = new Thread(paramLoopFunc1);
                 threadList[0].IsBackground = true;
@@ -239,7 +282,7 @@ namespace FullyAutomaticLaserJetCoder
         public bool HomeDoneXY;
         public void RunHome(object HubNum)
         {
-
+            MainModule.FormMain.bHomeReady = false;
             TableManage.TableDriver("运动平台").Home(TableAxisName.Z);
             Thread.Sleep(200);
             while (true)
@@ -277,7 +320,44 @@ namespace FullyAutomaticLaserJetCoder
 
         private void Home()
         {
-           // DateSave.Instance().Production.EStop = true;
+            if (MainModule.FormMain.bAuto)
+            {
+                Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "请先停止设运行");
+                MessageBox.Show("请先停止设运行");
+                richTextBox1.AppendText("请先停止自动运行");
+                return;
+            }
+            MainModule.FormMain.bHomeReady = false;
+            if (threadList[0] == null)
+            {
+             //   threadList[0].Abort();
+                ParameterizedThreadStart paramLoopFunc1 = new ParameterizedThreadStart(RunHome);
+                threadList[0] = new Thread(paramLoopFunc1);
+                threadList[0].IsBackground = true;
+                threadList[0].Start(0);
+
+            }
+            else if (threadList[0] != null && threadList[0].IsAlive == false)
+            {
+                threadList[0].Abort();
+                ParameterizedThreadStart paramLoopFunc1 = new ParameterizedThreadStart(RunHome);
+                threadList[0] = new Thread(paramLoopFunc1);
+                threadList[0].IsBackground = true;
+                threadList[0].Start(0);
+            }
+
+            if (DateSave.Instance().Production.EStop == true)
+            {
+                DateSave.Instance().Production.EStop = false;
+            }
+
+
+            //else
+            //{
+
+            //    DateSave.Instance().Production.EStop = false;
+            //}
+            // DateSave.Instance().Production.EStop = true;
         }
         private void Level_Log_CallBack(string callBackStr)
         {
@@ -309,11 +389,23 @@ namespace FullyAutomaticLaserJetCoder
                 MainModule.FormMain.m_formAlarm.InsertAlarmMessage("请先回原点！");
                 return;
             }
+
+            if (DateSave.Instance().Production.EStop == true)
+            {
+                MainModule.FormMain.m_formAlarm.InsertAlarmMessage("急停标志位未复位！");
+                return;
+            }
+            if (DateSave.Instance().Production.StationMaterial == true)
+            {
+                MainModule.FormMain.m_formAlarm.InsertAlarmMessage("工位有料请先排料，并清除工位记忆！");
+                return;
+            }           
             MainModule.FormMain.bStartPress = true;
             RunClass.Instance().Stop = false;
             RunClass.Instance().AxisR.Stop = false;
             RunClass.Instance().ClinderR.Stop= false;
             RunClass.Instance().Meth.Stop = false;
+            DateSave.Instance().Production.IsStop = false;
             if (!MainModule.FormMain.bAuto)
             {
                 if (RunClass.Instance().Run_OneCase!=null && RunClass.Instance().Run_OneCase.IsAlive==true)
@@ -326,7 +418,7 @@ namespace FullyAutomaticLaserJetCoder
                 RunClass.Instance().StartRun = false;
                 MainControls. taskInfo.iTaskStep =8;
                 MainModule.FormMain.bAuto = true;
-               // ControlPlatformLib.Global.logger.Info("自动运行开始:" + DateTime.Now.ToString("yyyy/MM/dd/ HH : mm : ss"));
+                ControlPlatformLib.Global.logger.Info("自动运行开始:" + DateTime.Now.ToString("yyyy/MM/dd/ HH : mm : ss"));
             }
         }
         private void StopClick()
@@ -349,6 +441,8 @@ namespace FullyAutomaticLaserJetCoder
             RunClass.Instance().Meth.Stop = true;
             RunClass.Instance().RunClass_IsFinish = false;
             RunClass.Instance().StartRun = false;
+            DateSave.Instance().Production.IsStop = true;
+         
         }
         #endregion
 
@@ -379,6 +473,12 @@ namespace FullyAutomaticLaserJetCoder
         #region 防呆防撞
         private void timer1_Tick(object sender, EventArgs e)
         {
+          
+            if (DateSave.Instance().Production.StationMaterial == false )
+            {
+                btn_LeftPosWelding.Text = "工位有料";
+
+            }
             if ((DateSave.Instance().Production.SN != "" && LeftSnshow.Text == "" )|| (LeftSnshow.Text != DateSave.Instance().Production.SN))
             {
                 LeftSnshow.Text = DateSave.Instance().Production.SN;
@@ -420,6 +520,8 @@ namespace FullyAutomaticLaserJetCoder
               MainControl.BIZZ("请清理铜嘴", "请清理铜嘴");
                 DateSave.Instance().Production.Current_TIME++;
             }
+
+         
             if (frist == 0 && LoginForm.landingFinish == true)
             {
                 frist++;
@@ -609,11 +711,11 @@ namespace FullyAutomaticLaserJetCoder
 
 
             }
-            else
-            {
+            //else
+            //{
 
-                DateSave.Instance().Production.EStop = false;
-            }
+            //    DateSave.Instance().Production.EStop = false;
+            //}
         }
         public void setStartManualPulserOperation(string IOAsix,string Speed)
         {
@@ -706,7 +808,9 @@ namespace FullyAutomaticLaserJetCoder
         private void btn_ClearLeftYield_Click(object sender, EventArgs e)
         {
             DateSave.Instance().Production.Date_Clear(0);
-         //   m_WeldingTask.AddRunMessage("打标任务0，任务开始。");
+
+            DateSave.Instance().SaveDoc();
+           //m_WeldingTask.AddRunMessage("打标任务0，任务开始。");
         }
 
         private void btn_ClearRightYield1_Click(object sender, EventArgs e)

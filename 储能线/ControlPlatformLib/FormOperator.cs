@@ -182,11 +182,6 @@ namespace ControlPlatformLib
 
         private void buttonReset_Click(object sender, EventArgs e)
         {
-            //MainModule.FormMain.m_formAlarm.RstOtherAlarm();
-        }
-
-        private void buttonHome_Click(object sender, EventArgs e)
-        {
             if (homeButtonPushed == null)
             {
 
@@ -203,25 +198,46 @@ namespace ControlPlatformLib
                 //    return;
                 //}
             }
+            //MainModule.FormMain.m_formAlarm.RstOtherAlarm();
+        }
+
+        private void buttonHome_Click(object sender, EventArgs e)
+        {
+            //if (homeButtonPushed == null)
+            //{
+
+            //}
+            //else
+            //{
+            //    homeButtonPushed();
+            //    //if (homeButtonPushed(sender, e))
+            //    //{
+
+            //    //}
+            //    //else
+            //    //{
+            //    //    return;
+            //    //}
+            //}
         }
 
         private void buttonReset_MouseDown(object sender, MouseEventArgs e)
         {
-            if (resetDown != null)
-            {
-                resetDown();
-            }
-            MainModule.FormMain.m_formAlarm.RstOtherAlarm();
-            MainModule.FormMain.bResetPress = true;
+            //if (resetDown != null)
+            //{
+            //    resetDown();
+            //}
+            //MainModule.FormMain.m_formAlarm.RstOtherAlarm();
+            //MainModule.FormMain.bResetPress = true;
         }
 
         private void buttonReset_MouseUp(object sender, MouseEventArgs e)
         {
-            if (resetUp != null)
-            {
-                resetUp();
-            }
-            MainModule.FormMain.bResetPress = false;
+            //if (resetUp != null)
+            //{
+            //    resetUp();
+            //}
+            //MainModule.FormMain.bResetPress = false;
         }
 
         private void buttonReset_MouseLeave(object sender, EventArgs e)
@@ -349,6 +365,25 @@ namespace ControlPlatformLib
         {
             MainModule.FormMain.Parse = false;
             StopPushed();
+        }
+
+        private void buttonHome_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (resetDown != null)
+            {
+                resetDown();
+            }
+            MainModule.FormMain.m_formAlarm.RstOtherAlarm();
+            MainModule.FormMain.bResetPress = true;
+        }
+
+        private void buttonHome_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (resetUp != null)
+            {
+                resetUp();
+            }
+            MainModule.FormMain.bResetPress = false;
         }
     }
 }

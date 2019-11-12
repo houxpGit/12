@@ -182,30 +182,30 @@ namespace FullyAutomaticLaserJetCoder
         }
         private static void ReadWriteMark()
         {
-            string[] std = new string[] { };
-            byte[] bRead = new byte[512];
-            string sRead = "";
-            while (bMarkRW)
-            {
-                try
-                {
-                    if (MarkComPort.BytesToRead > 4) //&& bScan1Read)
-                    {
-                        Thread.Sleep(20);
-                        sRead = MarkComPort.ReadTo("\r");
-                      //  Global.logger.Info("收到喷码机返回->" + sRead.Trim());
-                        sMarkData = sRead;
-                        MarkComPort.ReadExisting();
-                    }
-                    Thread.Sleep(30);
-                }
-                catch (Exception ex)
-                {
-                    System.Diagnostics.Debug.Write(" Mark->No read" + "\r");
-                  //  Global.logger.Info("ReadWrite Mark->" + ex.Message);
-                }
-                Thread.Sleep(5);
-            }
+            //string[] std = new string[] { };
+            //byte[] bRead = new byte[512];
+            //string sRead = "";
+            //while (bMarkRW)
+            //{
+            //    try
+            //    {
+            //        if (MarkComPort.BytesToRead > 4) //&& bScan1Read)
+            //        {
+            //            Thread.Sleep(20);
+            //            sRead = MarkComPort.ReadTo("\r");
+            //            Global.logger.Info("收到喷码机返回->" + sRead.Trim());
+            //            sMarkData = sRead;
+            //            MarkComPort.ReadExisting();
+            //        }
+            //        Thread.Sleep(30);
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        System.Diagnostics.Debug.Write(" Mark->No read" + "\r");
+            //        Global.logger.Info("ReadWrite Mark->" + ex.Message);
+            //    }
+            //    Thread.Sleep(5);
+            //}
         }
     }
 }

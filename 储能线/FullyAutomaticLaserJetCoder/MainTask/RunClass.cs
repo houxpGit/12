@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace FullyAutomaticLaserJetCoder.MainTask
 {
@@ -37,6 +38,7 @@ namespace FullyAutomaticLaserJetCoder.MainTask
         CancellationToken CancelToken;
         ManualResetEvent ResetEvent = new ManualResetEvent(true);
         public int delayCheckTime = 6000;
+        public int RunMark = 0;
         public RunClass()
         {
             for (int i=0; i < 30; i++)
@@ -123,29 +125,36 @@ namespace FullyAutomaticLaserJetCoder.MainTask
             HighDate.Clear();
             CamerDate.Clear();
             StartRun = true;
-            GoOnRun = false;//继续运行标志位  
-            bool result = true;
+            GoOnRun = false;//继续运行标志位     
             RunClass_IsFinish = false;
             for (int i = 0; i < RunItem_List.Count; i++)
             {
+                RunMark = i;
                 while (true)
                 {
-                    if (IsStop == true)
+                    if (DateSave.Instance().Production.IsStop == true)
                     {
-                        ClinderR.IsStop = true;
-                        AxisR.IsStop = true;
-                        Meth.IsStop = true;
+                        i = 2000;
+
+                        GoOnRun = false;
+                        parse = false;//运动超时报警
+                        ClinderR.Stop = true;
+                        AxisR.Stop = true;
+                        Meth.Stop = true;
                         break;
                     }
                    // if (DateSave.Instance().Production.EStop == true)
                     if (DateSave.Instance().Production.EStop == true)
                     {
                         i = 2000;
+                    
+                        GoOnRun = false;
+                        parse = false;//运动超时报警
                         ClinderR.Stop = true;
                         AxisR.Stop = true;
                         Meth.Stop = true;
-                      //  Run_OneCase.Abort();
                         break;
+                 
                     }
                     if (parse == true)//暂停标志位
                     {
@@ -161,22 +170,25 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                         break;
                     }
                 }
-                if (DateSave.Instance().Production.EStop == false)
+                if (DateSave.Instance().Production.EStop == false&& DateSave.Instance().Production.IsStop == false)
                 {
                     string sda = RunItem_List[i].Key;
                     sssf = RunItem_List[i].Value;
                     for (int j = 0; j < 3; j++)
                     {
-                        if (IsStop == true)
+                        if (DateSave.Instance().Production.IsStop == true)
                         {
+                            j = 5;
+                            GoOnRun = false;
                             parse = false;//运动超时报警
-                            ClinderR.IsStop = true;
-                            AxisR.IsStop = true;
-                            Meth.IsStop = true;
+                            ClinderR.Stop = true;
+                            AxisR.Stop = true;
+                            Meth.Stop = true;
                             break;
                         }
                         if (DateSave.Instance().Production.EStop == true)
                         {
+                            GoOnRun = false;
                             parse = false;//运动超时报警
                             ClinderR.Stop = true;
                             AxisR.Stop = true;
@@ -290,6 +302,27 @@ namespace FullyAutomaticLaserJetCoder.MainTask
             //}
             switch (str)
             {
+                case "工位记忆":
+                    try
+                    {
+                        Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[工位有无料记忆]," + "工位有无料记忆");
+                        if (CheckSta.ToLower() == "true")
+                        {
+                            currentRunStatus = true;
+                            DateSave.Instance().Production.StationMaterial = true;
+
+                        }
+                        else
+                        {
+                            currentRunStatus = true;
+                            DateSave.Instance().Production.StationMaterial = false;
+                        }
+                    }
+                    catch
+                    {
+                        currentRunStatus = false;
+                    }
+                    break;
                 case "延时":
                     try
                     {
@@ -452,22 +485,16 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[调高点基准]");
                     currentRunStatus = AxisR.Asix_z_Auto_High(WeldPlat_Str_Name, "调高点基准", 2, 90, -20, 5, 5, delayCheckTime);
                     break;
-                case "拍照1#点坐标":
-                   
+                case "拍照1#点坐标":             
                     delayCheckTime = 6000;
                     Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[拍照1#点坐标]");
                     currentRunStatus = Meth.Asix_Line_Run("运动平台", "拍照1#点坐标", 60000);
                     // currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "拍照1#点坐标", delayCheckTime);
                    // currentRunStatus = AxisR.Asix_one_Run("运动平台", "拍照1#点坐标", 2, 60000);
-
-
                     currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照1#点坐标", HighDate[0], DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
                     Thread.Sleep(100);
                    // CamerDate.Add(new KeyValuePair<double, double>(0.0, 0.0));
-                    str_camer_checkNeed = CheckSta.Split(';');
-
-
-                  
+                    str_camer_checkNeed = CheckSta.Split(';');                
                     CamerDateNeed_Date = CamerDateNeed(str_camer_checkNeed[0], str_camer_checkNeed[1]);
                     if (CamerDateNeed_Date.Count == 0)
                     {
@@ -2117,6 +2144,93 @@ namespace FullyAutomaticLaserJetCoder.MainTask
             }
             return currentRunStatus;
         }
+
+        private static int CheckUpDateLock = 0;
+        private static int CheckUpDateLock1 = 0;
+        private static System.Timers.Timer CheckUpdatetimer = new System.Timers.Timer();
+        private static System.Timers.Timer CheckUpdatetimerWeldFinish = new System.Timers.Timer();
+        private static object LockObject = new Object();
+        private static object LockObject1 = new Object();
+        public void GetTimerStart()
+        {
+            // 循环间隔时间(10分钟)
+            CheckUpdatetimer.Interval = 100;
+            // 允许Timer执行
+            CheckUpdatetimer.Enabled = true;
+            // 定义回调
+            CheckUpdatetimer.Elapsed += new ElapsedEventHandler(CheckUpdatetimer_Elapsed);
+            // 定义多次循环
+            CheckUpdatetimer.AutoReset = true;
+            CheckUpdatetimer.Start();
+            //   CheckUpdatetimer.Stop();
+
+
+
+            CheckUpdatetimerWeldFinish.Interval = 1;
+            // 允许Timer执行
+            CheckUpdatetimerWeldFinish.Enabled = true;
+            // 定义回调
+            CheckUpdatetimerWeldFinish.Elapsed += new ElapsedEventHandler(CheckUpWeldFinish);
+            // 定义多次循环
+            CheckUpdatetimerWeldFinish.AutoReset = true;
+            
+        }
+        int CountFinish = 0;
+        public void CheckUpWeldFinish(object sender, ElapsedEventArgs e)
+        {
+            // 加锁检查更新锁
+            lock (LockObject1)
+            {
+                if (CheckUpDateLock1 == 0) CheckUpDateLock1 = 1;
+                else return;
+            }
+
+            //More code goes here.
+            //具体实现功能的方法
+            if (IOManage.INPUT("文档状态").On&& CountFinish==0)
+            {
+                CountFinish++;
+               
+            }
+            if (IOManage.INPUT("文档状态").Off&& CountFinish > 0)
+            {
+                CountFinish = 0;
+                Thread.Sleep(10);
+                WeldFinishSta = "WeldFinish";
+                // break;
+            }
+            // 解锁更新检查锁
+            lock (LockObject1)
+            {
+                CheckUpDateLock1 = 0;
+            }
+        }
+        public void CheckUpdatetimer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            // 加锁检查更新锁
+            lock (LockObject)
+            {
+                if (CheckUpDateLock == 0) CheckUpDateLock = 1;
+                else return;
+            }
+
+            //More code goes here.
+            //具体实现功能的方法
+            if (IOManage.INPUT("文档状态").On)
+            {
+                if (IOManage.INPUT("文档状态").Off)
+                {
+                    Thread.Sleep(10);
+                    WeldFinishSta = "WeldFinish";
+                   // break;
+                }
+            }
+            // 解锁更新检查锁
+            lock (LockObject)
+            {
+                CheckUpDateLock = 0;
+            }
+        }
         public double HighDate_Need()
         {
             double High = 0.0;
@@ -2136,9 +2250,13 @@ namespace FullyAutomaticLaserJetCoder.MainTask
         }
 
 
-   
+        int sendFinish = 0;
         public bool  weld_Finish(double X, double Y)
         {
+            CountFinish = 0;
+            sendFinish = 0;
+            string XX = X.ToString();
+            string YY = Y.ToString();
             int stime = 4000;
             bool sta = false;
             DateTime starttime = DateTime.Now;
@@ -2152,31 +2270,76 @@ namespace FullyAutomaticLaserJetCoder.MainTask
             }
             else
             {
-                   Task Task1 = sendOffset(X,Y);
-                   Task Task = WeldFinish();
+                sendFinish = 0;
+                IOManage.OUTPUT("脱机文件0触发").SetOutBit(true);
+                Thread.Sleep(300);
+                IOManage.OUTPUT("开始焊接机").SetOutBit(true);
+            
+                Socket_server.Instance().recvDate = "";
+                //while (true)
+                //{
+                //    if (Socket_server.Instance().recvDate.Contains("T"))
+                //    {
+                //        break;
+                //    }
+                //}
+                //string SendDate = "Offset;" + XX + ";" + YY + ";" + "0;";
+                //Socket_server.Instance().sendDataToMac(SendDate);
+               // Task Task1 = sendOffset(X,Y);
+                //CountFinish = 0;
+                //sendFinish = 0;
+                //CheckUpdatetimerWeldFinish.Start();
+               // Task Task = WeldFinish();
             }
             while (true)
             {
                 DateTime endtime = DateTime.Now;
                 TimeSpan spantime = endtime - starttime;
+
+                if (Socket_server.Instance().recvDate.Contains("T")&& sendFinish==0)
+                {
+                    sendFinish++;
+                    string SendDate = "Offset;" + XX + ";" + YY + ";" + "0;";
+                    Socket_server.Instance().sendDataToMac(SendDate);
+                    Socket_server.Instance().recvDate = "";
+                   // sta = false;
+                   //  break;
+                }
+
+                if (IOManage.INPUT("文档状态").On && CountFinish == 0&& sendFinish>0)
+                {
+                    CountFinish++;
+
+                }
+                if (IOManage.INPUT("文档状态").Off && CountFinish > 0)
+                {
+                  //  CountFinish = 0;
+                    Thread.Sleep(1);
+                    WeldFinishSta = "WeldFinish";
+                    // break;
+                }
                 if (WeldFinishSta == "WeldFinish")
                 {
+                   // CheckUpdatetimerWeldFinish.Stop();
                     sta = true;
                     break;
                 }
 
                 if (spantime.TotalMilliseconds > stime)
                 {
+                    CheckUpdatetimerWeldFinish.Stop();
                     sta = false;
                     break;
                 }
-                if (IsStop == true)
+                if (DateSave.Instance().Production.IsStop == true)
                 {
+                    CheckUpdatetimerWeldFinish.Stop();
                     sta = true;
                     break;
                 }
-                if (Stop == true)
+                if (DateSave.Instance().Production.EStop == true)
                 {
+                    CheckUpdatetimerWeldFinish.Stop();
                     sta = true;
                     break;
                 }

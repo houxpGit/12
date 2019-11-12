@@ -95,12 +95,12 @@ namespace ControlPlatformLib
             this.toolStripContainer1.ContentPanel.Controls.Add(this.panelMain);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.label3);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.label2);
-            this.toolStripContainer1.ContentPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.toolStripContainer1.ContentPanel.Margin = new System.Windows.Forms.Padding(4);
             this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(1284, 882);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.LeftToolStripPanelVisible = false;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
-            this.toolStripContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.toolStripContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.toolStripContainer1.Name = "toolStripContainer1";
             this.toolStripContainer1.RightToolStripPanelVisible = false;
             this.toolStripContainer1.Size = new System.Drawing.Size(1284, 882);
@@ -408,7 +408,7 @@ namespace ControlPlatformLib
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelMain.Controls.Add(this.label1);
             this.panelMain.Location = new System.Drawing.Point(3, 31);
-            this.panelMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelMain.Margin = new System.Windows.Forms.Padding(4);
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(1276, 815);
             this.panelMain.TabIndex = 9;
@@ -481,7 +481,7 @@ namespace ControlPlatformLib
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.Text = "6KW4KW通用程序";
             this.Activated += new System.EventHandler(this.MainForm_Activated);

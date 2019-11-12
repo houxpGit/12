@@ -100,16 +100,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoSizeFormClass.cs" />
-    <Compile Include="CCD\CCDClient.cs" />
-    <Compile Include="CCD\CCDClientManage.cs" />
-    <Compile Include="CCD\CCDCommunication.cs" />
-    <Compile Include="CCD\CCDForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CCD\CCDForm.Designer.cs">
-      <DependentUpon>CCDForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CCD\CCDStationA.cs" />
     <Compile Include="EXEToWinform.cs" />
     <Compile Include="FormCCD.cs">
       <SubType>Form</SubType>
@@ -124,12 +114,6 @@
     <Compile Include="MainTask\RunClass.cs" />
     <Compile Include="MainTask\Socket_server_client.cs" />
     <Compile Include="MarkCom.cs" />
-    <Compile Include="Mark\MarkForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Mark\MarkForm.Designer.cs">
-      <DependentUpon>MarkForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="MessageAlarmForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,14 +160,8 @@
     <Compile Include="波形展示.Designer.cs">
       <DependentUpon>波形展示.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CCD\CCDForm.resx">
-      <DependentUpon>CCDForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormCCD.resx">
       <DependentUpon>FormCCD.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Mark\MarkForm.resx">
-      <DependentUpon>MarkForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MessageAlarmForm.resx">
       <DependentUpon>MessageAlarmForm.cs</DependentUpon>
@@ -196,8 +174,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <EmbeddedResource Include="StartForm.resx">
       <DependentUpon>StartForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -246,6 +230,7 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
