@@ -4113,3 +4113,6 @@ D:\焊接设备部【勿删】\运行软件\储能线6KW091112_14一V1\FullyAuto
 D:\焊接设备部【勿删】\运行软件\储能线6KW091112_14一V1\FullyAutomaticLaserJetCoder\bin\Debug\ControlPlatformLib.pdb
 D:\焊接设备部【勿删】\运行软件\储能线6KW091112_14一V1\FullyAutomaticLaserJetCoder\bin\Debug\Newtonsoft.Json.pdb
 D:\焊接设备部【勿删】\运行软件\储能线6KW091112_14一V1\FullyAutomaticLaserJetCoder\bin\Debug\Newtonsoft.Json.xml
+C:\GIT\1223\FullyAutomaticLaserJetCoder\bin\Debug\FullyAutomaticLaserJetCoder.exe.config
+C:\GIT\1223\FullyAutomaticLaserJetCoder\obj\Debug\FullyAutomaticLaserJetCoder.exe
+C:\GIT\1223\FullyAutomaticLaserJetCoder\obj\Debug\FullyAutomaticLaserJetCoder.pdb

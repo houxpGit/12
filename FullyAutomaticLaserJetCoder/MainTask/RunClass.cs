@@ -1845,10 +1845,12 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     Thread.Sleep(100);
                     if (调高数据() > 0)
                     {
+                        currentRunStatus = true;
                         HighDate.Add(调高数据());
                     }
                     else
                     {
+                        currentRunStatus = false;
                         //报警
                     }
                     break;
@@ -1860,10 +1862,12 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     Thread.Sleep(100);
                     if (调高数据() > 0)
                     {
+                        currentRunStatus = true;
                         HighDate.Add(调高数据());
                     }
                     else
                     {
+                        currentRunStatus = false;
                         //报警
                     }
                     break;
@@ -1876,10 +1880,12 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     Thread.Sleep(100);
                     if (调高数据() > 0)
                     {
+                        currentRunStatus = true;
                         HighDate.Add(调高数据());
                     }
                     else
                     {
+                        currentRunStatus = false;
                         //报警
                     }
                     //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高3#点坐标", delayCheckTime);
@@ -1892,11 +1898,12 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     Thread.Sleep(100);
                     if (调高数据() > 0)
                     {
+                        currentRunStatus = true;
                         HighDate.Add(调高数据());
                     }
                     else
                     {
-                        //报警
+                        currentRunStatus = false; //报警
                     }
                     //  currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高4#点坐标", delayCheckTime);
                     break;
@@ -1908,11 +1915,12 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     Thread.Sleep(100);
                     if (调高数据() > 0)
                     {
+                        currentRunStatus = true;
                         HighDate.Add(调高数据());
                     }
                     else
                     {
-                        //报警
+                        currentRunStatus = false;  //报警
                     }
                     //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高5#点坐标", delayCheckTime);
                     break;
@@ -1923,10 +1931,12 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     Thread.Sleep(100);
                     if (调高数据() > 0)
                     {
+                        currentRunStatus = true;
                         HighDate.Add(调高数据());
                     }
                     else
                     {
+                        currentRunStatus = false;
                         //报警
                     }
                     // currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高6#点坐标", delayCheckTime);
@@ -1938,10 +1948,12 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     Thread.Sleep(100);
                     if (调高数据() > 0)
                     {
+                        currentRunStatus = true;
                         HighDate.Add(调高数据());
                     }
                     else
                     {
+                        currentRunStatus = false;
                         //报警
                     }
                     //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高7#点坐标", delayCheckTime);
@@ -1953,11 +1965,12 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     Thread.Sleep(100);
                     if (调高数据() > 0)
                     {
+                        currentRunStatus = true;
                         HighDate.Add(调高数据());
                     }
                     else
                     {
-                        //报警
+                        currentRunStatus = false; //报警
                     }
                     //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高8#点坐标", delayCheckTime);
                     break;
@@ -1968,10 +1981,12 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     Thread.Sleep(100);
                     if (调高数据() > 0)
                     {
+                        currentRunStatus = true;
                         HighDate.Add(调高数据());
                     }
                     else
                     {
+                        currentRunStatus = false;
                         //报警
                     }
                     //   currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高9#点坐标", delayCheckTime);
@@ -1983,11 +1998,12 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     Thread.Sleep(100);
                     if (调高数据() > 0)
                     {
+                        currentRunStatus = true;
                         HighDate.Add(调高数据());
                     }
                     else
                     {
-                        //报警
+                        currentRunStatus = false;  //报警
                     }
                     // currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高10#点坐标", delayCheckTime);
                     break;
@@ -1998,10 +2014,12 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     Thread.Sleep(100);
                     if (调高数据() > 0)
                     {
+                        currentRunStatus = true;
                         HighDate.Add(调高数据());
                     }
                     else
                     {
+                        currentRunStatus = false;
                         //报警
                     }
                     //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高11#点坐标", delayCheckTime);
@@ -2013,11 +2031,12 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     Thread.Sleep(100);
                     if (调高数据() > 0)
                     {
+                        currentRunStatus = true;
                         HighDate.Add(调高数据());
                     }
                     else
                     {
-                        //报警
+                        currentRunStatus = false; //报警
                     }
                     // currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高12#点坐标", delayCheckTime);
                     break;
@@ -2028,11 +2047,12 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     Thread.Sleep(100);
                     if (调高数据() > 0)
                     {
+                        currentRunStatus = true;
                         HighDate.Add(调高数据());
                     }
                     else
                     {
-                        //报警
+                        currentRunStatus = false; //报警
                     }
                     //  currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高13#点坐标", delayCheckTime);
                     break;
@@ -2043,10 +2063,12 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     Thread.Sleep(100);
                     if (调高数据() > 0)
                     {
+                        currentRunStatus = true;
                         HighDate.Add(调高数据());
                     }
                     else
                     {
+                        currentRunStatus = false;
                         //报警
                     }
                     //  currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高14#点坐标", delayCheckTime);
@@ -2058,10 +2080,12 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     Thread.Sleep(100);
                     if (调高数据() > 0)
                     {
+                        currentRunStatus = true;
                         HighDate.Add(调高数据());
                     }
                     else
                     {
+                        currentRunStatus = false;
                         //报警
                     }
                     //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高15#点坐标", delayCheckTime);
@@ -2073,10 +2097,12 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     Thread.Sleep(100);
                     if (调高数据() > 0)
                     {
+                        currentRunStatus = true;
                         HighDate.Add(调高数据());
                     }
                     else
                     {
+                        currentRunStatus = false;
                         //报警
                     }
                     //   currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高16#点坐标", delayCheckTime);
@@ -2088,11 +2114,12 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     Thread.Sleep(100);
                     if (调高数据() > 0)
                     {
+                        currentRunStatus = true;
                         HighDate.Add(调高数据());
                     }
                     else
                     {
-                        //报警
+                        currentRunStatus = false;  //报警
                     }
                     //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高17#点坐标", delayCheckTime);
                     break;
@@ -2103,10 +2130,12 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     Thread.Sleep(100);
                     if (调高数据() > 0)
                     {
+                        currentRunStatus = true;
                         HighDate.Add(调高数据());
                     }
                     else
                     {
+                        currentRunStatus = false;
                         //报警
                     }
                     //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高18#点坐标", delayCheckTime);
@@ -2118,10 +2147,12 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     Thread.Sleep(100);
                     if (调高数据() > 0)
                     {
+                        currentRunStatus = true;
                         HighDate.Add(调高数据());
                     }
                     else
                     {
+                        currentRunStatus = false;
                         //报警
                     }
                     // currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高19#点坐标", delayCheckTime);
@@ -2133,10 +2164,12 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     Thread.Sleep(100);
                     if (调高数据() > 0)
                     {
+                        currentRunStatus = true;
                         HighDate.Add(调高数据());
                     }
                     else
                     {
+                        currentRunStatus = false;
                         //报警
                     }
                     //  currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高20#点坐标", delayCheckTime);
