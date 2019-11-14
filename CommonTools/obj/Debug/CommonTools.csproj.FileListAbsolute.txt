@@ -948,3 +948,12 @@ D:\运行软件\储能线6KW091114_14一V1\CommonTools\obj\Debug\CommonTools.Pro
 D:\运行软件\储能线6KW091114_14一V1\CommonTools\obj\Debug\CommonTools.csproj.GenerateResource.Cache
 D:\运行软件\储能线6KW091114_14一V1\CommonTools\obj\Debug\CommonTools.dll
 D:\运行软件\储能线6KW091114_14一V1\CommonTools\obj\Debug\CommonTools.pdb
+D:\项目备份\储能线\储能线6KW091114_15一V1\CommonTools\bin\Debug\CommonTools.dll
+D:\项目备份\储能线\储能线6KW091114_15一V1\CommonTools\bin\Debug\CommonTools.pdb
+D:\项目备份\储能线\储能线6KW091114_15一V1\CommonTools\obj\Debug\CommonTools.ColorPickerCtrl.resources
+D:\项目备份\储能线\储能线6KW091114_15一V1\CommonTools\obj\Debug\CommonTools.ColorPickerDialog.resources
+D:\项目备份\储能线\储能线6KW091114_15一V1\CommonTools\obj\Debug\CommonTools.ColorWheelCtrl.resources
+D:\项目备份\储能线\储能线6KW091114_15一V1\CommonTools\obj\Debug\CommonTools.PropertyDialog.resources
+D:\项目备份\储能线\储能线6KW091114_15一V1\CommonTools\obj\Debug\CommonTools.csproj.GenerateResource.Cache
+D:\项目备份\储能线\储能线6KW091114_15一V1\CommonTools\obj\Debug\CommonTools.dll
+D:\项目备份\储能线\储能线6KW091114_15一V1\CommonTools\obj\Debug\CommonTools.pdb

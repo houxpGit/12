@@ -50,6 +50,18 @@ namespace ControlPlatformLib
                 }
                 if (bSaveNamePassword)
                 {
+                    //const string Compensation = "user";
+
+                    //string CompensationPath = Application.StartupPath + "\\SettingBug.ini";
+                    //string offset = txt_User.Text;
+                    //ConfINI.writeINI(Compensation, "UserName", offset, CompensationPath);
+                    //offset = txt_Password.Text;
+                    //ConfINI.writeINI(Compensation, "PassWord", offset, CompensationPath);
+                    //offset = txt_MachineNO.Text;
+                    //ConfINI.writeINI(Compensation, "MachineNO_num", offset, CompensationPath);
+
+                   // mes.Instance().userCode;
+
                     Properties.Settings.Default.UserName = txt_User.Text;
                     Properties.Settings.Default.Password = txt_Password.Text;
                     Properties.Settings.Default.MachineNo = txt_MachineNO.Text;

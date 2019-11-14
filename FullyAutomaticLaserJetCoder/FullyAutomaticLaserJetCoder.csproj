@@ -126,10 +126,6 @@
     <Compile Include="MES\CurveGraph.designer.cs">
       <DependentUpon>CurveGraph.cs</DependentUpon>
     </Compile>
-    <Compile Include="MES\FtpUpd.cs" />
-    <Compile Include="MES\HttpPost.cs" />
-    <Compile Include="MES\ImgFtpUpd.cs" />
-    <Compile Include="MES\mes.cs" />
     <Compile Include="SerialPort.cs" />
     <Compile Include="SettingsForm.cs">
       <SubType>Form</SubType>

@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
+using WorldGeneralLib.SerialPorts;
 
 namespace FullyAutomaticLaserJetCoder.MainTask
 {
@@ -489,6 +490,50 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     delayCheckTime = 6000;
                     Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[调高点基准]");
                     currentRunStatus = AxisR.Asix_z_Auto_High(WeldPlat_Str_Name, "调高点基准", 2, 90, -20, 5, 5, delayCheckTime);
+                    break;
+                case "扫码":
+                    string value ="";                 
+                    SerialPortDataManage.m_SerilPorts["扫码枪"].GetData(ref value);
+                    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[扫码]");
+                    if (value != "")
+                    {
+                        Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[扫码]:"+ value);
+                        currentRunStatus = true;
+                        DateSave.Instance().Production.DataReceivedstrSN = value;
+                    }
+                    else
+                    {
+                        Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[扫码]:扫码失败");
+                        currentRunStatus = false;
+
+                    }
+                    break;
+                case "MES过站验证":
+                    if (mesIsOk(DateSave.Instance().Production.DataReceivedstrSN) != "OK")
+                    {
+                        Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[扫码]:验证成功");
+                        currentRunStatus = true;
+                    }
+                    else
+                    {
+                        Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[扫码]:验证失败");
+                        currentRunStatus = false;
+                    }
+                    break;
+                case "MES获取SN":
+                    DateSave.Instance().Production.DataReceivedstrSN = GetSN(DateSave.Instance().Production.DataReceivedstrSN.Replace("\r\n", ""));
+                    if (DateSave.Instance().Production.DataReceivedstrSN != "" && !DateSave.Instance().Production.DataReceivedstrSN.Contains("FAIL"))
+                    {
+                        currentRunStatus = true;
+                    }
+                    else
+                    {
+                        currentRunStatus = false;
+
+                    }
+                    break;
+                case "MES上传":
+                    OfflineUploadData(DateSave.Instance().Production.DataReceivedstrSN,9);
                     break;
                 case "拍照点":
                     delayCheckTime = 6000;
@@ -2648,7 +2693,57 @@ namespace FullyAutomaticLaserJetCoder.MainTask
             //CamerDate.Add(Point2);
             return CamerDate;
         }
+
+        public string mesIsOk(string sn)//过站验证
+        {
+            string sta = "";
+            //  string ISOK=LoginF.MES.GroupTest();       
+            string ISOK = mes.Instance().GroupTest(sn, mes.Instance().userCode, mes.Instance().deviceCode);//过站验证
+          // string ISOK = mes.CellToolingPlate(sn);
+            if (ISOK != "")
+            {
+                sta = ISOK;
+            }
+            else
+            {
+                sta = ISOK;
+            }
+            return sta;
+        }
+        public string GetSN(string sn)//过站验证
+        {
+            string sta = "";
+            //  string ISOK=LoginF.MES.GroupTest();       
+            //  string ISOK = mes.GroupTest(sn, mes.userCode, mes.deviceCode);//过站验证
+            string ISOK = mes.Instance().CellToolingPlate(sn);
+            if (ISOK != "")
+            {
+                sta = ISOK;
+            }
+            else
+            {
+                sta = ISOK;
+            }
+            return sta;
+        }
+        public string WipTest(string sn)//过站
+        {
+            string sta = "";
+            mes.Instance().WipTest(sn,"PASS");
+            return sta;
+        }
+        public string OfflineUploadData(string sn,int count1)//数据上传
+        {
+            string MesStr = "|波形号:" + "50"
+                                       + "|速度:" + "50"
+                                       + "|加速度:" + "50" + "|基准高度:" + "50" + "|最大功率:" + "50" + "|反馈功率:" + "50" + "|焊接高度:" + "50" + "|焊接半径:" + "50" + "|离焦量:" + "50" + "|";
+            string sta = "";
+             mes.Instance().OfflineUploadData(sn, count1.ToString(), "weld", "PASS", "", MesStr);
+            return sta;
+        }
+
     }
+
      public  class Date_save
      {
 

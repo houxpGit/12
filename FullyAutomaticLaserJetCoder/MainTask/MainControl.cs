@@ -505,39 +505,39 @@ namespace FullyAutomaticLaserJetCoder.MainTask
             }
             return high;
         }
-        public string GetSN(string sn)//过站验证
-        {
-            string sta = "";
-            //  string ISOK=LoginF.MES.GroupTest();       
-            //  string ISOK = mes.GroupTest(sn, mes.userCode, mes.deviceCode);//过站验证
-            string ISOK = mes.CellToolingPlate(sn);
-            if (ISOK != "")
-            {
-                sta = ISOK;
-            }
-            else
-            {
-                sta = ISOK;
-            }
-            return sta;
-        }
-   
-        public string mesIsOk(string sn)//过站验证
-        {
-            string sta = "";
-            //  string ISOK=LoginF.MES.GroupTest();       
-            string ISOK = mes.GroupTest(sn, mes.userCode, mes.deviceCode);//过站验证
-                                                                          // string ISOK = mes.CellToolingPlate(sn);
-            if (ISOK != "")
-            {
-                sta = ISOK;
-            }
-            else
-            {
-                sta = ISOK;
-            }
-            return sta;
-        }
+        //public string GetSN(string sn)//过站验证
+        //{
+        //    string sta = "";
+        //    //  string ISOK=LoginF.MES.GroupTest();       
+        //    //  string ISOK = mes.GroupTest(sn, mes.userCode, mes.deviceCode);//过站验证
+        //    string ISOK = mes.CellToolingPlate(sn);
+        //    if (ISOK != "")
+        //    {
+        //        sta = ISOK;
+        //    }
+        //    else
+        //    {
+        //        sta = ISOK;
+        //    }
+        //    return sta;
+        //}
+
+        //public string mesIsOk(string sn)//过站验证
+        //{
+        //    string sta = "";
+        //    //  string ISOK=LoginF.MES.GroupTest();       
+        //    string ISOK = mes.Group(sn);//过站验证
+        //    // string ISOK = mes.CellToolingPlate(sn);
+        //    if (ISOK != "")
+        //    {
+        //        sta = ISOK;
+        //    }
+        //    else
+        //    {
+        //        sta = ISOK;
+        //    }
+        //    return sta;
+        //}
         //任务结束信号
         CancellationTokenSource TaskCancelSource = new CancellationTokenSource();
       

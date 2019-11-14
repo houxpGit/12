@@ -571,6 +571,10 @@
     <Compile Include="AdvanceHardware\AdvanceOutputInfoForm.Designer.cs">
       <DependentUpon>AdvanceOutputInfoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="自定义运动控制\ConfigINI.cs" />
+    <Compile Include="自定义运动控制\FtpUpd.cs" />
+    <Compile Include="自定义运动控制\HttpPost.cs" />
+    <Compile Include="自定义运动控制\ImgFtpUpd.cs" />
     <Compile Include="自定义运动控制\MainFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -578,6 +582,7 @@
       <DependentUpon>MainFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="自定义运动控制\Date.cs" />
+    <Compile Include="自定义运动控制\mes.cs" />
     <EmbeddedResource Include="ADLINK\ADLINKInputInfoForm.resx">
       <DependentUpon>ADLINKInputInfoForm.cs</DependentUpon>
     </EmbeddedResource>

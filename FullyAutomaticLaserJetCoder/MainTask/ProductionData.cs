@@ -229,6 +229,22 @@ namespace FullyAutomaticLaserJetCoder
         //机台选择  通用与6KW
         /// </summary>
         public int WeldOther;//工位有无料标志位
+        /// <summary>
+        //Sn
+        /// </summary>
+        public string  DataReceivedstrSN;//工位有无料标志位
+       /// <summary>
+        //登录用户名
+        /// </summary>
+        public string MesUserCode;//工位有无料标志位
+        /// <summary>
+        //登录密码
+        /// </summary>
+        public string MesPassWord;//工位有无料标志位
+        /// <summary>
+        //设备编号
+        /// </summary>
+        public string MesdeviceCode;//工位有无料标志位
         public ProductionData(int value)
         {
             Date_Clear(value);
