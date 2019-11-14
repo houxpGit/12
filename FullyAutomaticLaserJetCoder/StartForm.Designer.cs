@@ -60,8 +60,11 @@
             this.lb_LeftMarkPower = new System.Windows.Forms.Label();
             this.lb_LeftMarkSpeed = new System.Windows.Forms.Label();
             this.lb_LeftStation = new System.Windows.Forms.Label();
+            this.btn_LeftPosWelding = new System.Windows.Forms.Button();
             this.btn_ClearLeftYield = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
             this.label49 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -84,9 +87,6 @@
             this.lb_RightMarkSpeed = new System.Windows.Forms.Label();
             this.lb_RightMarkPower = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btn_LeftPosWelding = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -104,7 +104,7 @@
             this.panel1.Controls.Add(this.richTextBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(4, 772);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1292, 124);
             this.panel1.TabIndex = 0;
@@ -138,7 +138,7 @@
             this.btnHome.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnHome.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnHome.Location = new System.Drawing.Point(472, 0);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(4);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(161, 124);
             this.btnHome.TabIndex = 67;
@@ -150,7 +150,7 @@
             // 
             this.panelOP.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelOP.Location = new System.Drawing.Point(633, 0);
-            this.panelOP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelOP.Margin = new System.Windows.Forms.Padding(4);
             this.panelOP.Name = "panelOP";
             this.panelOP.Size = new System.Drawing.Size(659, 124);
             this.panelOP.TabIndex = 0;
@@ -182,9 +182,9 @@
             this.panel2.Controls.Add(this.tableLayoutPanel2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(4, 4);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Padding = new System.Windows.Forms.Padding(4);
             this.panel2.Size = new System.Drawing.Size(1292, 760);
             this.panel2.TabIndex = 1;
             // 
@@ -484,19 +484,30 @@
             this.lb_LeftStation.BackColor = System.Drawing.Color.Yellow;
             this.lb_LeftStation.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lb_LeftStation.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lb_LeftStation.Location = new System.Drawing.Point(282, 664);
+            this.lb_LeftStation.Location = new System.Drawing.Point(343, 664);
             this.lb_LeftStation.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb_LeftStation.Name = "lb_LeftStation";
-            this.lb_LeftStation.Size = new System.Drawing.Size(186, 70);
+            this.lb_LeftStation.Size = new System.Drawing.Size(281, 70);
             this.lb_LeftStation.TabIndex = 133;
             this.lb_LeftStation.Text = "空闲中";
             this.lb_LeftStation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btn_LeftPosWelding
+            // 
+            this.btn_LeftPosWelding.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btn_LeftPosWelding.Location = new System.Drawing.Point(343, 585);
+            this.btn_LeftPosWelding.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_LeftPosWelding.Name = "btn_LeftPosWelding";
+            this.btn_LeftPosWelding.Size = new System.Drawing.Size(281, 75);
+            this.btn_LeftPosWelding.TabIndex = 132;
+            this.btn_LeftPosWelding.Text = "有无料";
+            this.btn_LeftPosWelding.UseVisualStyleBackColor = false;
             // 
             // btn_ClearLeftYield
             // 
             this.btn_ClearLeftYield.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.btn_ClearLeftYield.Location = new System.Drawing.Point(7, 544);
-            this.btn_ClearLeftYield.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_ClearLeftYield.Margin = new System.Windows.Forms.Padding(4);
             this.btn_ClearLeftYield.Name = "btn_ClearLeftYield";
             this.btn_ClearLeftYield.Size = new System.Drawing.Size(196, 60);
             this.btn_ClearLeftYield.TabIndex = 123;
@@ -539,6 +550,30 @@
             this.groupBox1.TabIndex = 344;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "右工位数据";
+            // 
+            // label1
+            // 
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(150, 392);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(233, 40);
+            this.label1.TabIndex = 350;
+            this.label1.Text = "清理铜嘴";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label12
+            // 
+            this.label12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label12.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label12.Location = new System.Drawing.Point(22, 392);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(120, 40);
+            this.label12.TabIndex = 349;
+            this.label12.Text = "清理铜嘴:";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label38
             // 
@@ -688,7 +723,7 @@
             // 
             this.btn_ClearRightYield1.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.btn_ClearRightYield1.Location = new System.Drawing.Point(11, 550);
-            this.btn_ClearRightYield1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_ClearRightYield1.Margin = new System.Windows.Forms.Padding(4);
             this.btn_ClearRightYield1.Name = "btn_ClearRightYield1";
             this.btn_ClearRightYield1.Size = new System.Drawing.Size(189, 54);
             this.btn_ClearRightYield1.TabIndex = 134;
@@ -699,10 +734,10 @@
             // btn_RightPosWelding
             // 
             this.btn_RightPosWelding.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btn_RightPosWelding.Location = new System.Drawing.Point(266, 585);
-            this.btn_RightPosWelding.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_RightPosWelding.Location = new System.Drawing.Point(366, 585);
+            this.btn_RightPosWelding.Margin = new System.Windows.Forms.Padding(4);
             this.btn_RightPosWelding.Name = "btn_RightPosWelding";
-            this.btn_RightPosWelding.Size = new System.Drawing.Size(143, 75);
+            this.btn_RightPosWelding.Size = new System.Drawing.Size(261, 75);
             this.btn_RightPosWelding.TabIndex = 65;
             this.btn_RightPosWelding.Text = "右边单点位焊接";
             this.btn_RightPosWelding.UseVisualStyleBackColor = false;
@@ -736,10 +771,10 @@
             this.lb_RightStation.BackColor = System.Drawing.Color.Yellow;
             this.lb_RightStation.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lb_RightStation.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lb_RightStation.Location = new System.Drawing.Point(266, 667);
+            this.lb_RightStation.Location = new System.Drawing.Point(366, 664);
             this.lb_RightStation.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb_RightStation.Name = "lb_RightStation";
-            this.lb_RightStation.Size = new System.Drawing.Size(141, 70);
+            this.lb_RightStation.Size = new System.Drawing.Size(259, 70);
             this.lb_RightStation.TabIndex = 151;
             this.lb_RightStation.Text = "空闲中";
             this.lb_RightStation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -808,41 +843,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1300, 900);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
-            // btn_LeftPosWelding
-            // 
-            this.btn_LeftPosWelding.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btn_LeftPosWelding.Location = new System.Drawing.Point(282, 585);
-            this.btn_LeftPosWelding.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_LeftPosWelding.Name = "btn_LeftPosWelding";
-            this.btn_LeftPosWelding.Size = new System.Drawing.Size(186, 75);
-            this.btn_LeftPosWelding.TabIndex = 132;
-            this.btn_LeftPosWelding.Text = "有无料";
-            this.btn_LeftPosWelding.UseVisualStyleBackColor = false;
-            // 
-            // label1
-            // 
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(150, 392);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(233, 40);
-            this.label1.TabIndex = 350;
-            this.label1.Text = "清理铜嘴";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label12
-            // 
-            this.label12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label12.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label12.Location = new System.Drawing.Point(22, 392);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(120, 40);
-            this.label12.TabIndex = 349;
-            this.label12.Text = "清理铜嘴:";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // StartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -850,7 +850,7 @@
             this.ClientSize = new System.Drawing.Size(1300, 900);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "StartForm";
             this.Text = "StartForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.StartForm_FormClosing);

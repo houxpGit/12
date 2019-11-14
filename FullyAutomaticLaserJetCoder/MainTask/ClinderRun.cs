@@ -9,8 +9,8 @@ namespace FullyAutomaticLaserJetCoder.MainTask
 {
     public  class ClinderRun
     {
-        public bool IsStop = false;
-        public bool Stop = false;
+        //public bool IsStop = false;
+        //public bool Stop = false;
         private static ClinderRun ClinderR;
         public static ClinderRun Instance()
         {

@@ -105,8 +105,8 @@ namespace ControlPlatformLib
         /// <returns></returns>
         public bool ArcXYMove(short num, short AxisX, short AxisY, short AxisZ, double dAcc, double dDec, double dSpeed, double posX, double posY, double dR, short iCCW)
         {
-            Global.logger.Info("---------------------------------");
-            Global.logger.Info("开始XY圆弧插补运动");
+           Global.logger.Info("---------------------------------");
+           Global.logger.Info("开始XY圆弧插补运动");
             BuildCor(num, CoordinateType.XY);
             for (int i=0;i<3;i++)
             {
@@ -121,10 +121,14 @@ namespace ControlPlatformLib
             }        
             bool result = StartCure(num,false);
             if (result)
-                Global.logger.Info("XY圆弧插补运动完成");
+            {
+            }
+            // Global.logger.Info("XY圆弧插补运动完成");
             else
-                Global.logger.Info("XY圆弧插补运动失败");
-            return result;
+            {
+            }
+                //  Global.logger.Info("XY圆弧插补运动失败");
+          return result;
         }
 
         /// <summary>
@@ -134,7 +138,7 @@ namespace ControlPlatformLib
         /// <param name="coordinateType">坐标系类型</param>
         public bool  BuildCor(short num, CoordinateType coordinateType)
         {
-            Global.logger.Info("---------------------------------");
+           Global.logger.Info("---------------------------------");
             Global.logger.InfoFormat("建立运动坐标系[{0}]，坐标系类型:{1}。", num, coordinateType);
             short sRtn;
             //iColAixsNo[num - 1, 0] = AxisX;
@@ -758,7 +762,7 @@ namespace ControlPlatformLib
 
         public bool  InsertLine(short num, double dPosX, double dPosY, double dPosZ, double dSpeed, double dAcc, double dEndSpeed)
         {
-            Global.logger.Info("---------------------------------");
+         //   Global.logger.Info("---------------------------------");
             Global.logger.Info("插入XY平面直线插补段");
             short sRtn;
            // gts.mc.GT_CrdClear(0,1,0);

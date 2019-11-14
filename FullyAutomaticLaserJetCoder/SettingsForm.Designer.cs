@@ -66,6 +66,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.设备类型 = new System.Windows.Forms.TextBox();
+            this.设备类型设置 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.空跑 = new System.Windows.Forms.CheckBox();
             this.Y偏距 = new System.Windows.Forms.TextBox();
@@ -164,9 +167,9 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Location = new System.Drawing.Point(5, 9);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(348, 538);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
@@ -175,7 +178,7 @@
             // 铜嘴清理次数
             // 
             this.铜嘴清理次数.Location = new System.Drawing.Point(113, 466);
-            this.铜嘴清理次数.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.铜嘴清理次数.Margin = new System.Windows.Forms.Padding(2);
             this.铜嘴清理次数.Name = "铜嘴清理次数";
             this.铜嘴清理次数.Size = new System.Drawing.Size(113, 21);
             this.铜嘴清理次数.TabIndex = 206;
@@ -546,6 +549,9 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label18);
+            this.groupBox3.Controls.Add(this.设备类型);
+            this.groupBox3.Controls.Add(this.设备类型设置);
             this.groupBox3.Controls.Add(this.button4);
             this.groupBox3.Controls.Add(this.空跑);
             this.groupBox3.Controls.Add(this.Y偏距);
@@ -581,6 +587,36 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "groupBox3";
             // 
+            // label18
+            // 
+            this.label18.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label18.Font = new System.Drawing.Font("宋体", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label18.Location = new System.Drawing.Point(7, 490);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(98, 29);
+            this.label18.TabIndex = 208;
+            this.label18.Text = "设备设置:1.6KW 2.通用\r\n";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // 设备类型
+            // 
+            this.设备类型.Location = new System.Drawing.Point(108, 490);
+            this.设备类型.Margin = new System.Windows.Forms.Padding(2);
+            this.设备类型.Name = "设备类型";
+            this.设备类型.Size = new System.Drawing.Size(70, 21);
+            this.设备类型.TabIndex = 207;
+            // 
+            // 设备类型设置
+            // 
+            this.设备类型设置.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.设备类型设置.Location = new System.Drawing.Point(183, 487);
+            this.设备类型设置.Name = "设备类型设置";
+            this.设备类型设置.Size = new System.Drawing.Size(45, 25);
+            this.设备类型设置.TabIndex = 207;
+            this.设备类型设置.Text = "SET";
+            this.设备类型设置.UseVisualStyleBackColor = false;
+            this.设备类型设置.Click += new System.EventHandler(this.设备类型设置_Click);
+            // 
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.DeepSkyBlue;
@@ -595,7 +631,7 @@
             // 空跑
             // 
             this.空跑.AutoSize = true;
-            this.空跑.Location = new System.Drawing.Point(166, 397);
+            this.空跑.Location = new System.Drawing.Point(6, 363);
             this.空跑.Name = "空跑";
             this.空跑.Size = new System.Drawing.Size(48, 16);
             this.空跑.TabIndex = 205;
@@ -606,7 +642,7 @@
             // Y偏距
             // 
             this.Y偏距.Location = new System.Drawing.Point(115, 284);
-            this.Y偏距.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Y偏距.Margin = new System.Windows.Forms.Padding(2);
             this.Y偏距.Multiline = true;
             this.Y偏距.Name = "Y偏距";
             this.Y偏距.Size = new System.Drawing.Size(113, 33);
@@ -615,7 +651,7 @@
             // X偏距
             // 
             this.X偏距.Location = new System.Drawing.Point(115, 247);
-            this.X偏距.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.X偏距.Margin = new System.Windows.Forms.Padding(2);
             this.X偏距.Multiline = true;
             this.X偏距.Name = "X偏距";
             this.X偏距.Size = new System.Drawing.Size(113, 30);
@@ -623,8 +659,8 @@
             // 
             // 调高最高
             // 
-            this.调高最高.Location = new System.Drawing.Point(110, 477);
-            this.调高最高.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.调高最高.Location = new System.Drawing.Point(110, 441);
+            this.调高最高.Margin = new System.Windows.Forms.Padding(2);
             this.调高最高.Name = "调高最高";
             this.调高最高.Size = new System.Drawing.Size(113, 21);
             this.调高最高.TabIndex = 200;
@@ -642,8 +678,8 @@
             // 
             // Z轴安全高度最低
             // 
-            this.Z轴安全高度最低.Location = new System.Drawing.Point(110, 453);
-            this.Z轴安全高度最低.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Z轴安全高度最低.Location = new System.Drawing.Point(110, 417);
+            this.Z轴安全高度最低.Margin = new System.Windows.Forms.Padding(2);
             this.Z轴安全高度最低.Name = "Z轴安全高度最低";
             this.Z轴安全高度最低.Size = new System.Drawing.Size(113, 21);
             this.Z轴安全高度最低.TabIndex = 199;
@@ -661,8 +697,8 @@
             // 
             // 调高最低
             // 
-            this.调高最低.Location = new System.Drawing.Point(110, 502);
-            this.调高最低.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.调高最低.Location = new System.Drawing.Point(110, 466);
+            this.调高最低.Margin = new System.Windows.Forms.Padding(2);
             this.调高最低.Name = "调高最低";
             this.调高最低.Size = new System.Drawing.Size(113, 21);
             this.调高最低.TabIndex = 198;
@@ -680,8 +716,8 @@
             // 
             // Z轴安全高度最高
             // 
-            this.Z轴安全高度最高.Location = new System.Drawing.Point(110, 428);
-            this.Z轴安全高度最高.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Z轴安全高度最高.Location = new System.Drawing.Point(110, 392);
+            this.Z轴安全高度最高.Margin = new System.Windows.Forms.Padding(2);
             this.Z轴安全高度最高.Name = "Z轴安全高度最高";
             this.Z轴安全高度最高.Size = new System.Drawing.Size(113, 21);
             this.Z轴安全高度最高.TabIndex = 197;
@@ -690,7 +726,7 @@
             // 
             this.label23.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label23.Font = new System.Drawing.Font("宋体", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label23.Location = new System.Drawing.Point(3, 502);
+            this.label23.Location = new System.Drawing.Point(3, 466);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(102, 20);
             this.label23.TabIndex = 191;
@@ -712,7 +748,7 @@
             // 
             this.label25.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label25.Font = new System.Drawing.Font("宋体", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label25.Location = new System.Drawing.Point(3, 477);
+            this.label25.Location = new System.Drawing.Point(3, 441);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(102, 20);
             this.label25.TabIndex = 189;
@@ -734,7 +770,7 @@
             // 
             this.label19.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label19.Font = new System.Drawing.Font("宋体", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label19.Location = new System.Drawing.Point(3, 453);
+            this.label19.Location = new System.Drawing.Point(3, 417);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(102, 20);
             this.label19.TabIndex = 187;
@@ -756,7 +792,7 @@
             // 
             this.label21.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label21.Font = new System.Drawing.Font("宋体", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label21.Location = new System.Drawing.Point(3, 428);
+            this.label21.Location = new System.Drawing.Point(3, 392);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(102, 20);
             this.label21.TabIndex = 185;
@@ -877,7 +913,7 @@
             // 
             this.gb_Scan.BackColor = System.Drawing.Color.White;
             this.gb_Scan.Location = new System.Drawing.Point(592, 9);
-            this.gb_Scan.Margin = new System.Windows.Forms.Padding(20, 20, 20, 20);
+            this.gb_Scan.Margin = new System.Windows.Forms.Padding(20);
             this.gb_Scan.Name = "gb_Scan";
             this.gb_Scan.Size = new System.Drawing.Size(369, 300);
             this.gb_Scan.TabIndex = 6;
@@ -915,7 +951,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.panel2.Padding = new System.Windows.Forms.Padding(3);
             this.panel2.Size = new System.Drawing.Size(975, 560);
             this.panel2.TabIndex = 2;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
@@ -923,7 +959,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(802, 530);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(113, 21);
             this.textBox2.TabIndex = 221;
@@ -931,7 +967,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(685, 530);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(113, 21);
             this.textBox1.TabIndex = 207;
@@ -1070,7 +1106,7 @@
             // 焊接6
             // 
             this.焊接6.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.焊接6.Location = new System.Drawing.Point(597, 494);
+            this.焊接6.Location = new System.Drawing.Point(592, 497);
             this.焊接6.Name = "焊接6";
             this.焊接6.Size = new System.Drawing.Size(70, 32);
             this.焊接6.TabIndex = 209;
@@ -1253,6 +1289,9 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox 设备类型;
+        private System.Windows.Forms.Button 设备类型设置;
     }
 }
 

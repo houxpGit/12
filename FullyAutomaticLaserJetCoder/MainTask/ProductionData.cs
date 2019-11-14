@@ -215,6 +215,20 @@ namespace FullyAutomaticLaserJetCoder
         ///工位有无料标志位
         /// </summary>
         public bool StationMaterial ;//工位有无料标志位
+
+        /// <summary>
+        //焊接波形数据
+        /// </summary>
+        public List<float> WeldDate=new List<float> ();//工位有无料标志位
+
+        /// <summary>
+        //设备最大功率
+        /// </summary>
+        public int WeldPower;//工位有无料标志位
+        /// <summary>
+        //机台选择  通用与6KW
+        /// </summary>
+        public int WeldOther;//工位有无料标志位
         public ProductionData(int value)
         {
             Date_Clear(value);

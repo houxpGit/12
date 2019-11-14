@@ -133,7 +133,7 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                                 m_taskTime.Start();
                                 m_taskGroup.AddRunMessage("打标任务0，任务开始。");
                                 taskInfo.bTaskOnGoing = true;
-                                taskInfo.iTaskStep = 8;
+                                taskInfo.iTaskStep = (int)flowCharNew.焊接进料流程;
                                 Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[IO输出]," + "任务开始");
                                 //taskInfo.iTaskStep = (int)flowCharNew.与线体PLC对接进料信号;
                             }

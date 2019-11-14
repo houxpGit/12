@@ -51,6 +51,9 @@ namespace FullyAutomaticLaserJetCoder
             调高最高.Text = DateSave.Instance().Production.AutoZ_High_Top.ToString();
             调高最低.Text = DateSave.Instance().Production.AutoZ_High_Low.ToString();
             铜嘴清理次数.Text = DateSave.Instance().Production.Clear_TIME.ToString();
+
+            设备类型.Text = DateSave.Instance().Production.WeldOther.ToString();
+        
         }
 
         private void SettingsForm_Load(object sender, EventArgs e)
@@ -1235,6 +1238,18 @@ namespace FullyAutomaticLaserJetCoder
                 MessageBox.Show("拍照失败");
             }
         }
+
+        private void 设备类型设置_Click(object sender, EventArgs e)
+        {
+            if (设备类型.Text!="")
+            {
+                int s = int.Parse(设备类型.Text);
+                DateSave.Instance().Production.WeldOther = s;
+            }
+          
+
+
+        }
         //Thread sss;
         //private void button6_Click(object sender, EventArgs e)
         //{
@@ -1262,8 +1277,8 @@ namespace FullyAutomaticLaserJetCoder
         //        {
         //            coun = 1;
         //        }
-             
-            
+
+
         //    }
         //}
 

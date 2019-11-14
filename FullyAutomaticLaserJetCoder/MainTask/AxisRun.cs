@@ -10,8 +10,8 @@ namespace FullyAutomaticLaserJetCoder.MainTask
 {
     public class AxisRun
     {
-        public bool IsStop = false;
-        public bool Stop = false;
+        //public bool IsStop = false;
+        //public bool Stop = false;
         private static AxisRun AxisR;
         public static AxisRun Instance()
         {

@@ -10,8 +10,8 @@ namespace FullyAutomaticLaserJetCoder.MainTask
 {
     public class Method
     {
-        public bool IsStop = false;
-        public bool Stop= false;
+        //public bool IsStop = false;
+        //public bool Stop= false;
         private static Method Meth;
         public static Method Instance()
         {

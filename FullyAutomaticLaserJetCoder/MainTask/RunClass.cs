@@ -54,8 +54,8 @@ namespace FullyAutomaticLaserJetCoder.MainTask
         public bool parse = false;//暂停标志位
         List<string> ListStr = new List<string>();
         public bool RunClass_IsFinish = false;
-        public bool Stop = false;//急停
-        public bool IsStop = false;//停止
+      // public bool Stop = false;//急停
+     // public bool IsStop = false;//停止
         public bool GoOnRun = false;//继续运行标志位
         public void ReadCode(string path)// Read  code
         {
@@ -127,6 +127,8 @@ namespace FullyAutomaticLaserJetCoder.MainTask
             StartRun = true;
             GoOnRun = false;//继续运行标志位     
             RunClass_IsFinish = false;
+            CamerFlow = 0;
+            AutoWeld = 0;
             for (int i = 0; i < RunItem_List.Count; i++)
             {
                 RunMark = i;
@@ -138,9 +140,9 @@ namespace FullyAutomaticLaserJetCoder.MainTask
 
                         GoOnRun = false;
                         parse = false;//运动超时报警
-                        ClinderR.Stop = true;
-                        AxisR.Stop = true;
-                        Meth.Stop = true;
+                      //  ClinderR.Stop = true;
+                        //AxisR.Stop = true;
+                       // Meth.Stop = true;
                         break;
                     }
                    // if (DateSave.Instance().Production.EStop == true)
@@ -150,9 +152,9 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     
                         GoOnRun = false;
                         parse = false;//运动超时报警
-                        ClinderR.Stop = true;
-                        AxisR.Stop = true;
-                        Meth.Stop = true;
+                        //ClinderR.Stop = true;
+                       // AxisR.Stop = true;
+                       // Meth.Stop = true;
                         break;
                  
                     }
@@ -181,18 +183,18 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                             j = 5;
                             GoOnRun = false;
                             parse = false;//运动超时报警
-                            ClinderR.Stop = true;
-                            AxisR.Stop = true;
-                            Meth.Stop = true;
+                         //   ClinderR.Stop = true;
+                          //  AxisR.Stop = true;
+                          //  Meth.Stop = true;
                             break;
                         }
                         if (DateSave.Instance().Production.EStop == true)
                         {
                             GoOnRun = false;
                             parse = false;//运动超时报警
-                            ClinderR.Stop = true;
-                            AxisR.Stop = true;
-                            Meth.Stop = true;
+                          //  ClinderR.Stop = true;
+                         //   AxisR.Stop = true;
+                         //   Meth.Stop = true;
                             j = 5;
                             break;
                         }
@@ -222,18 +224,18 @@ namespace FullyAutomaticLaserJetCoder.MainTask
             }
             Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[运行完成],");
 
-            IsStop = false;
-            Stop = false;
-            AxisR.IsStop = false;
-            AxisR.Stop = false;
-            ClinderR.IsStop = false;
-            ClinderR.Stop = false;
-            Meth.IsStop = false;
-            Meth.Stop = false;
+            //IsStop = false;
+          //  Stop = false;
+          //  AxisR.IsStop = false;
+         //   AxisR.Stop = false;
+         //   ClinderR.IsStop = false;
+         //   ClinderR.Stop = false;
+          //  Meth.IsStop = false;
+         //   Meth.Stop = false;
             RunClass_IsFinish = true;
             StartRun = false;
-          
-        //    Thread.Sleep(100);
+            DateSave.Instance().Production.IsStop = false;
+            //    Thread.Sleep(100);
             Run_OneCase.Abort();
         }
         public void BIZZ(string NAME, string ERR)
@@ -267,6 +269,9 @@ namespace FullyAutomaticLaserJetCoder.MainTask
         public List<double> HighDate = new List<double>();
         public List<KeyValuePair<double, double>> CamerDate = new List<KeyValuePair<double, double>>();
         List<KeyValuePair<double, double>> CamerDateNeed_Date = new List<KeyValuePair<double, double>>();
+        public int CamerFlow;
+     //   public int AutoHigh;
+        public int AutoWeld;
         public bool Run_Switch(string str, string str1, string CheckSta)
         {
             string[] str_camer_checkNeed = new string[5];
@@ -485,6 +490,59 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[调高点基准]");
                     currentRunStatus = AxisR.Asix_z_Auto_High(WeldPlat_Str_Name, "调高点基准", 2, 90, -20, 5, 5, delayCheckTime);
                     break;
+                case "拍照点":
+                    delayCheckTime = 6000;
+                    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[" + str1 + "]:");
+                    currentRunStatus = Meth.Asix_Line_Run("运动平台", str1, 60000);
+                    // currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "拍照1#点坐标", delayCheckTime);
+                    // currentRunStatus = AxisR.Asix_one_Run("运动平台", "拍照1#点坐标", 2, 60000);
+                    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", str1, HighDate[CamerFlow], DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
+                    Thread.Sleep(100);
+                    // CamerDate.Add(new KeyValuePair<double, double>(0.0, 0.0));
+                    str_camer_checkNeed = CheckSta.Split(';');
+                    CamerDateNeed_Date = CamerDateNeed(str_camer_checkNeed[0], str_camer_checkNeed[1]);
+                    if (CamerDateNeed_Date.Count == 0)
+                    {
+                        currentRunStatus = false;
+                    }
+                    else if (CamerDateNeed_Date.Count == 1)
+                    {
+                        CamerDate.Add(new KeyValuePair<double, double>(0.0, 0.0));
+                        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
+                        {
+                            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
+                            CamerDate.Add(Point_1);
+                        }
+                        CamerFlow++;
+                        currentRunStatus = true;
+                    }
+                    else if (CamerDateNeed_Date.Count == 2)
+                    {
+                        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
+                        {
+                            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
+                            CamerDate.Add(Point_1);
+
+                        }
+                        CamerFlow++;
+                        currentRunStatus = true;
+                    }
+                    if (CamerDateNeed_Date.Count == 0)
+                    {
+                        currentRunStatus = false;
+                    }
+                
+                    //KeyValuePair<double, double> Point1= CamerDateNeed_Date[0].Key;
+                    //CamerDate.Add(CamerDateNeed_Date[0].Key, CamerDateNeed_Date[0].Value);
+                    //  CamerDate[0].Key = CamerDateNeed(str_camer_checkNeed[0], str_camer_checkNeed[1]).k
+                    //  CamerDate.Add( CamerDateNeed(str_camer_checkNeed[0], str_camer_checkNeed[1]));
+                    // CamerDateNeed(str_camer_checkNeed[0], str_camer_checkNeed[1])[0].Key;
+                    //  CamerDateNeed(str_camer_checkNeed[0], str_camer_checkNeed[1])[0].Value;
+                    // CamerDate.Add();
+                    break;
+
+
+              
                 case "拍照1#点坐标":             
                     delayCheckTime = 6000;
                     Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[拍照1#点坐标]");
@@ -1349,6 +1407,34 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                         currentRunStatus = false;
                     }
                     break;
+                case "焊接点":
+                    Offset = CheckSta.Split(';');
+                    OffsetX = 0;
+                    OffsetY = 0;
+                    if (Offset.Length > 0)
+                    {
+                        OffsetX = Convert.ToDouble(Offset[0]);
+                        OffsetY = Convert.ToDouble(Offset[1]);
+                    }
+
+                    //激光器就绪
+                    //    焊接报警指示
+                    delayCheckTime = 6000;
+                    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接1#点坐标]");
+                    currentRunStatus = Meth.Weld_Asix_Line_Run("运动平台", str1, delayCheckTime, DateSave.Instance().Production.X_Setover, DateSave.Instance().Production.Y_Setover, OffsetX, OffsetY);
+                    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[" + str1 + "]:" + HighDate[AutoWeld]);
+                    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", str1, HighDate[AutoWeld], DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
+                    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "["+ str1+"]:" + "开始焊接");
+                    if (CamerDate[0].Key == 0.0)
+                    {
+                        AutoWeld++;
+                        currentRunStatus = true;
+                    }
+                    else
+                    {
+                        currentRunStatus = Weld_Check(CamerDate[0].Key, CamerDate[0].Value);//开始焊接及检测焊接完成
+                    }
+                    break;
                 case "焊接1#点坐标":
                      Offset  = CheckSta.Split(';');
                      OffsetX = 0;
@@ -1837,6 +1923,23 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     }
                     currentRunStatus = true;
                     break;
+                case "调高点":
+                    delayCheckTime = 6000;
+                    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[" + str1 + "]:");
+                    currentRunStatus = Meth.Asix_Line_Run("运动平台", str1 , 60000);
+                    currentRunStatus = AxisR.Asix_one_Run("运动平台", str1 , 2, 60000);
+                    Thread.Sleep(100);
+                    if (调高数据() > 0)
+                    {
+                        HighDate.Add(调高数据());
+                        currentRunStatus = true;
+                    }
+                    else
+                    {
+                        currentRunStatus = false;
+                        //报警
+                    }
+                    break;
                 case "调高1#点坐标":
                     delayCheckTime = 6000;
                     Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[调高1#点坐标]");
@@ -1845,8 +1948,8 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     Thread.Sleep(100);
                     if (调高数据() > 0)
                     {
-                        currentRunStatus = true;
                         HighDate.Add(调高数据());
+                        currentRunStatus = true;
                     }
                     else
                     {
@@ -1903,7 +2006,8 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     }
                     else
                     {
-                        currentRunStatus = false; //报警
+                        currentRunStatus = false;
+                        //报警
                     }
                     //  currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高4#点坐标", delayCheckTime);
                     break;
@@ -1920,7 +2024,8 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     }
                     else
                     {
-                        currentRunStatus = false;  //报警
+                        currentRunStatus = false;
+                        //报警
                     }
                     //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高5#点坐标", delayCheckTime);
                     break;
@@ -1970,7 +2075,8 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     }
                     else
                     {
-                        currentRunStatus = false; //报警
+                        currentRunStatus = false;
+                        //报警
                     }
                     //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高8#点坐标", delayCheckTime);
                     break;
@@ -1986,8 +2092,7 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     }
                     else
                     {
-                        currentRunStatus = false;
-                        //报警
+                        currentRunStatus = false; //报警
                     }
                     //   currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高9#点坐标", delayCheckTime);
                     break;
@@ -2019,8 +2124,7 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     }
                     else
                     {
-                        currentRunStatus = false;
-                        //报警
+                        currentRunStatus = false; //报警
                     }
                     //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高11#点坐标", delayCheckTime);
                     break;
@@ -2052,7 +2156,7 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     }
                     else
                     {
-                        currentRunStatus = false; //报警
+                        currentRunStatus = false;  //报警
                     }
                     //  currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高13#点坐标", delayCheckTime);
                     break;
@@ -2068,8 +2172,7 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     }
                     else
                     {
-                        currentRunStatus = false;
-                        //报警
+                        currentRunStatus = false; //报警
                     }
                     //  currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高14#点坐标", delayCheckTime);
                     break;
@@ -2085,8 +2188,7 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     }
                     else
                     {
-                        currentRunStatus = false;
-                        //报警
+                        currentRunStatus = false;  //报警
                     }
                     //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高15#点坐标", delayCheckTime);
                     break;
@@ -2102,8 +2204,7 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     }
                     else
                     {
-                        currentRunStatus = false;
-                        //报警
+                        currentRunStatus = false;  //报警
                     }
                     //   currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高16#点坐标", delayCheckTime);
                     break;
@@ -2119,7 +2220,8 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     }
                     else
                     {
-                        currentRunStatus = false;  //报警
+                        currentRunStatus = false;
+                        //报警
                     }
                     //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高17#点坐标", delayCheckTime);
                     break;
@@ -2169,7 +2271,6 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     }
                     else
                     {
-                        currentRunStatus = false;
                         //报警
                     }
                     //  currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高20#点坐标", delayCheckTime);
@@ -2290,7 +2391,7 @@ namespace FullyAutomaticLaserJetCoder.MainTask
             sendFinish = 0;
             string XX = X.ToString();
             string YY = Y.ToString();
-            int stime = 4000;
+            int stime = 6000;
             bool sta = false;
             DateTime starttime = DateTime.Now;
             WeldFinishSta = "";
@@ -2298,14 +2399,14 @@ namespace FullyAutomaticLaserJetCoder.MainTask
             if (DateSave.Instance().Production.Empty_run == true)
             {
                 WeldFinishSta = "WeldFinish";
-                IOManage.OUTPUT("脱机文件0触发").SetOutBit(false);
+              //  IOManage.OUTPUT("脱机文件0触发").SetOutBit(false);
                 IOManage.OUTPUT("开始焊接机").SetOutBit(false);
             }
             else
             {
                 sendFinish = 0;
-                IOManage.OUTPUT("脱机文件0触发").SetOutBit(true);
-                Thread.Sleep(300);
+                //IOManage.OUTPUT("脱机文件0触发").SetOutBit(true);
+                //Thread.Sleep(300);
                 IOManage.OUTPUT("开始焊接机").SetOutBit(true);
             
                 Socket_server.Instance().recvDate = "";
@@ -2377,7 +2478,7 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     break;
                 }
             }
-            IOManage.OUTPUT("脱机文件0触发").SetOutBit(false);
+           // IOManage.OUTPUT("脱机文件0触发").SetOutBit(false);
             IOManage.OUTPUT("开始焊接机").SetOutBit(false);
             Thread.Sleep(300);
             return sta;
