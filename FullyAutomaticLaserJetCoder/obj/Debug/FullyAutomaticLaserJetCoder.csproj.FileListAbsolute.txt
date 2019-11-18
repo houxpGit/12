@@ -4288,3 +4288,4 @@ D:\项目备份\储能线\储能线6KW091114_15一V1\FullyAutomaticLaserJetCoder
 D:\项目备份\储能线\储能线6KW091114_15一V1\FullyAutomaticLaserJetCoder\obj\Debug\FullyAutomaticLaserJetCoder.手动操作窗体.resources
 D:\项目备份\储能线\储能线6KW091114_15一V1\FullyAutomaticLaserJetCoder\obj\Debug\FullyAutomaticLaserJetCoder.波形展示.resources
 D:\项目备份\储能线\储能线6KW091114_15一V1\FullyAutomaticLaserJetCoder\obj\Debug\FullyAutomaticLaserJetCoder.csproj.GenerateResource.Cache
+C:\GIT\1223\FullyAutomaticLaserJetCoder\bin\Debug\FullyAutomaticLaserJetCoder.exe.config
