@@ -70,7 +70,7 @@ namespace ControlPlatformLib
             int StartAxisID = 0;
             int TotalAxisNum = 0;
 
-            Global.logger.InfoFormat("初始化凌华运动控制卡,卡名称{0}", adlinkMotionCard.hardwareName);
+        //    Global.logger.InfoFormat("初始化凌华运动控制卡,卡名称{0}", adlinkMotionCard.hardwareName);
             usCardNo = adlinkMotionCard.iCardNo;
 
             ret = APS168_W64.APS168.APS_initial(ref boardID_InBits, mode);//初始化(不管电脑接了几张卡，只需初始化一次) 。
@@ -106,7 +106,7 @@ namespace ControlPlatformLib
                             v_total_axis = 16;
                             //----------------------------------------------------
                             Is_Creat = NO;
-                            Global.logger.InfoFormat("初始化凌华运动控制卡{0}成功。", adlinkMotionCard.hardwareName);
+                       //     Global.logger.InfoFormat("初始化凌华运动控制卡{0}成功。", adlinkMotionCard.hardwareName);
                             break;
                         }
                     }
@@ -115,14 +115,14 @@ namespace ControlPlatformLib
                 if (v_board_id == -1)
                 {
                     v_is_card_initialed = NO;
-                    Global.logger.ErrorFormat("初始化凌华运动控制卡{0}失败。", adlinkMotionCard.hardwareName);
+               //     Global.logger.ErrorFormat("初始化凌华运动控制卡{0}失败。", adlinkMotionCard.hardwareName);
                     bInitOK = false;
                 }
             }
             else
             {
                 v_is_card_initialed = NO;
-                Global.logger.ErrorFormat("初始化凌华运动控制卡{0}失败。", adlinkMotionCard.hardwareName);
+             //   Global.logger.ErrorFormat("初始化凌华运动控制卡{0}失败。", adlinkMotionCard.hardwareName);
                 bInitOK = false;
             }
             Thread threadScan = new Thread(ScanThreadFunction);
@@ -183,16 +183,17 @@ namespace ControlPlatformLib
 
         public bool ArcMove(short num, short AxisX, short AxisY, short AxisZ, double dAcc, double dDec, double dSpeed, double posX, double posY, double dR, short iCCW, CoordinateType interpolationAxisType)
         {
-            Global.logger.Info("---------------------------------");
-            Global.logger.Info("开始XY圆弧插补运动");
+        ///    Global.logger.Info("---------------------------------");
+         //   Global.logger.Info("开始XY圆弧插补运动");
             BuildCor(num, CoordinateType.XY);
             InsertArc(num, posX, posY, dR, dSpeed, iCCW, dAcc, 0.0);
             bool result = StartCure(num,false);
             if (result)
-                Global.logger.Info("XY圆弧插补运动完成");
-            else
-                Global.logger.Info("XY圆弧插补运动失败");
-            return result;
+            { }
+            //     Global.logger.Info("XY圆弧插补运动完成");
+            else { }
+                //      Global.logger.Info("XY圆弧插补运动失败");
+                return result;
         }
 
         public bool ArcXYMove(short num, short AxisX, short AxisY, short AxisZ, double dAcc, double dDec, double dSpeed, double posX, double posY, double dR, short iCCW)
@@ -236,7 +237,7 @@ namespace ControlPlatformLib
             }
             catch (Exception e)
             {
-                Global.logger.ErrorFormat("凌华运动控制卡圆弧插补运动失败，错误：{0}。", e.Message);
+               // Global.logger.ErrorFormat("凌华运动控制卡圆弧插补运动失败，错误：{0}。", e.Message);
                 return false;
             }
         }
@@ -761,7 +762,7 @@ namespace ControlPlatformLib
                     return_code = APS168_W64.APS168.APS_home_move(axis_id); //Start homing 
                     if (return_code != (int)APS_Define_W32.APS_Define.ERR_NoError)
                     { /* Error handling */
-                        Global.logger.ErrorFormat("凌华运动控制卡回原点出错，错误码：{0}", return_code);
+                      //  Global.logger.ErrorFormat("凌华运动控制卡回原点出错，错误码：{0}", return_code);
                     }
                 }
                 bHomeStop[axis] = false;

@@ -76,7 +76,7 @@ namespace ControlPlatformLib
         }
         override public bool Init(HardWareInfoBase infoHardWare)
         {
-            Global.logger.Info("初始化雷塞IO卡");
+           // Global.logger.Info("初始化雷塞IO卡");
             LEISAIInputOutputInfo tempInfo = (LEISAIInputOutputInfo)infoHardWare;
             if (nCardTotal > 0)
             {
@@ -97,19 +97,19 @@ namespace ControlPlatformLib
                 nCardTotal = LTDIO.ioc_board_init();
                 if (nCardTotal <= 0)//控制卡初始化
                 {
-                    Global.logger.Error("初始化雷塞IO卡失败");
+                  //  Global.logger.Error("初始化雷塞IO卡失败");
                     bInitOK = false;
                     return false;
                 }
                 if (nCardTotal >= tempInfo.iCardNo)
                 {
-                    Global.logger.Info("初始化雷塞IO卡成功");
+                //    Global.logger.Info("初始化雷塞IO卡成功");
                     bInitOK = true;
                     usCardNo = (ushort)tempInfo.iCardNo;
                 }
                 else
                 {
-                    Global.logger.Error("初始化雷塞IO卡失败");
+               //     Global.logger.Error("初始化雷塞IO卡失败");
                     bInitOK = false;
                     return false;
                 }

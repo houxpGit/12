@@ -27,7 +27,6 @@ namespace FullyAutomaticLaserJetCoder
         LEVEL_4,     //PLC log
         LEVEL_5,     //Servo log
         LEVEL_6,     //Cylinder log
-       // LEVEL_7,     //Cylinder log
     };
 
     public enum LOG_TYPE

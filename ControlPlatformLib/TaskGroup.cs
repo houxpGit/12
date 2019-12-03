@@ -249,13 +249,13 @@ namespace ControlPlatformLib
         }
         public void AddRunMessage(string strMessage)
         {
-            Global.logger.Info(strMessage);
+           // Global.logger.Info(strMessage);
             WriteMessageText(strMessage);
             //WriteLogFile(strMessage);
         }
         public void AddAlarmMessage(string strMessage)
         {
-            Global.logger.Error(strMessage);
+       //     Global.logger.Error(strMessage);
            
             //MainModule.FormMain.m_formAlarm.InsertAlarmMessage(strMessage);
             WriteMessageText(strMessage);
@@ -273,7 +273,7 @@ namespace ControlPlatformLib
                         }
                         catch (Exception ex)
                         {
-                            Global.logger.Error("上传KPI出现错误:" + ex.Message);
+                           // Global.logger.Error("上传KPI出现错误:" + ex.Message);
                         }
                     });
                     // 设备型号，项目名称，部门，设备位置，工位，上位机IP，设备状态编号（1：运行；2：故障；3：待机；4：关机；5:其他），设备状态信息，状态开始或结束时间
@@ -284,15 +284,15 @@ namespace ControlPlatformLib
                         }
                         catch (Exception ex)
                         {
-                            Global.logger.Error("上传KPI出现错误:" + ex.Message);
+                        //    Global.logger.Error("上传KPI出现错误:" + ex.Message);
                         }
                     });
-                    Global.logger.Error("更新错误信息到KPIMES："+strMessage);
+                //    Global.logger.Error("更新错误信息到KPIMES："+strMessage);
                 }
             }
             catch (Exception ex)
             {
-                Global.logger.Error("上传KPI出现错误:" + ex.Message);
+              //  Global.logger.Error("上传KPI出现错误:" + ex.Message);
             }
 
             //WriteLogFile(strMessage);

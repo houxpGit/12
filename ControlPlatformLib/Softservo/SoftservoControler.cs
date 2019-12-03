@@ -94,7 +94,7 @@ namespace ControlPlatformLib.Softservo
             {
                 string errorCode = "";
                 errorCode = WMX3Api.ErrorToString(ret);
-                Global.logger.ErrorFormat("WMX3初始化失败！错误信息：{0}", errorCode);
+               // Global.logger.ErrorFormat("WMX3初始化失败！错误信息：{0}", errorCode);
                 //return false;
             }
             else
@@ -160,7 +160,7 @@ namespace ControlPlatformLib.Softservo
             {
                 string errorCode = "";
                 errorCode = WMX3Api.ErrorToString(ret);
-                Global.logger.ErrorFormat("WMX3参数获取失败！错误信息：{0}", errorCode);
+              //  Global.logger.ErrorFormat("WMX3参数获取失败！错误信息：{0}", errorCode);
                 //return false;
             }
             //开始进行通讯
@@ -178,7 +178,7 @@ namespace ControlPlatformLib.Softservo
                 // string ErrorCode = "";
                 // wmx.ErrorToString(ret, ref ErrorCode, 128);
                 string errorCode = WMX3Api.ErrorToString(ret); //获取错误代码
-                Global.logger.ErrorFormat("WMX3通讯失败，错误信息：{0}！", errorCode);
+               // Global.logger.ErrorFormat("WMX3通讯失败，错误信息：{0}！", errorCode);
                 //return false;
             }
 
@@ -203,7 +203,7 @@ namespace ControlPlatformLib.Softservo
                 if (status.AxesStatus[i].ServoOn == false)
                 {
                     //使用失败的处理。
-                    Global.logger.ErrorFormat("WMX3 轴{0}使能失败！", i);
+                //    Global.logger.ErrorFormat("WMX3 轴{0}使能失败！", i);
                     //return false;
                 }
             }
@@ -212,7 +212,7 @@ namespace ControlPlatformLib.Softservo
             ret = cmApi.Motion.CreateSplineBuffer(5, 1024);
             if (ret != 0)
             {
-                Global.logger.ErrorFormat("WMX3创建缓存出现错误！错误信息：{0}", WMX3Api.ErrorToString(ret));
+           //     Global.logger.ErrorFormat("WMX3创建缓存出现错误！错误信息：{0}", WMX3Api.ErrorToString(ret));
             }
 
             while (bInitOK)
@@ -320,7 +320,7 @@ namespace ControlPlatformLib.Softservo
 
                 int rtn = cmApi.Motion.StartPos(fx_PosBlock); ;
                 if (rtn != 0) {
-                    Global.logger.ErrorFormat("WMX3,轴{0}绝对点位运动失败，错误信息：{1}",axis, WMX3Api.ErrorToString(rtn));
+                   // Global.logger.ErrorFormat("WMX3,轴{0}绝对点位运动失败，错误信息：{1}",axis, WMX3Api.ErrorToString(rtn));
                     return false;
                 }
 
@@ -328,7 +328,7 @@ namespace ControlPlatformLib.Softservo
             }
             catch (Exception ex)
             {
-                Global.logger.ErrorFormat("WMX3,轴{0}执行绝对点位运动出现异常，异常信息：{1}", axis, ex.Message);
+             //   Global.logger.ErrorFormat("WMX3,轴{0}执行绝对点位运动出现异常，异常信息：{1}", axis, ex.Message);
                 return false;
             }
         }
@@ -383,7 +383,7 @@ namespace ControlPlatformLib.Softservo
                 int ret = cmApi.Motion.StartCircularIntplPos(fx_CenterAndEndCir);
                 if (ret != 0)
                 {
-                    Global.logger.ErrorFormat("WMX3 执行圆弧插补出现错误！错误信息：{0}", WMX3Api.ErrorToString(ret));
+                  //  Global.logger.ErrorFormat("WMX3 执行圆弧插补出现错误！错误信息：{0}", WMX3Api.ErrorToString(ret));
                     return false;
                 }
 
@@ -391,7 +391,7 @@ namespace ControlPlatformLib.Softservo
             }
             catch (Exception ex)
             {
-                Global.logger.ErrorFormat("WMX3 执行圆弧插补出现异常！异常信息：{0}", ex.Message);
+              //  Global.logger.ErrorFormat("WMX3 执行圆弧插补出现异常！异常信息：{0}", ex.Message);
                 return false;
             }
         }
@@ -429,14 +429,14 @@ namespace ControlPlatformLib.Softservo
                 int ret = cmApi.Motion.StartCircularIntplPos(fx_CenterAndEndCir);
                 if (ret != 0)
                 {
-                    Global.logger.ErrorFormat("WMX3 执行圆弧插补出现错误！错误信息：{0}", WMX3Api.ErrorToString(ret));
-                    return false;
+                 //   Global.logger.ErrorFormat("WMX3 执行圆弧插补出现错误！错误信息：{0}", WMX3Api.ErrorToString(ret));
+                  return false;
                 }
                 return true;
             }
             catch (Exception ex)
             {
-                Global.logger.ErrorFormat("WMX3 执行圆弧插补出现异常！异常信息：{0}", ex.Message);
+             //   Global.logger.ErrorFormat("WMX3 执行圆弧插补出现异常！异常信息：{0}", ex.Message);
                 return false;
             }
         }
@@ -564,7 +564,7 @@ namespace ControlPlatformLib.Softservo
                 {
                     string errorCode = "";
                     errorCode = WMX3Api.ErrorToString(rtn);
-                    Global.logger.ErrorFormat("WMX3初始化失败！错误信息：{0}", errorCode);
+               //     Global.logger.ErrorFormat("WMX3初始化失败！错误信息：{0}", errorCode);
                     return false;
                 }
             }
@@ -601,14 +601,14 @@ namespace ControlPlatformLib.Softservo
 
                     int rtn = cmApi.Motion.StartLinearIntplPos(fx_LinearIntplCommand);
                     if (rtn != 0) {
-                        Global.logger.ErrorFormat("WMX3 直线插补出现错误，错误信息：{0}", WMX3Api.ErrorToString(rtn));
+                     //   Global.logger.ErrorFormat("WMX3 直线插补出现错误，错误信息：{0}", WMX3Api.ErrorToString(rtn));
                         return false;
                     }
                     return true;
                 }
                 catch (Exception ex)
                 {
-                    Global.logger.ErrorFormat("WMX3 直线插补出现异常，异常信息：{0}", ex.Message);
+                 //   Global.logger.ErrorFormat("WMX3 直线插补出现异常，异常信息：{0}", ex.Message);
                     return false;
                 }
             }
@@ -637,7 +637,7 @@ namespace ControlPlatformLib.Softservo
                 int rtn = cmApi.Motion.StartMov(fx_PosBlock); ;
                 if (rtn != 0)
                 {
-                    Global.logger.ErrorFormat("WMX3,轴{0}相对点位运动失败，错误信息：{1}", axis, WMX3Api.ErrorToString(rtn));
+                  //  Global.logger.ErrorFormat("WMX3,轴{0}相对点位运动失败，错误信息：{1}", axis, WMX3Api.ErrorToString(rtn));
                     return false;
                 }
 
@@ -645,7 +645,7 @@ namespace ControlPlatformLib.Softservo
             }
             catch (Exception ex)
             {
-                Global.logger.ErrorFormat("WMX3,轴{0}执行相对点位运动出现异常，异常信息：{1}", axis, ex.Message);
+                //Global.logger.ErrorFormat("WMX3,轴{0}执行相对点位运动出现异常，异常信息：{1}", axis, ex.Message);
                 return false;
             }
         }
@@ -657,14 +657,14 @@ namespace ControlPlatformLib.Softservo
                 int rtn = cmApi.AxisControl.SetServoOn(axis, 0);
                 if (rtn != 0)
                 {
-                    Global.logger.ErrorFormat("WMX3关闭伺服{0}出现错误，错误信息：{1}", axis, WMX3Api.ErrorToString(rtn));
+                //    Global.logger.ErrorFormat("WMX3关闭伺服{0}出现错误，错误信息：{1}", axis, WMX3Api.ErrorToString(rtn));
                     return false;
                 }
                 return true;
             }
             catch (Exception ex)
             {
-                Global.logger.ErrorFormat("WMX3关闭伺服{0}出现异常，异常信息：{1}", axis, ex.Message);
+               // Global.logger.ErrorFormat("WMX3关闭伺服{0}出现异常，异常信息：{1}", axis, ex.Message);
                 return false;
             }
         }
@@ -676,14 +676,14 @@ namespace ControlPlatformLib.Softservo
                 int rtn = cmApi.AxisControl.SetServoOn(axis, 1);
                 if (rtn != 0)
                 {
-                    Global.logger.ErrorFormat("WMX3使能伺服{0}出现错误，错误信息：{1}",axis ,WMX3Api.ErrorToString(rtn));
+               //     Global.logger.ErrorFormat("WMX3使能伺服{0}出现错误，错误信息：{1}",axis ,WMX3Api.ErrorToString(rtn));
                     return false;
                 }
                 return true;
             }
             catch (Exception ex)
             {
-                Global.logger.ErrorFormat("WMX3使能伺服{0}出现异常，异常信息：{1}", axis, ex.Message);
+           //     Global.logger.ErrorFormat("WMX3使能伺服{0}出现异常，异常信息：{1}", axis, ex.Message);
                 return false;
             }
         }
@@ -795,13 +795,13 @@ namespace ControlPlatformLib.Softservo
 
                         if (rtn != 0)
                         {
-                            Global.logger.ErrorFormat("WMX3 回原点出现错误，错误信息：{0}", WMX3Api.ErrorToString(rtn));
+                       //     Global.logger.ErrorFormat("WMX3 回原点出现错误，错误信息：{0}", WMX3Api.ErrorToString(rtn));
                             return false;
                         }
                     }
                     catch (Exception ex)
                     {
-                        Global.logger.ErrorFormat("WMX3 回原点出现异常，异常信息：{0}", ex.Message);
+                    //    Global.logger.ErrorFormat("WMX3 回原点出现异常，异常信息：{0}", ex.Message);
                         return false;
                     }
                 }
@@ -864,7 +864,7 @@ namespace ControlPlatformLib.Softservo
                     {
                         string errorCode = "";
                         errorCode = WMX3Api.ErrorToString(rtn);
-                        Global.logger.ErrorFormat("WMX3初始化失败！错误信息：{0}", errorCode);
+                    //    Global.logger.ErrorFormat("WMX3初始化失败！错误信息：{0}", errorCode);
                         return false;
                     }
                 }
@@ -890,7 +890,7 @@ namespace ControlPlatformLib.Softservo
                         {
                             string errorCode = "";
                             errorCode = WMX3Api.ErrorToString(rtn);
-                            Global.logger.ErrorFormat("WMX3 轴{0}停止失败！错误信息：{1}", Axis, errorCode);
+                         //   Global.logger.ErrorFormat("WMX3 轴{0}停止失败！错误信息：{1}", Axis, errorCode);
                             return false;
                         }
                     }
@@ -902,8 +902,8 @@ namespace ControlPlatformLib.Softservo
                 }
             }
             catch (Exception ex)
-            {
-                Global.logger.ErrorFormat("WMX3 轴{0}停止异常！异常信息：{1}", Axis, ex.Message);
+            {//
+              //  Global.logger.ErrorFormat("WMX3 轴{0}停止异常！异常信息：{1}", Axis, ex.Message);
                 return false;
             }
         }
@@ -923,7 +923,7 @@ namespace ControlPlatformLib.Softservo
                         {
                             string errorCode = "";
                             errorCode = WMX3Api.ErrorToString(rtn);
-                            Global.logger.ErrorFormat("WMX3 轴{0}停止失败！错误信息：{1}", Axis, errorCode);
+                          //  Global.logger.ErrorFormat("WMX3 轴{0}停止失败！错误信息：{1}", Axis, errorCode);
                             return false;
                         }
                     }
@@ -936,7 +936,7 @@ namespace ControlPlatformLib.Softservo
             }
             catch (Exception ex)
             {
-                Global.logger.ErrorFormat("WMX3 轴{0}停止异常！异常信息：{1}", Axis, ex.Message);
+             //   Global.logger.ErrorFormat("WMX3 轴{0}停止异常！异常信息：{1}", Axis, ex.Message);
                 return false;
             }
             
@@ -987,7 +987,7 @@ namespace ControlPlatformLib.Softservo
                 {
                     string errorCode = "";
                     errorCode = WMX3Api.ErrorToString(rtn);
-                    Global.logger.ErrorFormat("WMX3 执行 ThroughAndEndCircularIntplCommand 圆弧插补失败！错误信息：{0}", errorCode);
+                 //   Global.logger.ErrorFormat("WMX3 执行 ThroughAndEndCircularIntplCommand 圆弧插补失败！错误信息：{0}", errorCode);
                     return false;
                 }
 
@@ -995,7 +995,7 @@ namespace ControlPlatformLib.Softservo
             }
             catch (Exception ex)
             {
-                Global.logger.ErrorFormat("WMX3 执行 ThroughAndEndCircularIntplCommand 圆弧插补出现异常！异常信息：{0}", ex.Message);
+              //  Global.logger.ErrorFormat("WMX3 执行 ThroughAndEndCircularIntplCommand 圆弧插补出现异常！异常信息：{0}", ex.Message);
                 return false;
             }
         }

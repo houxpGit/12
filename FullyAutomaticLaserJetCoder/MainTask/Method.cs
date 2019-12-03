@@ -410,8 +410,66 @@ namespace FullyAutomaticLaserJetCoder.MainTask
             return sta;
 
         }
+        public bool Weld_Asix_Line_Run(string PlatformName, string Position, int stime, double X_Setover, double Y_Setover, double X_Camer, double Y_Camer)
+        {
+            bool sta = false;
+            DateTime starttime = DateTime.Now;
+            double X = TableManage.TablePosItem(PlatformName, Position).dPosX + X_Setover + X_Camer;
+            double Y = TableManage.TablePosItem(PlatformName, Position).dPosY + Y_Setover + Y_Camer;
+            bool LineXYZMove = TableManage.TableDriver(PlatformName).LineXYZMove(TableManage.tablesDoc.m_tableDictionary[PlatformName].axisXData.dAcc, TableManage.tablesDoc.m_tableDictionary[PlatformName].axisXData.dDec, TableManage.tablesDoc.m_tableDictionary[PlatformName].axisXData.dSpeed, X, Y, 500);
+            for (int i = 0; i < 3; i++)
+            {
+                if (LineXYZMove == true)
+                {
+                    break;
+                }
+                else
+                {
+                    Thread.Sleep(10);
+                    LineXYZMove = TableManage.TableDriver(PlatformName).LineXYZMove(TableManage.tablesDoc.m_tableDictionary[PlatformName].axisXData.dAcc, TableManage.tablesDoc.m_tableDictionary[PlatformName].axisXData.dDec, TableManage.tablesDoc.m_tableDictionary[PlatformName].axisXData.dSpeed, X, Y, 500);
+                }
+            }
+            TableManage.TableDriver(PlatformName).StartCure(false);
+            int iStep1 = 0;
 
-        public bool Weld_Asix_Line_Run(string PlatformName, string Position, int stime,double X_Setover, double Y_Setover, double X_Camer, double Y_Camer)
+            TableManage.TableDriver(PlatformName).CureMoveDone(out iStep1);
+            if (iStep1 == 0)
+            {
+            }
+            else
+            {
+            }
+            while (true)
+            {
+                DateTime endtime = DateTime.Now;
+                TimeSpan spantime = endtime - starttime;
+                double CurrentX = TableManage.TableDriver(PlatformName).CurrentX;
+                double CurrentY = TableManage.TableDriver(PlatformName).CurrentY;
+                if ((X - 0.01 < CurrentX && X + 0.01 > CurrentX) && (Y - 0.01 < CurrentY && Y + 0.01 > CurrentY))
+                {
+                    sta = true;
+                    break;
+                }
+                if (spantime.TotalMilliseconds > stime)
+                {
+                    sta = false;
+                    break;
+                }
+                if (DateSave.Instance().Production.IsStop == true)
+                {
+                    sta = true;
+                    break;
+                }
+                if (DateSave.Instance().Production.EStop == true)
+                {
+                    sta = true;
+                    break;
+                }
+            }
+            return sta;
+
+        }
+        public bool High_Asix_Line_Run(string PlatformName, string Position, int stime,double X_Setover, double Y_Setover, double X_Camer, double Y_Camer)
         {
             bool sta = false;
             DateTime starttime = DateTime.Now;

@@ -16,14 +16,14 @@ namespace ControlPlatformLib
         public override bool Init(HardWareInfoBase infoHardWare)
         {
             GoogolTechExtCardInfo googoTechMCInfo = infoHardWare as GoogolTechExtCardInfo;
-            Global.logger.InfoFormat("初始化固高拓展卡,卡名称{0}", googoTechMCInfo.hardwareName);
+         //   Global.logger.InfoFormat("初始化固高拓展卡,卡名称{0}", googoTechMCInfo.hardwareName);
             usCardNo = (short)googoTechMCInfo.iCardNo;
             usExtNo = (short)googoTechMCInfo.iExtCardNo;
             short sRtn = 0;
             sRtn = gts.mc.GT_OpenExtMdl((short)usCardNo,googoTechMCInfo.m_strExtDllName);
             if (!HandleErrorMessage(sRtn))
             {
-                Global.logger.ErrorFormat("初始化固高拓展卡{0}失败", googoTechMCInfo.hardwareName);
+            //    Global.logger.ErrorFormat("初始化固高拓展卡{0}失败", googoTechMCInfo.hardwareName);
                 bInitOK = false;
                 return false;
             }
@@ -53,7 +53,7 @@ namespace ControlPlatformLib
             }
             catch (Exception ex)
             {
-                Global.logger.ErrorFormat("固高拓展卡运行出现错误：{0}", ex.Message);
+             //   Global.logger.ErrorFormat("固高拓展卡运行出现错误：{0}", ex.Message);
                 throw;
             }
         }
@@ -152,7 +152,7 @@ namespace ControlPlatformLib
             }
             catch (Exception ex)
             {
-                Global.logger.ErrorFormat("固高拓展卡设置输出点位出现错误：{0}", ex.Message);
+              //  Global.logger.ErrorFormat("固高拓展卡设置输出点位出现错误：{0}", ex.Message);
                 return false;
             }
         }

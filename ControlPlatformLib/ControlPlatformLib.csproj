@@ -295,6 +295,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
     <Compile Include="Softservo\SoftservoControler.cs" />
     <Compile Include="Softservo\SoftservoControlerForm.cs">
       <SubType>Form</SubType>
@@ -572,6 +573,7 @@
       <DependentUpon>AdvanceOutputInfoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="自定义运动控制\ConfigINI.cs" />
+    <Compile Include="自定义运动控制\FlowChar.cs" />
     <Compile Include="自定义运动控制\FtpUpd.cs" />
     <Compile Include="自定义运动控制\HttpPost.cs" />
     <Compile Include="自定义运动控制\ImgFtpUpd.cs" />

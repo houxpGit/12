@@ -529,7 +529,7 @@ namespace ControlPlatformLib
                 }
                 catch (Exception e)
                 {
-                    Global.logger.ErrorFormat("IO 异常:{0}", e.Message);
+                 //   Global.logger.ErrorFormat("IO 异常:{0}", e.Message);
                     MessageBox.Show(e.Message, "IO异常", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 Thread.Sleep(1);

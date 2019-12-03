@@ -34,10 +34,11 @@
             this.最小化ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.最大化ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关闭ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.curveGraph1 = new ProFrame.CurveGraph();
             this.功率 = new System.Windows.Forms.TextBox();
             this.设备功率 = new System.Windows.Forms.Label();
             this.设置最大功率 = new System.Windows.Forms.Button();
+            this.curveGraph1 = new ProFrame.CurveGraph();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,7 +58,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1073, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1159, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_MouseDown);
@@ -83,6 +84,32 @@
             this.关闭ToolStripMenuItem.Text = "关闭";
             this.关闭ToolStripMenuItem.Click += new System.EventHandler(this.关闭ToolStripMenuItem_Click);
             // 
+            // 功率
+            // 
+            this.功率.Location = new System.Drawing.Point(1012, 77);
+            this.功率.Name = "功率";
+            this.功率.Size = new System.Drawing.Size(118, 25);
+            this.功率.TabIndex = 2;
+            // 
+            // 设备功率
+            // 
+            this.设备功率.AutoSize = true;
+            this.设备功率.Location = new System.Drawing.Point(1012, 59);
+            this.设备功率.Name = "设备功率";
+            this.设备功率.Size = new System.Drawing.Size(82, 15);
+            this.设备功率.TabIndex = 3;
+            this.设备功率.Text = "设备功率：";
+            // 
+            // 设置最大功率
+            // 
+            this.设置最大功率.Location = new System.Drawing.Point(1012, 108);
+            this.设置最大功率.Name = "设置最大功率";
+            this.设置最大功率.Size = new System.Drawing.Size(118, 35);
+            this.设置最大功率.TabIndex = 4;
+            this.设置最大功率.Text = "设置";
+            this.设置最大功率.UseVisualStyleBackColor = true;
+            this.设置最大功率.Click += new System.EventHandler(this.设置最大功率_Click);
+            // 
             // curveGraph1
             // 
             this.curveGraph1.AxisColor = System.Drawing.Color.Yellow;
@@ -98,11 +125,10 @@
             this.curveGraph1.GridFontColor = System.Drawing.Color.Yellow;
             this.curveGraph1.GridFontSize = 9F;
             this.curveGraph1.GridPenWidth = 1F;
-            this.curveGraph1.Location = new System.Drawing.Point(15, 38);
-            this.curveGraph1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.curveGraph1.Location = new System.Drawing.Point(9, 34);
             this.curveGraph1.Name = "curveGraph1";
-            this.curveGraph1.Size = new System.Drawing.Size(894, 550);
-            this.curveGraph1.TabIndex = 0;
+            this.curveGraph1.Size = new System.Drawing.Size(989, 631);
+            this.curveGraph1.TabIndex = 5;
             this.curveGraph1.TitleColor = System.Drawing.Color.Yellow;
             this.curveGraph1.TitleFont = new System.Drawing.Font("Arial", 12F);
             this.curveGraph1.XAxisTitle = "X轴";
@@ -115,45 +141,30 @@
             this.curveGraph1.YAxisTitle = "Y轴";
             this.curveGraph1.YMaxValue = 6000F;
             this.curveGraph1.YMinValue = 0F;
-            this.curveGraph1.YOffset = 180F;
+            this.curveGraph1.YOffset = 150F;
             this.curveGraph1.YOrigin = 0F;
             this.curveGraph1.YScale = 500F;
             // 
-            // 功率
+            // button1
             // 
-            this.功率.Location = new System.Drawing.Point(915, 85);
-            this.功率.Name = "功率";
-            this.功率.Size = new System.Drawing.Size(118, 25);
-            this.功率.TabIndex = 2;
-            // 
-            // 设备功率
-            // 
-            this.设备功率.AutoSize = true;
-            this.设备功率.Location = new System.Drawing.Point(915, 67);
-            this.设备功率.Name = "设备功率";
-            this.设备功率.Size = new System.Drawing.Size(82, 15);
-            this.设备功率.TabIndex = 3;
-            this.设备功率.Text = "设备功率：";
-            // 
-            // 设置最大功率
-            // 
-            this.设置最大功率.Location = new System.Drawing.Point(915, 116);
-            this.设置最大功率.Name = "设置最大功率";
-            this.设置最大功率.Size = new System.Drawing.Size(118, 35);
-            this.设置最大功率.TabIndex = 4;
-            this.设置最大功率.Text = "设置";
-            this.设置最大功率.UseVisualStyleBackColor = true;
-            this.设置最大功率.Click += new System.EventHandler(this.设置最大功率_Click);
+            this.button1.Location = new System.Drawing.Point(1042, 467);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
             // 
             // 波形展示
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1073, 629);
+            this.ClientSize = new System.Drawing.Size(1159, 674);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.curveGraph1);
             this.Controls.Add(this.设置最大功率);
             this.Controls.Add(this.设备功率);
             this.Controls.Add(this.功率);
-            this.Controls.Add(this.curveGraph1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
@@ -170,7 +181,7 @@
 
         #endregion
 
-        private ProFrame.CurveGraph curveGraph1;
+   //     private ProFrame.CurveGraph curveGraph1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 最小化ToolStripMenuItem;
@@ -179,5 +190,7 @@
         private System.Windows.Forms.TextBox 功率;
         private System.Windows.Forms.Label 设备功率;
         private System.Windows.Forms.Button 设置最大功率;
+        private ProFrame.CurveGraph curveGraph1;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -96,7 +96,7 @@ namespace ControlPlatformLib
                     }
                     catch (Exception ex)
                     {
-                        Global.logger.Error("上传KPI出现错误:" + ex.Message);
+                      //  Global.logger.Error("上传KPI出现错误:" + ex.Message);
                     }
                 });
             }
@@ -632,7 +632,7 @@ namespace ControlPlatformLib
                     }
                     catch (Exception ex)
                     {
-                        Global.logger.Error("上传KPI出现错误:" + ex.Message);
+                   //     Global.logger.Error("上传KPI出现错误:" + ex.Message);
                     }
                 });
             }

@@ -1046,7 +1046,7 @@ namespace ControlPlatformLib
             }
             catch (Exception ex)
             {
-                Global.logger.ErrorFormat("路径生成错误，错误信息：{0}", ex.Message);
+             //   Global.logger.ErrorFormat("路径生成错误，错误信息：{0}", ex.Message);
             }
         }
 
@@ -1214,7 +1214,7 @@ namespace ControlPlatformLib
                 sb.AppendLine("N" + lineNumber + " G01 X" + item.dPosX + " Y" + item.dPosY + " F" + tableDriver.tableData.axisXData.dSpeed * 60);
                 lineNumber += 10;
                 DrawingLine(new System.Windows.Point(item.dPosX, item.dPosY), new System.Windows.Point(item.dPosX, item.dPosY), preWeldingCanvas);
-                Global.logger.InfoFormat("插入直线插补，位置{0}", item.strName);
+               // Global.logger.InfoFormat("插入直线插补，位置{0}", item.strName);
             }
 
             sb.AppendLine("M2");

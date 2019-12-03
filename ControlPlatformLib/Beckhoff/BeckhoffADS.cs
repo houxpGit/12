@@ -78,7 +78,7 @@ namespace ControlPlatformLib.Beckhoff
             }
             catch (Exception ex)
             {
-                Global.logger.ErrorFormat("连接倍福PLC失败,地址：{0}，错误信息：{1}", tcNetID, ex.Message);
+                //Global.logger.ErrorFormat("连接倍福PLC失败,地址：{0}，错误信息：{1}", tcNetID, ex.Message);
                 Global.bPLCConnected = false;
                 bInitOK = false;
                 return false;
@@ -247,13 +247,13 @@ namespace ControlPlatformLib.Beckhoff
             catch (Exception ex)
             {
                 bInitOK = false;
-                Global.logger.ErrorFormat("初始化倍福ADS通讯错误：{0}", ex.Message);
+                //Global.logger.ErrorFormat("初始化倍福ADS通讯错误：{0}", ex.Message);
             }
         }
 
         private void TcClient_ConnectionStateChanged( object sender,ConnectionStateChangedEventArgs e)
         {
-            Global.logger.InfoFormat("连接状态改变：{0}",e.NewState);
+         //   Global.logger.InfoFormat("连接状态改变：{0}",e.NewState);
         }
 
         private void ScanIO()
@@ -342,7 +342,7 @@ namespace ControlPlatformLib.Beckhoff
             catch (Exception ex)
             {
                 Close();
-                Global.logger.ErrorFormat("ADS通讯错误：{0}。", ex.Message);
+              //  Global.logger.ErrorFormat("ADS通讯错误：{0}。", ex.Message);
             }
         }
 
@@ -381,7 +381,7 @@ namespace ControlPlatformLib.Beckhoff
             catch (Exception ex)
             {
                 Close();
-                Global.logger.ErrorFormat("轴：{0} 执行绝对运动指令失败，错误信息：{1}。", axis, ex.Message);
+               // Global.logger.ErrorFormat("轴：{0} 执行绝对运动指令失败，错误信息：{1}。", axis, ex.Message);
                 return false;
             }
         }
@@ -434,7 +434,7 @@ namespace ControlPlatformLib.Beckhoff
             catch (Exception ex)
             {
                 Close();
-                Global.logger.ErrorFormat("获取回原点完成信号失败，错误信息：{0}。",ex.Message);
+            //    Global.logger.ErrorFormat("获取回原点完成信号失败，错误信息：{0}。",ex.Message);
                 return false;
             }
         }
@@ -546,7 +546,7 @@ namespace ControlPlatformLib.Beckhoff
             catch (Exception ex)
             {
                 Close();
-                Global.logger.ErrorFormat("获取运动完成信号失败，错误信息：{0}。",ex.Message);
+                //Global.logger.ErrorFormat("获取运动完成信号失败，错误信息：{0}。",ex.Message);
                 return false;
             }
         }
@@ -578,7 +578,7 @@ namespace ControlPlatformLib.Beckhoff
             catch (Exception ex)
             {
                 Close();
-                Global.logger.ErrorFormat("轴：{0} 执行Jog运动指令失败，错误信息：{1}。", axis, ex.Message);
+              //  Global.logger.ErrorFormat("轴：{0} 执行Jog运动指令失败，错误信息：{1}。", axis, ex.Message);
                 return false;
             }
         }
@@ -617,7 +617,7 @@ namespace ControlPlatformLib.Beckhoff
             catch (Exception ex)
             {
                 Close();
-                Global.logger.ErrorFormat("轴：{0} 执行相对运动指令失败，错误信息：{1}。", axis, ex.Message);
+               // Global.logger.ErrorFormat("轴：{0} 执行相对运动指令失败，错误信息：{1}。", axis, ex.Message);
                 return false;
             }
         }
@@ -713,7 +713,7 @@ namespace ControlPlatformLib.Beckhoff
             catch (Exception ex)
             {
                 Close();
-                Global.logger.ErrorFormat("执行插补指令失败，错误信息：{0}。", ex.Message);
+               // Global.logger.ErrorFormat("执行插补指令失败，错误信息：{0}。", ex.Message);
                 return false;
             }
         }
@@ -734,7 +734,7 @@ namespace ControlPlatformLib.Beckhoff
             catch (Exception ex)
             {
                 Close();
-                Global.logger.ErrorFormat("执行插补指令失败，错误信息：{0}。", ex.Message);
+              //  Global.logger.ErrorFormat("执行插补指令失败，错误信息：{0}。", ex.Message);
                 return false;
             }
         }
@@ -759,7 +759,7 @@ namespace ControlPlatformLib.Beckhoff
             catch (Exception ex)
             {
                 Close();
-                Global.logger.ErrorFormat("轴：{0} 回原指令失败，错误信息：{1}。", axis, ex.Message);
+              //  Global.logger.ErrorFormat("轴：{0} 回原指令失败，错误信息：{1}。", axis, ex.Message);
                 return false;
             }
         }
@@ -785,7 +785,7 @@ namespace ControlPlatformLib.Beckhoff
             catch (Exception ex)
             {
                 Close();
-                Global.logger.ErrorFormat("轴：{0} Jog停止失败，错误信息：{1}。", axis, ex.Message);
+               // Global.logger.ErrorFormat("轴：{0} Jog停止失败，错误信息：{1}。", axis, ex.Message);
                 return false;
             }
             //tcClient.WriteAny(jogForward[axis], false);
@@ -809,7 +809,7 @@ namespace ControlPlatformLib.Beckhoff
             catch (Exception ex)
             {
                 Close();
-                Global.logger.ErrorFormat("轴：{0} 停止失败，错误信息：{1}。", axis, ex.Message);
+              //  Global.logger.ErrorFormat("轴：{0} 停止失败，错误信息：{1}。", axis, ex.Message);
                 return false;
             }
 
@@ -846,7 +846,7 @@ namespace ControlPlatformLib.Beckhoff
             catch (Exception ex)
             {
                 Close();
-                Global.logger.ErrorFormat("获取输入点位：{0} 失败，错误信息：{1}。", iBit, ex.Message);
+              //  Global.logger.ErrorFormat("获取输入点位：{0} 失败，错误信息：{1}。", iBit, ex.Message);
                 return false;
             }
 
@@ -879,7 +879,7 @@ namespace ControlPlatformLib.Beckhoff
             catch (Exception ex)
             {
                 Close();
-                Global.logger.ErrorFormat("获取输出点位：{0} 失败，错误信息：{1}。", iBit, ex.Message);
+              //  Global.logger.ErrorFormat("获取输出点位：{0} 失败，错误信息：{1}。", iBit, ex.Message);
                 return false;
             }
         }
@@ -912,7 +912,7 @@ namespace ControlPlatformLib.Beckhoff
             catch (Exception ex)
             {
                 Close();
-                Global.logger.ErrorFormat("输出点位：{0} 失败，错误信息：{1}。", iBit, ex.Message);
+              //  Global.logger.ErrorFormat("输出点位：{0} 失败，错误信息：{1}。", iBit, ex.Message);
                 return false;
             }
         }
@@ -947,7 +947,7 @@ namespace ControlPlatformLib.Beckhoff
             catch (Exception ex)
             {
                 Close();
-                Global.logger.ErrorFormat("复位报警失败，错误信息：{0}。", ex.Message);
+               // Global.logger.ErrorFormat("复位报警失败，错误信息：{0}。", ex.Message);
                 return false;
             }
         }
@@ -977,7 +977,7 @@ namespace ControlPlatformLib.Beckhoff
             catch (Exception ex)
             {
                 Close();
-                Global.logger.ErrorFormat("暂停插补报警，错误信息：{0}。", ex.Message);
+            //    Global.logger.ErrorFormat("暂停插补报警，错误信息：{0}。", ex.Message);
                 return false;
             }
         }
@@ -995,7 +995,7 @@ namespace ControlPlatformLib.Beckhoff
             catch (Exception ex)
             {
                 Close();
-                Global.logger.ErrorFormat("恢复插补报警，错误信息：{0}。", ex.Message);
+               // Global.logger.ErrorFormat("恢复插补报警，错误信息：{0}。", ex.Message);
                 return false;
             }
         }
@@ -1030,7 +1030,7 @@ namespace ControlPlatformLib.Beckhoff
             catch (Exception ex)
             {
                 Close();
-                Global.logger.ErrorFormat("执行预焊失败，错误信息：{0}。", ex.Message);
+             //   Global.logger.ErrorFormat("执行预焊失败，错误信息：{0}。", ex.Message);
             }
         }
 
@@ -1049,7 +1049,7 @@ namespace ControlPlatformLib.Beckhoff
             catch (Exception ex)
             {
                 Close();
-                Global.logger.ErrorFormat("执行预焊失败，错误信息：{0}。", ex.Message);
+               // Global.logger.ErrorFormat("执行预焊失败，错误信息：{0}。", ex.Message);
             }
         }
 
@@ -1066,7 +1066,7 @@ namespace ControlPlatformLib.Beckhoff
             catch (Exception ex)
             {
                 Close();
-                Global.logger.ErrorFormat("获取预焊结果失败，错误信息：{0}。", ex.Message);
+                //Global.logger.ErrorFormat("获取预焊结果失败，错误信息：{0}。", ex.Message);
                 return false;
             }
         }

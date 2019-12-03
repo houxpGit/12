@@ -18,7 +18,7 @@ namespace ControlPlatformLib
         public static bool landingOk = false;
         bool bSaveNamePassword;
         bool bIgnoreMes;
-        WebReference.MESInterface mes = new WebReference.MESInterface();
+        WebReference.MESInterface mes1 = new WebReference.MESInterface();
         public LoginForm()
         {
             InitializeComponent();
@@ -26,8 +26,10 @@ namespace ControlPlatformLib
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
+         
             try
             {
+                mes.Instance().Load(txt_Pos.Text);
                 if (string.IsNullOrEmpty(txt_User.Text))
                 {
                     MessageBox.Show("请输入用户名！");
@@ -45,11 +47,13 @@ namespace ControlPlatformLib
                 }
                 if (string.IsNullOrEmpty(txt_Pos.Text))
                 {
+                
                     MessageBox.Show("请输入设备位置！");
                     return;
                 }
                 if (bSaveNamePassword)
                 {
+                  
                     //const string Compensation = "user";
 
                     //string CompensationPath = Application.StartupPath + "\\SettingBug.ini";
@@ -60,7 +64,7 @@ namespace ControlPlatformLib
                     //offset = txt_MachineNO.Text;
                     //ConfINI.writeINI(Compensation, "MachineNO_num", offset, CompensationPath);
 
-                   // mes.Instance().userCode;
+                    // mes.Instance().userCode;
 
                     Properties.Settings.Default.UserName = txt_User.Text;
                     Properties.Settings.Default.Password = txt_Password.Text;
@@ -98,12 +102,14 @@ namespace ControlPlatformLib
                 }
                 else
                 {
-                  
-                    string result = mes.CheckUserDo(txt_User.Text, txt_Password.Text, txt_MachineNO.Text);
-                    string result1 = mes.CheckUserDo(txt_User.Text, txt_Password.Text, txt_MachineNoRight.Text);
 
-                    if (result.ToUpper() == "TRUE"&& result1.ToUpper()=="TRUE")
+                    //    string result = mes1.CheckUserDo(txt_User.Text, txt_Password.Text, txt_MachineNO.Text);
+                    // string result1 = mes1.CheckUserDo(txt_User.Text, txt_Password.Text, txt_MachineNoRight.Text);
+                    string result = mes.Instance().Login(Properties.Settings.Default.UserName, Properties.Settings.Default.Password, Properties.Settings.Default.MachineNo);
+                    if (result.ToUpper() == "OK")
                     {
+                        mes.Instance().userCode = txt_User.Text;
+                        mes.Instance().deviceCode = txt_MachineNO.Text;
                         landingOk = true;
                         landingFinish = true;
 
@@ -113,7 +119,7 @@ namespace ControlPlatformLib
                     else
                     {
                         landingFinish = false;
-                        MessageBox.Show("登录失败！"+ result+result1);
+                        MessageBox.Show("登录失败！"+ result);
                         return;
                     }
                 }

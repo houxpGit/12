@@ -48,7 +48,7 @@ namespace ControlPlatformLib
 
         public override bool Init(HardWareInfoBase infoHardWare)
         {
-            Global.logger.Info("初始化凌华IO卡");
+           // Global.logger.Info("初始化凌华IO卡");
             ADLINKInputInfo tempInfo = (ADLINKInputInfo)infoHardWare;
             usCardNo = (ushort)tempInfo.iCardNo;
             bool ret;
@@ -58,10 +58,10 @@ namespace ControlPlatformLib
             }
             catch (Exception)
             {
-                Global.logger.Info("初始化凌华IO卡失败!");
+              //  Global.logger.Info("初始化凌华IO卡失败!");
                 return false;
             }
-            Global.logger.Info("初始化凌华IO卡成功！");
+         //   Global.logger.Info("初始化凌华IO卡成功！");
             return ret;
         }
 

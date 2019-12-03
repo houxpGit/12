@@ -103,7 +103,7 @@ namespace ControlPlatformLib
                 //    return;
                 //}
             }
-            if (MainModule.FormMain.bAuto == false)
+            if (MainModule.FormMain.bAuto == false && MainModule.FormMain.bHomeReady == true)
             {
                 MainModule.FormMain.bAuto = true;
             }
@@ -125,7 +125,7 @@ namespace ControlPlatformLib
                 }
                 catch (Exception ex)
                 {
-                    Global.logger.Error("更新运行状态出现错误：" + ex.Message);
+                  //  Global.logger.Error("更新运行状态出现错误：" + ex.Message);
                 }
             }
             if (stopButtonPushed!=null)
@@ -258,13 +258,13 @@ namespace ControlPlatformLib
                 }
                 else
                 {
-                   
+
 
                 }
-                if (bPreAuto == false)
+                if (bPreAuto == false && MainModule.FormMain.bHomeReady==true)
                 {
                     buttonStart.BackColor = Color.Green;
-                   //  buttonStart.Text = "启动";
+                    //  buttonStart.Text = "启动";
                     buttonStart.ImageIndex = 2;
                     if (IOManage.OutputDrivers.drivers.ContainsKey("START"))
                     {

@@ -67,7 +67,7 @@ namespace FullyAutomaticLaserJetCoder
         {
 
             label_title.Text = Caption;
-            label_message.Text = Hint;
+            label_message.Text = Hint+"+"+ Default;
             try
             {
                 button1.DialogResult = DialogResult.OK;

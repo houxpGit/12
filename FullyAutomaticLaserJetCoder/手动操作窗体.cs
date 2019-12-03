@@ -10,13 +10,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WorldGeneralLib.SerialPorts;
 
 namespace FullyAutomaticLaserJetCoder
 {
     public partial class 手动操作窗体 : Form
     {
         public string stfPath = System.Environment.CurrentDirectory + "\\FlowDocument";
-        public mes mes;
+     //   public mes mes;
     //    public ComeOut_process ComeOut;
        // public Weld_Process Weld;
         public MarkTask m_MarkTask;
@@ -532,16 +533,7 @@ namespace FullyAutomaticLaserJetCoder
                     string fileNameExt = file.Substring(file.LastIndexOf("\\") + 1); //获取文件名，不带路径
                     string filePath = file.Substring(0, file.LastIndexOf("\\"));//获取文件路径，不带文件名
                     运行流程选择.Items.Add(fileNameExt);
-
-
-                   
-
-                    //  FormTableDriver.LoadObjTablesDocs(stfPath + "\\" + 机种选择.Text+ "\\TablesDoc.xml");
-
-                    //FormTableDriver.LoadObjTablesDocs(stfPath );
-
-                    TableManage.LoadData();
-
+                     //  TableManage.LoadData();
                 }
                 string stfPath12 = stfPath + "\\" + 机种选择.Text + "\\TablesDoc.xml";
                 string stfPath55 = System.Environment.CurrentDirectory + "\\Parameter\\TablesDoc.xml";
@@ -552,12 +544,8 @@ namespace FullyAutomaticLaserJetCoder
                 if (!File.Exists(stfPath55))
                 {
                     File.Copy(stfPath12, stfPath55);
-
                 }
                 MessageBox.Show("更新完成");
-                //List<string> list = new List<string>();
-                //DirectoryInfo root = new DirectoryInfo(stfPath+"\\"+ 机种选择.Text);
-                //DirectoryInfo[] di = root.GetDirectories();
             }
             else
             {
@@ -573,12 +561,35 @@ namespace FullyAutomaticLaserJetCoder
                 MainModule.FormMain.m_formAlarm.InsertAlarmMessage("请先回原点！");
                 return;
             }
-            if (机种选择.Text!="" && 运行流程选择.Text!="")
+            if (MainModule.FormMain.bAuto)
             {
-                RunClass.Instance().RunClass_IsFinish = false;
-                RunClass.Instance().runTask(ReadstfPath + "\\" + 机种选择.Text + "\\" + 运行流程选择.Text);
+                MainModule.FormMain.m_formAlarm.InsertAlarmMessage("请先停止自动运行！");
+                return;
             }
-          
+            
+            if (RunClass.Instance().Run_OneCase == null)
+            {
+                if (机种选择.Text != "" && 运行流程选择.Text != "")
+                {
+                    DateSave.Instance().Production.IsStop = false;
+                    RunClass.Instance().RunClass_IsFinish = false;
+                    RunClass.Instance().runTask(ReadstfPath + "\\" + 机种选择.Text + "\\" + 运行流程选择.Text);
+                }
+            }
+            else
+            {
+                if (RunClass.Instance().Run_OneCase.IsAlive == true)
+                {
+                    MainModule.FormMain.m_formAlarm.InsertAlarmMessage("请先停止运行！");
+                    return;
+                }
+                if (机种选择.Text != "" && 运行流程选择.Text != "")
+                {
+                    DateSave.Instance().Production.IsStop = false;
+                    RunClass.Instance().RunClass_IsFinish = false;
+                    RunClass.Instance().runTask(ReadstfPath + "\\" + 机种选择.Text + "\\" + 运行流程选择.Text);
+                }
+            }                    
         }
         public void ReadCode(string path)// Read  code
         {
@@ -648,6 +659,86 @@ namespace FullyAutomaticLaserJetCoder
                 //MainControl.ProductionData.CreatFolderNew(stfPathForder + "\\FlowDocument\\" + 新机种号.Text);
             }
             
+        }
+
+        private void 手动过MES_Click(object sender, EventArgs e)
+        {
+            if (DateSave.Instance().Production.WeldOther==1)
+            {
+             //   string ISOK = mes.Instance().CellToolingPlate(手动过MES_Sn.Text.Replace("\r\n", ""));
+                string sww = mes.Instance().userCode;
+                string sww12 = mes.Instance().deviceCode;
+                //  string da=    mes.Instance().WipTest(ISOK, "PASS", sww, sww12, "", "");//上传数据
+                string MesStr = "|波形号:" + "50"
+                                         + "|速度:" + "50"
+                                         + "|加速度:" + "50" + "|基准高度:" + "50" + "|最大功率:" + "50" + "|反馈功率:" + "50" + "|焊接高度:" + "50" + "|焊接半径:" + "50" + "|离焦量:" + "50" + "|";
+                //mes.Instance().WipTest(DateSave.Instance().Production.DataReceivedstrSN.Replace("\r\n", ""), "PASS", mes.Instance().userCode, mes.Instance().deviceCode, "", "");//上传数据
+
+                string result = mes.Instance().WipTest(手动过MES_Sn.Text.Replace("\r\n", ""), "PASS", mes.Instance().userCode, mes.Instance().deviceCode, "", "");//过站校验
+                if (result == "OK")
+                {
+                    string res = mes.Instance().OfflineUploadData(手动过MES_Sn.Text.Replace("\r\n", ""), 1.ToString(), "weld", "PASS", mes.Instance().userCode, mes.Instance().deviceCode, "", MesStr);//上传数据
+                    if (res == "OK")
+                    {
+                        MessageBox.Show(res);
+                        return;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(result);
+                    return;
+                }
+            }
+            if (DateSave.Instance().Production.WeldOther == 2)
+            {
+            }
+            if (DateSave.Instance().Production.WeldOther == 3)
+            {
+                string ISOK = mes.Instance().CellToolingPlate(手动过MES_Sn.Text.Replace("\r\n", ""));
+                string sww = mes.Instance().userCode;
+                string sww12 = mes.Instance().deviceCode;
+                //  string da=    mes.Instance().WipTest(ISOK, "PASS", sww, sww12, "", "");//上传数据
+                string MesStr = "|波形号:" + "50"
+                                         + "|速度:" + "50"
+                                         + "|加速度:" + "50" + "|基准高度:" + "50" + "|最大功率:" + "50" + "|反馈功率:" + "50" + "|焊接高度:" + "50" + "|焊接半径:" + "50" + "|离焦量:" + "50" + "|";
+                //mes.Instance().WipTest(DateSave.Instance().Production.DataReceivedstrSN.Replace("\r\n", ""), "PASS", mes.Instance().userCode, mes.Instance().deviceCode, "", "");//上传数据
+
+                string result = mes.Instance().WipTest(ISOK, "PASS", mes.Instance().userCode, mes.Instance().deviceCode, "", "");//过站校验
+                if (result == "OK")
+                {
+                    string res = mes.Instance().OfflineUploadData(ISOK, 1.ToString(), "weld", "PASS", mes.Instance().userCode, mes.Instance().deviceCode, "", MesStr);//上传数据
+                    if (res == "OK")
+                    {
+                        MessageBox.Show(res);
+                        return;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(result);
+                    return;
+                }
+            }
+       
+        
+        }
+
+        private void 扫码_Click(object sender, EventArgs e)
+        {
+            string value = "T";
+            SerialPortDataManage.m_SerilPorts["扫码枪"].GetData(ref value);
+            if (value != "")
+            {
+                手动过MES_Sn.Text = value;
+            }
+            else
+            {
+                MessageBox.Show("手动扫码失败");
+
+            }
+        
+
         }
     }
 }

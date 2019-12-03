@@ -105,8 +105,8 @@ namespace ControlPlatformLib
         /// <returns></returns>
         public bool ArcXYMove(short num, short AxisX, short AxisY, short AxisZ, double dAcc, double dDec, double dSpeed, double posX, double posY, double dR, short iCCW)
         {
-           Global.logger.Info("---------------------------------");
-           Global.logger.Info("开始XY圆弧插补运动");
+        //   Global.logger.Info("---------------------------------");
+          // Global.logger.Info("开始XY圆弧插补运动");
             BuildCor(num, CoordinateType.XY);
             for (int i=0;i<3;i++)
             {
@@ -138,8 +138,8 @@ namespace ControlPlatformLib
         /// <param name="coordinateType">坐标系类型</param>
         public bool  BuildCor(short num, CoordinateType coordinateType)
         {
-           Global.logger.Info("---------------------------------");
-            Global.logger.InfoFormat("建立运动坐标系[{0}]，坐标系类型:{1}。", num, coordinateType);
+          // Global.logger.Info("---------------------------------");
+          //  Global.logger.InfoFormat("建立运动坐标系[{0}]，坐标系类型:{1}。", num, coordinateType);
             short sRtn;
             //iColAixsNo[num - 1, 0] = AxisX;
             //iColAixsNo[num - 1, 1] = AxisY;
@@ -202,13 +202,13 @@ namespace ControlPlatformLib
                 sRtn = gts.mc.GT_SetCrdPrm(usCardNo, num, ref crdPrm);
                 if (sRtn == 0)
                 {
-                    Global.logger.Info("建立运动坐标系完成");
+                    //Global.logger.Info("建立运动坐标系完成");
                     return true;
                 }
 
 
                 else
-                {   Global.logger.Info("建立运动坐标系失败");
+                {//   Global.logger.Info("建立运动坐标系失败");
                     return false;
                     }
               
@@ -612,13 +612,13 @@ namespace ControlPlatformLib
         override public bool Init(HardWareInfoBase infoHardWare)
         {
             GoogoTechMCInfo googoTechMCInfo = infoHardWare as GoogoTechMCInfo;
-            Global.logger.InfoFormat("初始化固高运动控制卡,卡名称{0}", googoTechMCInfo.hardwareName);
+      //      Global.logger.InfoFormat("初始化固高运动控制卡,卡名称{0}", googoTechMCInfo.hardwareName);
             usCardNo = (short)googoTechMCInfo.iCardNo;
             short sRtn = 0;
             sRtn = gts.mc.GT_Open((short)usCardNo, 0, 0);
             if (!HandleErrorMessage(sRtn))
             {
-                Global.logger.ErrorFormat("初始化固高运动控制卡{0}失败", googoTechMCInfo.hardwareName);
+          //      Global.logger.ErrorFormat("初始化固高运动控制卡{0}失败", googoTechMCInfo.hardwareName);
                 bInitOK = false;
                 return false;
             }
@@ -650,8 +650,8 @@ namespace ControlPlatformLib
         /// <param name="dEndSpeed">插补 段的终点速度。取值范围： [0 , 32767] ， 单位： pulse/ms。该值只有在没使用 前瞻预处理功能时才有意义，否则该值无效。默认值为： 0</param>
         public bool InsertArc(short num, double dPosX, double dPosY, double dR, double dSpeed, short iCCW, double dAcc, double dEndSpeed)
         {
-            Global.logger.Info("---------------------------------");
-            Global.logger.Info("插入XY平面圆弧插补段");
+            //Global.logger.Info("---------------------------------");
+            //Global.logger.Info("插入XY平面圆弧插补段");
             short sRtn;
             if (num == 1)
             {
@@ -696,11 +696,11 @@ namespace ControlPlatformLib
             }
 
             if (sRtn == 0)
-            {        Global.logger.Info("插入XY平面圆弧插补段完成");
+            {   //     Global.logger.Info("插入XY平面圆弧插补段完成");
             return true;}
          
             else
-            {   Global.logger.Info("插入XY平面圆弧插补段失败");
+            { //  Global.logger.Info("插入XY平面圆弧插补段失败");
             return false;
 }
               
@@ -709,8 +709,8 @@ namespace ControlPlatformLib
         private object lockObj1 = new object();
         public void InsertArc(double dPosX, double dPosY, double dR, double dSpeed, short iCCW, double dAcc, double dEndSpeed, int num)
         {
-            Global.logger.Info("---------------------------------");
-            Global.logger.Info("插入XY平面圆弧插补段");
+        //    Global.logger.Info("---------------------------------");
+        //    Global.logger.Info("插入XY平面圆弧插补段");
             short sRtn;
             if (num == 0)
             {
@@ -755,15 +755,17 @@ namespace ControlPlatformLib
             }
 
             if (sRtn == 0)
-                Global.logger.Info("插入XY平面圆弧插补段完成");
+            { }
+               // Global.logger.Info("插入XY平面圆弧插补段完成");
             else
-                Global.logger.Info("插入XY平面圆弧插补段失败");
+            { }
+              //  Global.logger.Info("插入XY平面圆弧插补段失败");
         }
 
         public bool  InsertLine(short num, double dPosX, double dPosY, double dPosZ, double dSpeed, double dAcc, double dEndSpeed)
         {
          //   Global.logger.Info("---------------------------------");
-            Global.logger.Info("插入XY平面直线插补段");
+         //   Global.logger.Info("插入XY平面直线插补段");
             short sRtn;
            // gts.mc.GT_CrdClear(0,1,0);
             lock (lockObj)
@@ -784,13 +786,13 @@ namespace ControlPlatformLib
             }
 
             if (sRtn == 0)
-            {  Global.logger.Info("插入XY平面直线插补段完成");
+            {  //Global.logger.Info("插入XY平面直线插补段完成");
                 return true;
             }
 
               
             else
-            {    Global.logger.Info("插入XY平面直线插补段失败");
+            { //   Global.logger.Info("插入XY平面直线插补段失败");
                 return false;
             }
             

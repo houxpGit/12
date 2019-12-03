@@ -23,29 +23,30 @@ namespace FullyAutomaticLaserJetCoder
         private void timer1_Tick(object sender, EventArgs e)
         {
             double sd = 0.0;
-            TableManage.TableDriver("运动平台")._GetAdc(2, out sd);
+           TableManage.TableDriver("运动平台")._GetAdc(2, out sd);
             if (sd > 0.6)
             {
            
                Thread.Sleep(10);
-               time = time + (float)0.2;
-               curveGraph1.ShowCurve((float)sd, (float)sd);
-               date.Add((float)sd);
-               DateSave.Instance().Production.WeldDate.Add((float)sd);
+               time = time + (float)4;
+           
+            
+               DateSave.Instance().Production.WeldDate.Add((DateSave.Instance().Production.WeldPower / 8) * (float)sd);
                 // curveGraph1.
             }
             if (sd < 0.6&& sd >0.1)
             {       
-                curveGraph1.ShowCurve(0, 0);
+               // curveGraph1.ShowCurve(0, 0);
               
             }
             else
             {
-                curveGraph1.ShowCurve(0, 0);
-                DateSave.Instance().Production.WeldDate.Clear();
-                date.Clear();
-                time = 0;
-                curveGraph1.Clean();
+
+                //for (int i=0;i< DateSave.Instance().Production.WeldDate.Count;i++)
+                //{
+                //    curveGraph1.ShowCurve(DateSave.Instance().Production.WeldDate[i],i/ DateSave.Instance().Production.WeldDate.Count);
+
+                //}
             }
         }
 
@@ -79,14 +80,14 @@ namespace FullyAutomaticLaserJetCoder
         {
             for (int i=0;i<70;i++)
             {
-                curveGraph1.ShowCurve(i*10,i*10);
+                //curveGraph1.ShowCurve(i*10,i*10);
             }
            
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            curveGraph1.Clean();
+           // curveGraph1.Clean();
 
         }
 
@@ -94,14 +95,14 @@ namespace FullyAutomaticLaserJetCoder
         {
             for (float i = 0; i < 70; i++)
             {
-                curveGraph1.ShowCurve(i * 10, i * (float) 0.50);
+                //curveGraph1.ShowCurve(i * 10, i * (float) 0.50);
             }
 
         }
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            curveGraph1.Clean();
+          //  curveGraph1.Clean();
         }
 
         private void 设置最大功率_Click(object sender, EventArgs e)
@@ -109,6 +110,17 @@ namespace FullyAutomaticLaserJetCoder
             int power =int .Parse(功率.Text) ;
             DateSave.Instance().Production.WeldPower = power;
             DateSave.Instance().SaveDoc();
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            for (int i=0;i<200;i++)
+            {
+                float io=0;
+            
+                curveGraph1.ShowCurve(i+10,(float) 0.2);
+            }
+           
         }
     }
 }

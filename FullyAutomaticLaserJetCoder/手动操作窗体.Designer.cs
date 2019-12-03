@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.手动过MES_Sn = new System.Windows.Forms.TextBox();
             this.手动过MES = new System.Windows.Forms.Button();
             this.扫码 = new System.Windows.Forms.Button();
@@ -62,7 +62,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.最小化ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.最大化ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.关闭ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.新机种号 = new System.Windows.Forms.TextBox();
             this.添加机种 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -72,6 +71,7 @@
             this.机种择 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.机种设置选择 = new System.Windows.Forms.ComboBox();
+            this.关闭ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOutput)).BeginInit();
@@ -99,6 +99,7 @@
             this.手动过MES.TabIndex = 361;
             this.手动过MES.Text = "手动过MES";
             this.手动过MES.UseVisualStyleBackColor = false;
+            this.手动过MES.Click += new System.EventHandler(this.手动过MES_Click);
             // 
             // 扫码
             // 
@@ -110,6 +111,7 @@
             this.扫码.TabIndex = 360;
             this.扫码.Text = "扫码";
             this.扫码.UseVisualStyleBackColor = false;
+            this.扫码.Click += new System.EventHandler(this.扫码_Click);
             // 
             // groupBox1
             // 
@@ -211,14 +213,14 @@
             // dataGridViewOutput
             // 
             this.dataGridViewOutput.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewOutput.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewOutput.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewOutput.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewOutput.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -255,8 +257,8 @@
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTextBoxColumn2.HeaderText = "ON/OFF";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
@@ -426,14 +428,6 @@
             this.最大化ToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
             this.最大化ToolStripMenuItem.Text = "最大化";
             // 
-            // 关闭ToolStripMenuItem
-            // 
-            this.关闭ToolStripMenuItem.Image = global::FullyAutomaticLaserJetCoder.Properties.Resources.Exit21;
-            this.关闭ToolStripMenuItem.Name = "关闭ToolStripMenuItem";
-            this.关闭ToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
-            this.关闭ToolStripMenuItem.Text = "关闭";
-            this.关闭ToolStripMenuItem.Click += new System.EventHandler(this.关闭ToolStripMenuItem_Click);
-            // 
             // 新机种号
             // 
             this.新机种号.Location = new System.Drawing.Point(832, 59);
@@ -526,6 +520,14 @@
             this.机种设置选择.Name = "机种设置选择";
             this.机种设置选择.Size = new System.Drawing.Size(241, 23);
             this.机种设置选择.TabIndex = 382;
+            // 
+            // 关闭ToolStripMenuItem
+            // 
+            this.关闭ToolStripMenuItem.Image = global::FullyAutomaticLaserJetCoder.Properties.Resources.Exit21;
+            this.关闭ToolStripMenuItem.Name = "关闭ToolStripMenuItem";
+            this.关闭ToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
+            this.关闭ToolStripMenuItem.Text = "关闭";
+            this.关闭ToolStripMenuItem.Click += new System.EventHandler(this.关闭ToolStripMenuItem_Click);
             // 
             // 手动操作窗体
             // 

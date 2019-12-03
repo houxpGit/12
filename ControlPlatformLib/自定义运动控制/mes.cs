@@ -22,9 +22,15 @@ namespace ControlPlatformLib
         public FtpUpd theFtp = null;
         public string userCode = "";
         public string deviceCode = "";
+        public string DataReceivedstrSN = "";
         public mes()
         {
-            mespost = new HttpPost("http://172.30.7.22:7081/mesproject/mesinterface/");
+         //   mespost = new HttpPost("http://172.30.7.22:7081/mesproject/mesinterface/");
+        }
+        public void  Load (string Ls)
+        {
+            mespost = new HttpPost(Ls);
+
         }
         public string ImageUpLoad(string soucePath,string SN, string imgPath, string imType)
         {

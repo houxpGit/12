@@ -133,6 +133,10 @@ namespace FullyAutomaticLaserJetCoder
 
         private void ResetDown()
         {
+            if (MainModule.FormMain.bAuto)
+            {
+                return;
+            }
             //   resetTimer.Start();
             resetTimer.Start();
             //  MainModule.FormMain.bResetPress = false;
@@ -153,7 +157,7 @@ namespace FullyAutomaticLaserJetCoder
              
                 DateSave.Instance().Production.StationMaterial = false;//工位有无料标志
                 // }
-                MainControls.StationMaterial = false;//工位有无料标志
+              //  MainControls.StationMaterial = false;//工位有无料标志
 
 
                 //   m_FeederTask.taskInfo.iTaskStep = 0;
@@ -176,7 +180,11 @@ namespace FullyAutomaticLaserJetCoder
         {
             DateSave.Instance().Production.EStop = false;//急停标志
             MainModule.FormMain.bResetPress = false;
-            if (startHoming)
+            if (MainModule.FormMain.bAuto)
+            {
+                return;
+            }
+                if (startHoming)
                 return;
            // resetTimer.Start();
             if (resetTimer.TimeUp(2))
@@ -194,7 +202,7 @@ namespace FullyAutomaticLaserJetCoder
                 DateSave.Instance().Production.EStop = false;//急停标志
                 DateSave.Instance().Production.StationMaterial = false;//工位有无料标志
                 // }
-                MainControls.StationMaterial = false;//工位有无料标志
+              //  MainControls.StationMaterial = false;//工位有无料标志
 
 
                 //   m_FeederTask.taskInfo.iTaskStep = 0;
@@ -207,8 +215,8 @@ namespace FullyAutomaticLaserJetCoder
                 //  m_JetTask.taskInfo.bTaskOnGoing = false;
                 MainControls.taskInfo.iTaskStep = 0;
                 MainControls.taskInfo.bTaskOnGoing = false;
-
-                ControlPlatformLib.Global.logger.Info("长按复位:" + DateTime.Now.ToString("yyyy/MM/dd/ HH : mm : ss"));
+                MessageBox.Show("初始化成功");
+              //  ControlPlatformLib.Global.logger.Info("长按复位:" + DateTime.Now.ToString("yyyy/MM/dd/ HH : mm : ss"));
             }
         }
         List<Thread> threadList = new List<Thread>();
@@ -217,9 +225,9 @@ namespace FullyAutomaticLaserJetCoder
         {
             if (MainModule.FormMain.bAuto)
             {
-                Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "请先停止设运行");
+                Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "请先停止运行");
                 MessageBox.Show("请先停止设运行");
-                richTextBox1.AppendText("请先停止设运行");
+                richTextBox1.AppendText("请先停止运行");
                 return;
             }
             MainModule.FormMain.bHomeReady = false;
@@ -409,6 +417,7 @@ namespace FullyAutomaticLaserJetCoder
         public int count = 0;
         private void StartClick()
         {
+           
             if (!MainModule.FormMain.bHomeReady)
             {
                 MainModule.FormMain.m_formAlarm.InsertAlarmMessage("请先回原点！");
@@ -420,11 +429,12 @@ namespace FullyAutomaticLaserJetCoder
                 MainModule.FormMain.m_formAlarm.InsertAlarmMessage("急停标志位未复位！");
                 return;
             }
-            if (DateSave.Instance().Production.StationMaterial == true)
-            {
-                MainModule.FormMain.m_formAlarm.InsertAlarmMessage("工位有料请先排料，并清除工位记忆！");
-                return;
-            }           
+            DateSave.Instance().Production.IsStop = false;
+            //if (DateSave.Instance().Production.StationMaterial == true)
+            //{
+            //    MainModule.FormMain.m_formAlarm.InsertAlarmMessage("工位有料请先排料，并清除工位记忆！");
+            //    return;
+            //}           
             MainModule.FormMain.bStartPress = true;
            // RunClass.Instance().Stop = false;
          //   RunClass.Instance().AxisR.Stop = false;
@@ -441,17 +451,18 @@ namespace FullyAutomaticLaserJetCoder
                 RunClass.Instance().parse = false;
                 RunClass.Instance().GoOnRun = false;//继续运行标志位
                 RunClass.Instance().StartRun = false;
-                MainControls. taskInfo.iTaskStep =8;
+                MainControls. taskInfo.iTaskStep =18;
                 MainModule.FormMain.bAuto = true;
-                ControlPlatformLib.Global.logger.Info("自动运行开始:" + DateTime.Now.ToString("yyyy/MM/dd/ HH : mm : ss"));
+             //   ControlPlatformLib.Global.logger.Info("自动运行开始:" + DateTime.Now.ToString("yyyy/MM/dd/ HH : mm : ss"));
             }
         }
         private void StopClick()
         {
+        
             //ComeOut.parse = false;
             isRunFinish = false;
             count = 0;
-    
+            IOManage.OUTPUT("焊接机允许入料").SetOutBit(false);
             TableManage.TableDriver("运动平台").Stop(TableAxisName.X);
             TableManage.TableDriver("运动平台").Stop(TableAxisName.Y);
             TableManage.TableDriver("运动平台").Stop(TableAxisName.Z);
@@ -460,6 +471,12 @@ namespace FullyAutomaticLaserJetCoder
             RunClass.Instance().StartRun = false;
             DateSave.Instance().Production.IsStop = true;
             MainControls. taskInfo.iTaskStep =(int)MainControl.flowCharNew.焊接进料流程;
+
+
+
+
+            MainControl.Weld_Sta = "空闲中";
+
         }
         #endregion
 
@@ -490,10 +507,37 @@ namespace FullyAutomaticLaserJetCoder
         #region 防呆防撞
         private void timer1_Tick(object sender, EventArgs e)
         {
-          
-            if (DateSave.Instance().Production.StationMaterial == false )
+            if (MainControl.Weld_Sta!="")
+            {
+                lb_LeftStation.Text = MainControl.Weld_Sta;
+            }
+
+            //if ()
+            //{
+            //    WeldSta = true;
+
+            //}
+            if (IOManage.INPUT("锁光出光").On)
+            {
+                锁光.Text = "可出光";
+                锁光.BackColor = Color.Green;
+                IOManage.OUTPUT("外部锁光").SetOutBit(true);
+            }
+            else
+            {
+                锁光.Text = "已锁光";
+                锁光.BackColor = Color.Red;
+                IOManage.OUTPUT("外部锁光").SetOutBit(false);
+
+            }
+            if (DateSave.Instance().Production.StationMaterial == true)
             {
                 btn_LeftPosWelding.Text = "工位有料";
+
+            }
+            else
+            {
+                btn_LeftPosWelding.Text = "工位无料";
 
             }
             if ((DateSave.Instance().Production.SN != "" && LeftSnshow.Text == "" )|| (LeftSnshow.Text != DateSave.Instance().Production.SN))
@@ -734,6 +778,7 @@ namespace FullyAutomaticLaserJetCoder
             //    DateSave.Instance().Production.EStop = false;
             //}
         }
+       
         public void setStartManualPulserOperation(string IOAsix,string Speed)
         {
             if (IOAsix=="手轮X")
@@ -804,11 +849,11 @@ namespace FullyAutomaticLaserJetCoder
         手动操作窗体 form = new 手动操作窗体(); 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            if (!MainModule.FormMain.bHomeReady)
-            {
-                MainModule.FormMain.m_formAlarm.InsertAlarmMessage("请先回原点！");
-                return;
-            }
+            //if (!MainModule.FormMain.bHomeReady)
+            //{
+            //    MainModule.FormMain.m_formAlarm.InsertAlarmMessage("请先回原点！");
+            //    return;
+            //}
             form.Show();
         }
         波形展示 form1 = new 波形展示();
@@ -843,7 +888,7 @@ namespace FullyAutomaticLaserJetCoder
         private void StartForm_FormClosing(object sender, FormClosingEventArgs e)
         {
 
-
+            DateSave.Instance().SaveDoc();
             IOManage.OUTPUT("三色灯红").SetOutBit(false);
             IOManage.OUTPUT("三色灯黄").SetOutBit(false);
             IOManage.OUTPUT("三色灯绿").SetOutBit(false);

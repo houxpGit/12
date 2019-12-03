@@ -214,37 +214,88 @@ namespace FullyAutomaticLaserJetCoder
         /// <summary>
         ///工位有无料标志位
         /// </summary>
-        public bool StationMaterial ;//工位有无料标志位
+        public bool StationMaterial ;//工位
 
         /// <summary>
         //焊接波形数据
         /// </summary>
-        public List<float> WeldDate=new List<float> ();//工位有无料标志位
+        public List<float> WeldDate=new List<float> ();//工位
 
         /// <summary>
         //设备最大功率
         /// </summary>
-        public int WeldPower;//工位有无料标志位
+        public int WeldPower;//工位
         /// <summary>
         //机台选择  通用与6KW
         /// </summary>
-        public int WeldOther;//工位有无料标志位
+        public int WeldOther;//工位
         /// <summary>
         //Sn
         /// </summary>
-        public string  DataReceivedstrSN;//工位有无料标志位
+        public string  DataReceivedstrSN;//工位
        /// <summary>
         //登录用户名
         /// </summary>
-        public string MesUserCode;//工位有无料标志位
+        public string MesUserCode;//工位有
         /// <summary>
         //登录密码
         /// </summary>
-        public string MesPassWord;//工位有无料标志位
+        public string MesPassWord;//工位
         /// <summary>
         //设备编号
         /// </summary>
-        public string MesdeviceCode;//工位有无料标志位
+        public string MesdeviceCode;//工位
+        /// <summary>
+        //离焦量
+        /// </summary>
+        /// 
+
+        public double From_Focus;//离焦量
+
+
+        /// <summary>
+        //焊接半径
+        /// </summary>
+        /// 
+
+        public double Weld_R;//焊接半径
+
+        /// <summary>
+        //焊接波形号
+        /// </summary>
+        /// 
+
+        public int  Weld_Num;//焊接波形号
+        /// <summary>
+        //焊接速度
+        /// </summary>
+        /// 
+        public int  Weld_Speed;//焊接速度
+                               /// <summary>
+        //测高X
+        /// </summary>
+        /// 
+        public double HeightP_X;//测高X
+
+
+        /// <summary>
+        //测高Y
+        /// </summary>
+        /// 
+        public double HeightP_Y;//测高Y
+
+        /// <summary>
+        //测高偏距X
+        /// </summary>
+        /// 
+        public double HeightOffset_X;//测高偏距X
+
+
+        /// <summary>
+        //测高偏距Y
+        /// </summary>
+        /// 
+        public double HeightOffset_Y;//测高偏距Y
         public ProductionData(int value)
         {
             Date_Clear(value);

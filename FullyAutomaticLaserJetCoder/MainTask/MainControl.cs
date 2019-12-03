@@ -59,7 +59,7 @@ namespace FullyAutomaticLaserJetCoder.MainTask
             DateSave.DateSav = DateSave.Instance().LoadObj();
             DateSave.Instance().Production.Empty_run = false;
             DateSave.Instance().Production.IsStop = false;
-            DateSave.Instance().Production.StationMaterial = false;
+          //  DateSave.Instance().Production.StationMaterial = false;
         }
         public enum flowCharNew
         {
@@ -99,7 +99,8 @@ namespace FullyAutomaticLaserJetCoder.MainTask
      
         int weldCount = 1;
         DateTime starttime;
-        public bool StationMaterial = false;//工位有无料标志位
+     //   public bool StationMaterial = false;//工位有无料标志位
+        public string Weld_Sta = "";
         //下料移栽
         public override void Process()
         {
@@ -141,7 +142,8 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                         case (int)flowCharNew.焊接进料流程:
                             if (RunClass.Instance().StartRun == false && DateSave.Instance().Production.StationMaterial == false)
                             {
-                                DateSave.Instance().Production.StationMaterial = true;
+                                Weld_Sta = "焊接进料流程";
+                                //DateSave.Instance().Production.StationMaterial = true;
                                 Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[IO输出]," + "焊接进料流程");
                                 starttime = DateTime.Now;
                                 RunClass.Instance().RunClass_IsFinish = false;
@@ -174,6 +176,7 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                         case (int)flowCharNew.焊接前流程:
                             if (RunClass.Instance().StartRun == false)
                             {
+                                Weld_Sta = "焊接前流程";
                                 Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[IO输出]," + "焊接前流程");
                                 starttime = DateTime.Now;
                                 RunClass.Instance().RunClass_IsFinish = false;
@@ -207,6 +210,7 @@ namespace FullyAutomaticLaserJetCoder.MainTask
 
                                 if (RunClass.Instance().StartRun == false)
                                 {
+                                    Weld_Sta = "焊接流程";
                                     DateSave.Instance().Production.RightRun = true;
                                     RunClass.Instance().RunClass_IsFinish = false;
                                     RunClass.Instance().runTask(ReadstfPath + "\\" + DateSave.Instance().Production.ModelNo + "\\" + "焊接流程.csv");
@@ -233,6 +237,7 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                         case (int)flowCharNew.焊接后流程:
                             if (RunClass.Instance().StartRun == false)
                             {
+                                Weld_Sta = "焊接后流程";
                                 RunClass.Instance().RunClass_IsFinish = false;
                                 RunClass.Instance().runTask(ReadstfPath + "\\" + DateSave.Instance().Production.ModelNo + "\\" + "焊接后流程.csv");
                                 m_taskGroup.AddRunMessage("焊接流程，焊接后流程。");
@@ -257,6 +262,7 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                         case (int)flowCharNew.焊接排料流程:
                             if (RunClass.Instance().StartRun == false)
                             {
+                                Weld_Sta = "焊接排料流程";
                                 RunClass.Instance().RunClass_IsFinish = false;
                                 RunClass.Instance().runTask(ReadstfPath + "\\" + DateSave.Instance().Production.ModelNo + "\\" + "焊接排料流程.csv");
                                 m_taskGroup.AddRunMessage("焊接流程，焊接排料流程。");
@@ -280,7 +286,7 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                                 }
                                 m_taskGroup.AddRunMessage("焊接流程，焊接排料流程完成检测。");
                                 taskInfo.iTaskStep = (int)flowCharNew.焊接进料流程;
-                                DateSave.Instance().Production.StationMaterial = false;
+                               // DateSave.Instance().Production.StationMaterial = false;
                             }
                             //  taskInfo.iTaskStep = (int)flowCharNew.焊接排料流程完成检测;
                             break;
