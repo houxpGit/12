@@ -391,6 +391,16 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[单轴运动]," + str);
                     currentRunStatus = AxisR.Asix_one_Run(WeldPlat_Str_Name, str1, Asix, delayCheckTime);//0 x//1 y //2  z//3 u
                     break;
+                case "直线插补":
+                    delayCheckTime = 6000;
+                    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[" + "直线插补" + "]:"+ str1);
+                    currentRunStatus = Meth.Asix_Line_Run("运动平台", str1, 60000);
+                    break;
+                case "圆弧插补":
+                    delayCheckTime = 6000;
+                    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[" + "直线插补" + "]:" + str1);
+                    currentRunStatus = Meth.Asix_Arc_Run("运动平台", str1, 60000,4);//4为半径
+                    break;
                 case "拍照Z轴":
                     delayCheckTime = 6000;
                     Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[拍照Z轴]");

@@ -5086,3 +5086,15 @@ D:\焊接设备部【勿删】\储能线6KW091202_21一V1\FullyAutomaticLaserJet
 D:\焊接设备部【勿删】\储能线6KW091202_21一V1\FullyAutomaticLaserJetCoder\obj\Debug\FullyAutomaticLaserJetCoder.手动操作窗体.resources
 D:\焊接设备部【勿删】\储能线6KW091202_21一V1\FullyAutomaticLaserJetCoder\obj\Debug\FullyAutomaticLaserJetCoder.波形展示.resources
 D:\焊接设备部【勿删】\储能线6KW091202_21一V1\FullyAutomaticLaserJetCoder\obj\Debug\FullyAutomaticLaserJetCoder.csproj.GenerateResource.Cache
+C:\Ck\FullyAutomaticLaserJetCoder\bin\Debug\FullyAutomaticLaserJetCoder.exe.config
+C:\Ck\FullyAutomaticLaserJetCoder\obj\Debug\FullyAutomaticLaserJetCoder.exe
+C:\Ck\FullyAutomaticLaserJetCoder\obj\Debug\FullyAutomaticLaserJetCoder.pdb
+C:\Ck\FullyAutomaticLaserJetCoder\obj\Debug\FullyAutomaticLaserJetCoder.csprojResolveAssemblyReference.cache
+C:\Ck\FullyAutomaticLaserJetCoder\obj\Debug\FullyAutomaticLaserJetCoder.FormCCD.resources
+C:\Ck\FullyAutomaticLaserJetCoder\obj\Debug\FullyAutomaticLaserJetCoder.MessageAlarmForm.resources
+C:\Ck\FullyAutomaticLaserJetCoder\obj\Debug\ProFrame.CurveGraph.resources
+C:\Ck\FullyAutomaticLaserJetCoder\obj\Debug\FullyAutomaticLaserJetCoder.SettingsForm.resources
+C:\Ck\FullyAutomaticLaserJetCoder\obj\Debug\FullyAutomaticLaserJetCoder.StartForm.resources
+C:\Ck\FullyAutomaticLaserJetCoder\obj\Debug\FullyAutomaticLaserJetCoder.手动操作窗体.resources
+C:\Ck\FullyAutomaticLaserJetCoder\obj\Debug\FullyAutomaticLaserJetCoder.波形展示.resources
+C:\Ck\FullyAutomaticLaserJetCoder\obj\Debug\FullyAutomaticLaserJetCoder.csproj.GenerateResource.Cache
