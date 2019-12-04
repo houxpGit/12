@@ -26,44 +26,44 @@ namespace FullyAutomaticLaserJetCoder
            
             InitializeComponent();
 
-            最小模拟量.Text = DateSave.Instance().Production.IncreaseMminimumAnalog.ToString();
-            最大模拟量.Text = DateSave.Instance().Production.IncreaseMaximumAnalog.ToString();
-            Z轴最小坐标.Text = DateSave.Instance().Production.Z_AxisMinimumCoordinate.ToString();
-            Z轴最大坐标.Text = DateSave.Instance().Production.Z_AxisMaximumCoordinate.ToString();
-            关联后所对应.Text = DateSave.Instance().Production.High_Date.ToString();
+            最小模拟量.Text = DateSave.Instance().Production.IncreaseMminimumAnalog.ToString("#0.0000");
+            最大模拟量.Text = DateSave.Instance().Production.IncreaseMaximumAnalog.ToString("#0.0000");
+            Z轴最小坐标.Text = DateSave.Instance().Production.Z_AxisMinimumCoordinate.ToString("#0.0000");
+            Z轴最大坐标.Text = DateSave.Instance().Production.Z_AxisMaximumCoordinate.ToString("#0.0000");
+            关联后所对应.Text = DateSave.Instance().Production.High_Date.ToString("#0.0000");
 
-            基准点模拟量.Text = DateSave.Instance().Production.BaselineSimulation.ToString();
-            基准Z坐标.Text = DateSave.Instance().Production.Z_AxialDatum.ToString();
-            基准X坐标.Text = DateSave.Instance().Production.X_AxialDatum.ToString();
-            基准Y坐标.Text = DateSave.Instance().Production.Y_AxialDatum.ToString();
+            基准点模拟量.Text = DateSave.Instance().Production.BaselineSimulation.ToString("#0.0000");
+            基准Z坐标.Text = DateSave.Instance().Production.Z_AxialDatum.ToString("#0.0000");
+            基准X坐标.Text = DateSave.Instance().Production.X_AxialDatum.ToString("#0.0000");
+            基准Y坐标.Text = DateSave.Instance().Production.Y_AxialDatum.ToString("#0.0000");
 
-            相机位置X.Text = DateSave.Instance().Production.X_Camera_Position.ToString();
-            相机位置Y.Text = DateSave.Instance().Production.Y_Camera_Position.ToString();
-            激光位置X.Text = DateSave.Instance().Production.X_Laser_Position.ToString();
-            激光位置Y.Text = DateSave.Instance().Production.Y_Laser_Position.ToString();
+            相机位置X.Text = DateSave.Instance().Production.X_Camera_Position.ToString("#0.0000");
+            相机位置Y.Text = DateSave.Instance().Production.Y_Camera_Position.ToString("#0.0000");
+            激光位置X.Text = DateSave.Instance().Production.X_Laser_Position.ToString("#0.0000");
+            激光位置Y.Text = DateSave.Instance().Production.Y_Laser_Position.ToString("#0.0000");
 
-            X偏距.Text = DateSave.Instance().Production.X_Setover.ToString();
-            Y偏距.Text = DateSave.Instance().Production.Y_Setover.ToString();
-
-
-            Z轴安全高度最高.Text = DateSave.Instance().Production.SaveHigh_Top.ToString();
-            Z轴安全高度最低.Text = DateSave.Instance().Production.SaveHigh_Low.ToString();
-            调高最高.Text = DateSave.Instance().Production.AutoZ_High_Top.ToString();
-            调高最低.Text = DateSave.Instance().Production.AutoZ_High_Low.ToString();
-            铜嘴清理次数.Text = DateSave.Instance().Production.Clear_TIME.ToString();
-
-            设备类型.Text = DateSave.Instance().Production.WeldOther.ToString();
-            离焦量.Text = DateSave.Instance().Production.From_Focus.ToString();
-
-            波形号.Text= DateSave.Instance().Production.Weld_Num .ToString();
-            焊接半径.Text = DateSave.Instance().Production.Weld_R.ToString();
-            焊接速度.Text = DateSave.Instance().Production.Weld_Speed.ToString();
-            测高位置X.Text = DateSave.Instance().Production.HeightP_X.ToString();
-            测高位置Y.Text = DateSave.Instance().Production.HeightP_Y.ToString();
+            X偏距.Text = DateSave.Instance().Production.X_Setover.ToString("#0.0000");
+            Y偏距.Text = DateSave.Instance().Production.Y_Setover.ToString("#0.0000");
 
 
-            X偏距测高.Text = DateSave.Instance().Production.HeightOffset_X.ToString();
-            Y偏距测高.Text = DateSave.Instance().Production.HeightOffset_Y.ToString();
+            Z轴安全高度最高.Text = DateSave.Instance().Production.SaveHigh_Top.ToString("#0.0000");
+            Z轴安全高度最低.Text = DateSave.Instance().Production.SaveHigh_Low.ToString("#0.0000");
+            调高最高.Text = DateSave.Instance().Production.AutoZ_High_Top.ToString("#0.0000");
+            调高最低.Text = DateSave.Instance().Production.AutoZ_High_Low.ToString("#0.0000");
+            铜嘴清理次数.Text = DateSave.Instance().Production.Clear_TIME.ToString("#0.0000");
+
+            设备类型.Text = DateSave.Instance().Production.WeldOther.ToString("#0.0000");
+            离焦量.Text = DateSave.Instance().Production.From_Focus.ToString("#0.0000");
+
+            波形号.Text= DateSave.Instance().Production.Weld_Num .ToString("#0.0000");
+            焊接半径.Text = DateSave.Instance().Production.Weld_R.ToString("#0.0000");
+            焊接速度.Text = DateSave.Instance().Production.Weld_Speed.ToString("#0.0000");
+            测高位置X.Text = DateSave.Instance().Production.HeightP_X.ToString("#0.0000");
+            测高位置Y.Text = DateSave.Instance().Production.HeightP_Y.ToString("#0.0000");
+
+
+            X偏距测高.Text = DateSave.Instance().Production.HeightOffset_X.ToString("#0.0000");
+            Y偏距测高.Text = DateSave.Instance().Production.HeightOffset_Y.ToString("#0.0000");
 
         }
 
@@ -322,17 +322,17 @@ namespace FullyAutomaticLaserJetCoder
         private void 计算偏距_Click(object sender, EventArgs e)
         {
             DateSave.Instance().Production.X_Setover = DateSave.Instance().Production. X_Laser_Position - DateSave.Instance().Production.X_Camera_Position;
-            X偏距.Text = DateSave.Instance().Production.X_Setover.ToString();
+            X偏距.Text = DateSave.Instance().Production.X_Setover.ToString("#0.0000");
 
             DateSave.Instance().Production.Y_Setover = DateSave.Instance().Production. Y_Laser_Position - DateSave.Instance().Production.Y_Camera_Position;
-            Y偏距.Text = DateSave.Instance().Production.Y_Setover.ToString();
+            Y偏距.Text = DateSave.Instance().Production.Y_Setover.ToString("#0.0000");
 
 
             DateSave.Instance().Production.HeightOffset_X = DateSave.Instance().Production.HeightP_X - DateSave.Instance().Production.X_Camera_Position;
-            X偏距测高.Text = DateSave.Instance().Production.HeightOffset_X.ToString();
+            X偏距测高.Text = DateSave.Instance().Production.HeightOffset_X.ToString("#0.0000");
 
             DateSave.Instance().Production.HeightOffset_Y= DateSave.Instance().Production.HeightP_Y - DateSave.Instance().Production.Y_Camera_Position;
-            Y偏距测高.Text = DateSave.Instance().Production.HeightOffset_Y.ToString();
+            Y偏距测高.Text = DateSave.Instance().Production.HeightOffset_Y.ToString("#0.0000");
 
         }
 
