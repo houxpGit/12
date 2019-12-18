@@ -296,6 +296,12 @@ namespace FullyAutomaticLaserJetCoder
         /// </summary>
         /// 
         public double HeightOffset_Y;//测高偏距Y
+
+        /// <summary>
+        //门屏蔽
+        /// </summary>
+        /// 
+        public bool  Door_Enable;//门屏蔽
         public ProductionData(int value)
         {
             Date_Clear(value);

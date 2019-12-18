@@ -544,7 +544,7 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                 else
                 {
                     Thread.Sleep(10);
-                    ArcXYMove = TableManage.TableDriver(PlatformName).ArcMove(0.50, 0.50, 0.50, X, Y, R, 0, (CoordinateType)0);
+                    ArcXYMove = TableManage.TableDriver(PlatformName).ArcMove(0.50, 0.50, 0.50, X, Y, 5, 0, (CoordinateType)0);
                 }
             }
            bool ArcXYMove_run =  TableManage.TableDriver(PlatformName).StartCure(false);

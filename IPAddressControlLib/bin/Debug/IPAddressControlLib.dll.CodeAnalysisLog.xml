@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio 14.0\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
 <FxCopReport Version="14.0">
  <Targets>
-  <Target Name="D:\焊接设备部【勿删】\储能线6KW091202_21一V1\IPAddressControlLib\bin\Debug\IPAddressControlLib.dll">
+  <Target Name="D:\速博达-焊接设备部【勿删】\储能线6KW091212_17一V1\IPAddressControlLib\bin\Debug\IPAddressControlLib.dll">
    <Modules>
     <Module Name="ipaddresscontrollib.dll">
      <Namespaces>
@@ -12,8 +12,8 @@
          <Members>
           <Member Name="#OnPaint(System.Windows.Forms.PaintEventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="False">
            <Messages>
-            <Message Id="0" TypeName="验证公共方法的参数" Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2019-12-02 06:28:56Z" FixCategory="DependsOnFix">
-             <Issue Certainty="75" Level="Warning" Path="D:\焊接设备部【勿删】\储能线6KW091202_21一V1\IPAddressControlLib" File="DotControl.cs" Line="131">在外部可见方法 'DotControl.OnPaint(PaintEventArgs)' 中，请在使用参数“e”之前先对其进行验证。</Issue>
+            <Message Id="0" TypeName="验证公共方法的参数" Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2019-12-12 10:36:32Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="D:\速博达-焊接设备部【勿删】\储能线6KW091212_17一V1\IPAddressControlLib" File="DotControl.cs" Line="131">在外部可见方法 'DotControl.OnPaint(PaintEventArgs)' 中，请在使用参数“e”之前先对其进行验证。</Issue>
             </Message>
            </Messages>
           </Member>
@@ -23,8 +23,8 @@
          <Members>
           <Member Name="#OnKeyDown(System.Windows.Forms.KeyEventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="False">
            <Messages>
-            <Message Id="0" TypeName="验证公共方法的参数" Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2019-12-02 06:28:56Z" FixCategory="DependsOnFix">
-             <Issue Certainty="75" Level="Warning" Path="D:\焊接设备部【勿删】\储能线6KW091202_21一V1\IPAddressControlLib" File="FieldControl.cs" Line="289">在外部可见方法 'FieldControl.OnKeyDown(KeyEventArgs)' 中，请在使用参数“e”之前先对其进行验证。</Issue>
+            <Message Id="0" TypeName="验证公共方法的参数" Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2019-12-12 10:36:32Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="D:\速博达-焊接设备部【勿删】\储能线6KW091212_17一V1\IPAddressControlLib" File="FieldControl.cs" Line="289">在外部可见方法 'FieldControl.OnKeyDown(KeyEventArgs)' 中，请在使用参数“e”之前先对其进行验证。</Issue>
             </Message>
            </Messages>
           </Member>
@@ -34,8 +34,8 @@
          <Members>
           <Member Name="#OnPaint(System.Windows.Forms.PaintEventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
            <Messages>
-            <Message Id="0" TypeName="验证公共方法的参数" Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2019-12-02 06:28:56Z" FixCategory="DependsOnFix">
-             <Issue Certainty="75" Level="Warning" Path="D:\焊接设备部【勿删】\储能线6KW091202_21一V1\IPAddressControlLib" File="IPAddressControl.cs" Line="448">在外部可见方法 'IPAddressControl.OnPaint(PaintEventArgs)' 中，请在使用参数“e”之前先对其进行验证。</Issue>
+            <Message Id="0" TypeName="验证公共方法的参数" Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2019-12-12 10:36:32Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="D:\速博达-焊接设备部【勿删】\储能线6KW091212_17一V1\IPAddressControlLib" File="IPAddressControl.cs" Line="448">在外部可见方法 'IPAddressControl.OnPaint(PaintEventArgs)' 中，请在使用参数“e”之前先对其进行验证。</Issue>
             </Message>
            </Messages>
           </Member>

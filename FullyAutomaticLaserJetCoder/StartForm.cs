@@ -511,7 +511,14 @@ namespace FullyAutomaticLaserJetCoder
             {
                 lb_LeftStation.Text = MainControl.Weld_Sta;
             }
-
+            //if (DateSave.Instance().Production.Door_Enable == true)
+            //{
+            //    DoorShow.Text = "门屏蔽";
+            //}
+            //else
+            //{
+            //    DoorShow.Text = "门未屏蔽";
+            //}
             //if ()
             //{
             //    WeldSta = true;
@@ -540,21 +547,40 @@ namespace FullyAutomaticLaserJetCoder
                 btn_LeftPosWelding.Text = "工位无料";
 
             }
-            if ((DateSave.Instance().Production.SN != "" && LeftSnshow.Text == "" )|| (LeftSnshow.Text != DateSave.Instance().Production.SN))
+            if ((mes.Instance().DataReceivedstrSN != "" && LeftSnshow.Text == "" )|| (LeftSnshow.Text != mes.Instance().DataReceivedstrSN))
             {
-                LeftSnshow.Text = DateSave.Instance().Production.SN;
+                LeftSnshow.Text = mes.Instance().DataReceivedstrSN;
+
+            }
+            try
+            {
+                if ((DateSave.Instance().Production.WeldDate.Average() != 0 && lb_LeftMarkPower.Text == "") || (lb_LeftMarkPower.Text != DateSave.Instance().Production.WeldDate.Average().ToString()))
+                {
+                    lb_LeftMarkPower.Text = Math.Round(DateSave.Instance().Production.WeldDate.Average(), 1).ToString();
+                }
+            }
+            catch { }
+
           
-            }
-            if ((DateSave.Instance().Production.OK_date != 0 && lb_LeftOK.Text == "") || (lb_LeftOK.Text != DateSave.Instance().Production.OK_date.ToString()))
+            
+
+
+            if ((DateSave.Instance().Production.OK_date != 0 && lb_LeftYield.Text == "") || (lb_LeftYield.Text != DateSave.Instance().Production.OK_date.ToString()))
             {
-                lb_LeftOK.Text = DateSave.Instance().Production.OK_date.ToString();
-               
+                lb_LeftYield.Text = DateSave.Instance().Production.OK_date.ToString();
+
             }
-            if ((DateSave.Instance().Production.NG_date != 0 && lb_LeftNG.Text == "") || (lb_LeftNG.Text != DateSave.Instance().Production.NG_date.ToString()))
+            if ((DateSave.Instance().Production.Weld_Speed != 0 && lb_LeftMarkSpeed.Text == "") || (lb_LeftMarkSpeed.Text != DateSave.Instance().Production.Weld_Speed.ToString()))
             {
-                lb_LeftNG.Text = DateSave.Instance().Production.NG_date.ToString();
-       
+                lb_LeftMarkSpeed.Text = DateSave.Instance().Production.Weld_Speed.ToString();
+
             }
+            if (lb_LeftPos.Text != DateSave.Instance().Production.TheCurrentpoint.ToString())
+            {
+                lb_LeftPos.Text = DateSave.Instance().Production.TheCurrentpoint.ToString();
+
+            }
+
             if ((DateSave.Instance().Production.CTtime != "" && lb_LeftCT.Text == "") || (lb_LeftCT.Text != DateSave.Instance().Production.CTtime))
             {
                 

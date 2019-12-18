@@ -39,14 +39,12 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.左工位 = new System.Windows.Forms.GroupBox();
+            this.DoorShow = new System.Windows.Forms.Label();
+            this.锁光 = new System.Windows.Forms.Label();
             this.清理铜嘴次数 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.当前机种号_ = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lb_LeftOK = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lb_LeftNG = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.LeftSnshow = new System.Windows.Forms.Label();
             this.lb_LeftPos = new System.Windows.Forms.Label();
@@ -87,7 +85,6 @@
             this.lb_RightMarkSpeed = new System.Windows.Forms.Label();
             this.lb_RightMarkPower = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.锁光 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -203,15 +200,12 @@
             // 
             // 左工位
             // 
+            this.左工位.Controls.Add(this.DoorShow);
             this.左工位.Controls.Add(this.锁光);
             this.左工位.Controls.Add(this.清理铜嘴次数);
             this.左工位.Controls.Add(this.label10);
             this.左工位.Controls.Add(this.当前机种号_);
             this.左工位.Controls.Add(this.label11);
-            this.左工位.Controls.Add(this.label6);
-            this.左工位.Controls.Add(this.lb_LeftOK);
-            this.左工位.Controls.Add(this.label8);
-            this.左工位.Controls.Add(this.lb_LeftNG);
             this.左工位.Controls.Add(this.label4);
             this.左工位.Controls.Add(this.LeftSnshow);
             this.左工位.Controls.Add(this.lb_LeftPos);
@@ -237,11 +231,35 @@
             this.左工位.TabStop = false;
             this.左工位.Text = "左工位数据";
             // 
+            // DoorShow
+            // 
+            this.DoorShow.BackColor = System.Drawing.Color.Yellow;
+            this.DoorShow.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.DoorShow.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.DoorShow.Location = new System.Drawing.Point(40, 468);
+            this.DoorShow.Name = "DoorShow";
+            this.DoorShow.Size = new System.Drawing.Size(211, 56);
+            this.DoorShow.TabIndex = 350;
+            this.DoorShow.Text = "空闲中";
+            this.DoorShow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // 锁光
+            // 
+            this.锁光.BackColor = System.Drawing.Color.Yellow;
+            this.锁光.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.锁光.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.锁光.Location = new System.Drawing.Point(40, 531);
+            this.锁光.Name = "锁光";
+            this.锁光.Size = new System.Drawing.Size(211, 56);
+            this.锁光.TabIndex = 349;
+            this.锁光.Text = "空闲中";
+            this.锁光.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // 清理铜嘴次数
             // 
             this.清理铜嘴次数.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.清理铜嘴次数.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.清理铜嘴次数.Location = new System.Drawing.Point(101, 314);
+            this.清理铜嘴次数.Location = new System.Drawing.Point(120, 275);
             this.清理铜嘴次数.Name = "清理铜嘴次数";
             this.清理铜嘴次数.Size = new System.Drawing.Size(175, 32);
             this.清理铜嘴次数.TabIndex = 348;
@@ -252,7 +270,7 @@
             // 
             this.label10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label10.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label10.Location = new System.Drawing.Point(5, 314);
+            this.label10.Location = new System.Drawing.Point(5, 275);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(90, 32);
             this.label10.TabIndex = 347;
@@ -263,7 +281,7 @@
             // 
             this.当前机种号_.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.当前机种号_.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.当前机种号_.Location = new System.Drawing.Point(101, 396);
+            this.当前机种号_.Location = new System.Drawing.Point(120, 380);
             this.当前机种号_.Name = "当前机种号_";
             this.当前机种号_.Size = new System.Drawing.Size(175, 32);
             this.当前机种号_.TabIndex = 345;
@@ -274,62 +292,18 @@
             // 
             this.label11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label11.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label11.Location = new System.Drawing.Point(27, 396);
+            this.label11.Location = new System.Drawing.Point(27, 380);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(68, 32);
             this.label11.TabIndex = 344;
             this.label11.Text = "机种 :";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label6
-            // 
-            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label6.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.Location = new System.Drawing.Point(27, 150);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(68, 32);
-            this.label6.TabIndex = 118;
-            this.label6.Text = "OK:";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lb_LeftOK
-            // 
-            this.lb_LeftOK.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lb_LeftOK.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lb_LeftOK.Location = new System.Drawing.Point(101, 150);
-            this.lb_LeftOK.Name = "lb_LeftOK";
-            this.lb_LeftOK.Size = new System.Drawing.Size(68, 32);
-            this.lb_LeftOK.TabIndex = 117;
-            this.lb_LeftOK.Text = "0";
-            this.lb_LeftOK.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label8
-            // 
-            this.label8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label8.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label8.Location = new System.Drawing.Point(27, 191);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(68, 32);
-            this.label8.TabIndex = 120;
-            this.label8.Text = "NG:";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lb_LeftNG
-            // 
-            this.lb_LeftNG.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lb_LeftNG.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lb_LeftNG.Location = new System.Drawing.Point(101, 191);
-            this.lb_LeftNG.Name = "lb_LeftNG";
-            this.lb_LeftNG.Size = new System.Drawing.Size(68, 32);
-            this.lb_LeftNG.TabIndex = 119;
-            this.lb_LeftNG.Text = "0";
-            this.lb_LeftNG.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // label4
             // 
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(27, 68);
+            this.label4.Location = new System.Drawing.Point(27, 73);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 32);
             this.label4.TabIndex = 125;
@@ -340,7 +314,7 @@
             // 
             this.LeftSnshow.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.LeftSnshow.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.LeftSnshow.Location = new System.Drawing.Point(101, 355);
+            this.LeftSnshow.Location = new System.Drawing.Point(120, 323);
             this.LeftSnshow.Name = "LeftSnshow";
             this.LeftSnshow.Size = new System.Drawing.Size(175, 32);
             this.LeftSnshow.TabIndex = 337;
@@ -351,9 +325,9 @@
             // 
             this.lb_LeftPos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lb_LeftPos.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lb_LeftPos.Location = new System.Drawing.Point(101, 68);
+            this.lb_LeftPos.Location = new System.Drawing.Point(120, 73);
             this.lb_LeftPos.Name = "lb_LeftPos";
-            this.lb_LeftPos.Size = new System.Drawing.Size(68, 32);
+            this.lb_LeftPos.Size = new System.Drawing.Size(101, 32);
             this.lb_LeftPos.TabIndex = 124;
             this.lb_LeftPos.Text = "0";
             this.lb_LeftPos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -362,7 +336,7 @@
             // 
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(27, 355);
+            this.label2.Location = new System.Drawing.Point(27, 323);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 32);
             this.label2.TabIndex = 336;
@@ -373,7 +347,7 @@
             // 
             this.label9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label9.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label9.Location = new System.Drawing.Point(27, 109);
+            this.label9.Location = new System.Drawing.Point(27, 120);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(68, 32);
             this.label9.TabIndex = 122;
@@ -384,9 +358,9 @@
             // 
             this.lb_LeftCT.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lb_LeftCT.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lb_LeftCT.Location = new System.Drawing.Point(101, 109);
+            this.lb_LeftCT.Location = new System.Drawing.Point(120, 120);
             this.lb_LeftCT.Name = "lb_LeftCT";
-            this.lb_LeftCT.Size = new System.Drawing.Size(68, 32);
+            this.lb_LeftCT.Size = new System.Drawing.Size(101, 32);
             this.lb_LeftCT.TabIndex = 121;
             this.lb_LeftCT.Text = "0.000";
             this.lb_LeftCT.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -395,9 +369,9 @@
             // 
             this.lb_LeftYield.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lb_LeftYield.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lb_LeftYield.Location = new System.Drawing.Point(101, 27);
+            this.lb_LeftYield.Location = new System.Drawing.Point(120, 25);
             this.lb_LeftYield.Name = "lb_LeftYield";
-            this.lb_LeftYield.Size = new System.Drawing.Size(68, 32);
+            this.lb_LeftYield.Size = new System.Drawing.Size(101, 32);
             this.lb_LeftYield.TabIndex = 115;
             this.lb_LeftYield.Text = "0";
             this.lb_LeftYield.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -417,7 +391,7 @@
             // 
             this.label44.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label44.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label44.Location = new System.Drawing.Point(27, 232);
+            this.label44.Location = new System.Drawing.Point(27, 168);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(68, 32);
             this.label44.TabIndex = 126;
@@ -428,7 +402,7 @@
             // 
             this.label45.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label45.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label45.Location = new System.Drawing.Point(27, 273);
+            this.label45.Location = new System.Drawing.Point(27, 219);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(68, 32);
             this.label45.TabIndex = 127;
@@ -439,9 +413,9 @@
             // 
             this.lb_LeftMarkPower.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lb_LeftMarkPower.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lb_LeftMarkPower.Location = new System.Drawing.Point(101, 232);
+            this.lb_LeftMarkPower.Location = new System.Drawing.Point(120, 168);
             this.lb_LeftMarkPower.Name = "lb_LeftMarkPower";
-            this.lb_LeftMarkPower.Size = new System.Drawing.Size(68, 32);
+            this.lb_LeftMarkPower.Size = new System.Drawing.Size(101, 32);
             this.lb_LeftMarkPower.TabIndex = 128;
             this.lb_LeftMarkPower.Text = "0";
             this.lb_LeftMarkPower.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -450,9 +424,9 @@
             // 
             this.lb_LeftMarkSpeed.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lb_LeftMarkSpeed.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lb_LeftMarkSpeed.Location = new System.Drawing.Point(101, 273);
+            this.lb_LeftMarkSpeed.Location = new System.Drawing.Point(120, 219);
             this.lb_LeftMarkSpeed.Name = "lb_LeftMarkSpeed";
-            this.lb_LeftMarkSpeed.Size = new System.Drawing.Size(68, 32);
+            this.lb_LeftMarkSpeed.Size = new System.Drawing.Size(101, 32);
             this.lb_LeftMarkSpeed.TabIndex = 129;
             this.lb_LeftMarkSpeed.Text = "0";
             this.lb_LeftMarkSpeed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -482,9 +456,9 @@
             // btn_ClearLeftYield
             // 
             this.btn_ClearLeftYield.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btn_ClearLeftYield.Location = new System.Drawing.Point(5, 435);
+            this.btn_ClearLeftYield.Location = new System.Drawing.Point(257, 415);
             this.btn_ClearLeftYield.Name = "btn_ClearLeftYield";
-            this.btn_ClearLeftYield.Size = new System.Drawing.Size(147, 48);
+            this.btn_ClearLeftYield.Size = new System.Drawing.Size(211, 48);
             this.btn_ClearLeftYield.TabIndex = 123;
             this.btn_ClearLeftYield.Text = "产量清零";
             this.btn_ClearLeftYield.UseVisualStyleBackColor = false;
@@ -525,6 +499,7 @@
             this.groupBox1.TabIndex = 344;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "右工位数据";
+            this.groupBox1.Visible = false;
             // 
             // label1
             // 
@@ -795,18 +770,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(975, 720);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
-            // 锁光
-            // 
-            this.锁光.BackColor = System.Drawing.Color.Yellow;
-            this.锁光.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.锁光.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.锁光.Location = new System.Drawing.Point(40, 531);
-            this.锁光.Name = "锁光";
-            this.锁光.Size = new System.Drawing.Size(211, 56);
-            this.锁光.TabIndex = 349;
-            this.锁光.Text = "空闲中";
-            this.锁光.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // StartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -847,10 +810,6 @@
         private System.Windows.Forms.Label lb_LeftPos;
         private System.Windows.Forms.Button btn_ClearLeftYield;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label lb_LeftNG;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label lb_LeftOK;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btn_RightPosWelding;
         private System.Windows.Forms.Label lb_RightStation;
         private System.Windows.Forms.Label lb_RightMarkSpeed;
@@ -890,5 +849,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label 锁光;
+        private System.Windows.Forms.Label DoorShow;
     }
 }

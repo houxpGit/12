@@ -225,7 +225,7 @@ namespace ControlPlatformLib
             {
                 StringBuilder sbJsonData = new StringBuilder();
                 sbJsonData.Append("jsonData={\"productSn\":\"");
-                sbJsonData.Append(productSn);
+                sbJsonData.Append(productSn.Replace("\r\n", ""));
                 sbJsonData.Append("\",\"groupCode\":\"");
                 sbJsonData.Append(groupCode);
                 sbJsonData.Append("\",\"errorCode\":\"");

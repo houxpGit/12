@@ -160,6 +160,27 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                         break;
                  
                     }
+                    //if (DateSave.Instance().Production.Door_Enable == true)
+                    //{
+                    //    parse = true;
+
+                    //    GoOnRun = true;//继续运行标志位
+
+                    //}
+                    //else 
+                    //{
+                    //    if (IOManage.INPUT("DOOR").On)
+                    //    {
+                    //        Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[门打开]," + "软件暂停运行");
+                    //        parse = true;
+                    //    }
+                    //    else if (IOManage.INPUT("DOOR").Off)
+                    //    {
+                    //        Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[门关闭]," + "软件继续运行");
+                    //        GoOnRun = true;//继续运行标志位
+                    //    }
+                    //}
+                    //else if(IOManage.INPUT("DOOR").On)              
                     if (parse == true)//暂停标志位
                     {
                         if (GoOnRun == true)//继续运行标志位
@@ -246,10 +267,24 @@ namespace FullyAutomaticLaserJetCoder.MainTask
             Bizz.IsBackground = true;
             Bizz.Start();
             AlarmForm.InputBox(NAME, ERR, value);
+      
             Bizz.Abort();
+            Bizz.Join();
             GoOnRun = true;
             if (!MainModule.FormMain.bAuto)
             {
+                if (Bizz.IsAlive==true)
+                {
+                    Bizz.Abort();
+                    Bizz.Join();
+                }
+                Meth.OutPut_One_Run("三色灯黄", "true");
+                Meth.OutPut_One_Run("BIZZ", "false");
+                Meth.OutPut_One_Run("三色灯红", "false");
+                Meth.OutPut_One_Run("三色灯绿", "false");
+
+
+
                 Meth.OutPut_One_Run("三色灯黄", "true");
                 Meth.OutPut_One_Run("BIZZ", "false");
                 Meth.OutPut_One_Run("三色灯红", "false");
@@ -257,10 +292,19 @@ namespace FullyAutomaticLaserJetCoder.MainTask
             }
             else
             {
+                if (Bizz.IsAlive == true)
+                {
+                    Bizz.Abort();
+                    Bizz.Join();
+                }
                 Meth.OutPut_One_Run("BIZZ", "false");
                 Meth.OutPut_One_Run("三色灯红", "false");
                 Meth.OutPut_One_Run("三色灯绿", "true");
 
+
+                Meth.OutPut_One_Run("BIZZ", "false");
+                Meth.OutPut_One_Run("三色灯红", "false");
+                Meth.OutPut_One_Run("三色灯绿", "true");
 
             }
         }
@@ -271,7 +315,7 @@ namespace FullyAutomaticLaserJetCoder.MainTask
             while (true)
             {
                 Meth.OutPut_One_Run("BIZZ", "true");
-                Thread.Sleep(2000);
+                Thread.Sleep(1000);
                 Meth.OutPut_One_Run("BIZZ", "false");
                 Thread.Sleep(1000);
 
@@ -288,7 +332,16 @@ namespace FullyAutomaticLaserJetCoder.MainTask
         public int DelayCamer = 0;
         public bool Run_Switch(string str, string str1, string CheckSta)
         {
-          //  GetTimerStart();
+          
+            if (MainModule.FormMain.bAuto)
+            {
+                Meth.OutPut_One_Run("BIZZ", "false");
+                Meth.OutPut_One_Run("三色灯红", "false");
+                Meth.OutPut_One_Run("三色灯绿", "true");
+
+            }
+         
+            //  GetTimerStart();
             string[] str_camer_checkNeed = new string[5];
             string[] Offset = new string[5];
             double OffsetX = 0;
@@ -359,7 +412,7 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     break;
                 case "IO检测等待":
                     Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[IO检测等待]," + str1);
-                    delayCheckTime = 600000;
+                    delayCheckTime = 60000000;
                     currentRunStatus = Meth.WaitINPut_Check(str1, CheckSta, delayCheckTime);//检测一个输入               
                     break;
                 case "IO输出":
@@ -390,16 +443,6 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     if (CheckSta == "3") { Asix = 3; }
                     Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[单轴运动]," + str);
                     currentRunStatus = AxisR.Asix_one_Run(WeldPlat_Str_Name, str1, Asix, delayCheckTime);//0 x//1 y //2  z//3 u
-                    break;
-                case "直线插补":
-                    delayCheckTime = 6000;
-                    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[" + "直线插补" + "]:"+ str1);
-                    currentRunStatus = Meth.Asix_Line_Run("运动平台", str1, 60000);
-                    break;
-                case "圆弧插补":
-                    delayCheckTime = 6000;
-                    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[" + "直线插补" + "]:" + str1);
-                    currentRunStatus = Meth.Asix_Arc_Run("运动平台", str1, 60000,4);//4为半径
                     break;
                 case "拍照Z轴":
                     delayCheckTime = 6000;
@@ -512,6 +555,45 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[调高点基准]");
                     currentRunStatus = AxisR.Asix_z_Auto_High(WeldPlat_Str_Name, "调高点基准", 2, 90, -20, 5, 5, delayCheckTime);
                     break;
+                case "光闸校验":
+                    delayCheckTime = 6000;
+                    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[光闸校验]");
+                    Thread.Sleep(500);
+                    bool bOnOUTPUT = IOManage.OUTPUT("激光互锁输出").GetOn();//输出获取
+
+                    bool bOnINPUT = IOManage.INPUT("激光互锁输入").GetOn();//输入获取
+
+
+                    if (bOnOUTPUT==true&& bOnINPUT==true)
+                    {                     
+                        Meth.OutPut_One_Run("激光互锁输出", "false");//一个输出
+                        Thread.Sleep(100);
+                    }
+                    while (true)
+                    {
+                        Meth.OutPut_One_Run("激光互锁输出", "false");//一个输出
+                        Thread.Sleep(100);
+                        bOnINPUT = IOManage.INPUT("激光互锁输入").GetOn();//输入获取
+                        if (bOnINPUT==false)
+                        {
+                     
+                            currentRunStatus = true;
+                            break;
+                        }
+                        if (DateSave.Instance().Production.IsStop == true)
+                        {
+                            currentRunStatus = true;
+                            break;
+                        }
+                        if (DateSave.Instance().Production.EStop == true)
+                        {
+                            currentRunStatus = true;
+                            break;
+                        }
+                       
+                    }
+
+                    break;
                 case "扫码":
                     string value ="T";                 
                     SerialPortDataManage.m_SerilPorts["扫码枪"].GetData(ref value);
@@ -603,24 +685,46 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                             {
                               
                                 Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                                Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[" + str1 + "]拍照数据:"+ Point_1);
-                                CamerDate.Add(Point_1);
+                                if (Point_1.Value == 0.0 && Point_1.Key == 0.0)
+                                {
+                                    currentRunStatus = false;
+
+                                }
+                                else
+                                {
+                                    CamerFlow++;
+
+                                    currentRunStatus = true;
+                                    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[" + str1 + "]拍照数据:" + Point_1);
+                                    CamerDate.Add(Point_1);
+                               
+                                }
+                            
                             }
                             //  CamerFlow= CamerFlow +2;
-                            CamerFlow++;
-                       
-                            currentRunStatus = true;
+                      
                         }
                         else if (CamerDateNeed_Date.Count == 2)
                         {
                             for (int i = 0; i < CamerDateNeed_Date.Count; i++)
                             {
                                 Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                                CamerDate.Add(Point_1);
-                                Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[" + str1 + "]拍照数据:" + Point_1);
+                                if (Point_1.Value == 0.0 && Point_1.Key == 0.0)
+                                {
+                                    currentRunStatus = false;
+
+                                }
+                                else
+                                {
+                                    CamerDate.Add(Point_1);
+                                    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[" + str1 + "]拍照数据:" + Point_1);
+                                    CamerFlow = CamerFlow + 2;
+                                    currentRunStatus = true;
+                                }
+                             
                             }
-                            CamerFlow = CamerFlow + 2;
-                            currentRunStatus = true;
+                           
+                        
                         }
                         if (CamerDateNeed_Date.Count == 0)
                         {
@@ -631,870 +735,7 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     catch { }
                
                     break;             
-                //case "拍照1#点坐标":             
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[拍照1#点坐标]");
-                //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "拍照1#点坐标", 60000);
-                //    // currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "拍照1#点坐标", delayCheckTime);
-                //   // currentRunStatus = AxisR.Asix_one_Run("运动平台", "拍照1#点坐标", 2, 60000);
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照1#点坐标", HighDate[0], DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //    Thread.Sleep(100);
-                //   // CamerDate.Add(new KeyValuePair<double, double>(0.0, 0.0));
-                //    str_camer_checkNeed = CheckSta.Split(';');                
-                //    CamerDateNeed_Date = CamerDateNeed(str_camer_checkNeed[0], str_camer_checkNeed[1]);
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    else if(CamerDateNeed_Date.Count == 1)
-                //    {
-                //        CamerDate.Add(new KeyValuePair<double, double>(0.0, 0.0));
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-                //        }
-                     
-                //        currentRunStatus = true;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 2)
-                //    {
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-
-                //        }
-                //        currentRunStatus = true;
-                //    }
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    //KeyValuePair<double, double> Point1= CamerDateNeed_Date[0].Key;
-                //    //CamerDate.Add(CamerDateNeed_Date[0].Key, CamerDateNeed_Date[0].Value);
-                //    //  CamerDate[0].Key = CamerDateNeed(str_camer_checkNeed[0], str_camer_checkNeed[1]).k
-                //    //  CamerDate.Add( CamerDateNeed(str_camer_checkNeed[0], str_camer_checkNeed[1]));
-                //    // CamerDateNeed(str_camer_checkNeed[0], str_camer_checkNeed[1])[0].Key;
-                //    //  CamerDateNeed(str_camer_checkNeed[0], str_camer_checkNeed[1])[0].Value;
-                //    // CamerDate.Add();
-                //    break;
-                //case "拍照2#点坐标":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[拍照2#点坐标]");
-                //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "拍照2#点坐标", delayCheckTime);
-                //   // currentRunStatus = AxisR.Asix_one_Run("运动平台", "拍照2#点坐标", 2, 60000);
-              
-
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照2#点坐标", HighDate[1], DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //    Thread.Sleep(100);
-                //    str_camer_checkNeed = CheckSta.Split(';');
-
-
-
-                //    CamerDateNeed_Date = CamerDateNeed(str_camer_checkNeed[0], str_camer_checkNeed[1]);
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 1)
-                //    {
-                //        CamerDate.Add(new KeyValuePair<double, double>(0.0, 0.0));
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-                //        }
-                     
-                //        currentRunStatus = true;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 2)
-                //    {
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-
-                //        }
-                //        currentRunStatus = true;
-                //    }
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    break;
-                //case "拍照3#点坐标":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[拍照3#点坐标]");
-                //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "拍照3#点坐标", delayCheckTime);
-                //   // currentRunStatus = AxisR.Asix_one_Run("运动平台", "拍照3#点坐标", 2, 60000);
-                
-
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照3#点坐标", HighDate[2], DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //    Thread.Sleep(100);
-                //    //  CamerDate.Add(new KeyValuePair<double, double>(0.0, 0.0));
-                //    str_camer_checkNeed = CheckSta.Split(';');
-
-
-
-                //    CamerDateNeed_Date = CamerDateNeed(str_camer_checkNeed[0], str_camer_checkNeed[1]);
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 1)
-                //    {
-                //        CamerDate.Add(new KeyValuePair<double, double>(0.0, 0.0));
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-                //        }
-                
-                //        currentRunStatus = true;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 2)
-                //    {
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-
-                //        }
-                //        currentRunStatus = true;
-                //    }
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    break;
-                //case "拍照4#点坐标":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[拍照4#点坐标]");
-                //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "拍照4#点坐标", delayCheckTime);
-                //    // currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "拍照4#点坐标", delayCheckTime);
-                //   /// currentRunStatus = AxisR.Asix_one_Run("运动平台", "拍照4#点坐标", 2, 60000);
-                ////    Thread.Sleep(100);
-
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照4#点坐标", HighDate[3], DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //    str_camer_checkNeed = CheckSta.Split(';');
-                //    Thread.Sleep(100);
-
-
-                //    CamerDateNeed_Date = CamerDateNeed(str_camer_checkNeed[0], str_camer_checkNeed[1]);
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 1)
-                //    {
-                //        CamerDate.Add(new KeyValuePair<double, double>(0.0, 0.0));
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-                //        }
-                 
-                //        currentRunStatus = true;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 2)
-                //    {
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-
-                //        }
-                //        currentRunStatus = true;
-                //    }
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    break;
-                //case "拍照5#点坐标":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[拍照5#点坐标]");
-                //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "拍照5#点坐标", delayCheckTime);
-                //  //  currentRunStatus = AxisR.Asix_one_Run("运动平台", "拍照5#点坐标", 2, 60000);
-                //    //  currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "拍照5#点坐标", delayCheckTime);
-
-
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照5#点坐标", HighDate[4], DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //    Thread.Sleep(100);
-                //    str_camer_checkNeed = CheckSta.Split(';');
-
-
-
-                //    CamerDateNeed_Date = CamerDateNeed(str_camer_checkNeed[0], str_camer_checkNeed[1]);
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 1)
-                //    {
-                //        CamerDate.Add(new KeyValuePair<double, double>(0.0, 0.0));
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-                //        }
-                      
-                //        currentRunStatus = true;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 2)
-                //    {
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-
-                //        }
-                //        currentRunStatus = true;
-                //    }
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    break;
-                //case "拍照6#点坐标":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[拍照6#点坐标]");
-                //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "拍照6#点坐标", delayCheckTime);
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照6#点坐标", HighDate[5], DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //    Thread.Sleep(100);
-                //    str_camer_checkNeed = CheckSta.Split(';');
-
-
-
-                //    CamerDateNeed_Date = CamerDateNeed(str_camer_checkNeed[0], str_camer_checkNeed[1]);
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 1)
-                //    {
-                //        CamerDate.Add(new KeyValuePair<double, double>(0.0, 0.0));
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-                //        }
-                       
-                //        currentRunStatus = true;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 2)
-                //    {
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-
-                //        }
-                //        currentRunStatus = true;
-                //    }
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    break;
-                //case "拍照7#点坐标":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[拍照7#点坐标]");
-                //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "拍照7#点坐标", 60000);
-
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照7#点坐标", HighDate[6], DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //    Thread.Sleep(100);
-                //    str_camer_checkNeed = CheckSta.Split(';');
-
-
-
-                //    CamerDateNeed_Date = CamerDateNeed(str_camer_checkNeed[0], str_camer_checkNeed[1]);
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 1)
-                //    {
-                //        CamerDate.Add(new KeyValuePair<double, double>(0.0, 0.0));
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-                //        }
-                     
-                //        currentRunStatus = true;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 2)
-                //    {
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-
-                //        }
-                //        currentRunStatus = true;
-                //    }
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    break;
-                //case "拍照8#点坐标":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[拍照8#点坐标]");
-                //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "拍照8#点坐标", delayCheckTime);
-
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照8#点坐标", HighDate[7], DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //    Thread.Sleep(100);
-                //    str_camer_checkNeed = CheckSta.Split(';');
-
-
-
-                //    CamerDateNeed_Date = CamerDateNeed(str_camer_checkNeed[0], str_camer_checkNeed[1]);
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 1)
-                //    {
-                //        CamerDate.Add(new KeyValuePair<double, double>(0.0, 0.0));
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-                //        }
-                   
-                //        currentRunStatus = true;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 2)
-                //    {
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-
-                //        }
-                //        currentRunStatus = true;
-                //    }
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    break;
-                //case "拍照9#点坐标":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[拍照9#点坐标]");
-                //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "拍照9#点坐标", delayCheckTime);
-
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照9#点坐标", HighDate[8], DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //    Thread.Sleep(100);
-                //    str_camer_checkNeed = CheckSta.Split(';');
-
-
-
-                //    CamerDateNeed_Date = CamerDateNeed(str_camer_checkNeed[0], str_camer_checkNeed[1]);
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 1)
-                //    {
-                //        CamerDate.Add(new KeyValuePair<double, double>(0.0, 0.0));
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-                //        }
-                      
-                //        currentRunStatus = true;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 2)
-                //    {
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-
-                //        }
-                //        currentRunStatus = true;
-                //    }
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    break;
-                //case "拍照10#点坐标":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[拍照10#点坐标]");
-                //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "拍照10#点坐标", delayCheckTime);
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照10#点坐标", HighDate[9], DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //    //AxisR.Asix_one_Run("运动平台", "拍照10#点坐标", 2, 60000);
-                //    Thread.Sleep(100);
-                //    str_camer_checkNeed = CheckSta.Split(';');
-
-
-
-                //    CamerDateNeed_Date = CamerDateNeed(str_camer_checkNeed[0], str_camer_checkNeed[1]);
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 1)
-                //    {
-                //        CamerDate.Add(new KeyValuePair<double, double>(0.0, 0.0));
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-                //        }
-                 
-                //        currentRunStatus = true;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 2)
-                //    {
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-
-                //        }
-                //        currentRunStatus = true;
-                //    }
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    break;
-                //case "拍照11#点坐标":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[拍照11#点坐标]");
-                //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "拍照11#点坐标", delayCheckTime);
-
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照11#点坐标", HighDate[10], DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //    Thread.Sleep(100);
-                //    str_camer_checkNeed = CheckSta.Split(';');
-
-
-
-                //    CamerDateNeed_Date = CamerDateNeed(str_camer_checkNeed[0], str_camer_checkNeed[1]);
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 1)
-                //    {
-                //        CamerDate.Add(new KeyValuePair<double, double>(0.0, 0.0));
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-                //        }
-                 
-                //        currentRunStatus = true;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 2)
-                //    {
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-
-                //        }
-                //        currentRunStatus = true;
-                //    }
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    break;
-                //case "拍照12#点坐标":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[拍照12#点坐标]");
-                //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "拍照12#点坐标", delayCheckTime);
-
-
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照12#点坐标", HighDate[11], DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //    Thread.Sleep(100);
-                //    str_camer_checkNeed = CheckSta.Split(';');
-
-
-
-                //    CamerDateNeed_Date = CamerDateNeed(str_camer_checkNeed[0], str_camer_checkNeed[1]);
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 1)
-                //    {
-                //        CamerDate.Add(new KeyValuePair<double, double>(0.0, 0.0));
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-                //        }
-                
-                //        currentRunStatus = true;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 2)
-                //    {
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-
-                //        }
-                //        currentRunStatus = true;
-                //    }
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    break;
-                //case "拍照13#点坐标":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[拍照13#点坐标]");
-                //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "拍照13#点坐标", delayCheckTime);
-
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照13#点坐标", HighDate[12], DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //  //  AxisR.Asix_one_Run("运动平台", "拍照13#点坐标", 2, 60000);
-                //    Thread.Sleep(100);
-                //    str_camer_checkNeed = CheckSta.Split(';');
-
-
-
-                //    CamerDateNeed_Date = CamerDateNeed(str_camer_checkNeed[0], str_camer_checkNeed[1]);
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 1)
-                //    {
-                //        CamerDate.Add(new KeyValuePair<double, double>(0.0, 0.0));
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-                //        }
-                       
-                //        currentRunStatus = true;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 2)
-                //    {
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-
-                //        }
-                //        currentRunStatus = true;
-                //    }
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    break;
-                //case "拍照14#点坐标":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[拍照14#点坐标]");
-                //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "拍照14#点坐标", delayCheckTime);
-
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照14#点坐标", HighDate[13], DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //    //AxisR.Asix_one_Run("运动平台", "拍照14#点坐标", 2, 60000);
-                //    Thread.Sleep(100);
-                //    str_camer_checkNeed = CheckSta.Split(';');
-
-
-
-                //    CamerDateNeed_Date = CamerDateNeed(str_camer_checkNeed[0], str_camer_checkNeed[1]);
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 1)
-                //    {
-                //        CamerDate.Add(new KeyValuePair<double, double>(0.0, 0.0));
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-                //        }
-                 
-                //        currentRunStatus = true;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 2)
-                //    {
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-
-                //        }
-                //        currentRunStatus = true;
-                //    }
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    break;
-                //case "拍照15#点坐标":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[拍照15#点坐标]");
-                //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "拍照15#点坐标", delayCheckTime);
-
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照15#点坐标", HighDate[14], DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //  //  AxisR.Asix_one_Run("运动平台", "拍照15#点坐标", 2, 60000);
-                //    Thread.Sleep(100);
-                //    str_camer_checkNeed = CheckSta.Split(';');
-
-
-
-                //    CamerDateNeed_Date = CamerDateNeed(str_camer_checkNeed[0], str_camer_checkNeed[1]);
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 1)
-                //    {
-                //        CamerDate.Add(new KeyValuePair<double, double>(0.0, 0.0));
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-                //        }
-                    
-                //        currentRunStatus = true;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 2)
-                //    {
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-
-                //        }
-                //        currentRunStatus = true;
-                //    }
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    break;
-                //case "拍照16#点坐标":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[拍照16#点坐标]");
-                //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "拍照16#点坐标", delayCheckTime);
-
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照16#点坐标", HighDate[15], DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //  //  AxisR.Asix_one_Run("运动平台", "拍照16#点坐标", 2, 60000);
-                //    Thread.Sleep(100);
-                //    str_camer_checkNeed = CheckSta.Split(';');
-
-
-
-                //    CamerDateNeed_Date = CamerDateNeed(str_camer_checkNeed[0], str_camer_checkNeed[1]);
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 1)
-                //    {
-                //        CamerDate.Add(new KeyValuePair<double, double>(0.0, 0.0));
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-                //        }
-                       
-                //        currentRunStatus = true;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 2)
-                //    {
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-
-                //        }
-                //        currentRunStatus = true;
-                //    }
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    break;
-                //case "拍照17#点坐标":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[拍照17#点坐标]");
-                //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "拍照17#点坐标", delayCheckTime);
-
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照17#点坐标", HighDate[16], DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //   // AxisR.Asix_one_Run("运动平台", "拍照17#点坐标", 2, 60000);
-                //    Thread.Sleep(100);
-                //    str_camer_checkNeed = CheckSta.Split(';');
-
-
-
-                //    CamerDateNeed_Date = CamerDateNeed(str_camer_checkNeed[0], str_camer_checkNeed[1]);
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 1)
-                //    {
-                //        CamerDate.Add(new KeyValuePair<double, double>(0.0, 0.0));
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-                //        }
-                
-                //        currentRunStatus = true;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 2)
-                //    {
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-
-                //        }
-                //        currentRunStatus = true;
-                //    }
-                //    if (CamerDateNeed_Date.Count==0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    break;
-                //case "拍照18#点坐标":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[拍照18#点坐标]");
-                //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "拍照18#点坐标", delayCheckTime);
-
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照18#点坐标", HighDate[17], DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //    //AxisR.Asix_one_Run("运动平台", "拍照18#点坐标", 2, 60000);
-                //    Thread.Sleep(100);
-                //    str_camer_checkNeed = CheckSta.Split(';');
-
-
-
-                //    CamerDateNeed_Date = CamerDateNeed(str_camer_checkNeed[0], str_camer_checkNeed[1]);
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 1)
-                //    {
-                //        CamerDate.Add(new KeyValuePair<double, double>(0.0, 0.0));
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-                //        }
-                     
-                //        currentRunStatus = true;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 2)
-                //    {
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-
-                //        }
-                //        currentRunStatus = true;
-                //    }
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    break;
-                //case "拍照19#点坐标":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[拍照19#点坐标]");
-                //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "拍照19#点坐标", delayCheckTime);
-
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照19#点坐标", HighDate[18], DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //   // AxisR.Asix_one_Run("运动平台", "拍照19#点坐标", 2, 60000);
-                //    Thread.Sleep(100);
-                //    str_camer_checkNeed = CheckSta.Split(';');
-
-
-
-                //    CamerDateNeed_Date = CamerDateNeed(str_camer_checkNeed[0], str_camer_checkNeed[1]);
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 1)
-                //    {
-                //        CamerDate.Add(new KeyValuePair<double, double>(0.0, 0.0));
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-                //        }
-                  
-                //        currentRunStatus = true;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 2)
-                //    {
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-
-                //        }
-                //        currentRunStatus = true;
-                //    }
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    break;
-                //case "拍照20#点坐标":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[拍照20#点坐标]");
-                //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "拍照20#点坐标", delayCheckTime);
-
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照20#点坐标", HighDate[19], DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //   // AxisR.Asix_one_Run("运动平台", "拍照20#点坐标", 2, 60000);
-                //    Thread.Sleep(100);
-                //    str_camer_checkNeed = CheckSta.Split(';');
-
-
-
-                //    CamerDateNeed_Date = CamerDateNeed(str_camer_checkNeed[0], str_camer_checkNeed[1]);
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 1)
-                //    {
-                //        CamerDate.Add(new KeyValuePair<double, double>(0.0, 0.0));
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-                //        }
              
-                //        currentRunStatus = true;
-                //    }
-                //    else if (CamerDateNeed_Date.Count == 2)
-                //    {
-                //        for (int i = 0; i < CamerDateNeed_Date.Count; i++)
-                //        {
-                //            Point_1 = new KeyValuePair<double, double>(CamerDateNeed_Date[i].Key, CamerDateNeed_Date[i].Value);
-                //            CamerDate.Add(Point_1);
-
-                //        }
-                //        currentRunStatus = true;
-                //    }
-                //    if (CamerDateNeed_Date.Count == 0)
-                //    {
-                //        currentRunStatus = false;
-                //    }
-                //    break;
                 case "焊接点":
           
                     Offset = CheckSta.Split(';');
@@ -1515,13 +756,14 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                     //激光器就绪
                     //    焊接报警指示
                     delayCheckTime = 6000;
-                    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接 " + str1 + ":点坐标]");
+                    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接 " + str1 + ":点坐标]");                 
+                    DateSave.Instance().Production.TheCurrentpoint = TheCurrentpoint(str1);                
                     currentRunStatus = Meth.Weld_Asix_Line_Run("运动平台", str1, delayCheckTime, DateSave.Instance().Production.X_Setover, DateSave.Instance().Production.Y_Setover, OffsetX, OffsetY);
                     Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[" + str1 + "]:" + HighDate[AutoWeld]);
                     currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", str1, HighDate[AutoWeld] - DateSave.Instance().Production.From_Focus, DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
                     Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "["+ str1+"]:" + "开始焊接");
                     Thread.Sleep(DelayCamer);
-                    if (CamerDate[AutoWeld].Key == 0.0)
+                    if (CamerDate[AutoWeld].Key == 0.0&& CamerDate[AutoWeld].Value == 0.0)
                     {
                         WeldListDateMes[0] = DateSave.Instance().Production.Weld_Num.ToString(); //波形号
                          WeldListDateMes[1] = DateSave.Instance().Production.Weld_Speed.ToString();//速度
@@ -1545,7 +787,8 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                             WeldListDateMes[1] = DateSave.Instance().Production.Weld_Speed.ToString();//速度
                             WeldListDateMes[2] = DateSave.Instance().Production.Z_AxialDatum.ToString();//基准高度
                             WeldListDateMes[3] = DateSave.Instance().Production.WeldPower.ToString();//最大功率
-                            try { WeldListDateMes[4] =DateSave.Instance().Production.WeldDate.Average().ToString() ;//反馈功率 
+                            DateSave.Instance().Production.TheCurrentpoint = 0;
+                            try { WeldListDateMes[4] =DateSave.Instance().Production.WeldDate.Average().ToString() ;//反馈功率                          
                             }
                             catch
                             {
@@ -1562,515 +805,7 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                         }
                     }
                     break;
-                //case "焊接1#点坐标":
-                //     Offset  = CheckSta.Split(';');
-                //     OffsetX = 0;
-                //     OffsetY = 0;
-                //    if (Offset.Length>0)
-                //    {
-                //         OffsetX = Convert.ToDouble(Offset[0]);
-                //         OffsetY = Convert.ToDouble(Offset[1]);
-                //    }
-                 
-                //    //激光器就绪
-                //    //    焊接报警指示
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接1#点坐标]");
-                //    currentRunStatus = Meth.Weld_Asix_Line_Run("运动平台", "拍照1#点坐标", delayCheckTime, DateSave.Instance().Production.X_Setover, DateSave.Instance().Production.Y_Setover, OffsetX, OffsetY);
-                //   Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接1#点坐标]:" + HighDate[0]);
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照1#点坐标", HighDate[0] - DateSave.Instance().Production.From_Focus, DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接1#点坐标]:" +"开始焊接");
-                //    if (CamerDate[0].Key==0.0)
-                //    {
-                //        currentRunStatus = true;
-                //    }
-                //    else
-                //    {
-                //        currentRunStatus = Weld_Check(CamerDate[0].Key, CamerDate[0].Value);//开始焊接及检测焊接完成
-                //    }           
-                //    break;
-                //case "焊接2#点坐标":
-                //   Offset = CheckSta.Split(';');
-                //     OffsetX = 0;
-                //     OffsetY = 0;
-                //    if (Offset.Length > 0)
-                //    {
-                //        OffsetX = Convert.ToDouble(Offset[0]);
-                //        OffsetY = Convert.ToDouble(Offset[1]);
-                //    }
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接2#点坐标]");
-                //    // currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "焊接2#点坐标", delayCheckTime);
-                //    currentRunStatus = Meth.Weld_Asix_Line_Run("运动平台", "拍照2#点坐标", delayCheckTime, DateSave.Instance().Production.X_Setover, DateSave.Instance().Production.Y_Setover, OffsetX, OffsetY);
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照2#点坐标", HighDate[1] - DateSave.Instance().Production.From_Focus, DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接2#点坐标]:" + "开始焊接");
-                //    if (CamerDate[1].Key == 0.0)
-                //    {
-                //        currentRunStatus = true;
-                //    }
-                //    else
-                //    {
-                //        currentRunStatus = Weld_Check(CamerDate[1].Key, CamerDate[1].Value);//开始焊接及检测焊接完成
-                //    }
-                //    break;
-                //case "焊接3#点坐标":
-                //    delayCheckTime = 6000;
-
-                //    Offset = CheckSta.Split(';');
-                //    OffsetX = 0;
-                //    OffsetY = 0;
-                //    if (Offset.Length > 0)
-                //    {
-                //        OffsetX = Convert.ToDouble(Offset[0]);
-                //        OffsetY = Convert.ToDouble(Offset[1]);
-                //    }
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接3#点坐标]");
-
-                //    currentRunStatus = Meth.Weld_Asix_Line_Run("运动平台", "拍照3#点坐标", delayCheckTime, DateSave.Instance().Production.X_Setover, DateSave.Instance().Production.Y_Setover, OffsetX, OffsetY);
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照3#点坐标", HighDate[2] - DateSave.Instance().Production.From_Focus, DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接3#点坐标]:" + "开始焊接");
-                //    if (CamerDate[2].Key == 0.0)
-                //    {
-                //        currentRunStatus = true;
-                //    }
-                //    else
-                //    {
-                //        currentRunStatus = Weld_Check(CamerDate[2].Key, CamerDate[2].Value);//开始焊接及检测焊接完成
-                //    }
-                //    break;
-                //case "焊接4#点坐标":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接4#点坐标]");
-                //    //  currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "焊接4#点坐标", delayCheckTime);
-                //    Offset = CheckSta.Split(';');
-                //    OffsetX = 0;
-                //    OffsetY = 0;
-                //    if (Offset.Length > 0)
-                //    {
-                //        OffsetX = Convert.ToDouble(Offset[0]);
-                //        OffsetY = Convert.ToDouble(Offset[1]);
-                //    }
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接4#点坐标]");
-
-                //    currentRunStatus = Meth.Weld_Asix_Line_Run("运动平台", "拍照4#点坐标", delayCheckTime, DateSave.Instance().Production.X_Setover, DateSave.Instance().Production.Y_Setover, OffsetX, OffsetY);
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照4#点坐标", HighDate[3] - DateSave.Instance().Production.From_Focus, DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接4#点坐标]:" + "开始焊接");
-                //    if (CamerDate[3].Key == 0.0)
-                //    {
-                //        currentRunStatus = true;
-                //    }
-                //    else
-                //    {
-                //        currentRunStatus = Weld_Check(CamerDate[3].Key, CamerDate[3].Value);//开始焊接及检测焊接完成
-                //    }
-                //    break;
-                //case "焊接5#点坐标":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接5#点坐标]");
-                //    Offset = CheckSta.Split(';');
-                //    OffsetX = 0;
-                //    OffsetY = 0;
-                //    if (Offset.Length > 0)
-                //    {
-                //        OffsetX = Convert.ToDouble(Offset[0]);
-                //        OffsetY = Convert.ToDouble(Offset[1]);
-                //    }
-                //    //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "焊接5#点坐标", delayCheckTime);
-                //    currentRunStatus = Meth.Weld_Asix_Line_Run("运动平台", "拍照5#点坐标", delayCheckTime, DateSave.Instance().Production.X_Setover, DateSave.Instance().Production.Y_Setover, OffsetX, OffsetY);
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照5#点坐标", HighDate[4] - DateSave.Instance().Production.From_Focus, DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接5#点坐标]:" + "开始焊接");
-                //    if (CamerDate[4].Key == 0.0)
-                //    {
-                //        currentRunStatus = true;
-                //    }
-                //    else
-                //    {
-                //        currentRunStatus = Weld_Check(CamerDate[4].Key, CamerDate[4].Value);//开始焊接及检测焊接完成
-                //    }
-                //    break;
-                //case "焊接6#点坐标":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接6#点坐标]");
-                //    //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "焊接6#点坐标", delayCheckTime);
-                //    Offset = CheckSta.Split(';');
-                //    OffsetX = 0;
-                //    OffsetY = 0;
-                //    if (Offset.Length > 0)
-                //    {
-                //        OffsetX = Convert.ToDouble(Offset[0]);
-                //        OffsetY = Convert.ToDouble(Offset[1]);
-                //    }
-                //    currentRunStatus = Meth.Weld_Asix_Line_Run("运动平台", "拍照6#点坐标", delayCheckTime, DateSave.Instance().Production.X_Setover, DateSave.Instance().Production.Y_Setover, OffsetX, OffsetY);
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照6#点坐标", HighDate[5] - DateSave.Instance().Production.From_Focus, DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接6#点坐标]:" + "开始焊接");
-                //    if (CamerDate[5].Key == 0.0)
-                //    {
-                //        currentRunStatus = true;
-                //    }
-                //    else
-                //    {
-                //        currentRunStatus = Weld_Check(CamerDate[5].Key, CamerDate[5].Value);//开始焊接及检测焊接完成
-                //    }
-                //    break;
-                //case "焊接7#点坐标":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接7#点坐标]");
-                //    //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "焊接6#点坐标", delayCheckTime);
-                //    Offset = CheckSta.Split(';');
-                //    OffsetX = 0;
-                //    OffsetY = 0;
-                //    if (Offset.Length > 0)
-                //    {
-                //        OffsetX = Convert.ToDouble(Offset[0]);
-                //        OffsetY = Convert.ToDouble(Offset[1]);
-                //    }
-                //    currentRunStatus = Meth.Weld_Asix_Line_Run("运动平台", "拍照7#点坐标", delayCheckTime, DateSave.Instance().Production.X_Setover, DateSave.Instance().Production.Y_Setover, OffsetX, OffsetY);
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照7#点坐标", HighDate[6] - DateSave.Instance().Production.From_Focus, DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接7#点坐标]:" + "开始焊接");
-                //    if (CamerDate[6].Key == 0.0)
-                //    {
-                //        currentRunStatus = true;
-                //    }
-                //    else
-                //    {
-                //        currentRunStatus = Weld_Check(CamerDate[6].Key, CamerDate[6].Value);//开始焊接及检测焊接完成
-                //    }
-                //    break;
-                //case "焊接8#点坐标":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接8#点坐标]");
-                //    //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "焊接6#点坐标", delayCheckTime);
-                //    Offset = CheckSta.Split(';');
-                //    OffsetX = 0;
-                //    OffsetY = 0;
-                //    if (Offset.Length > 0)
-                //    {
-                //        OffsetX = Convert.ToDouble(Offset[0]);
-                //        OffsetY = Convert.ToDouble(Offset[1]);
-                //    }
-                //    currentRunStatus = Meth.Weld_Asix_Line_Run("运动平台", "拍照8#点坐标", delayCheckTime, DateSave.Instance().Production.X_Setover, DateSave.Instance().Production.Y_Setover, OffsetX, OffsetY);
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照8#点坐标", HighDate[7] - DateSave.Instance().Production.From_Focus, DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接8#点坐标]:" + "开始焊接");
-                //    if (CamerDate[7].Key == 0.0)
-                //    {
-                //        currentRunStatus = true;
-                //    }
-                //    else
-                //    {
-                //        currentRunStatus = Weld_Check(CamerDate[7].Key, CamerDate[7].Value);//开始焊接及检测焊接完成
-                //    }
-                //    break;
-                //case "焊接9#点坐标":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接9#点坐标]");
-                //    //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "焊接6#点坐标", delayCheckTime);
-                //    Offset = CheckSta.Split(';');
-                //    OffsetX = 0;
-                //    OffsetY = 0;
-                //    if (Offset.Length > 0)
-                //    {
-                //        OffsetX = Convert.ToDouble(Offset[0]);
-                //        OffsetY = Convert.ToDouble(Offset[1]);
-                //    }
-                //    currentRunStatus = Meth.Weld_Asix_Line_Run("运动平台", "拍照9#点坐标", delayCheckTime, DateSave.Instance().Production.X_Setover, DateSave.Instance().Production.Y_Setover, OffsetX, OffsetY);
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照9#点坐标", HighDate[8] - DateSave.Instance().Production.From_Focus, DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接9#点坐标]:" + "开始焊接");
-                //    if (CamerDate[8].Key == 0.0)
-                //    {
-                //        currentRunStatus = true;
-                //    }
-                //    else
-                //    {
-                //        currentRunStatus = Weld_Check(CamerDate[8].Key, CamerDate[8].Value);//开始焊接及检测焊接完成
-                //    }
-                //    break;
-                //case "焊接10#点坐标":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接10#点坐标]");
-                //    //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "焊接6#点坐标", delayCheckTime);
-                //    Offset = CheckSta.Split(';');
-                //    OffsetX = 0;
-                //    OffsetY = 0;
-                //    if (Offset.Length > 0)
-                //    {
-                //        OffsetX = Convert.ToDouble(Offset[0]);
-                //        OffsetY = Convert.ToDouble(Offset[1]);
-                //    }
-                //    currentRunStatus = Meth.Weld_Asix_Line_Run("运动平台", "拍照10#点坐标", delayCheckTime, DateSave.Instance().Production.X_Setover, DateSave.Instance().Production.Y_Setover, OffsetX, OffsetY);
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照10#点坐标", HighDate[9] - DateSave.Instance().Production.From_Focus, DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接10#点坐标]:" + "开始焊接");
-                //    if (CamerDate[9].Key == 0.0)
-                //    {
-                //        currentRunStatus = true;
-                //    }
-                //    else
-                //    {
-                //        currentRunStatus = Weld_Check(CamerDate[9].Key, CamerDate[9].Value);//开始焊接及检测焊接完成
-                //    }
-                //    break;
-                //case "焊接11#点坐标":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接11#点坐标]");
-                //    //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "焊接6#点坐标", delayCheckTime);
-                //    Offset = CheckSta.Split(';');
-                //    OffsetX = 0;
-                //    OffsetY = 0;
-                //    if (Offset.Length > 0)
-                //    {
-                //        OffsetX = Convert.ToDouble(Offset[0]);
-                //        OffsetY = Convert.ToDouble(Offset[1]);
-                //    }
-                //    currentRunStatus = Meth.Weld_Asix_Line_Run("运动平台", "拍照11#点坐标", delayCheckTime, DateSave.Instance().Production.X_Setover, DateSave.Instance().Production.Y_Setover, OffsetX, OffsetY);
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照11#点坐标", HighDate[10] - DateSave.Instance().Production.From_Focus, DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接11#点坐标]:" + "开始焊接");
-                //    if (CamerDate[10].Key == 0.0)
-                //    {
-                //        currentRunStatus = true;
-                //    }
-                //    else
-                //    {
-                //        currentRunStatus = Weld_Check(CamerDate[10].Key, CamerDate[10].Value);//开始焊接及检测焊接完成
-                //    }
-                //    break;
-                //case "焊接12#点坐标":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接12#点坐标]");
-                //    //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "焊接6#点坐标", delayCheckTime);
-                //    Offset = CheckSta.Split(';');
-                //    OffsetX = 0;
-                //    OffsetY = 0;
-                //    if (Offset.Length > 0)
-                //    {
-                //        OffsetX = Convert.ToDouble(Offset[0]);
-                //        OffsetY = Convert.ToDouble(Offset[1]);
-                //    }
-                //    currentRunStatus = Meth.Weld_Asix_Line_Run("运动平台", "拍照12#点坐标", delayCheckTime, DateSave.Instance().Production.X_Setover, DateSave.Instance().Production.Y_Setover, OffsetX, OffsetY);
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照12#点坐标", HighDate[11] - DateSave.Instance().Production.From_Focus, DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接12#点坐标]:" + "开始焊接");
-                //    if (CamerDate[11].Key == 0.0)
-                //    {
-                //        currentRunStatus = true;
-                //    }
-                //    else
-                //    {
-                //        currentRunStatus = Weld_Check(CamerDate[11].Key, CamerDate[11].Value);//开始焊接及检测焊接完成
-                //    }
-                //    break;
-                //case "焊接13#点坐标":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接13#点坐标]");
-                //    //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "焊接6#点坐标", delayCheckTime);
-                //    Offset = CheckSta.Split(';');
-                //    OffsetX = 0;
-                //    OffsetY = 0;
-                //    if (Offset.Length > 0)
-                //    {
-                //        OffsetX = Convert.ToDouble(Offset[0]);
-                //        OffsetY = Convert.ToDouble(Offset[1]);
-                //    }
-                //    currentRunStatus = Meth.Weld_Asix_Line_Run("运动平台", "拍照13#点坐标", delayCheckTime, DateSave.Instance().Production.X_Setover, DateSave.Instance().Production.Y_Setover, OffsetX, OffsetY);
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照13#点坐标", HighDate[12] - DateSave.Instance().Production.From_Focus, DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接13#点坐标]:" + "开始焊接");
-                //    if (CamerDate[12].Key == 0.0)
-                //    {
-                //        currentRunStatus = true;
-                //    }
-                //    else
-                //    {
-                //        currentRunStatus = Weld_Check(CamerDate[12].Key, CamerDate[12].Value);//开始焊接及检测焊接完成
-                //    }
-                //    break;
-                //case "焊接14#点坐标":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接14#点坐标]");
-                //    //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "焊接6#点坐标", delayCheckTime);
-                //    Offset = CheckSta.Split(';');
-                //    OffsetX = 0;
-                //    OffsetY = 0;
-                //    if (Offset.Length > 0)
-                //    {
-                //        OffsetX = Convert.ToDouble(Offset[0]);
-                //        OffsetY = Convert.ToDouble(Offset[1]);
-                //    }
-                //    currentRunStatus = Meth.Weld_Asix_Line_Run("运动平台", "拍照14#点坐标", delayCheckTime, DateSave.Instance().Production.X_Setover, DateSave.Instance().Production.Y_Setover, OffsetX, OffsetY);
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照14#点坐标", HighDate[13] - DateSave.Instance().Production.From_Focus, DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接14#点坐标]:" + "开始焊接");
-                //    if (CamerDate[13].Key == 0.0)
-                //    {
-                //        currentRunStatus = true;
-                //    }
-                //    else
-                //    {
-                //        currentRunStatus = Weld_Check(CamerDate[13].Key, CamerDate[13].Value);//开始焊接及检测焊接完成
-                //    }
-                //    break;
-                //case "焊接15#点坐标":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接15#点坐标]");
-                //    //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "焊接6#点坐标", delayCheckTime);
-                //    Offset = CheckSta.Split(';');
-                //    OffsetX = 0;
-                //    OffsetY = 0;
-                //    if (Offset.Length > 0)
-                //    {
-                //        OffsetX = Convert.ToDouble(Offset[0]);
-                //        OffsetY = Convert.ToDouble(Offset[1]);
-                //    }
-                //    currentRunStatus = Meth.Weld_Asix_Line_Run("运动平台", "拍照15#点坐标", delayCheckTime, DateSave.Instance().Production.X_Setover, DateSave.Instance().Production.Y_Setover, OffsetX, OffsetY);
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照15#点坐标", HighDate[14] - DateSave.Instance().Production.From_Focus, DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接15#点坐标]:" + "开始焊接");
-                //    if (CamerDate[14].Key == 0.0)
-                //    {
-                //        currentRunStatus = true;
-                //    }
-                //    else
-                //    {
-                //        currentRunStatus = Weld_Check(CamerDate[14].Key, CamerDate[14].Value);//开始焊接及检测焊接完成
-                //    }
-                //    break;
-                //case "焊接16#点坐标":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接16#点坐标]");
-                //    //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "焊接6#点坐标", delayCheckTime);
-                //    Offset = CheckSta.Split(';');
-                //    OffsetX = 0;
-                //    OffsetY = 0;
-                //    if (Offset.Length > 0)
-                //    {
-                //        OffsetX = Convert.ToDouble(Offset[0]);
-                //        OffsetY = Convert.ToDouble(Offset[1]);
-                //    }
-                //    currentRunStatus = Meth.Weld_Asix_Line_Run("运动平台", "拍照16#点坐标", delayCheckTime, DateSave.Instance().Production.X_Setover, DateSave.Instance().Production.Y_Setover, OffsetX, OffsetY);
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照16#点坐标", HighDate[15] - DateSave.Instance().Production.From_Focus, DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接16#点坐标]:" + "开始焊接");
-                //    if (CamerDate[15].Key == 0.0)
-                //    {
-                //        currentRunStatus = true;
-                //    }
-                //    else
-                //    {
-                //        currentRunStatus = Weld_Check(CamerDate[15].Key, CamerDate[15].Value);//开始焊接及检测焊接完成
-                //    }
-                //    break;
-                //case "焊接17#点坐标":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接17#点坐标]");
-                //    //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "焊接6#点坐标", delayCheckTime);
-                //    Offset = CheckSta.Split(';');
-                //    OffsetX = 0;
-                //    OffsetY = 0;
-                //    if (Offset.Length > 0)
-                //    {
-                //        OffsetX = Convert.ToDouble(Offset[0]);
-                //        OffsetY = Convert.ToDouble(Offset[1]);
-                //    }
-                //    currentRunStatus = Meth.Weld_Asix_Line_Run("运动平台", "拍照17#点坐标", delayCheckTime, DateSave.Instance().Production.X_Setover, DateSave.Instance().Production.Y_Setover, OffsetX, OffsetY);
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照17#点坐标", HighDate[16] - DateSave.Instance().Production.From_Focus, DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接17#点坐标]:" + "开始焊接");
-                //    if (CamerDate[16].Key == 0.0)
-                //    {
-                //        currentRunStatus = true;
-                //    }
-                //    else
-                //    {
-                //        currentRunStatus = Weld_Check(CamerDate[16].Key, CamerDate[16].Value);//开始焊接及检测焊接完成
-                //    }
-                //    break;
-                //case "焊接18#点坐标":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接18#点坐标]");
-                //    //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "焊接6#点坐标", delayCheckTime);
-                //    Offset = CheckSta.Split(';');
-                //    OffsetX = 0;
-                //    OffsetY = 0;
-                //    if (Offset.Length > 0)
-                //    {
-                //        OffsetX = Convert.ToDouble(Offset[0]);
-                //        OffsetY = Convert.ToDouble(Offset[1]);
-                //    }
-                //    currentRunStatus = Meth.Weld_Asix_Line_Run("运动平台", "拍照18#点坐标", delayCheckTime, DateSave.Instance().Production.X_Setover, DateSave.Instance().Production.Y_Setover, OffsetX, OffsetY);
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照18#点坐标", HighDate[17] - DateSave.Instance().Production.From_Focus, DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接18#点坐标]:" + "开始焊接");
-                //    if (CamerDate[17].Key == 0.0)
-                //    {
-                //        currentRunStatus = true;
-                //    }
-                //    else
-                //    {
-                //        currentRunStatus = Weld_Check(CamerDate[17].Key, CamerDate[17].Value);//开始焊接及检测焊接完成
-                //    }
-                //    break;
-                //case "焊接19#点坐标":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接19#点坐标]");
-                //    //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "焊接6#点坐标", delayCheckTime);
-                //    Offset = CheckSta.Split(';');
-                //    OffsetX = 0;
-                //    OffsetY = 0;
-                //    if (Offset.Length > 0)
-                //    {
-                //        OffsetX = Convert.ToDouble(Offset[0]);
-                //        OffsetY = Convert.ToDouble(Offset[1]);
-                //    }
-                //    currentRunStatus = Meth.Weld_Asix_Line_Run("运动平台", "拍照19#点坐标", delayCheckTime, DateSave.Instance().Production.X_Setover, DateSave.Instance().Production.Y_Setover, OffsetX, OffsetY);
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照19#点坐标", HighDate[18] - DateSave.Instance().Production.From_Focus, DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接19#点坐标]:" + "开始焊接");
-                //    if (CamerDate[18].Key == 0.0)
-                //    {
-                //        currentRunStatus = true;
-                //    }
-                //    else
-                //    {
-                //        currentRunStatus = Weld_Check(CamerDate[18].Key, CamerDate[18].Value);//开始焊接及检测焊接完成
-                //    }
-                //    break;
-                //case "焊接20#点坐标":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接20#点坐标]");
-                //    //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "焊接6#点坐标", delayCheckTime);
-                //    Offset = CheckSta.Split(';');
-                //    OffsetX = 0;
-                //    OffsetY = 0;
-                //    if (Offset.Length > 0)
-                //    {
-                //        OffsetX = Convert.ToDouble(Offset[0]);
-                //        OffsetY = Convert.ToDouble(Offset[1]);
-                //    }
-                //    currentRunStatus = Meth.Weld_Asix_Line_Run("运动平台", "拍照20#点坐标", delayCheckTime, DateSave.Instance().Production.X_Setover, DateSave.Instance().Production.Y_Setover, OffsetX, OffsetY);
-                //    currentRunStatus = AxisR.Asix_z_Auto_High("运动平台", "拍照20#点坐标", HighDate[19] - DateSave.Instance().Production.From_Focus, DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[焊接20#点坐标]:" + "开始焊接");
-                //    if (CamerDate[19].Key == 0.0)
-                //    {
-                //        currentRunStatus = true;
-                //    }
-                //    else
-                //    {
-                //        currentRunStatus = Weld_Check(CamerDate[19].Key, CamerDate[19].Value);//开始焊接及检测焊接完成
-                //    }
-                //    currentRunStatus = true;
-                //    break;
-
-
-                //case "调高点":
-                //    delayCheckTime = 6000;
-                //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[" + str1 + "]:");
-                //    currentRunStatus = Meth.Asix_Line_Run("运动平台", str1 , 60000);
-                //    currentRunStatus = AxisR.Asix_one_Run("运动平台", str1 , 2, 60000);
-                //    DelayCamer = int.Parse(CheckSta);
-                //    Thread.Sleep(DelayCamer);
-                //    if (调高数据() > 0)
-                //    {
-                //        HighDate.Add(调高数据());
-                //        currentRunStatus = true;
-                //    }
-                //    else
-                //    {
-                //        currentRunStatus = false;
-                //        //报警
-                //    }
-                //    break;
-
+              
                 case "调高点":
                     Offset = CheckSta.Split(';');
                     OffsetX = 0;
@@ -2098,341 +833,7 @@ namespace FullyAutomaticLaserJetCoder.MainTask
                         currentRunStatus = false;
                     }
                     break;
-                    //case "调高1#点坐标":
-                    //    delayCheckTime = 6000;
-                    //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[调高1#点坐标]");
-                    //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "调高1#点坐标", 60000);
-                    //    currentRunStatus = AxisR.Asix_one_Run("运动平台", "调高1#点坐标", 2, 60000);
-                    //    Thread.Sleep(100);
-                    //    if (调高数据() > 0)
-                    //    {
-                    //        HighDate.Add(调高数据());
-                    //        currentRunStatus = true;
-                    //    }
-                    //    else
-                    //    {
-                    //        currentRunStatus = false;
-                    //        //报警
-                    //    }
-                    //    break;
-                    //case "调高2#点坐标":
-                    //    delayCheckTime = 6000;
-                    //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[调高2#点坐标]");
-                    //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "调高2#点坐标", 60000);
-                    //    currentRunStatus = AxisR.Asix_one_Run("运动平台", "调高2#点坐标", 2, 60000);
-                    //    Thread.Sleep(100);
-                    //    if (调高数据() > 0)
-                    //    {
-                    //        currentRunStatus = true;
-                    //        HighDate.Add(调高数据());
-                    //    }
-                    //    else
-                    //    {
-                    //        currentRunStatus = false;
-                    //        //报警
-                    //    }
-                    //    break;
-                    //case "调高3#点坐标":
-                    //    delayCheckTime = 6000;
-                    //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[调高3#点坐标]");
-
-                    //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "调高3#点坐标", 60000);
-                    //    currentRunStatus = AxisR.Asix_one_Run("运动平台", "调高3#点坐标", 2, 60000);
-                    //    Thread.Sleep(100);
-                    //    if (调高数据() > 0)
-                    //    {
-                    //        currentRunStatus = true;
-                    //        HighDate.Add(调高数据());
-                    //    }
-                    //    else
-                    //    {
-                    //        currentRunStatus = false;
-                    //        //报警
-                    //    }
-                    //    //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高3#点坐标", delayCheckTime);
-                    //    break;
-                    //case "调高4#点坐标":
-                    //    delayCheckTime = 6000;
-                    //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[调高4#点坐标]");
-                    //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "调高4#点坐标", 60000);
-                    //    currentRunStatus = AxisR.Asix_one_Run("运动平台", "调高4#点坐标", 2, 60000);
-                    //    Thread.Sleep(100);
-                    //    if (调高数据() > 0)
-                    //    {
-                    //        currentRunStatus = true;
-                    //        HighDate.Add(调高数据());
-                    //    }
-                    //    else
-                    //    {
-                    //        currentRunStatus = false;
-                    //        //报警
-                    //    }
-                    //    //  currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高4#点坐标", delayCheckTime);
-                    //    break;
-                    //case "调高5#点坐标":
-                    //    delayCheckTime = 6000;
-                    //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[调高5#点坐标]");
-                    //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "调高5#点坐标", 60000);
-                    //    currentRunStatus = AxisR.Asix_one_Run("运动平台", "调高5#点坐标", 2, 60000);
-                    //    Thread.Sleep(100);
-                    //    if (调高数据() > 0)
-                    //    {
-                    //        currentRunStatus = true;
-                    //        HighDate.Add(调高数据());
-                    //    }
-                    //    else
-                    //    {
-                    //        currentRunStatus = false;
-                    //        //报警
-                    //    }
-                    //    //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高5#点坐标", delayCheckTime);
-                    //    break;
-                    //case "调高6#点坐标":
-                    //    delayCheckTime = 6000;
-                    //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[调高6#点坐标]");
-                    //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "调高6#点坐标", 60000);
-                    //    Thread.Sleep(100);
-                    //    if (调高数据() > 0)
-                    //    {
-                    //        currentRunStatus = true;
-                    //        HighDate.Add(调高数据());
-                    //    }
-                    //    else
-                    //    {
-                    //        currentRunStatus = false;
-                    //        //报警
-                    //    }
-                    //    // currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高6#点坐标", delayCheckTime);
-                    //    break;
-                    //case "调高7#点坐标":
-                    //    delayCheckTime = 6000;
-                    //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[调高7#点坐标]");
-                    //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "调高7#点坐标", 60000);
-                    //    Thread.Sleep(100);
-                    //    if (调高数据() > 0)
-                    //    {
-                    //        currentRunStatus = true;
-                    //        HighDate.Add(调高数据());
-                    //    }
-                    //    else
-                    //    {
-                    //        currentRunStatus = false;
-                    //        //报警
-                    //    }
-                    //    //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高7#点坐标", delayCheckTime);
-                    //    break;
-                    //case "调高8#点坐标":
-                    //    delayCheckTime = 6000;
-                    //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[调高8#点坐标]");
-                    //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "调高8#点坐标", 60000);
-                    //    Thread.Sleep(100);
-                    //    if (调高数据() > 0)
-                    //    {
-                    //        currentRunStatus = true;
-                    //        HighDate.Add(调高数据());
-                    //    }
-                    //    else
-                    //    {
-                    //        currentRunStatus = false;
-                    //        //报警
-                    //    }
-                    //    //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高8#点坐标", delayCheckTime);
-                    //    break;
-                    //case "调高9#点坐标":
-                    //    delayCheckTime = 6000;
-                    //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[调高9#点坐标]");
-                    //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "调高9#点坐标", 60000);
-                    //    Thread.Sleep(100);
-                    //    if (调高数据() > 0)
-                    //    {
-                    //        currentRunStatus = true;
-                    //        HighDate.Add(调高数据());
-                    //    }
-                    //    else
-                    //    {
-                    //        currentRunStatus = false; //报警
-                    //    }
-                    //    //   currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高9#点坐标", delayCheckTime);
-                    //    break;
-                    //case "调高10#点坐标":
-                    //    delayCheckTime = 6000;
-                    //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[调高10#点坐标]");
-                    //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "调高10#点坐标", 60000);
-                    //    Thread.Sleep(100);
-                    //    if (调高数据() > 0)
-                    //    {
-                    //        currentRunStatus = true;
-                    //        HighDate.Add(调高数据());
-                    //    }
-                    //    else
-                    //    {
-                    //        currentRunStatus = false;  //报警
-                    //    }
-                    //    // currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高10#点坐标", delayCheckTime);
-                    //    break;
-                    //case "调高11#点坐标":
-                    //    delayCheckTime = 6000;
-                    //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[调高11#点坐标]");
-                    //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "调高11#点坐标", 60000);
-                    //    Thread.Sleep(100);
-                    //    if (调高数据() > 0)
-                    //    {
-                    //        currentRunStatus = true;
-                    //        HighDate.Add(调高数据());
-                    //    }
-                    //    else
-                    //    {
-                    //        currentRunStatus = false; //报警
-                    //    }
-                    //    //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高11#点坐标", delayCheckTime);
-                    //    break;
-                    //case "调高12#点坐标":
-                    //    delayCheckTime = 6000;
-                    //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[调高12#点坐标]");
-                    //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "调高12#点坐标", 60000);
-                    //    Thread.Sleep(100);
-                    //    if (调高数据() > 0)
-                    //    {
-                    //        currentRunStatus = true;
-                    //        HighDate.Add(调高数据());
-                    //    }
-                    //    else
-                    //    {
-                    //        currentRunStatus = false; //报警
-                    //    }
-                    //    // currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高12#点坐标", delayCheckTime);
-                    //    break;
-                    //case "调高13#点坐标":
-                    //    delayCheckTime = 6000;
-                    //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[调高13#点坐标]");
-                    //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "调高13#点坐标", 60000);
-                    //    Thread.Sleep(100);
-                    //    if (调高数据() > 0)
-                    //    {
-                    //        currentRunStatus = true;
-                    //        HighDate.Add(调高数据());
-                    //    }
-                    //    else
-                    //    {
-                    //        currentRunStatus = false;  //报警
-                    //    }
-                    //    //  currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高13#点坐标", delayCheckTime);
-                    //    break;
-                    //case "调高14#点坐标":
-                    //    delayCheckTime = 6000;
-                    //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[调高14#点坐标]");
-                    //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "调高14#点坐标", 60000);
-                    //    Thread.Sleep(100);
-                    //    if (调高数据() > 0)
-                    //    {
-                    //        currentRunStatus = true;
-                    //        HighDate.Add(调高数据());
-                    //    }
-                    //    else
-                    //    {
-                    //        currentRunStatus = false; //报警
-                    //    }
-                    //    //  currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高14#点坐标", delayCheckTime);
-                    //    break;
-                    //case "调高15#点坐标":
-                    //    delayCheckTime = 6000;
-                    //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[调高15#点坐标]");
-                    //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "调高15#点坐标", 60000);
-                    //    Thread.Sleep(100);
-                    //    if (调高数据() > 0)
-                    //    {
-                    //        currentRunStatus = true;
-                    //        HighDate.Add(调高数据());
-                    //    }
-                    //    else
-                    //    {
-                    //        currentRunStatus = false;  //报警
-                    //    }
-                    //    //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高15#点坐标", delayCheckTime);
-                    //    break;
-                    //case "调高16#点坐标":
-                    //    delayCheckTime = 6000;
-                    //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[调高16#点坐标]");
-                    //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "调高16#点坐标", 60000);
-                    //    Thread.Sleep(100);
-                    //    if (调高数据() > 0)
-                    //    {
-                    //        currentRunStatus = true;
-                    //        HighDate.Add(调高数据());
-                    //    }
-                    //    else
-                    //    {
-                    //        currentRunStatus = false;  //报警
-                    //    }
-                    //    //   currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高16#点坐标", delayCheckTime);
-                    //    break;
-                    //case "调高17#点坐标":
-                    //    delayCheckTime = 6000;
-                    //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[调高17#点坐标]");
-                    //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "调高17#点坐标", 60000);
-                    //    Thread.Sleep(100);
-                    //    if (调高数据() > 0)
-                    //    {
-                    //        currentRunStatus = true;
-                    //        HighDate.Add(调高数据());
-                    //    }
-                    //    else
-                    //    {
-                    //        currentRunStatus = false;
-                    //        //报警
-                    //    }
-                    //    //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高17#点坐标", delayCheckTime);
-                    //    break;
-                    //case "调高18#点坐标":
-                    //    delayCheckTime = 6000;
-                    //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[调高18#点坐标]");
-                    //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "调高18#点坐标", 60000);
-                    //    Thread.Sleep(100);
-                    //    if (调高数据() > 0)
-                    //    {
-                    //        currentRunStatus = true;
-                    //        HighDate.Add(调高数据());
-                    //    }
-                    //    else
-                    //    {
-                    //        currentRunStatus = false;
-                    //        //报警
-                    //    }
-                    //    //currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高18#点坐标", delayCheckTime);
-                    //    break;
-                    //case "调高19#点坐标":
-                    //    delayCheckTime = 6000;
-                    //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[调高19#点坐标]");
-                    //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "调高19#点坐标", 60000);
-                    //    Thread.Sleep(100);
-                    //    if (调高数据() > 0)
-                    //    {
-                    //        currentRunStatus = true;
-                    //        HighDate.Add(调高数据());
-                    //    }
-                    //    else
-                    //    {
-                    //        currentRunStatus = false;
-                    //        //报警
-                    //    }
-                    //    // currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高19#点坐标", delayCheckTime);
-                    //    break;
-                    //case "调高20#点坐标":
-                    //    delayCheckTime = 6000;
-                    //    Weld_Log.Instance().Enqueue(LOG_LEVEL.LEVEL_3, "[调高20#点坐标]");
-                    //    currentRunStatus = Meth.Asix_Line_Run("运动平台", "调高20#点坐标", 60000);
-                    //    Thread.Sleep(100);
-                    //    if (调高数据() > 0)
-                    //    {
-                    //        currentRunStatus = true;
-                    //        HighDate.Add(调高数据());
-                    //    }
-                    //    else
-                    //    {
-                    //        //报警
-                    //    }
-                    //    //  currentRunStatus = AxisR.Asix_Two_Run(WeldPlat_Str_Name, "调高20#点坐标", delayCheckTime);
-                    //    break;
+  
             }
             return currentRunStatus;
         }
@@ -2826,7 +1227,7 @@ namespace FullyAutomaticLaserJetCoder.MainTask
         {
             string sta = "";
             //  string ISOK=LoginF.MES.GroupTest();       
-            string ISOK = mes.Instance().GroupTest(sn, mes.Instance().userCode, mes.Instance().deviceCode);//过站验证
+            string ISOK = mes.Instance().GroupTest(sn.Replace("\r\n",""), mes.Instance().userCode, mes.Instance().deviceCode);//过站验证
           // string ISOK = mes.CellToolingPlate(sn);
             if (ISOK != "")
             {
@@ -2865,16 +1266,30 @@ namespace FullyAutomaticLaserJetCoder.MainTask
             string sta = "";
             for (int i=0;i< WeldListDate.Count;i++)
             {
-                mes.Instance().WipTest(mes.Instance().DataReceivedstrSN.Replace("\r\n", ""), "PASS", mes.Instance().userCode, mes.Instance().deviceCode, "", "");//上传数据
+                mes.Instance().WipTest(sn.Replace("\r\n", ""), "PASS", mes.Instance().userCode, mes.Instance().deviceCode, "", "");//上传数据
                 string []MesDate=  WeldListDate[i];
                 string MesStr = "|波形号:" + MesDate[0]
                                       + "|速度:" + MesDate[1]
-                                      + "|加速度:" + "5" + "|基准高度:" + MesDate[2] + "|最大功率:" + MesDate[3] + "|反馈功率:" + MesDate[4] + "|焊接高度:" + MesDate[5] + "|焊接半径:" + MesDate[6] + "|离焦量:" + MesDate[7] + "|";            
-                sta = mes.Instance().OfflineUploadData(sn, i.ToString(), "weld", "PASS", "", MesStr);
+                                      + "|加速度:" + "5" + "|基准高度:" + MesDate[2] + "|最大功率:" + MesDate[3] + "|反馈功率:" + MesDate[4] + "|焊接高度:" + MesDate[5] + "|离焦量:" + MesDate[6] + "|焊接半径:" + MesDate[7] + "|";            
+                sta = mes.Instance().OfflineUploadData(sn.Replace("\r\n", ""), i.ToString(), "weld", "PASS", "", MesStr);
             } 
             sta = "OK";
             return sta;
-        }     
+        }
+        public int TheCurrentpoint(string str)
+        {
+            int theCurrentpoint;
+            int i= str.IndexOf("#");
+            if (str.Substring(i - 2, 1) == "1" || str.Substring(i - 2, 1) == "2" || str.Substring(i - 2, 1) == "3")
+            {
+                theCurrentpoint = Convert.ToInt32(str.Substring(i - 2, 2));
+            }
+            else
+            {
+                theCurrentpoint = Convert.ToInt32(str.Substring(i - 1, 1));
+            }
+            return theCurrentpoint;
+        }
     }
 
      public  class Date_save
@@ -2884,6 +1299,6 @@ namespace FullyAutomaticLaserJetCoder.MainTask
         public double CamerDateY = 0.0;
         public double HighDateY = 0.0;
     }
-
+    
   
 }

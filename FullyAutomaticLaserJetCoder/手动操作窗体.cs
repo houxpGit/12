@@ -663,65 +663,44 @@ namespace FullyAutomaticLaserJetCoder
 
         private void 手动过MES_Click(object sender, EventArgs e)
         {
-            if (DateSave.Instance().Production.WeldOther==1)
+            if (手动过MES_Sn.Text != "")
             {
              //   string ISOK = mes.Instance().CellToolingPlate(手动过MES_Sn.Text.Replace("\r\n", ""));
                 string sww = mes.Instance().userCode;
                 string sww12 = mes.Instance().deviceCode;
-                //  string da=    mes.Instance().WipTest(ISOK, "PASS", sww, sww12, "", "");//上传数据
-                string MesStr = "|波形号:" + "50"
-                                         + "|速度:" + "50"
-                                         + "|加速度:" + "50" + "|基准高度:" + "50" + "|最大功率:" + "50" + "|反馈功率:" + "50" + "|焊接高度:" + "50" + "|焊接半径:" + "50" + "|离焦量:" + "50" + "|";
-                //mes.Instance().WipTest(DateSave.Instance().Production.DataReceivedstrSN.Replace("\r\n", ""), "PASS", mes.Instance().userCode, mes.Instance().deviceCode, "", "");//上传数据
+                string result = "";
+                string MesStr = "";
+                for (int i=0;i<16;i++)
+                {
 
-                string result = mes.Instance().WipTest(手动过MES_Sn.Text.Replace("\r\n", ""), "PASS", mes.Instance().userCode, mes.Instance().deviceCode, "", "");//过站校验
-                if (result == "OK")
-                {
-                    string res = mes.Instance().OfflineUploadData(手动过MES_Sn.Text.Replace("\r\n", ""), 1.ToString(), "weld", "PASS", mes.Instance().userCode, mes.Instance().deviceCode, "", MesStr);//上传数据
-                    if (res == "OK")
-                    {
-                        MessageBox.Show(res);
-                        return;
-                    }
-                }
-                else
-                {
-                    MessageBox.Show(result);
-                    return;
-                }
-            }
-            if (DateSave.Instance().Production.WeldOther == 2)
-            {
-            }
-            if (DateSave.Instance().Production.WeldOther == 3)
-            {
-                string ISOK = mes.Instance().CellToolingPlate(手动过MES_Sn.Text.Replace("\r\n", ""));
-                string sww = mes.Instance().userCode;
-                string sww12 = mes.Instance().deviceCode;
-                //  string da=    mes.Instance().WipTest(ISOK, "PASS", sww, sww12, "", "");//上传数据
-                string MesStr = "|波形号:" + "50"
-                                         + "|速度:" + "50"
-                                         + "|加速度:" + "50" + "|基准高度:" + "50" + "|最大功率:" + "50" + "|反馈功率:" + "50" + "|焊接高度:" + "50" + "|焊接半径:" + "50" + "|离焦量:" + "50" + "|";
-                //mes.Instance().WipTest(DateSave.Instance().Production.DataReceivedstrSN.Replace("\r\n", ""), "PASS", mes.Instance().userCode, mes.Instance().deviceCode, "", "");//上传数据
+                    //  string da=    mes.Instance().WipTest(ISOK, "PASS", sww, sww12, "", "");//上传数据
+                     MesStr = "|波形号:" + "1"
+                                             + "|速度:" + "50"
+                                             + "|加速度:" + "5" + "|基准高度:" + "121" + "|最大功率:" + "4000" + "|反馈功率:" + "2900" + "|焊接高度:" + "121" + "|焊接半径:" + "4" + "|离焦量:" + "1" + "|";
+                    //mes.Instance().WipTest(DateSave.Instance().Production.DataReceivedstrSN.Replace("\r\n", ""), "PASS", mes.Instance().userCode, mes.Instance().deviceCode, "", "");//上传数据
 
-                string result = mes.Instance().WipTest(ISOK, "PASS", mes.Instance().userCode, mes.Instance().deviceCode, "", "");//过站校验
-                if (result == "OK")
-                {
-                    string res = mes.Instance().OfflineUploadData(ISOK, 1.ToString(), "weld", "PASS", mes.Instance().userCode, mes.Instance().deviceCode, "", MesStr);//上传数据
-                    if (res == "OK")
+                     result = mes.Instance().WipTest(手动过MES_Sn.Text.Replace("\r\n", ""), "PASS", mes.Instance().userCode, mes.Instance().deviceCode, "", "");//过站校验
+
+                    if (result == "OK")
                     {
-                        MessageBox.Show(res);
-                        return;
+                        string res = mes.Instance().OfflineUploadData(手动过MES_Sn.Text.Replace("\r\n", ""), 1.ToString(), "weld", "PASS", mes.Instance().userCode, mes.Instance().deviceCode, "", MesStr);//上传数据
+                        if (res == "OK")
+                        {
+                          //  MessageBox.Show(res);
+                         //   return;
+                        }
                     }
+                    else
+                    {
+                       // MessageBox.Show(result);
+                     //   return;
+                    }
+
                 }
-                else
-                {
-                    MessageBox.Show(result);
-                    return;
-                }
+             
+             
             }
-       
-        
+           
         }
 
         private void 扫码_Click(object sender, EventArgs e)
@@ -739,6 +718,26 @@ namespace FullyAutomaticLaserJetCoder
             }
         
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (!MainModule.FormMain.bHomeReady)
+            {
+                MainModule.FormMain.m_formAlarm.InsertAlarmMessage("请先回原点！");
+                return;
+            }
+            if (MainModule.FormMain.bAuto)
+            {
+                MainModule.FormMain.m_formAlarm.InsertAlarmMessage("请先停止自动运行！");
+                return;
+            }
+
+
+            string XX = textBox1.Text;
+            string YY = textBox2.Text;
+            string SendDate = "Offset;" + XX + ";" + YY + ";" + "0;";
+            Socket_server.Instance().sendDataToMac(SendDate);
         }
     }
 }

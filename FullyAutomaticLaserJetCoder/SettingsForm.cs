@@ -26,44 +26,44 @@ namespace FullyAutomaticLaserJetCoder
            
             InitializeComponent();
 
-            最小模拟量.Text = DateSave.Instance().Production.IncreaseMminimumAnalog.ToString("#0.0000");
-            最大模拟量.Text = DateSave.Instance().Production.IncreaseMaximumAnalog.ToString("#0.0000");
-            Z轴最小坐标.Text = DateSave.Instance().Production.Z_AxisMinimumCoordinate.ToString("#0.0000");
-            Z轴最大坐标.Text = DateSave.Instance().Production.Z_AxisMaximumCoordinate.ToString("#0.0000");
-            关联后所对应.Text = DateSave.Instance().Production.High_Date.ToString("#0.0000");
+            最小模拟量.Text = DateSave.Instance().Production.IncreaseMminimumAnalog.ToString();
+            最大模拟量.Text = DateSave.Instance().Production.IncreaseMaximumAnalog.ToString();
+            Z轴最小坐标.Text = DateSave.Instance().Production.Z_AxisMinimumCoordinate.ToString();
+            Z轴最大坐标.Text = DateSave.Instance().Production.Z_AxisMaximumCoordinate.ToString();
+            关联后所对应.Text = DateSave.Instance().Production.High_Date.ToString();
 
-            基准点模拟量.Text = DateSave.Instance().Production.BaselineSimulation.ToString("#0.0000");
-            基准Z坐标.Text = DateSave.Instance().Production.Z_AxialDatum.ToString("#0.0000");
-            基准X坐标.Text = DateSave.Instance().Production.X_AxialDatum.ToString("#0.0000");
-            基准Y坐标.Text = DateSave.Instance().Production.Y_AxialDatum.ToString("#0.0000");
+            基准点模拟量.Text = DateSave.Instance().Production.BaselineSimulation.ToString();
+            基准Z坐标.Text = DateSave.Instance().Production.Z_AxialDatum.ToString();
+            基准X坐标.Text = DateSave.Instance().Production.X_AxialDatum.ToString();
+            基准Y坐标.Text = DateSave.Instance().Production.Y_AxialDatum.ToString();
 
-            相机位置X.Text = DateSave.Instance().Production.X_Camera_Position.ToString("#0.0000");
-            相机位置Y.Text = DateSave.Instance().Production.Y_Camera_Position.ToString("#0.0000");
-            激光位置X.Text = DateSave.Instance().Production.X_Laser_Position.ToString("#0.0000");
-            激光位置Y.Text = DateSave.Instance().Production.Y_Laser_Position.ToString("#0.0000");
+            相机位置X.Text = DateSave.Instance().Production.X_Camera_Position.ToString();
+            相机位置Y.Text = DateSave.Instance().Production.Y_Camera_Position.ToString();
+            激光位置X.Text = DateSave.Instance().Production.X_Laser_Position.ToString();
+            激光位置Y.Text = DateSave.Instance().Production.Y_Laser_Position.ToString();
 
-            X偏距.Text = DateSave.Instance().Production.X_Setover.ToString("#0.0000");
-            Y偏距.Text = DateSave.Instance().Production.Y_Setover.ToString("#0.0000");
-
-
-            Z轴安全高度最高.Text = DateSave.Instance().Production.SaveHigh_Top.ToString("#0.0000");
-            Z轴安全高度最低.Text = DateSave.Instance().Production.SaveHigh_Low.ToString("#0.0000");
-            调高最高.Text = DateSave.Instance().Production.AutoZ_High_Top.ToString("#0.0000");
-            调高最低.Text = DateSave.Instance().Production.AutoZ_High_Low.ToString("#0.0000");
-            铜嘴清理次数.Text = DateSave.Instance().Production.Clear_TIME.ToString("#0.0000");
-
-            设备类型.Text = DateSave.Instance().Production.WeldOther.ToString("#0.0000");
-            离焦量.Text = DateSave.Instance().Production.From_Focus.ToString("#0.0000");
-
-            波形号.Text= DateSave.Instance().Production.Weld_Num .ToString("#0.0000");
-            焊接半径.Text = DateSave.Instance().Production.Weld_R.ToString("#0.0000");
-            焊接速度.Text = DateSave.Instance().Production.Weld_Speed.ToString("#0.0000");
-            测高位置X.Text = DateSave.Instance().Production.HeightP_X.ToString("#0.0000");
-            测高位置Y.Text = DateSave.Instance().Production.HeightP_Y.ToString("#0.0000");
+            X偏距.Text = DateSave.Instance().Production.X_Setover.ToString();
+            Y偏距.Text = DateSave.Instance().Production.Y_Setover.ToString();
 
 
-            X偏距测高.Text = DateSave.Instance().Production.HeightOffset_X.ToString("#0.0000");
-            Y偏距测高.Text = DateSave.Instance().Production.HeightOffset_Y.ToString("#0.0000");
+            Z轴安全高度最高.Text = DateSave.Instance().Production.SaveHigh_Top.ToString();
+            Z轴安全高度最低.Text = DateSave.Instance().Production.SaveHigh_Low.ToString();
+            调高最高.Text = DateSave.Instance().Production.AutoZ_High_Top.ToString();
+            调高最低.Text = DateSave.Instance().Production.AutoZ_High_Low.ToString();
+            铜嘴清理次数.Text = DateSave.Instance().Production.Clear_TIME.ToString();
+
+            设备类型.Text = DateSave.Instance().Production.WeldOther.ToString();
+            离焦量.Text = DateSave.Instance().Production.From_Focus.ToString();
+
+            波形号.Text= DateSave.Instance().Production.Weld_Num .ToString();
+            焊接半径.Text = DateSave.Instance().Production.Weld_R.ToString();
+            焊接速度.Text = DateSave.Instance().Production.Weld_Speed.ToString();
+            测高位置X.Text = DateSave.Instance().Production.HeightP_X.ToString();
+            测高位置Y.Text = DateSave.Instance().Production.HeightP_Y.ToString();
+
+
+            X偏距测高.Text = DateSave.Instance().Production.HeightOffset_X.ToString();
+            Y偏距测高.Text = DateSave.Instance().Production.HeightOffset_Y.ToString();
 
         }
 
@@ -322,17 +322,17 @@ namespace FullyAutomaticLaserJetCoder
         private void 计算偏距_Click(object sender, EventArgs e)
         {
             DateSave.Instance().Production.X_Setover = DateSave.Instance().Production. X_Laser_Position - DateSave.Instance().Production.X_Camera_Position;
-            X偏距.Text = DateSave.Instance().Production.X_Setover.ToString("#0.0000");
+            X偏距.Text = DateSave.Instance().Production.X_Setover.ToString();
 
             DateSave.Instance().Production.Y_Setover = DateSave.Instance().Production. Y_Laser_Position - DateSave.Instance().Production.Y_Camera_Position;
-            Y偏距.Text = DateSave.Instance().Production.Y_Setover.ToString("#0.0000");
+            Y偏距.Text = DateSave.Instance().Production.Y_Setover.ToString();
 
 
             DateSave.Instance().Production.HeightOffset_X = DateSave.Instance().Production.HeightP_X - DateSave.Instance().Production.X_Camera_Position;
-            X偏距测高.Text = DateSave.Instance().Production.HeightOffset_X.ToString("#0.0000");
+            X偏距测高.Text = DateSave.Instance().Production.HeightOffset_X.ToString();
 
             DateSave.Instance().Production.HeightOffset_Y= DateSave.Instance().Production.HeightP_Y - DateSave.Instance().Production.Y_Camera_Position;
-            Y偏距测高.Text = DateSave.Instance().Production.HeightOffset_Y.ToString("#0.0000");
+            Y偏距测高.Text = DateSave.Instance().Production.HeightOffset_Y.ToString();
 
         }
 
@@ -952,6 +952,16 @@ namespace FullyAutomaticLaserJetCoder
 
         private void button5_Click(object sender, EventArgs e)
         {
+            if (!MainModule.FormMain.bHomeReady)
+            {
+                MainModule.FormMain.m_formAlarm.InsertAlarmMessage("请先回原点！");
+                return;
+            }
+            if (MainModule.FormMain.bAuto)
+            {
+                MainModule.FormMain.m_formAlarm.InsertAlarmMessage("请先停止自动运行！");
+                return;
+            }
             string XX = textBox1.Text;
             string YY = textBox2.Text;
             string SendDate = "Offset;" + XX + ";" + YY + ";" + "0;";
@@ -1332,8 +1342,9 @@ namespace FullyAutomaticLaserJetCoder
 
         private void Other_Click(object sender, EventArgs e)
         {
-            if (WeldChooseOther.Text != "")
+            if (WeldChooseOther.Text != ""&& CamerChooseOther.Text != "")
             {
+          
                 int n =int.Parse(WeldChooseOther.Text);
                 bool sd = Convert.ToBoolean(n % 2);
 
@@ -1347,101 +1358,188 @@ namespace FullyAutomaticLaserJetCoder
                 MainModule.FormMain.m_formAlarm.InsertAlarmMessage("请先回原点！");
                 return;
             }
-            RunClass.Instance().Meth.Asix_Line_Run("运动平台", "调高" + WeldChooseOther.Text + "#点坐标", 60000);
-            RunClass.Instance().Meth.Asix_one_Run("运动平台", "调高" + WeldChooseOther.Text + "#点坐标", 2, 60000);
-            // MainControls.RunClass.Meth.Asix_Two_Run("运动平台", "拍照1#点坐标", 60000);
-            Thread.Sleep(100);
-            double HIGH = 0.0;
-            if (RunClass.Instance().调高数据() > 0)
-            {
-                HIGH = RunClass.Instance().调高数据();
-            }
-            else
-            {
-                MessageBox.Show("调高失败");
-                return;
-            }
             RunClass.Instance().Meth.Asix_Line_Run("运动平台", "拍照" + WeldChooseOther.Text + "#点坐标", 60000);
-            RunClass.Instance().AxisR.Asix_z_Auto_High("运动平台", "拍照" + WeldChooseOther.Text + "#点坐标", HIGH - DateSave.Instance().Production.From_Focus, DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
-            double X = TableManage.TablePosItem("运动平台", "拍照" + WeldChooseOther.Text + "#点坐标").dPosX;
-            double Y = TableManage.TablePosItem("运动平台", "拍照" + WeldChooseOther.Text + "#点坐标").dPosY;
-            Thread.Sleep(100);
-            List<LocationCircle.ResultClass> resultCirclr;
-            resultCirclr = new List<LocationCircle.ResultClass>();
-                int needGetR =0;
-                int NeedCheckR = 0;
-                if (sd == true)
-                {
-                     needGetR = 1;
-                     NeedCheckR = 1;
-                }
-                else
-                {
-                     needGetR = 1;
-                     NeedCheckR = 2;
-
-                }
-       
-            //  Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr)
-            bool CamerFinishi = Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr);
-            if (CamerFinishi == true)
-            {
-                double awd = resultCirclr[0].CenterPoint.X;
-                double awd1 = resultCirclr[0].CenterPoint.Y;
-                double awd112 = resultCirclr[0].Radius;
-                double RunX = X + DateSave.Instance().Production.X_Setover - awd;
-                double RunY = Y + DateSave.Instance().Production.Y_Setover - awd1;
-                TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
-                             RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
-                TableManage.TableDriver("运动平台").AbsMove(TableAxisName.Y,
-                            RunY, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisYData.dSpeed);
-            }
-            else
-            {
-                MessageBox.Show("拍照失败");
-            }
-
-        }
-
-            if (WeldChooseOther.Text != "")
-            {
-                RunClass.Instance().Meth.Asix_Line_Run("运动平台", "拍照"+ WeldChooseOther.Text + "#点坐标", 60000);
-                // MainControls.RunClass.Meth.Asix_Two_Run("运动平台", "拍照1#点坐标", 60000);
-                RunClass.Instance().Meth.Asix_one_Run("运动平台", "拍照" + WeldChooseOther.Text + "#点坐标", 2, 60000);
-                // MainControls.RunClass.Meth.Asix_Two_Run("运动平台", "相机位置", 60000);
-                double X = TableManage.TablePosItem("运动平台", "拍照" + WeldChooseOther.Text + "#点坐标").dPosX;
-                double Y = TableManage.TablePosItem("运动平台", "拍照" + WeldChooseOther.Text + "#点坐标").dPosY;
-                Thread.Sleep(100);
-
+            RunClass.Instance().Meth.Asix_one_Run("运动平台", "拍照" + WeldChooseOther.Text + "#点坐标", 2, 60000);
                 List<LocationCircle.ResultClass> resultCirclr;
                 resultCirclr = new List<LocationCircle.ResultClass>();
-                string err = "";
-                bool df = false;
-                int needGetR = 1;
-                int NeedCheckR = 1;
-                bool CamerFinishi = Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr);
+                int needGetR = 0;
+                int NeedCheckR = 0;
+                //if (sd == true)
+                //{
+
+                //       needGetR = 1;
+                //    NeedCheckR = 1;
+                //}
+                //else
+                //{
+                needGetR = 1;
+                NeedCheckR = int.Parse(CamerChooseOther.Text);
+
+                //}
+
+                //  Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr)
+                bool CamerFinishi = Program.form.VisionLocation(needGetR, NeedCheckR, ref resultCirclr);
                 if (CamerFinishi == true)
                 {
+                    double X = TableManage.TablePosItem("运动平台", "拍照" + WeldChooseOther.Text + "#点坐标").dPosX;
+                    double Y = TableManage.TablePosItem("运动平台", "拍照" + WeldChooseOther.Text + "#点坐标").dPosY;
                     double awd = resultCirclr[0].CenterPoint.X;
                     double awd1 = resultCirclr[0].CenterPoint.Y;
                     double awd112 = resultCirclr[0].Radius;
-                    double RunX = X + DateSave.Instance().Production.X_Setover - awd;
-                    double RunY = Y + DateSave.Instance().Production.Y_Setover - awd1;
+                    double RunX = X+ DateSave.Instance().Production.X_Setover ;
+                    double RunY = Y+  DateSave.Instance().Production.Y_Setover ;
+                    double PX = 0- awd;
+                    double PY = 5 - awd1;
+                    RunClass.Instance().   Meth.Weld_Asix_Line_Run("运动平台", "拍照" + WeldChooseOther.Text + "#点坐标", 6000, DateSave.Instance().Production.HeightOffset_X, DateSave.Instance().Production.HeightOffset_Y, PX, PY);
+                    double HIGH = 0.0;
+                    if (RunClass.Instance().调高数据() > 0)
+                    {
+                        HIGH = RunClass.Instance().调高数据();
+                    }
+                    else
+                    {
+                        MessageBox.Show("调高失败");
+                        return;
+                    }
+
                     TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
                                  RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
-
                     TableManage.TableDriver("运动平台").AbsMove(TableAxisName.Y,
                                 RunY, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisYData.dSpeed);
+
+
+
+                  
+                    //RunClass.Instance().Meth.Asix_Line_Run("运动平台", "拍照" + WeldChooseOther.Text + "#点坐标", 60000);
+                    RunClass.Instance().AxisR.Asix_z_Auto_High("运动平台", "拍照" + WeldChooseOther.Text + "#点坐标", HIGH - DateSave.Instance().Production.From_Focus, DateSave.Instance().Production.SaveHigh_Top, DateSave.Instance().Production.SaveHigh_Low, DateSave.Instance().Production.AutoZ_High_Top, DateSave.Instance().Production.AutoZ_High_Low, 6000);
+                    Thread.Sleep(1000);
+
+                    RunClass.Instance() .Weld_Check(awd, awd1);//开始焊接及检测焊接完成
+
                 }
                 else
                 {
                     MessageBox.Show("拍照失败");
                 }
 
-            }
+
+
+                // MainControls.RunClass.Meth.Asix_Two_Run("运动平台", "拍照1#点坐标", 60000);
+                Thread.Sleep(100);
+
+
+
+     
+        
+            Thread.Sleep(100);
+            //List<LocationCircle.ResultClass> resultCirclr;
+            //resultCirclr = new List<LocationCircle.ResultClass>();
+            //    int needGetR =0;
+            //    int NeedCheckR = 0;
+            //    if (sd == true)
+            //    {
+            //         needGetR = 1;
+            //         NeedCheckR = 1;
+            //    }
+            //    else
+            //    {
+            //         needGetR = 1;
+            //         NeedCheckR = 2;
+
+            //    }
+       
+            ////  Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr)
+            //bool CamerFinishi = Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr);
+            //if (CamerFinishi == true)
+            //{
+            //    double awd = resultCirclr[0].CenterPoint.X;
+            //    double awd1 = resultCirclr[0].CenterPoint.Y;
+            //    double awd112 = resultCirclr[0].Radius;
+            //    double RunX = X + DateSave.Instance().Production.X_Setover - awd;
+            //    double RunY = Y + DateSave.Instance().Production.Y_Setover - awd1;
+            //    TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
+            //                 RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
+            //    TableManage.TableDriver("运动平台").AbsMove(TableAxisName.Y,
+            //                RunY, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisYData.dSpeed);
+            //}
+            //else
+            //{
+            //    MessageBox.Show("拍照失败");
+            //}
+
+        }
+
+            //if (WeldChooseOther.Text != "")
+            //{
+            //    RunClass.Instance().Meth.Asix_Line_Run("运动平台", "拍照"+ WeldChooseOther.Text + "#点坐标", 60000);
+            //    // MainControls.RunClass.Meth.Asix_Two_Run("运动平台", "拍照1#点坐标", 60000);
+            //    RunClass.Instance().Meth.Asix_one_Run("运动平台", "拍照" + WeldChooseOther.Text + "#点坐标", 2, 60000);
+            //    // MainControls.RunClass.Meth.Asix_Two_Run("运动平台", "相机位置", 60000);
+            //    double X = TableManage.TablePosItem("运动平台", "拍照" + WeldChooseOther.Text + "#点坐标").dPosX;
+            //    double Y = TableManage.TablePosItem("运动平台", "拍照" + WeldChooseOther.Text + "#点坐标").dPosY;
+            //    Thread.Sleep(100);
+
+            //    List<LocationCircle.ResultClass> resultCirclr;
+            //    resultCirclr = new List<LocationCircle.ResultClass>();
+            //    string err = "";
+            //    bool df = false;
+            //    int needGetR = 1;
+            //    int NeedCheckR = 1;
+            //    bool CamerFinishi = Program.form.VisionLocation(NeedCheckR, needGetR, ref resultCirclr);
+            //    if (CamerFinishi == true)
+            //    {
+            //        double awd = resultCirclr[0].CenterPoint.X;
+            //        double awd1 = resultCirclr[0].CenterPoint.Y;
+            //        double awd112 = resultCirclr[0].Radius;
+            //        double RunX = X + DateSave.Instance().Production.X_Setover - awd;
+            //        double RunY = Y + DateSave.Instance().Production.Y_Setover - awd1;
+            //        TableManage.TableDriver("运动平台").AbsMove(TableAxisName.X,
+            //                     RunX, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisXData.dSpeed);
+
+            //        TableManage.TableDriver("运动平台").AbsMove(TableAxisName.Y,
+            //                    RunY, TableManage.tablesDoc.m_tableDictionary["运动平台"].axisYData.dSpeed);
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("拍照失败");
+            //    }
+
+            //}
       
         
         }
+
+        private void 门屏蔽_CheckedChanged(object sender, EventArgs e)
+        {
+            if (门屏蔽.Checked == true)
+            {
+                DateSave.Instance().Production.Door_Enable = true;
+               // IOManage.INPUT("").;
+            }
+            else
+            {
+                DateSave.Instance().Production.Door_Enable = false;
+
+            }
+
+        }
+
+        private void 工位有料_Click(object sender, EventArgs e)
+        {
+            DateSave.Instance().Production.StationMaterial = true;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
         //Thread sss;
         //private void button6_Click(object sender, EventArgs e)
         //{
