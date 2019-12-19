@@ -5621,3 +5621,6 @@ D:\速博达-焊接设备部【勿删】\储能线6KW091212_17一V1\FullyAutomat
 D:\速博达-焊接设备部【勿删】\储能线6KW091212_17一V1\FullyAutomaticLaserJetCoder\obj\Debug\FullyAutomaticLaserJetCoder.手动操作窗体.resources
 D:\速博达-焊接设备部【勿删】\储能线6KW091212_17一V1\FullyAutomaticLaserJetCoder\obj\Debug\FullyAutomaticLaserJetCoder.波形展示.resources
 D:\速博达-焊接设备部【勿删】\储能线6KW091212_17一V1\FullyAutomaticLaserJetCoder\obj\Debug\FullyAutomaticLaserJetCoder.csproj.GenerateResource.Cache
+C:\CKU\FullyAutomaticLaserJetCoder\bin\Debug\FullyAutomaticLaserJetCoder.exe.config
+C:\CKU\FullyAutomaticLaserJetCoder\obj\Debug\FullyAutomaticLaserJetCoder.exe
+C:\CKU\FullyAutomaticLaserJetCoder\obj\Debug\FullyAutomaticLaserJetCoder.pdb
